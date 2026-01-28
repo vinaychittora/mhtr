@@ -118,7 +118,13 @@ p{margin:10px 0; color: var(--text)}
 .ph-hero-water{height: 520px}
 .ph-hero-map{height: 277px;}
 
-.section{padding: 18px 0}
+.section{
+  padding: 18px 0;
+  
+}
+section{
+  margin-bottom: 18px;
+}
 .grid-3{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
