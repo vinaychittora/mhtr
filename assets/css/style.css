@@ -215,6 +215,10 @@ footer{
   nav a {
     padding: 8px 10px;
   }
+  
+  .ph-wide-landscape, .ph-hero-water, .ph-hero-map, .ph-hero-landscape {
+    height: auto !important;
+  }
 }
 
 
