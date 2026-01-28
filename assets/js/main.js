@@ -48,5 +48,4 @@
 
   applyFilters();
 
-  
 })();
