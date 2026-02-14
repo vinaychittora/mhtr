@@ -1,0 +1,7 @@
+[
+  {"label": "Home", "href": "/", "match": "/"},
+  {"label": "Landscape", "href": "/landscape/", "match": "/landscape/"},
+  {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/"},
+  {"label": "Resources", "href": "/resources/", "match": "/resources/"},
+  {"label": "About", "href": "/about/", "match": "/about/"}
+]
