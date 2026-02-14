@@ -1,0 +1,4 @@
+node_modules/
+_site/
+*:Zone.Identifier
+.DS_Store
