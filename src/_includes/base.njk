@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{{ title or site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}" />
+  <meta name="robots" content="index,follow" />
+
+  {# Canonical #}
+  <link rel="canonical" href="{{ (canonical or (site.url + page.url)) | url }}" />
+
+  {# Open Graph / Social #}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ og_title or (title or site.title) }}" />
+  <meta property="og:description" content="{{ og_description or (description or site.description) }}" />
+  <meta property="og:url" content="{{ site.url + page.url }}" />
+  <meta property="og:image" content="{{ og_image or (site.url + '/assets/og-image.jpg') }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}"
+  }
+  </script>
+</head>
+
+<body>
+  {% include "header.njk" %}
+
+  <main class="wrap" id="main" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script>
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<header>
+  <div class="nav">
+    <div class="brand">
+      <b>Mukundara Hills Tiger Reserve</b>
+      <span class="muted">Independent information & resources (MHTR)</span>
+    </div>
+
+    <nav aria-label="Primary">
+      <ul>
+        {% for item in nav %}
+          <li>
+            <a href="{{ item.href }}" {% if page.url == item.match %}aria-current="page"{% endif %}>{{ item.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
