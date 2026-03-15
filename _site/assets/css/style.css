@@ -8,6 +8,44 @@
   --placeholder:#2a2f2c;
   --shadow: 0 10px 30px rgba(0,0,0,.35);
 }
+
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  left: 12px;
+  top: 12px;
+  width:auto;
+  height:auto;
+  padding:10px 12px;
+  border-radius:10px;
+  background:#102219;
+  color:var(--text);
+  border:1px solid var(--line);
+  z-index:1000;
+}
+.site-header .brand-title{
+  color: inherit;
+  font-weight:700;
+  font-size:1.02rem;
+  letter-spacing:.2px;
+}
+.site-header .brand-title:hover{ text-decoration:none; }
+img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.video-embed{
+  width:100%;
+  max-width:100%;
+  min-height:315px;
+}
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -19,7 +57,7 @@ body{
 a{color:var(--link); text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width: 980px; margin:0 auto; padding: 18px}
-header{
+header.site-header{
   position: sticky;
   top: 0;
   background: rgba(11,15,13,.86);
@@ -105,10 +143,7 @@ p{margin:10px 0; color: var(--text)}
   content:"";
   position:absolute;
   inset: 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  pointer-events: none; /* ← THIS FIXES IT */
+  pointer-events: none;
 }
 .ph-hero{height: 260px}
 .ph-wide{height: 320px}
