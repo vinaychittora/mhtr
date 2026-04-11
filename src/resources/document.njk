@@ -1,0 +1,46 @@
+---
+layout: base.njk
+pagination:
+  data: resource_documents
+  size: 1
+  alias: doc
+permalink: "/resources/{{ doc.slug }}/index.html"
+eleventyComputed:
+  title: "{{ doc.title }} | MHTR Resources"
+  description: "{{ doc.summary }} Source: {{ doc.authority }}."
+---
+<section class="card doc-page">
+  <p class="muted"><a href="/resources/">← Back to Resources</a></p>
+  <h1>{{ doc.title }}</h1>
+  <p class="resource-meta muted">
+    <span class="resource-type">Category: {{ doc.category }}</span>
+    <span class="resource-sep">•</span>
+    <span class="resource-source">Issuing authority: {{ doc.authority }}</span>
+    <span class="resource-sep">•</span>
+    <span class="resource-year">Year: {{ doc.year }}</span>
+  </p>
+  <p>{{ doc.summary }}</p>
+  <p class="muted">
+    Source attribution: This page references and links to the original publication by {{ doc.authority }}.
+    {% if doc.hosted %}A hosted copy is provided for reading convenience; the source publication remains authoritative.{% else %}Hosted mirror is not yet available in this repository; use the source link below.{% endif %}
+  </p>
+
+  <div class="doc-actions">
+    <a class="btn" href="{% if doc.hosted %}{{ doc.localPdfPath }}{% else %}{{ doc.sourcePdfUrl }}{% endif %}" target="_blank" rel="noopener noreferrer">Open PDF in new tab</a>
+    <a class="btn" href="{% if doc.hosted %}{{ doc.localPdfPath }}{% else %}{{ doc.sourcePdfUrl }}{% endif %}" download>Download PDF</a>
+    <a class="btn" href="{{ doc.sourcePdfUrl }}" target="_blank" rel="noopener noreferrer">Original source</a>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Document preview</h2>
+  <div class="pdf-embed-wrap">
+    <iframe
+      title="{{ doc.title }}"
+      src="{% if doc.hosted %}{{ doc.localPdfPath }}{% else %}{{ doc.sourcePdfUrl }}{% endif %}"
+      loading="lazy"
+      class="pdf-embed"
+    ></iframe>
+  </div>
+  <p class="muted">If the embedded preview is blocked by source policy, use the “Open PDF in new tab” button above.</p>
+</section>

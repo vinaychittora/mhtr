@@ -21,6 +21,23 @@
   </ul>
 </section>
 
+
+<section class="card" aria-label="Hosted and indexed document pages">
+  <h2>Document pages (readable view)</h2>
+  <p class="muted">These pages organize key PDFs with summary, source attribution, and an embedded reader.</p>
+  <div class="doc-grid">
+    {% for doc in resource_documents %}
+      <article class="doc-tile">
+        <p class="muted doc-tile-cat">{{ doc.category }}</p>
+        <h3><a href="/resources/{{ doc.slug }}/">{{ doc.title }}</a></h3>
+        <p class="muted">{{ doc.authority }}{% if doc.year %} · {{ doc.year }}{% endif %}</p>
+        <p>{{ doc.summary }}</p>
+        <p><a href="/resources/{{ doc.slug }}/">Open document page →</a></p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
 <section class="card" aria-label="Core official sources for MHTR">
   <h2>Core official sources (start here)</h2>
   <ul class="resource-list">
@@ -46,10 +63,11 @@
 
     <li class="resource-item">
       <h3 class="resource-title">
-        <a href="https://ntca.gov.in/assets/uploads/briefnote/mukundara.pdf"
+        <a href="/resources/ntca-brief-note/"
            target="_blank" rel="noopener noreferrer">
           Mukundara Hills Tiger Reserve Brief Note (NTCA PDF)
         </a>
+        <span class="resource-sub-link"><a href="https://ntca.gov.in/assets/uploads/briefnote/mukundara.pdf" target="_blank" rel="noopener noreferrer">Original source PDF</a></span>
       </h3>
       <p class="resource-meta muted">
         <span class="resource-type">Type: Official central-government brief</span>
@@ -66,10 +84,11 @@
 
     <li class="resource-item">
       <h3 class="resource-title">
-        <a href="https://moef.gov.in/uploads/2020/12/mukundra-1.pdf"
+        <a href="/resources/moefcc-notification/"
            target="_blank" rel="noopener noreferrer">
           Mukundara Hills Tiger Reserve Notification (MoEFCC PDF)
         </a>
+        <span class="resource-sub-link"><a href="https://moef.gov.in/uploads/2020/12/mukundra-1.pdf" target="_blank" rel="noopener noreferrer">Original source PDF</a></span>
       </h3>
       <p class="resource-meta muted">
         <span class="resource-type">Type: Government notification / legal document</span>
@@ -91,10 +110,11 @@
   <ul class="resource-list">
     <li class="resource-item">
       <h3 class="resource-title">
-        <a href="https://mee-tr.wii.gov.in/Home/DownloadFilenew?filePath=~%5CUploadedFiles%5CMukundara_Hills_Tiger_Reserve%5CTCP_CTR%5CTCP_Mukundara_Hills.pdf"
+        <a href="/resources/tiger-conservation-plan/"
            target="_blank" rel="noopener noreferrer">
           Tiger Conservation Plan (TCP) — Mukundara Hills Tiger Reserve (WII/official PDF)
         </a>
+        <span class="resource-sub-link"><a href="https://mee-tr.wii.gov.in/Home/DownloadFilenew?filePath=~%5CUploadedFiles%5CMukundara_Hills_Tiger_Reserve%5CTCP_CTR%5CTCP_Mukundara_Hills.pdf" target="_blank" rel="noopener noreferrer">Original source PDF</a></span>
       </h3>
       <p class="resource-meta muted">
         <span class="resource-type">Type: Core management plan</span>
@@ -249,10 +269,11 @@
   <ul class="resource-list">
     <li class="resource-item">
       <h3 class="resource-title">
-        <a href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Preliminary-Birds-guide-/Reptiles%20%26%20Amphibians%20book%20of%20MHTR0.pdf"
+        <a href="/resources/reptiles-amphibians-guide/"
            target="_blank" rel="noopener noreferrer">
           Reptiles &amp; Amphibians of Mukundara Hills Tiger Reserve (field guide PDF)
         </a>
+        <span class="resource-sub-link"><a href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Preliminary-Birds-guide-/Reptiles%20%26%20Amphibians%20book%20of%20MHTR0.pdf" target="_blank" rel="noopener noreferrer">Original source PDF</a></span>
       </h3>
       <p class="resource-meta muted">
         <span class="resource-type">Type: Taxa-focused field reference</span>
