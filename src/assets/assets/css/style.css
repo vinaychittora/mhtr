@@ -257,15 +257,33 @@ footer{
 }
 
 
-/* Biodiversity table helpers */
+/* Biodiversity helpers */
+.filter-panel { margin-top: 10px; }
+.filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 12px 0 8px; }
+.input { padding: 12px 14px; min-height: 44px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.35); color: inherit; font-size: 1rem; }
+.input:focus { outline: 2px solid rgba(160,255,180,0.25); outline-offset: 2px; }
+.bio-search { width: 100%; font-size: 1.05rem; }
+.filter-row .input { flex: 1 1 240px; }
+
+.bio-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-top: 14px; }
+.bio-card { border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 14px; background: rgba(0,0,0,0.26); }
+.bio-card h3 { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.35; }
+.bio-card-scientific { margin: 0 0 8px; color: var(--muted); }
+.bio-card-meta { margin: 4px 0; font-size: 0.95rem; }
+.bio-card-notes { margin: 8px 0 0; font-size: 0.95rem; color: var(--muted); }
+
 .table-wrap { overflow: auto; max-height: 70vh; border-radius: 12px; }
 .table { width: 100%; border-collapse: collapse; }
 .table th, .table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; }
 .table thead th { position: sticky; top: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(6px); z-index: 1; }
+.bio-source-table { display: none; }
 
-.filter-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 14px 0 12px; }
-.input { padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.35); color: inherit; }
-.input:focus { outline: 2px solid rgba(160,255,180,0.25); outline-offset: 2px; }
+@media (max-width: 700px) {
+  .filter-row { flex-direction: column; align-items: stretch; }
+  .filter-row .input { width: 100%; flex: none; }
+  #bioCount { margin-top: 2px; }
+  .bio-cards { grid-template-columns: 1fr; gap: 10px; }
+}
 
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;

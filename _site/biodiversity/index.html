@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b0f0d" />
 
-  <title>Biodiversity</title>
-  <meta name="description" content="Biodiversity overview for MHTR with species groups, ecological notes, and conservation-focused context." />
+  <title>Biodiversity of Mukundara Hills Tiger Reserve (MHTR) | Species Reference</title>
+  <meta name="description" content="Source-based biodiversity reference for Mukundara Hills Tiger Reserve (MHTR) with searchable species cards, filters, and curated conservation context. No sensitive wildlife locations." />
   <meta name="robots" content="index,follow" />
 
   
@@ -15,13 +15,13 @@
   
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Mukundara Hills Tiger Reserve (MHTR) — Independent Information &amp; Resources" />
-  <meta property="og:title" content="Biodiversity" />
-  <meta property="og:description" content="Biodiversity overview for MHTR with species groups, ecological notes, and conservation-focused context." />
+  <meta property="og:title" content="Biodiversity of Mukundara Hills Tiger Reserve (MHTR) | Species Reference" />
+  <meta property="og:description" content="Source-based biodiversity reference for Mukundara Hills Tiger Reserve (MHTR) with searchable species cards, filters, and curated conservation context. No sensitive wildlife locations." />
   <meta property="og:url" content="https://mhtr.in/biodiversity/" />
   <meta property="og:image" content="https://mhtr.in/assets/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Biodiversity" />
-  <meta name="twitter:description" content="Biodiversity overview for MHTR with species groups, ecological notes, and conservation-focused context." />
+  <meta name="twitter:title" content="Biodiversity of Mukundara Hills Tiger Reserve (MHTR) | Species Reference" />
+  <meta name="twitter:description" content="Source-based biodiversity reference for Mukundara Hills Tiger Reserve (MHTR) with searchable species cards, filters, and curated conservation context. No sensitive wildlife locations." />
   <meta name="twitter:image" content="https://mhtr.in/assets/og-image.jpg" />
 
   <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
@@ -83,16 +83,31 @@
     
     <section class="card">
       <h1>Biodiversity</h1>
+      <p>
+        This is a source-based biodiversity reference for Mukundara Hills Tiger Reserve, compiled from published reports and annexures.
+        No sensitive wildlife locations are shared on this page.
+      </p>
       <p class="muted">
-        Searchable species lists compiled from publicly available documents. Status codes are as given in the source (A/C/L/R/I).
-        No sensitive wildlife locations are published here.
+        Looking for broader context? Start with the <a href="/landscape/">landscape overview</a> and then use
+        <a href="/resources/">resources</a> for source documents.
       </p>
     </section>
 
-      <div class="filter-row" role="search" aria-label="Search biodiversity lists">
-        <label class="sr-only" for="bioSearch">Search</label>
-        <input id="bioSearch" class="input" type="search" placeholder="Search: tiger, Acacia, Hornbill, Mimosaceae…" autocomplete="off" />
+    <section class="card">
+      <h2>How to use this page</h2>
+      <p class="muted">
+        Use search to find a species by common or scientific name, and use filters to narrow by domain and group.
+        The count updates automatically so you can see how many species match your selection.
+      </p>
+    </section>
 
+    <section class="card">
+      <h2>Species reference list</h2>
+      <div class="filter-panel" role="search" aria-label="Search biodiversity lists">
+        <label class="sr-only" for="bioSearch">Search</label>
+        <input id="bioSearch" class="input bio-search" type="search" placeholder="Search species, scientific names, family, or notes…" autocomplete="off" />
+
+        <div class="filter-row">
         <label class="sr-only" for="bioDomain">Domain</label>
         <select id="bioDomain" class="input" aria-label="Filter by domain">
           <option value="">All</option>
@@ -124,10 +139,13 @@
         </select>
 
 
-        <div class="muted" id="bioCount" aria-live="polite">—</div>
+        <div class="muted" id="bioCount" aria-live="polite">Showing 0 species</div>
+        </div>
       </div>
 
-      <div class="table-wrap" tabindex="0" aria-label="Biodiversity table">
+      <div id="bioCards" class="bio-cards" aria-live="polite"></div>
+
+      <div class="table-wrap bio-source-table" tabindex="0" aria-label="Biodiversity source table">
         <table class="table" id="bioTable">
           <thead>
             <tr>
@@ -772,6 +790,26 @@
           Some spellings may reflect the source document’s formatting/OCR.
         </p>
       </details>
+    </section>
+
+    <section class="card">
+      <h2>Explore more (community observations)</h2>
+      <p>
+        A complementary way to explore biodiversity in Mukundara is through the public iNaturalist project: Biodiversity of MHTR.
+      </p>
+      <p>
+        This project is maintained by Sonu Kumar, a naturalist and student of ecology working on plant diversity and biodiversity documentation.
+      </p>
+      <p>
+        It provides real-world observations, recent activity, and community contributions.
+      </p>
+      <p>
+        View project: <a href="https://www.inaturalist.org/projects/biodiversity-of-mhtr" rel="noopener" target="_blank">https://www.inaturalist.org/projects/biodiversity-of-mhtr</a><br>
+        Profile: <a href="https://www.inaturalist.org/people/sonukumar055" rel="noopener" target="_blank">https://www.inaturalist.org/people/sonukumar055</a>
+      </p>
+      <p class="muted">
+        This is an independent, community-driven dataset and complements the curated lists on this page.
+      </p>
     </section>
 
 
