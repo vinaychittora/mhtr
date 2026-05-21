@@ -1,7 +1,8 @@
 [
-  {"label": "Home", "href": "/", "match": "/"},
-  {"label": "Landscape", "href": "/landscape/", "match": "/landscape/"},
-  {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/"},
-  {"label": "Resources", "href": "/resources/", "match": "/resources/"},
-  {"label": "About", "href": "/about/", "match": "/about/"}
+  {"label": "Home", "href": "/", "match": "/", "icon": "home"},
+  {"label": "Landscape", "href": "/landscape/", "match": "/landscape/", "icon": "mountain"},
+  {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf"},
+  {"label": "Field Reports", "href": "/field-reports/", "match": "/field-reports/", "section": "field-reports", "collection": "fieldReports", "icon": "note"},
+  {"label": "Resources", "href": "/resources/", "match": "/resources/", "icon": "book"},
+  {"label": "About", "href": "/about/", "match": "/about/", "icon": "info"}
 ]

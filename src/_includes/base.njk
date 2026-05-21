@@ -1,28 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ lang or 'en-IN' }}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f0d" />
+  <meta name="theme-color" content="#123d32" />
 
-  <title>{{ title or site.title }}</title>
-  <meta name="description" content="{{ description or site.description }}" />
+  {% set pageTitle = title or site.title %}
+  {% set pageDescription = description or site.description %}
+  {% set pageImage = og_image or site.ogImage %}
+  {% set pageCanonical = canonical or (site.url + page.url) %}
+
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}" />
   <meta name="robots" content="index,follow" />
+  {% if author %}<meta name="author" content="{{ author }}" />{% endif %}
 
-  {# Canonical #}
-  <link rel="canonical" href="{{ (canonical or (site.url + page.url)) | url }}" />
+  <link rel="canonical" href="{{ pageCanonical }}" />
 
-  {# Open Graph / Social #}
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="{{ og_type or 'website' }}" />
   <meta property="og:site_name" content="{{ site.title }}" />
-  <meta property="og:title" content="{{ og_title or (title or site.title) }}" />
-  <meta property="og:description" content="{{ og_description or (description or site.description) }}" />
-  <meta property="og:url" content="{{ site.url + page.url }}" />
-  <meta property="og:image" content="{{ og_image or (site.url + '/assets/og-image.jpg') }}" />
+  <meta property="og:title" content="{{ og_title or pageTitle }}" />
+  <meta property="og:description" content="{{ og_description or pageDescription }}" />
+  <meta property="og:url" content="{{ pageCanonical }}" />
+  <meta property="og:image" content="{{ pageImage }}" />
+  {% if publishedTime %}<meta property="article:published_time" content="{{ publishedTime }}" />{% endif %}
+  {% if modifiedTime %}<meta property="article:modified_time" content="{{ modifiedTime }}" />{% endif %}
+  {% if author %}<meta property="article:author" content="{{ author }}" />{% endif %}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ og_title or (title or site.title) }}" />
-  <meta name="twitter:description" content="{{ og_description or (description or site.description) }}" />
-  <meta name="twitter:image" content="{{ og_image or (site.url + '/assets/og-image.jpg') }}" />
+  <meta name="twitter:title" content="{{ og_title or pageTitle }}" />
+  <meta name="twitter:description" content="{{ og_description or pageDescription }}" />
+  <meta name="twitter:image" content="{{ pageImage }}" />
 
   <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
@@ -34,9 +41,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "{{ site.title }}",
+    "name": "{{ site.title | safe }}",
     "url": "{{ site.url }}",
-    "description": "{{ site.description }}"
+    "description": "{{ site.description | safe }}"
   }
   </script>
 </head>
