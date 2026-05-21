@@ -5,7 +5,7 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for item in collections.all %}
-{% if item.url and item.url != '/sitemap.xml' and item.url != '/robots.txt' %}
+{% if item.url and item.url != '/sitemap.xml' and item.url != '/robots.txt' and 'noindex' not in (item.data.robots or '') %}
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
   </url>

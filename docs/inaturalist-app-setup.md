@@ -24,9 +24,10 @@ Use this only when the site needs authenticated features later, such as letting 
 
 If we later add authenticated features through Netlify Functions or another backend that can store secrets securely, then a confidential app can make sense.
 
+After saving, keep the generated client ID. Do not put the client secret in frontend code, Git, Netlify public environment variables, or screenshots. For the current public-read integration, neither value is needed.
+
 ## Useful Public Endpoints
 
 - Taxa lookup: `https://api.inaturalist.org/v1/taxa?q=Calotes%20versicolor&locale=en`
 - Project observations for a taxon: `https://api.inaturalist.org/v1/observations?project_id=biodiversity-of-mhtr&taxon_id=31281`
 - Project page: `https://www.inaturalist.org/projects/biodiversity-of-mhtr`
-
