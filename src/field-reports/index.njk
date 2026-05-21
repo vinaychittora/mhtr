@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Field Reports & Notes | Mukundara Hills Tiger Reserve
+description: Field reports and field notes from the Mukundara landscape and wider Rajasthan ecology, with author credit, bilingual reading where available, and no sensitive wildlife locations.
+activeSection: field-reports
+---
+
+<section class="page-hero" aria-label="Field reports introduction">
+  <p class="eyebrow">Field Reports</p>
+  <h1>Field reports and notes from Rajasthan’s living landscapes.</h1>
+  <p class="lede">
+    Field reports bring local observation, ecological context, and careful documentation together.
+    This section will grow into a readable archive of notes, articles, field evidence, and translated material.
+  </p>
+</section>
+
+<section class="section" aria-label="Field reports list">
+  <div class="report-list">
+    {% for report in fieldReports %}
+      <article class="report-card">
+        <div>
+          <p class="eyebrow">{{ report.topic }}</p>
+          <h2><a href="{{ report.href }}">{{ report.title }}</a></h2>
+          <p class="hindi-title" lang="hi">{{ report.hindiTitle }}</p>
+          <p>{{ report.summary }}</p>
+        </div>
+        <footer class="report-meta">
+          <span>By {{ report.author }}</span>
+          <span>{{ report.date }}</span>
+        </footer>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section narrow" aria-label="Contribution note">
+  <h2>Contribution standard</h2>
+  <p>
+    Reports should preserve author credit, avoid sensitive coordinates, and separate direct observation from
+    interpretation. Photo and video evidence can be added once captions, dates, and permissions are confirmed.
+  </p>
+</section>
