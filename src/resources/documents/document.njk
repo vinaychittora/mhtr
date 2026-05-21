@@ -1,0 +1,55 @@
+---
+layout: base.njk
+pagination:
+  data: resourceDocuments
+  size: 1
+  alias: doc
+permalink: "/resources/documents/{{ doc.slug }}/"
+eleventyComputed:
+  title: "{{ doc.title }} | MHTR Resource Archive"
+  description: "{{ doc.summary }}"
+---
+
+<article class="document-page">
+  <header class="page-hero document-hero">
+    <p class="eyebrow">Resource Archive / {{ doc.category }}</p>
+    <h1>{{ doc.title }}</h1>
+    <p class="lede">{{ doc.summary }}</p>
+    <div class="document-actions">
+      <a class="button-link" href="{{ doc.localPath }}" target="_blank" rel="noopener">Open archived PDF</a>
+      <a class="button-link button-link-secondary" href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Original source</a>
+      <a class="button-link button-link-secondary" href="/resources/">All resources</a>
+    </div>
+  </header>
+
+  <section class="document-meta-grid" aria-label="Document metadata">
+    <div class="aside-box">
+      <h2>Archive Metadata</h2>
+      <p><strong>Source:</strong> {{ doc.source }}</p>
+      <p><strong>Type:</strong> {{ doc.type }}</p>
+      <p><strong>Issued:</strong> {{ doc.issued }}</p>
+      <p><strong>Archived locally:</strong> {{ doc.archivedAt }}</p>
+      <p><strong>File:</strong> {{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</p>
+    </div>
+
+    <div class="aside-box">
+      <h2>Use This For</h2>
+      <p>{{ doc.useFor }}</p>
+      <p class="muted">{{ doc.researchNote }}</p>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Archived document viewer">
+    <div class="pdf-toolbar">
+      <p class="muted">
+        The PDF below is a local archive copy. Keep using the original source link for citation and version checking.
+      </p>
+      <a href="{{ doc.localPath }}" target="_blank" rel="noopener">Open in a new tab</a>
+    </div>
+    <iframe
+      class="pdf-viewer"
+      title="{{ doc.title }} PDF viewer"
+      src="{{ doc.localPath }}"
+      loading="lazy"></iframe>
+  </section>
+</article>
