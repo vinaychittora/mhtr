@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Mukundara Hills Tiger Reserve - Rajasthan Forest Department",
+    "type": "Official state portal",
+    "source": "Rajasthan Forest Department",
+    "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/wildlife/details-of-protected-area-/mukundara-hills-tiger-reserve.html",
+    "useFor": "Baseline official profile, administrative framing, and entry-point information.",
+    "note": "Live portal page; details can change without notice."
+  },
+  {
+    "title": "MEE-TR Geospatial Portal - Mukundara Hills Tiger Reserve",
+    "type": "Geospatial portal / GIS reference",
+    "source": "Wildlife Institute of India (WII)",
+    "url": "https://mee-tr.wii.gov.in/Home/Geospatial/mukundara-hills-tiger-reserve#process",
+    "useFor": "Boundary context, landscape orientation, and broad planning visualization.",
+    "note": "Use for orientation only; do not republish sensitive wildlife-use locations."
+  },
+  {
+    "title": "eBird hotspot - Mukundara Hills",
+    "type": "Citizen-science dataset",
+    "source": "eBird / Cornell Lab",
+    "url": "https://ebird.org/hotspot/L11953655",
+    "useFor": "Seasonality, checklist frequency, and birding effort trends over time.",
+    "note": "Interpret with observer bias and uneven sampling effort in mind."
+  },
+  {
+    "title": "Biodiversity of MHTR - iNaturalist project",
+    "type": "Citizen-science dataset",
+    "source": "iNaturalist / Sonu Kumar",
+    "url": "https://www.inaturalist.org/projects/biodiversity-of-mhtr",
+    "useFor": "Recent community observations, live species context, and public field documentation.",
+    "note": "This complements the curated list on the biodiversity page."
+  },
+  {
+    "title": "Phytodiversity Characterization of Mukundara Hills Tiger Reserve",
+    "type": "ResearchGate landing page",
+    "source": "ResearchGate mirror",
+    "url": "https://www.researchgate.net/publication/343481667_Phytodiversity_Characterization_of_Mukundara_Hills_Tiger_Reserve",
+    "useFor": "Citation traceability and alternate access to the plant diversity paper.",
+    "note": "The locally archived IJCMA PDF appears to cover the same research article."
+  },
+  {
+    "title": "Mukundara Hills is Rajasthan's third tiger reserve",
+    "type": "News archive",
+    "source": "The Hindu",
+    "url": "https://www.thehindu.com/news/national/other-states/mukundara-hills-is-rajasthans-third-tiger-reserve/article4610690.ece",
+    "useFor": "Historical context during designation and early public communication.",
+    "note": "Use primary documents for legal or technical conclusions."
+  }
+]

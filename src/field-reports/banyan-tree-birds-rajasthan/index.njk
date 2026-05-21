@@ -11,6 +11,279 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
 ---
 
 {% set sonu = authors.sonuKumar %}
+{% set birdObservationRecords = [
+  {
+    common: "Cinereous Tit",
+    scientific: "Parus cinereus",
+    behaviorHi: "फलों के बीच कीट खोजते हुए देखा गया",
+    behaviorEn: "Observed searching for insects among the fruits",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "620290654",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Indian Paradise Flycatcher",
+    scientific: "Terpsiphone paradisi",
+    behaviorHi: "वृक्ष के नीचे कीट खोजते हुए",
+    behaviorEn: "Searching for insects below the tree",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657052826",
+    evidenceKind: "video",
+    evidenceHi: "आपके दिए गए flycatcher video लिंक से जोड़ा गया Macaulay वीडियो रिकॉर्ड।",
+    evidenceEn: "Macaulay video record linked from your flycatcher video note."
+  },
+  {
+    common: "Indian Cuckooshrike",
+    scientific: "Coracina macei",
+    behaviorHi: "वृक्ष की ऊपरी शाखाओं एवं फलों पर कीट खोजते हुए",
+    behaviorEn: "Searching for insects on upper branches and around fruits",
+    periodHi: "मई-जून",
+    periodEn: "May-June",
+    evidenceId: "657285889",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Tickell's Blue Flycatcher",
+    scientific: "Cyornis tickelliae",
+    behaviorHi: "शाखाओं में बैठकर कीट पकड़ते हुए देखा गया",
+    behaviorEn: "Observed perching on branches and catching insects",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657794725",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए 'banyan trunk' संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-trunk behavior note."
+  },
+  {
+    common: "Yellow-footed Green Pigeon",
+    scientific: "Treron phoenicoptera",
+    behaviorHi: "बरगद के फलों का सेवन; बीज प्रसार में महत्वपूर्ण भूमिका",
+    behaviorEn: "Feeding on banyan fruits; important for seed dispersal",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "657794645",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए बरगद फल-भक्षण संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-fruit feeding note."
+  },
+  {
+    common: "Tawny-bellied Babbler",
+    scientific: "Dumetia hyperythra",
+    behaviorHi: "शाखाओं, जटाओं एवं फलों के बीच सक्रिय; छोटे कीट खोजते हुए",
+    behaviorEn: "Active among branches, aerial roots, and fruits; searching for small insects",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657052733",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए बरगद फल-भक्षण संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-fruit feeding note."
+  },
+  {
+    common: "Indian White-eye",
+    scientific: "Zosterops palpebrosus",
+    behaviorHi: "छोटे समूहों में फलों के बीच कीट खोजते हुए",
+    behaviorEn: "Small groups searching for insects among fruits",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "620290695",
+    evidenceKind: "photo"
+  },
+  {
+    common: "White-browed Fantail",
+    scientific: "Rhipidura aureola",
+    behaviorHi: "कीट पकड़ते हुए; निचली शाखाओं में सक्रिय",
+    behaviorEn: "Catching insects; active in lower branches",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June"
+  },
+  {
+    common: "Indian Grey Hornbill",
+    scientific: "Ocyceros birostris",
+    behaviorHi: "वृक्षों के फलों एवं कीटों का सेवन करते हुए देखा गया; ऊँची शाखाओं पर जोड़ों या छोटे समूहों में सक्रिय",
+    behaviorEn: "Observed eating fruits and insects; active in pairs or small groups on high branches",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "655690907",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए Grey Hornbill banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your Grey Hornbill banyan note."
+  },
+  {
+    common: "Indian Pied Starling",
+    scientific: "Gracupica contra",
+    behaviorHi: "वृक्ष के आसपास समूहों में भोजन खोजते हुए; कीट एवं फलों का सेवन",
+    behaviorEn: "Foraging in groups around the tree; feeding on insects and fruits",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "656627643",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए बरगद फल-भक्षण संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-fruit feeding note."
+  },
+  {
+    common: "Asian Koel",
+    scientific: "Eudynamys scolopaceus",
+    behaviorHi: "वृक्षों के अंदर सक्रिय; फलों का सेवन",
+    behaviorEn: "Active inside the tree; feeding on fruits",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "620290420",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए Asian Koel on banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your Asian Koel banyan note."
+  },
+  {
+    common: "Rose-ringed Parakeet",
+    scientific: "Psittacula krameri",
+    behaviorHi: "समूहों में उड़ते एवं फलों, बीजों तथा कोमल कलियों का सेवन करते हुए",
+    behaviorEn: "Flying in groups and feeding on fruits, seeds, and soft buds",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "656627763",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Yellow-crowned Woodpecker",
+    scientific: "Leiopicus mahrattensis",
+    behaviorHi: "छाल पर चोंच मारकर कीट खोजते हुए; तनों एवं शाखाओं पर सक्रिय",
+    behaviorEn: "Pecking bark to find insects; active on trunks and branches",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657794694",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Crested Bunting",
+    scientific: "Melophus lathami",
+    behaviorHi: "वृक्ष के नीचे बीज एवं छोटे कीट खोजते हुए",
+    behaviorEn: "Searching below the tree for seeds and small insects",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "655311430",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Tree Pipit",
+    scientific: "Anthus trivialis",
+    behaviorHi: "वृक्ष के नीचे भूमि पर कीट खोजते हुए",
+    behaviorEn: "Searching for insects on the ground below the tree",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "655311423",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए 'under a banyan' संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your under-a-banyan note."
+  },
+  {
+    common: "Spotted Owlet",
+    scientific: "Athene brama",
+    behaviorHi: "खोखलों एवं शाखाओं में विश्राम करते हुए",
+    behaviorEn: "Resting in cavities and branches",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "620290439",
+    evidenceKind: "photo"
+  }
+] %}
+{% set additionalMacaulayEvidence = [
+  {
+    common: "White-naped Woodpecker",
+    scientific: "Chrysocolaptes festivus",
+    behaviorHi: "बरगद पर भोजन/कीट खोजते हुए योगदानकर्ता-चिह्नित रिकॉर्ड",
+    behaviorEn: "Contributor-identified feeding/foraging record on banyan",
+    periodHi: "15 मई 2026",
+    periodEn: "15 May 2026",
+    evidenceId: "657794707",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए White-naped / flameback बरगद-भोजन संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your White-naped/flameback feeding-on-banyan note."
+  },
+  {
+    common: "Black-crowned Night Heron",
+    scientific: "Nycticorax nycticorax",
+    behaviorHi: "बरगद पर विश्राम/रोस्टिंग से जुड़ा रिकॉर्ड",
+    behaviorEn: "Record linked to roosting on banyan",
+    periodHi: "योगदानकर्ता मीडिया",
+    periodEn: "Contributor media",
+    evidenceId: "655849921",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए night heron roosting on banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your night-heron roosting-on-banyan note."
+  },
+  {
+    common: "Indian Pitta",
+    scientific: "Pitta brachyura",
+    behaviorHi: "बरगद के नीचे सक्रियता से जुड़ा रिकॉर्ड",
+    behaviorEn: "Record linked to activity below a banyan",
+    periodHi: "योगदानकर्ता मीडिया",
+    periodEn: "Contributor media",
+    evidenceId: "620290555",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए pitta under a banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your pitta-under-a-banyan note."
+  }
+] %}
+
+{% macro observationCards(records, lang) %}
+  <div class="observation-card-grid" role="list">
+    {% for record in records %}
+      <article class="observation-card{% if record.evidenceId %} has-evidence{% endif %}" role="listitem">
+        <div class="observation-card-copy">
+          <div class="observation-card-head">
+            <div>
+              <p class="observation-kicker">{% if record.evidenceId %}{% if lang == "hi" %}साक्ष्य सहित{% else %}Evidence linked{% endif %}{% elif record.evidenceUrl %}{% if lang == "hi" %}स्रोत लिंक{% else %}Source link{% endif %}{% else %}{% if lang == "hi" %}क्षेत्र अवलोकन{% else %}Field observation{% endif %}{% endif %}</p>
+              <h4>{{ record.common }}</h4>
+              <p class="scientific-name"><em>{{ record.scientific }}</em></p>
+            </div>
+            <span class="activity-chip">{% if lang == "hi" %}{{ record.periodHi }}{% else %}{{ record.periodEn }}{% endif %}</span>
+          </div>
+          <p class="observation-behavior">{% if lang == "hi" %}{{ record.behaviorHi }}{% else %}{{ record.behaviorEn }}{% endif %}</p>
+          {% if not record.evidenceId and not record.evidenceUrl %}
+            <p class="observation-evidence-note is-pending">
+              {% if lang == "hi" %}
+                सटीक मीडिया एसेट जोड़े जाने तक यह रिकॉर्ड केवल पाठ्य क्षेत्र-अवलोकन के रूप में रखा गया है।
+              {% else %}
+                Kept as a text field observation until an exact media asset is attached.
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
+
+        <div class="observation-card-media">
+          {% if record.evidenceId %}
+            <a
+              class="media-preview"
+              href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="{{ record.common }} Macaulay Library record ML{{ record.evidenceId }}">
+              <img
+                src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/{{ record.evidenceId }}/480"
+                alt="{{ record.common }} media preview from Macaulay Library"
+                loading="lazy"
+                decoding="async">
+              <span class="media-type-badge">{{ record.evidenceKind | upper }}</span>
+            </a>
+            <a class="evidence-asset-link" href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}" target="_blank" rel="noopener noreferrer">ML{{ record.evidenceId }}</a>
+          {% else %}
+            <div class="evidence-pending-box{% if record.evidenceUrl %} has-source-link{% endif %}">
+              {% if record.evidenceUrl %}
+                <a href="{{ record.evidenceUrl }}" target="_blank" rel="noopener noreferrer">
+                  {% if lang == "hi" %}{{ record.evidenceLabelHi or record.evidenceLabel }}{% else %}{{ record.evidenceLabel }}{% endif %}
+                </a>
+                <span>{% if lang == "hi" %}Exact ML asset अभी confirm करना है{% else %}Exact ML asset still needs confirmation{% endif %}</span>
+              {% else %}
+                <span>{% if lang == "hi" %}सटीक Macaulay asset URL चाहिए{% else %}Exact Macaulay asset URL needed{% endif %}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endmacro %}
 
 <article class="article-page" itemscope itemtype="https://schema.org/Article">
   <header class="page-hero article-hero">
@@ -114,36 +387,7 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
         </p>
 
         <h3>बरगद पर आश्रित पक्षियों का पारिस्थितिकीय अवलोकन</h3>
-        <div class="table-wrap field-table-wrap" tabindex="0" aria-label="बरगद पर पक्षी गतिविधि तालिका">
-          <table class="table field-table">
-            <thead>
-              <tr>
-                <th scope="col">सामान्य नाम</th>
-                <th scope="col">वैज्ञानिक नाम</th>
-                <th scope="col">बरगद के प्रति व्यवहार</th>
-                <th scope="col">सक्रियता का माह</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Cinereous Tit</td><td><em>Parus cinereus</em></td><td>फलों के बीच कीट खोजते हुए देखा गया</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Indian Paradise Flycatcher</td><td><em>Terpsiphone paradisi</em></td><td>वृक्ष के नीचे कीट खोजते हुए</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Indian Cuckooshrike</td><td><em>Coracina macei</em></td><td>वृक्ष की ऊपरी शाखाओं एवं फलों पर कीट खोजते हुए</td><td>मई-जून</td></tr>
-              <tr><td>Tickell’s Blue Flycatcher</td><td><em>Cyornis tickelliae</em></td><td>शाखाओं में बैठकर कीट पकड़ते हुए देखा गया</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Yellow-footed Green Pigeon</td><td><em>Treron phoenicoptera</em></td><td>बरगद के फलों का सेवन; बीज प्रसार में महत्वपूर्ण भूमिका</td><td>वर्ष भर</td></tr>
-              <tr><td>Tawny-bellied Babbler</td><td><em>Dumetia hyperythra</em></td><td>शाखाओं, जटाओं एवं फलों के बीच सक्रिय; छोटे कीट खोजते हुए</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Indian White-eye</td><td><em>Zosterops palpebrosus</em></td><td>छोटे समूहों में फलों के बीच कीट खोजते हुए</td><td>अप्रैल-जून</td></tr>
-              <tr><td>White-browed Fantail</td><td><em>Rhipidura aureola</em></td><td>कीट पकड़ते हुए; निचली शाखाओं में सक्रिय</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Indian Grey Hornbill</td><td><em>Ocyceros birostris</em></td><td>वृक्षों के फलों एवं कीटों का सेवन करते हुए देखा गया; ऊँची शाखाओं पर जोड़ों या छोटे समूहों में सक्रिय</td><td>वर्ष भर</td></tr>
-              <tr><td>Indian Pied Starling</td><td><em>Gracupica contra</em></td><td>वृक्ष के आसपास समूहों में भोजन खोजते हुए; कीट एवं फलों का सेवन</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Asian Koel</td><td><em>Eudynamys scolopaceus</em></td><td>वृक्षों के अंदर सक्रिय; फलों का सेवन</td><td>वर्ष भर</td></tr>
-              <tr><td>Rose-ringed Parakeet</td><td><em>Psittacula krameri</em></td><td>समूहों में उड़ते एवं फलों, बीजों तथा कोमल कलियों का सेवन करते हुए</td><td>वर्ष भर</td></tr>
-              <tr><td>Yellow-crowned Woodpecker</td><td><em>Leiopicus mahrattensis</em></td><td>छाल पर चोंच मारकर कीट खोजते हुए; तनों एवं शाखाओं पर सक्रिय</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Crested Bunting</td><td><em>Melophus lathami</em></td><td>वृक्ष के नीचे बीज एवं छोटे कीट खोजते हुए</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Tree Pipit</td><td><em>Anthus trivialis</em></td><td>वृक्ष के नीचे भूमि पर कीट खोजते हुए</td><td>अप्रैल-जून</td></tr>
-              <tr><td>Spotted Owlet</td><td><em>Athene brama</em></td><td>खोखलों एवं शाखाओं में विश्राम करते हुए</td><td>अप्रैल-जून</td></tr>
-            </tbody>
-          </table>
-        </div>
+        {{ observationCards(birdObservationRecords, "hi") }}
       </section>
 
       <section id="english" class="language-panel" data-lang-panel="en" lang="en" hidden>
@@ -206,36 +450,7 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
         </p>
 
         <h3>Ecological Observations of Birds Using Banyan Trees</h3>
-        <div class="table-wrap field-table-wrap" tabindex="0" aria-label="Bird activity on banyan trees">
-          <table class="table field-table">
-            <thead>
-              <tr>
-                <th scope="col">Common name</th>
-                <th scope="col">Scientific name</th>
-                <th scope="col">Observed behavior around banyan</th>
-                <th scope="col">Activity period</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Cinereous Tit</td><td><em>Parus cinereus</em></td><td>Observed searching for insects among the fruits</td><td>April-June</td></tr>
-              <tr><td>Indian Paradise Flycatcher</td><td><em>Terpsiphone paradisi</em></td><td>Searching for insects below the tree</td><td>April-June</td></tr>
-              <tr><td>Indian Cuckooshrike</td><td><em>Coracina macei</em></td><td>Searching for insects on upper branches and around fruits</td><td>May-June</td></tr>
-              <tr><td>Tickell’s Blue Flycatcher</td><td><em>Cyornis tickelliae</em></td><td>Observed perching on branches and catching insects</td><td>April-June</td></tr>
-              <tr><td>Yellow-footed Green Pigeon</td><td><em>Treron phoenicoptera</em></td><td>Feeding on banyan fruits; important for seed dispersal</td><td>Year-round</td></tr>
-              <tr><td>Tawny-bellied Babbler</td><td><em>Dumetia hyperythra</em></td><td>Active among branches, aerial roots, and fruits; searching for small insects</td><td>April-June</td></tr>
-              <tr><td>Indian White-eye</td><td><em>Zosterops palpebrosus</em></td><td>Small groups searching for insects among fruits</td><td>April-June</td></tr>
-              <tr><td>White-browed Fantail</td><td><em>Rhipidura aureola</em></td><td>Catching insects; active in lower branches</td><td>April-June</td></tr>
-              <tr><td>Indian Grey Hornbill</td><td><em>Ocyceros birostris</em></td><td>Observed eating fruits and insects; active in pairs or small groups on high branches</td><td>Year-round</td></tr>
-              <tr><td>Indian Pied Starling</td><td><em>Gracupica contra</em></td><td>Foraging in groups around the tree; feeding on insects and fruits</td><td>April-June</td></tr>
-              <tr><td>Asian Koel</td><td><em>Eudynamys scolopaceus</em></td><td>Active inside the tree; feeding on fruits</td><td>Year-round</td></tr>
-              <tr><td>Rose-ringed Parakeet</td><td><em>Psittacula krameri</em></td><td>Flying in groups and feeding on fruits, seeds, and soft buds</td><td>Year-round</td></tr>
-              <tr><td>Yellow-crowned Woodpecker</td><td><em>Leiopicus mahrattensis</em></td><td>Pecking bark to find insects; active on trunks and branches</td><td>April-June</td></tr>
-              <tr><td>Crested Bunting</td><td><em>Melophus lathami</em></td><td>Searching below the tree for seeds and small insects</td><td>April-June</td></tr>
-              <tr><td>Tree Pipit</td><td><em>Anthus trivialis</em></td><td>Searching for insects on the ground below the tree</td><td>April-June</td></tr>
-              <tr><td>Spotted Owlet</td><td><em>Athene brama</em></td><td>Resting in cavities and branches</td><td>April-June</td></tr>
-            </tbody>
-          </table>
-        </div>
+        {{ observationCards(birdObservationRecords, "en") }}
       </section>
     </div>
 
@@ -303,6 +518,25 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
     </div>
   </section>
 
+  <section id="macaulay-evidence" class="section evidence-gallery" aria-label="Macaulay Library bird evidence">
+    <div class="evidence-header">
+      <p class="eyebrow">External Media Evidence</p>
+      <h2>Additional Macaulay evidence linked to banyan use</h2>
+      <p>
+        These contributor-identified records are linked only where a direct Macaulay Library asset has been identified
+        for the banyan behavior note. Missing or uncertain media are intentionally kept out until the exact asset is known.
+      </p>
+    </div>
+
+    {{ observationCards(additionalMacaulayEvidence, "en") }}
+
+    <p class="muted evidence-source-note">
+      Contributor profile:
+      <a href="https://search.macaulaylibrary.org/catalog?searchField=user&amp;userId=USER1136410" target="_blank" rel="noopener noreferrer">Vinay Chittora media on Macaulay Library</a>.
+      Squirrel, Indian Blackbird, Golden Oriole, and Northern Grey Langur still need exact Macaulay asset IDs before thumbnails are shown here.
+    </p>
+  </section>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -327,6 +561,26 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
       "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg",
       "https://mhtr.in/assets/imgs/field-reports/banyan-root-habitat-1400.jpg",
       "https://mhtr.in/assets/imgs/field-reports/banyan-monsoon-canopy-1400.jpg"
+    ],
+    "citation": [
+      "https://macaulaylibrary.org/asset/620290654",
+      "https://macaulaylibrary.org/asset/657052826",
+      "https://macaulaylibrary.org/asset/657285889",
+      "https://macaulaylibrary.org/asset/657794725",
+      "https://macaulaylibrary.org/asset/657794645",
+      "https://macaulaylibrary.org/asset/657052733",
+      "https://macaulaylibrary.org/asset/620290695",
+      "https://macaulaylibrary.org/asset/655690907",
+      "https://macaulaylibrary.org/asset/656627643",
+      "https://macaulaylibrary.org/asset/620290420",
+      "https://macaulaylibrary.org/asset/656627763",
+      "https://macaulaylibrary.org/asset/657794694",
+      "https://macaulaylibrary.org/asset/655311430",
+      "https://macaulaylibrary.org/asset/655311423",
+      "https://macaulaylibrary.org/asset/620290439",
+      "https://macaulaylibrary.org/asset/657794707",
+      "https://macaulaylibrary.org/asset/655849921",
+      "https://macaulaylibrary.org/asset/620290555"
     ],
     "description": "A bilingual field note by Sonu Kumar on banyan trees, bird activity, food sources, shade, and microhabitats in Rajasthan."
   }
