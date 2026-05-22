@@ -29,6 +29,8 @@
   <link rel="icon" href="/assets/imgs/mhtr-logo.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/imgs/mhtr-favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="/assets/imgs/mhtr-apple-touch-icon.png" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Search MHTR" href="/opensearch.xml" />
+  {% if pagefind_ui %}<link rel="stylesheet" href="/pagefind/pagefind-component-ui.css">{% endif %}
 
   <meta property="og:type" content="{{ og_type or 'website' }}" />
   <meta property="og:locale" content="en_IN" />
@@ -94,7 +96,8 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   {% include "header.njk" %}
 
-  <main class="wrap" id="main" tabindex="-1">
+  {% set pageRobots = robots or 'index,follow' %}
+  <main class="wrap" id="main" tabindex="-1" {% if 'noindex' in pageRobots %}data-pagefind-ignore{% else %}data-pagefind-body{% endif %}>
     {{ content | safe }}
   </main>
 
@@ -104,5 +107,17 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
   </script>
+  {% if pagefind_ui %}
+  <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+  <script type="module">
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("q");
+
+    if (query && window.PagefindComponents) {
+      await customElements.whenDefined("pagefind-input");
+      window.PagefindComponents.getInstanceManager().getInstance("default").triggerSearch(query);
+    }
+  </script>
+  {% endif %}
 </body>
 </html>
