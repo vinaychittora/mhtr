@@ -1,4 +1,8 @@
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+    return new Date(dateObj).toISOString().slice(0, 10);
+  });
+
   // Copy only web-ready assets, not OS/browser metadata sidecar files.
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/style.css": "assets/css/style.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/main.js": "assets/js/main.js" });

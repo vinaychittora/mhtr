@@ -2,5 +2,8 @@
   "url": "https://mhtr.in",
   "title": "Mukundara Hills Tiger Reserve (MHTR) | Independent Information & Field Notes",
   "description": "Independent, conservation-first information on Mukundara Hills Tiger Reserve: landscape, biodiversity, field reports, and curated resources. No sensitive wildlife locations.",
-  "ogImage": "https://mhtr.in/assets/imgs/mhtr-landscape-2.jpg"
+  "ogImage": "https://mhtr.in/assets/imgs/mhtr-landscape-2.jpg",
+  "ogImageAlt": "Tiger walking through dry grass and open woodland in the Mukundara landscape context.",
+  "ogImageWidth": 840,
+  "ogImageHeight": 425
 }

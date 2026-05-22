@@ -8,21 +8,35 @@
   {% set pageTitle = title or site.title %}
   {% set pageDescription = description or site.description %}
   {% set pageImage = og_image or site.ogImage %}
+  {% set pageImageAlt = og_image_alt or site.ogImageAlt %}
+  {% set pageImageWidth = og_image_width or site.ogImageWidth %}
+  {% set pageImageHeight = og_image_height or site.ogImageHeight %}
   {% set pageCanonical = canonical or (site.url + page.url) %}
+  {% set pageLang = lang or 'en-IN' %}
+  {% set pageSchemaType = schema_type or 'WebPage' %}
 
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}" />
+  {% if keywords %}<meta name="keywords" content="{{ keywords }}" />{% endif %}
   <meta name="robots" content="{{ robots or 'index,follow' }}" />
+  <meta name="application-name" content="MHTR" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=no" />
   {% if author %}<meta name="author" content="{{ author }}" />{% endif %}
 
   <link rel="canonical" href="{{ pageCanonical }}" />
+  {% if preload_image %}<link rel="preload" as="image" href="{{ preload_image }}" fetchpriority="high" />{% endif %}
 
   <meta property="og:type" content="{{ og_type or 'website' }}" />
+  <meta property="og:locale" content="en_IN" />
   <meta property="og:site_name" content="{{ site.title }}" />
   <meta property="og:title" content="{{ og_title or pageTitle }}" />
   <meta property="og:description" content="{{ og_description or pageDescription }}" />
   <meta property="og:url" content="{{ pageCanonical }}" />
   <meta property="og:image" content="{{ pageImage }}" />
+  {% if pageImageAlt %}<meta property="og:image:alt" content="{{ pageImageAlt }}" />{% endif %}
+  {% if pageImageWidth %}<meta property="og:image:width" content="{{ pageImageWidth }}" />{% endif %}
+  {% if pageImageHeight %}<meta property="og:image:height" content="{{ pageImageHeight }}" />{% endif %}
   {% if publishedTime %}<meta property="article:published_time" content="{{ publishedTime }}" />{% endif %}
   {% if modifiedTime %}<meta property="article:modified_time" content="{{ modifiedTime }}" />{% endif %}
   {% if author %}<meta property="article:author" content="{{ author }}" />{% endif %}
@@ -30,21 +44,46 @@
   <meta name="twitter:title" content="{{ og_title or pageTitle }}" />
   <meta name="twitter:description" content="{{ og_description or pageDescription }}" />
   <meta name="twitter:image" content="{{ pageImage }}" />
-
-  <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
-  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+  {% if pageImageAlt %}<meta name="twitter:image:alt" content="{{ pageImageAlt }}" />{% endif %}
+  <meta name="twitter:url" content="{{ pageCanonical }}" />
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/main.js" defer></script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "{{ site.title | safe }}",
-    "url": "{{ site.url }}",
-    "description": "{{ site.description | safe }}"
-  }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "{{ site.url }}#website",
+      "name": "MHTR",
+      "alternateName": [
+        "Mukundara Hills Tiger Reserve",
+        "Mukundra Hills Tiger Reserve",
+        "Mukandra Hills Tiger Reserve"
+      ],
+      "url": "{{ site.url }}",
+      "description": "{{ site.description | safe }}",
+      "inLanguage": "{{ pageLang }}"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "{{ pageSchemaType }}",
+      "@id": "{{ pageCanonical }}#webpage",
+      "url": "{{ pageCanonical }}",
+      "name": "{{ pageTitle | safe }}",
+      "description": "{{ pageDescription | safe }}",
+      "isPartOf": {
+        "@id": "{{ site.url }}#website"
+      },
+      "inLanguage": "{{ pageLang }}",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "{{ pageImage }}"{% if pageImageAlt %},
+        "caption": "{{ pageImageAlt }}"{% endif %}
+      }
+    }
+  ]
   </script>
 </head>
 
