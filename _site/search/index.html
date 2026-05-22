@@ -321,11 +321,30 @@
   <script type="module">
     const params = new URLSearchParams(window.location.search);
     const query = params.get("q");
+    const searchRoot = document.getElementById("site-search");
 
     if (query && window.PagefindComponents) {
       await customElements.whenDefined("pagefind-input");
       window.PagefindComponents.getInstanceManager().getInstance("default").triggerSearch(query);
     }
+
+    searchRoot?.addEventListener("click", (event) => {
+      const anchor = event.composedPath().find((item) => item instanceof HTMLAnchorElement);
+      if (!anchor || anchor.origin !== window.location.origin) return;
+
+      const input =
+        document.querySelector("pagefind-input input") ||
+        document.querySelector("pagefind-input")?.shadowRoot?.querySelector("input");
+      const activeQuery = (input?.value || query || "").trim();
+      if (!activeQuery) return;
+
+      const url = new URL(anchor.href);
+      if (url.pathname === "/search/") return;
+
+      url.searchParams.set("q", activeQuery);
+      if (url.pathname === "/biodiversity/" && !url.hash) url.hash = "bioSearch";
+      anchor.href = `${url.pathname}${url.search}${url.hash}`;
+    });
   </script>
   
 </body>
