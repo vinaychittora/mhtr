@@ -5,10 +5,21 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for item in collections.all %}
-{% if item.url and item.url != '/sitemap.xml' and item.url != '/robots.txt' and 'noindex' not in (item.data.robots or '') %}
+{% if item.url and item.url != '/sitemap.xml' and item.url != '/robots.txt' and '/resources/documents/' not in item.url and 'noindex' not in (item.data.robots or '') %}
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | htmlDateString }}</lastmod>
+    <changefreq>{% if item.url == "/" %}weekly{% elif item.url == "/resources/" or item.url == "/biodiversity/" %}weekly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if item.url == "/" %}1.0{% elif item.url == "/landscape/" or item.url == "/resources/" or item.url == "/biodiversity/" %}0.9{% else %}0.7{% endif %}</priority>
   </url>
 {% endif %}
+{% endfor %}
+{% for doc in resourceDocuments %}
+  <url>
+    <loc>{{ site.url }}/resources/documents/{{ doc.slug }}/</loc>
+    <lastmod>{{ doc.archivedAt }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
 {% endfor %}
 </urlset>
