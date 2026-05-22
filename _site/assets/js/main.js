@@ -585,5 +585,7 @@
   });
 
   populateGroupOptions();
+  const initialQuery = clean(new URLSearchParams(window.location.search).get("q"));
+  if (initialQuery) searchEl.value = initialQuery;
   applyFilters();
 })();
