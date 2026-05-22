@@ -29,6 +29,8 @@
   <link rel="icon" href="/assets/imgs/mhtr-logo.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/imgs/mhtr-favicon-48.png" type="image/png" sizes="48x48" />
   <link rel="apple-touch-icon" href="/assets/imgs/mhtr-apple-touch-icon.png" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Search MHTR" href="/opensearch.xml" />
+  
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_IN" />
@@ -94,7 +96,7 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   
 
-<header class="site-header">
+<header class="site-header" data-pagefind-ignore>
   <div class="nav">
     <div class="brand-row">
       <div class="brand">
@@ -200,6 +202,20 @@
           
           <li class="nav-item">
             
+              <a class="nav-link" href="/search/" >
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Search</span></a>
+            
+          </li>
+        
+          
+          <li class="nav-item">
+            
               <a class="nav-link" href="/about/" >
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
     
@@ -217,7 +233,8 @@
 </header>
 
 
-  <main class="wrap" id="main" tabindex="-1">
+  
+  <main class="wrap" id="main" tabindex="-1" data-pagefind-body>
     
 <section class="page-hero" aria-label="Field reports introduction">
   <p class="eyebrow">Field Reports</p>
@@ -257,7 +274,7 @@
 
   </main>
 
-  <section class="site-support-strip" aria-label="Support MHTR documentation">
+  <section class="site-support-strip" aria-label="Support MHTR documentation" data-pagefind-ignore>
   <div class="site-support-inner wrap">
     <div>
       <p class="eyebrow">Support This Independent Project</p>
@@ -275,7 +292,7 @@
   </div>
 </section>
 
-<footer>
+<footer data-pagefind-ignore>
   <div class="footer-grid wrap">
     <div class="footer-about">
       <b>MHTR (mhtr.in)</b><br />
@@ -299,5 +316,6 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
   </script>
+  
 </body>
 </html>

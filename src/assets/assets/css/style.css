@@ -108,8 +108,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  max-width: 1180px;
+  gap: 14px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 12px 22px;
 }
@@ -123,7 +123,7 @@ img {
 
 .brand {
   display: flex;
-  min-width: 285px;
+  min-width: 260px;
 }
 
 .brand-link {
@@ -245,10 +245,10 @@ nav > ul {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 8px 10px;
+  padding: 8px 9px;
   color: var(--header-ink);
   font-weight: 650;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   white-space: nowrap;
 }
 
@@ -269,7 +269,7 @@ nav > ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
+  width: 30px;
   border: 0;
   background: transparent;
   color: var(--header-ink);
@@ -1466,6 +1466,92 @@ body > footer a {
   box-shadow: 0 5px 0 rgba(7, 31, 21, 0.24);
 }
 
+.search-hero,
+.not-found {
+  max-width: 880px;
+  margin: 18px auto 8px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.search-hero h1,
+.not-found h1 {
+  max-width: 760px;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.search-hero > p,
+.not-found > p {
+  max-width: 760px;
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.site-search-box {
+  --pf-text: var(--ink);
+  --pf-text-secondary: var(--muted);
+  --pf-text-muted: var(--muted);
+  --pf-background: var(--surface);
+  --pf-border: var(--line);
+  --pf-border-focus: var(--line-strong);
+  --pf-hover: var(--accent-soft);
+  --pf-mark: var(--accent);
+  --pf-outline-focus: var(--khaki-deep);
+  --pf-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Devanagari", Arial, sans-serif;
+  --pf-input-height: 48px;
+  --pf-input-font-size: 1rem;
+  --pf-summary-font-size: 0.9rem;
+  --pf-result-title-font-size: 1rem;
+  --pf-result-excerpt-font-size: 0.95rem;
+  --pf-results-gap: 12px;
+  --pf-border-radius: var(--radius);
+  margin-top: 20px;
+}
+
+.site-search-box pagefind-results {
+  display: block;
+  margin-top: 14px;
+}
+
+.quick-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.not-found-search {
+  max-width: 660px;
+  margin: 20px 0 16px;
+}
+
+.not-found-search label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent);
+  font-weight: 750;
+}
+
+.not-found-search div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.not-found-search input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 9px 11px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
 .cta-secondary {
   min-height: 44px;
   padding-inline: 15px;
@@ -2388,6 +2474,16 @@ html.has-modal {
   .season-card,
   .glossary-item {
     min-height: 0;
+  }
+
+  .search-hero,
+  .not-found {
+    margin-top: 10px;
+    padding: 18px;
+  }
+
+  .not-found-search div {
+    grid-template-columns: 1fr;
   }
 
   .story-card {

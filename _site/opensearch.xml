@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>MHTR</ShortName>
+  <Description>Search Mukundara Hills Tiger Reserve maps, biodiversity notes, documents and field reports.</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="48" height="48" type="image/png">https://mhtr.in/assets/imgs/mhtr-favicon-48.png</Image>
+  <Url type="text/html" template="https://mhtr.in/search/?q={searchTerms}" />
+</OpenSearchDescription>

@@ -4,5 +4,6 @@
   {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf"},
   {"label": "Field Reports", "href": "/field-reports/", "match": "/field-reports/", "section": "field-reports", "collection": "fieldReports", "icon": "note"},
   {"label": "Resources", "href": "/resources/", "match": "/resources/", "icon": "book"},
+  {"label": "Search", "href": "/search/", "match": "/search/", "icon": "search"},
   {"label": "About", "href": "/about/", "match": "/about/", "icon": "info"}
 ]
