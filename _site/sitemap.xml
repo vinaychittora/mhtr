@@ -40,6 +40,8 @@
 
 
 
+
+
   <url>
     <loc>https://mhtr.in/resources/</loc>
     <lastmod>2026-05-22</lastmod>
@@ -58,8 +60,6 @@
 
 
 
-
-
   <url>
     <loc>https://mhtr.in/landscape/</loc>
     <lastmod>2026-05-22</lastmod>
@@ -68,5 +68,89 @@
   </url>
 
 
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/ntca-mukundara-brief-note/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/moefcc-mukundara-notification-2020/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/wii-mukundara-tiger-conservation-plan-2020-2030/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/ntca-mhtr-apo-2019-20/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/ntca-rajasthan-sanction-2024/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/rajasthan-zmp-mhtr-2023/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/rajasthan-notified-esz-v-tr/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/environment-clearance-wildlife-2019/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/rajasthan-reptiles-amphibians-mhtr-field-guide/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/ijcmas-dharmendra-kumar-2020/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/researchgate-kota-barrage-jawahar-sagar-wildlife-status/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://mhtr.in/resources/documents/global-tiger-protected-area-compendium-2021/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
 
 </urlset>

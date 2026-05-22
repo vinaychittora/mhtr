@@ -109,7 +109,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 12px 22px;
 }
@@ -123,24 +123,45 @@ img {
 
 .brand {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 260px;
+  min-width: 285px;
 }
 
-.brand-title {
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   color: var(--header-ink);
-  font-weight: 800;
-  font-size: 1.25rem;
-  line-height: 1.2;
 }
 
-.brand-title:hover {
+.brand-link:hover {
   text-decoration: none;
 }
 
-.brand span {
-  font-size: 0.86rem;
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.18));
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.brand-title {
+  display: block;
+  color: var(--header-ink);
+  font-weight: 800;
+  font-size: 1.14rem;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 0.8rem;
   color: #e7d9ad;
 }
 
@@ -1236,12 +1257,45 @@ body > footer a {
   text-underline-offset: 3px;
 }
 
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+}
+
+.footer-logo-link:hover {
+  text-decoration: none;
+}
+
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 4px 8px rgba(7, 20, 13, 0.24));
+}
+
 .footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+}
+
+.footer-about {
+  min-width: 0;
+}
+
+.footer-mark {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-meta {
+  justify-self: end;
+  min-width: 0;
+  text-align: right;
 }
 
 /* Biodiversity helpers */
@@ -2105,6 +2159,12 @@ html.has-modal {
     min-width: 0;
   }
 
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
   nav,
   nav > ul {
     width: 100%;
@@ -2208,8 +2268,18 @@ html.has-modal {
     font-size: 1.02rem;
   }
 
-  .brand span {
+  .brand-subtitle {
     display: none;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .brand-link {
+    gap: 9px;
   }
 
   .menu-button {
@@ -2583,7 +2653,25 @@ html.has-modal {
     padding-bottom: 12px;
   }
 
+  .footer-logo-link {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer-logo {
+    width: 48px;
+    height: 48px;
+  }
+
   .footer-grid {
-    gap: 6px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .footer-mark,
+  .footer-meta {
+    justify-self: center;
+    text-align: center;
   }
 }
