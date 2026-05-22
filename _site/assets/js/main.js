@@ -361,6 +361,7 @@
   const inatTitle = inatModal.querySelector("#inatModalTitle");
   const inatContent = inatModal.querySelector(".inat-modal-content");
   let lastInatTrigger = null;
+  let inatRequestId = 0;
 
   const formatNumber = (value) => Number(value || 0).toLocaleString("en-IN");
   const formatDate = (value) => {
@@ -429,9 +430,21 @@
   function renderInatLoading(item) {
     inatTitle.textContent = item.displayName;
     inatContent.innerHTML = `
-      <div class="inat-loading">
-        <p><strong>${escapeHTML(item.scientificName || item.displayName)}</strong></p>
-        <p class="muted">Checking live iNaturalist taxon and MHTR project observation data...</p>
+      <div class="inat-loading" role="status" aria-live="polite" aria-busy="true">
+        <div class="inat-loading-visual" aria-hidden="true">
+          <span class="inat-spinner"></span>
+          <span class="inat-skeleton-photo"></span>
+        </div>
+        <div class="inat-loading-copy">
+          <p class="eyebrow">Fetching Live Data</p>
+          <p><strong>${escapeHTML(item.scientificName || item.displayName)}</strong></p>
+          <p class="muted">Checking iNaturalist taxonomy, project observations, thumbnails, and public record counts.</p>
+          <div class="inat-skeleton-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
     `;
   }
@@ -516,14 +529,19 @@
   }
 
   async function openInatDetails(item, trigger) {
+    const requestId = ++inatRequestId;
     lastInatTrigger = trigger;
+    trigger?.setAttribute("aria-busy", "true");
     renderInatLoading(item);
     setInatModal(true);
 
     try {
-      renderInatDetails(item, await fetchInatDetails(item));
+      const details = await fetchInatDetails(item);
+      if (requestId === inatRequestId && !inatModal.hidden) renderInatDetails(item, details);
     } catch (error) {
-      renderInatError(item, error.message);
+      if (requestId === inatRequestId && !inatModal.hidden) renderInatError(item, error.message);
+    } finally {
+      trigger?.removeAttribute("aria-busy");
     }
   }
 
