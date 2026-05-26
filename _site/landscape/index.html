@@ -14,17 +14,21 @@
   
   
   
+  
+  
 
   <title>Mukundara Hills Landscape Guide | MHTR GIS Maps, Habitats &amp; Corridors</title>
   <meta name="description" content="Deep dive into the Mukundara Hills Tiger Reserve landscape: GIS maps, Vindhyan hills, Chambal hydrology, habitats, corridors, ESZ context and pressures." />
   <meta name="keywords" content="Mukundara Hills landscape, MHTR GIS map, Mukundara Hills Tiger Reserve map, Chambal Mukundara, MHTR habitat, Mukundara corridor, Mukundara ESZ, Mukundara water map" />
-  <meta name="robots" content="index,follow" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="application-name" content="MHTR" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="format-detection" content="telephone=no" />
   
 
   <link rel="canonical" href="https://mhtr.in/landscape/" />
+  <link rel="alternate" hreflang="en-IN" href="https://mhtr.in/landscape/" />
+  <link rel="alternate" hreflang="x-default" href="https://mhtr.in/landscape/" />
   <link rel="preload" as="image" href="/assets/imgs/mhtr-map.png" fetchpriority="high" />
   <link rel="icon" href="/assets/imgs/mhtr-logo.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/imgs/mhtr-favicon-48.png" type="image/png" sizes="48x48" />
@@ -39,6 +43,7 @@
   <meta property="og:description" content="Explore MHTR through source-backed GIS maps, habitat explainers, hydrology, corridors, seasonality and conservation pressures." />
   <meta property="og:url" content="https://mhtr.in/landscape/" />
   <meta property="og:image" content="https://mhtr.in/assets/imgs/mhtr-map.png" />
+  <meta property="og:image:secure_url" content="https://mhtr.in/assets/imgs/mhtr-map.png" />
   <meta property="og:image:alt" content="Map of Mukundara Hills Tiger Reserve and surrounding landscape context." />
   <meta property="og:image:width" content="912" />
   <meta property="og:image:height" content="594" />
@@ -56,24 +61,47 @@
   <script src="/assets/js/main.js" defer></script>
 
   <script type="application/ld+json">
-  [
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://mhtr.in#publisher",
+      "name": "MHTR.in",
+      "alternateName": [
+        "MHTR",
+        "Mukundara Hills Tiger Reserve",
+        "Mukundra Hills Tiger Reserve",
+        "Mukandra Hills Tiger Reserve"
+      ],
+      "url": "https://mhtr.in",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mhtr.in/assets/imgs/mhtr-logo-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "hello@caneandcamera.com"
+    },
+    {
       "@type": "WebSite",
       "@id": "https://mhtr.in#website",
-      "name": "MHTR",
+      "name": "MHTR.in",
       "alternateName": [
+        "MHTR",
         "Mukundara Hills Tiger Reserve",
         "Mukundra Hills Tiger Reserve",
         "Mukandra Hills Tiger Reserve"
       ],
       "url": "https://mhtr.in",
       "description": "Independent, conservation-first information on Mukundara Hills Tiger Reserve: landscape, biodiversity, field reports, and curated resources. No sensitive wildlife locations.",
-      "inLanguage": "en-IN"
+      "inLanguage": "en-IN",
+      "publisher": {
+        "@id": "https://mhtr.in#publisher"
+      }
     },
     {
-      "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "WebPage",
       "@id": "https://mhtr.in/landscape/#webpage",
       "url": "https://mhtr.in/landscape/",
       "name": "Mukundara Hills Landscape Guide | MHTR GIS Maps, Habitats & Corridors",
@@ -82,13 +110,54 @@
         "@id": "https://mhtr.in#website"
       },
       "inLanguage": "en-IN",
+      "publisher": {
+        "@id": "https://mhtr.in#publisher"
+      },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://mhtr.in/assets/imgs/mhtr-map.png",
-        "caption": "Map of Mukundara Hills Tiger Reserve and surrounding landscape context."
-      }
+        "caption": "Map of Mukundara Hills Tiger Reserve and surrounding landscape context.",
+        "width": 912,
+        "height": 594
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mhtr.in/assets/imgs/mhtr-map.png",
+        "caption": "Map of Mukundara Hills Tiger Reserve and surrounding landscape context.",
+        "width": 912,
+        "height": 594
+      },
+      "keywords": [
+        "Mukundara Hills landscape",
+        "MHTR GIS map",
+        "Mukundara Hills Tiger Reserve map",
+        "Chambal Mukundara",
+        "MHTR habitat",
+        "Mukundara corridor",
+        "Mukundara ESZ",
+        "Mukundara water map"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mhtr.in/landscape/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MHTR.in",
+          "item": "https://mhtr.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mukundara Hills Landscape Guide",
+          "item": "https://mhtr.in/landscape/"
+        }
+      ]
     }
   ]
+}
   </script>
 </head>
 
@@ -181,6 +250,10 @@
                 
                   <li><a href="/field-reports/banyan-tree-birds-rajasthan/">Banyan tree and birds in Rajasthan</a></li>
                 
+                  <li><a href="/field-reports/cattle-egrets-mango-tree-kota/">Cattle egrets and mango trees</a></li>
+                
+                  <li><a href="/field-reports/munia-grass-use-abhera-kota/">Munia birds and native grasses</a></li>
+                
               </ul>
             
           </li>
@@ -233,7 +306,6 @@
 </header>
 
 
-  
   <main class="wrap" id="main" tabindex="-1" data-pagefind-body>
     <section class="landscape-hero" aria-labelledby="landscape-title">
   <div>

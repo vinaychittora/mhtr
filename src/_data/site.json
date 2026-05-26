@@ -1,7 +1,19 @@
 {
+  "name": "MHTR.in",
+  "publisherName": "MHTR.in",
+  "publisherUrl": "https://mhtr.in",
+  "contactEmail": "hello@caneandcamera.com",
+  "locale": "en-IN",
   "url": "https://mhtr.in",
+  "alternateName": [
+    "MHTR",
+    "Mukundara Hills Tiger Reserve",
+    "Mukundra Hills Tiger Reserve",
+    "Mukandra Hills Tiger Reserve"
+  ],
   "title": "Mukundara Hills Tiger Reserve (MHTR) | Independent Information & Field Notes",
   "description": "Independent, conservation-first information on Mukundara Hills Tiger Reserve: landscape, biodiversity, field reports, and curated resources. No sensitive wildlife locations.",
+  "keywords": "Mukundara Hills Tiger Reserve, MHTR, Mukundra Hills, Mukandra Hills Tiger Reserve, Kota wildlife, Rajasthan tiger reserve, Mukundara biodiversity, Mukundara landscape, citizen science, ecology resources",
   "ogImage": "https://mhtr.in/assets/imgs/mhtr-landscape-2.jpg",
   "ogImageAlt": "Tiger walking through dry grass and open woodland in the Mukundara landscape context.",
   "ogImageWidth": 840,

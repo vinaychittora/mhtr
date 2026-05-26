@@ -12,19 +12,23 @@
   {% set pageImageWidth = og_image_width or site.ogImageWidth %}
   {% set pageImageHeight = og_image_height or site.ogImageHeight %}
   {% set pageCanonical = canonical or (site.url + page.url) %}
-  {% set pageLang = lang or 'en-IN' %}
+  {% set pageLang = lang or site.locale or 'en-IN' %}
   {% set pageSchemaType = schema_type or 'WebPage' %}
+  {% set pageRobots = robots or 'index,follow,max-image-preview:large' %}
+  {% set pageKeywords = keywords or site.keywords %}
 
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}" />
-  {% if keywords %}<meta name="keywords" content="{{ keywords }}" />{% endif %}
-  <meta name="robots" content="{{ robots or 'index,follow' }}" />
+  {% if pageKeywords %}<meta name="keywords" content="{{ pageKeywords }}" />{% endif %}
+  <meta name="robots" content="{{ pageRobots }}" />
   <meta name="application-name" content="MHTR" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="format-detection" content="telephone=no" />
   {% if author %}<meta name="author" content="{{ author }}" />{% endif %}
 
   <link rel="canonical" href="{{ pageCanonical }}" />
+  <link rel="alternate" hreflang="{{ pageLang }}" href="{{ pageCanonical }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ pageCanonical }}" />
   {% if preload_image %}<link rel="preload" as="image" href="{{ preload_image }}" fetchpriority="high" />{% endif %}
   <link rel="icon" href="/assets/imgs/mhtr-logo.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/imgs/mhtr-favicon-48.png" type="image/png" sizes="48x48" />
@@ -39,6 +43,7 @@
   <meta property="og:description" content="{{ og_description or pageDescription }}" />
   <meta property="og:url" content="{{ pageCanonical }}" />
   <meta property="og:image" content="{{ pageImage }}" />
+  <meta property="og:image:secure_url" content="{{ pageImage }}" />
   {% if pageImageAlt %}<meta property="og:image:alt" content="{{ pageImageAlt }}" />{% endif %}
   {% if pageImageWidth %}<meta property="og:image:width" content="{{ pageImageWidth }}" />{% endif %}
   {% if pageImageHeight %}<meta property="og:image:height" content="{{ pageImageHeight }}" />{% endif %}
@@ -56,39 +61,24 @@
   <script src="/assets/js/main.js" defer></script>
 
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "{{ site.url }}#website",
-      "name": "MHTR",
-      "alternateName": [
-        "Mukundara Hills Tiger Reserve",
-        "Mukundra Hills Tiger Reserve",
-        "Mukandra Hills Tiger Reserve"
-      ],
-      "url": "{{ site.url }}",
-      "description": "{{ site.description | safe }}",
-      "inLanguage": "{{ pageLang }}"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "{{ pageSchemaType }}",
-      "@id": "{{ pageCanonical }}#webpage",
-      "url": "{{ pageCanonical }}",
-      "name": "{{ pageTitle | safe }}",
-      "description": "{{ pageDescription | safe }}",
-      "isPartOf": {
-        "@id": "{{ site.url }}#website"
-      },
-      "inLanguage": "{{ pageLang }}",
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "{{ pageImage }}"{% if pageImageAlt %},
-        "caption": "{{ pageImageAlt }}"{% endif %}
-      }
-    }
-  ]
+{% seoJsonLd {
+  site: site,
+  pageUrl: page.url,
+  pageTitle: pageTitle,
+  pageDescription: pageDescription,
+  pageCanonical: pageCanonical,
+  pageImage: pageImage,
+  pageImageAlt: pageImageAlt,
+  pageImageWidth: pageImageWidth,
+  pageImageHeight: pageImageHeight,
+  pageLang: pageLang,
+  pageSchemaType: pageSchemaType,
+  author: author,
+  authorUrl: authorUrl,
+  publishedTime: publishedTime,
+  modifiedTime: modifiedTime,
+  keywords: pageKeywords
+} %}
   </script>
 </head>
 
@@ -96,7 +86,6 @@
   <a class="skip-link" href="#main">Skip to main content</a>
   {% include "header.njk" %}
 
-  {% set pageRobots = robots or 'index,follow' %}
   <main class="wrap" id="main" tabindex="-1" {% if 'noindex' in pageRobots %}data-pagefind-ignore{% else %}data-pagefind-body{% endif %}>
     {{ content | safe }}
   </main>

@@ -84,6 +84,94 @@
 })();
 
 (() => {
+  const charts = Array.from(document.querySelectorAll("[data-pie-chart]"));
+  if (!charts.length) return;
+
+  const clean = (value) => (value || "").trim();
+  const escapeText = (value) => clean(value).replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[ch]);
+  const splitData = (value) => clean(value).split("|").map(clean).filter(Boolean);
+  const point = (angle, radius) => ({
+    x: Math.cos(angle) * radius,
+    y: Math.sin(angle) * radius,
+  });
+
+  for (const chart of charts) {
+    const labels = splitData(chart.dataset.labels);
+    const colors = splitData(chart.dataset.colors);
+    const values = splitData(chart.dataset.values).map(Number);
+    const total = values.reduce((sum, value) => sum + value, 0);
+    const title = clean(chart.dataset.chartTitle);
+    const subtitle = clean(chart.dataset.chartSubtitle);
+
+    if (!labels.length || labels.length !== values.length || !total) continue;
+
+    let startAngle = -Math.PI / 2;
+    const slices = values.map((value, index) => {
+      const angle = (value / total) * Math.PI * 2;
+      const endAngle = startAngle + angle;
+      const midAngle = startAngle + angle / 2;
+      const slice = { value, index, startAngle, endAngle, midAngle, label: labels[index], color: colors[index] || "#888" };
+      startAngle = endAngle;
+      return slice;
+    });
+
+    const paths = slices.map((slice) => {
+      const start = point(slice.startAngle, 128);
+      const end = point(slice.endAngle, 128);
+      const largeArc = slice.endAngle - slice.startAngle > Math.PI ? 1 : 0;
+      return `<path d="M 0 0 L ${start.x.toFixed(3)} ${start.y.toFixed(3)} A 128 128 0 ${largeArc} 1 ${end.x.toFixed(3)} ${end.y.toFixed(3)} Z" fill="${escapeText(slice.color)}"></path>`;
+    }).join("");
+
+    const percentageLabels = slices.map((slice) => {
+      const pos = point(slice.midAngle, 68);
+      const pct = `${((slice.value / total) * 100).toFixed(1)}%`;
+      return `<text x="${pos.x.toFixed(2)}" y="${pos.y.toFixed(2)}" text-anchor="middle" dominant-baseline="middle" class="chart-percent">${pct}</text>`;
+    }).join("");
+
+    const leaderLabels = slices.map((slice) => {
+      const outer = point(slice.midAngle, 139);
+      const label = point(slice.midAngle, 178);
+      const anchor = label.x < 0 ? "end" : "start";
+      const labelX = label.x + (label.x < 0 ? -8 : 8);
+      return `
+        <line x1="${outer.x.toFixed(2)}" y1="${outer.y.toFixed(2)}" x2="${label.x.toFixed(2)}" y2="${label.y.toFixed(2)}" class="chart-leader"></line>
+        <text x="${labelX.toFixed(2)}" y="${label.y.toFixed(2)}" text-anchor="${anchor}" dominant-baseline="middle" class="chart-label">${escapeText(slice.label)}</text>
+      `;
+    }).join("");
+
+    const legend = slices.map((slice) => {
+      const pct = ((slice.value / total) * 100).toFixed(1);
+      return `
+        <li>
+          <span class="chart-swatch" style="background:${escapeText(slice.color)}"></span>
+          <span>${escapeText(slice.label)}</span>
+          <strong>${slice.value} (${pct}%)</strong>
+        </li>
+      `;
+    }).join("");
+
+    chart.innerHTML = `
+      <svg class="pie-chart-svg" viewBox="-305 -225 660 440" role="img" aria-label="${escapeText(title || "Pie chart")}">
+        ${title ? `<text x="15" y="-197" text-anchor="middle" class="chart-title">${escapeText(title)}</text>` : ""}
+        ${subtitle ? `<text x="15" y="-177" text-anchor="middle" class="chart-subtitle">${escapeText(subtitle)}</text>` : ""}
+        <g transform="translate(0, 14)">
+          ${paths}
+          ${percentageLabels}
+          ${leaderLabels}
+        </g>
+      </svg>
+      <ul class="chart-legend">${legend}</ul>
+    `;
+  }
+})();
+
+(() => {
   const $ = (id) => document.getElementById(id);
 
   const searchEl = $("bioSearch");
@@ -116,6 +204,40 @@
     return missingNameValues.has(norm(value)) ? "" : value;
   };
   const sourceUrl = (url) => escapeHTML(url);
+  const speciesAliases = {
+    "acacia catechu": ["Catechu tree"],
+    "axis axis": ["Chital deer"],
+    "boselaphus tragocamelus": ["Blue bull"],
+    "butea monosperma": ["Flame of the forest", "Palash"],
+    "caracal caracal": ["Caracal cat"],
+    "cervus unicolor": ["Sambar", "Sambar deer"],
+    "crocodylus palustris": ["Mugger", "Marsh crocodile"],
+    "ficus benghalensis": ["Banyan", "Bargad", "Vad"],
+    "ficus religiosa": ["Peepal", "Pipal", "Sacred fig"],
+    "gavialis gangeticus": ["Gavial"],
+    "gazella bennettii": ["Indian gazelle"],
+    "hyaena hyaena": ["Hyena"],
+    "lannea coromandelica": ["Indian ash"],
+    "melursus ursinus": ["Bear", "Bhalu"],
+    "naja naja": ["Indian cobra"],
+    "panthera pardus": ["Indian leopard", "Leopard"],
+    "panthera tigris": ["Bengal tiger", "Indian tiger", "Bagh"],
+    "pavo cristatus": ["Indian peafowl", "Peacock"],
+    "prosopis cineraria": ["Khejri", "Khejra"],
+    "prosopis juliflora": ["Vilayati babul"],
+    "python molurus": ["Indian rock python"],
+    "sterculia urens": ["Ghost tree", "Gum karaya"],
+  };
+  const aliasesFor = (item) => {
+    const existingNames = new Set(
+      [item.common, item.scientific, item.notes]
+        .flatMap((value) => clean(value).split(/\s*[,;/()]\s*/))
+        .map(norm)
+        .filter(Boolean)
+    );
+
+    return (speciesAliases[norm(item.scientific)] || []).filter((alias) => !existingNames.has(norm(alias)));
+  };
 
   const likelyCommonNameFromNotes = (notes) => {
     const value = cleanName(notes);
@@ -266,11 +388,13 @@
 
   const species = Array.from(speciesByKey.values()).map((item, index) => {
     const nameInfo = getNameInfo(item);
+    const aliases = aliasesFor(item);
     return {
       ...item,
       ...nameInfo,
+      aliases,
       key: `species-${index}`,
-      hay: norm(`${item.hay} ${nameInfo.displayName} ${nameInfo.sourceName} ${nameInfo.noteCommonName} ${nameInfo.scientificName}`),
+      hay: norm(`${item.hay} ${nameInfo.displayName} ${nameInfo.sourceName} ${nameInfo.noteCommonName} ${nameInfo.scientificName} ${aliases.join(" ")}`),
     };
   });
   const speciesById = new Map(species.map((item) => [item.key, item]));
@@ -332,6 +456,7 @@
         <p class="bio-card-meta"><strong>Category:</strong> ${escapeHTML(item.group)}${item.domain ? ` · <span>${escapeHTML(item.domain)}</span>` : ""}</p>
         ${item.status ? `<p class="bio-card-meta"><strong>Status:</strong> ${escapeHTML(item.status)}</p>` : ""}
         ${item.family ? `<p class="bio-card-meta"><strong>Family:</strong> ${escapeHTML(item.family)}</p>` : ""}
+        ${item.aliases.length ? `<p class="bio-card-aliases"><strong>Also searched as:</strong> ${escapeHTML(item.aliases.join(", "))}</p>` : ""}
         ${item.noteText ? `<p class="bio-card-notes">${escapeHTML(item.noteText)}</p>` : ""}
       `;
       fragment.appendChild(article);

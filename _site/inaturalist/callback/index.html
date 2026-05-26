@@ -14,10 +14,12 @@
   
   
   
+  
+  
 
   <title>iNaturalist Authorization | Mukundara Hills Tiger Reserve</title>
   <meta name="description" content="Safe iNaturalist OAuth redirect page for future authenticated MHTR features." />
-  
+  <meta name="keywords" content="Mukundara Hills Tiger Reserve, MHTR, Mukundra Hills, Mukandra Hills Tiger Reserve, Kota wildlife, Rajasthan tiger reserve, Mukundara biodiversity, Mukundara landscape, citizen science, ecology resources" />
   <meta name="robots" content="noindex,nofollow" />
   <meta name="application-name" content="MHTR" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -25,6 +27,8 @@
   
 
   <link rel="canonical" href="https://mhtr.in/inaturalist/callback/" />
+  <link rel="alternate" hreflang="en-IN" href="https://mhtr.in/inaturalist/callback/" />
+  <link rel="alternate" hreflang="x-default" href="https://mhtr.in/inaturalist/callback/" />
   
   <link rel="icon" href="/assets/imgs/mhtr-logo.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/imgs/mhtr-favicon-48.png" type="image/png" sizes="48x48" />
@@ -39,6 +43,7 @@
   <meta property="og:description" content="Safe iNaturalist OAuth redirect page for future authenticated MHTR features." />
   <meta property="og:url" content="https://mhtr.in/inaturalist/callback/" />
   <meta property="og:image" content="https://mhtr.in/assets/imgs/mhtr-landscape-2.jpg" />
+  <meta property="og:image:secure_url" content="https://mhtr.in/assets/imgs/mhtr-landscape-2.jpg" />
   <meta property="og:image:alt" content="Tiger walking through dry grass and open woodland in the Mukundara landscape context." />
   <meta property="og:image:width" content="840" />
   <meta property="og:image:height" content="425" />
@@ -56,23 +61,46 @@
   <script src="/assets/js/main.js" defer></script>
 
   <script type="application/ld+json">
-  [
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://mhtr.in#publisher",
+      "name": "MHTR.in",
+      "alternateName": [
+        "MHTR",
+        "Mukundara Hills Tiger Reserve",
+        "Mukundra Hills Tiger Reserve",
+        "Mukandra Hills Tiger Reserve"
+      ],
+      "url": "https://mhtr.in",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mhtr.in/assets/imgs/mhtr-logo-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "hello@caneandcamera.com"
+    },
+    {
       "@type": "WebSite",
       "@id": "https://mhtr.in#website",
-      "name": "MHTR",
+      "name": "MHTR.in",
       "alternateName": [
+        "MHTR",
         "Mukundara Hills Tiger Reserve",
         "Mukundra Hills Tiger Reserve",
         "Mukandra Hills Tiger Reserve"
       ],
       "url": "https://mhtr.in",
       "description": "Independent, conservation-first information on Mukundara Hills Tiger Reserve: landscape, biodiversity, field reports, and curated resources. No sensitive wildlife locations.",
-      "inLanguage": "en-IN"
+      "inLanguage": "en-IN",
+      "publisher": {
+        "@id": "https://mhtr.in#publisher"
+      }
     },
     {
-      "@context": "https://schema.org",
       "@type": "WebPage",
       "@id": "https://mhtr.in/inaturalist/callback/#webpage",
       "url": "https://mhtr.in/inaturalist/callback/",
@@ -82,13 +110,62 @@
         "@id": "https://mhtr.in#website"
       },
       "inLanguage": "en-IN",
+      "publisher": {
+        "@id": "https://mhtr.in#publisher"
+      },
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://mhtr.in/assets/imgs/mhtr-landscape-2.jpg",
-        "caption": "Tiger walking through dry grass and open woodland in the Mukundara landscape context."
-      }
+        "caption": "Tiger walking through dry grass and open woodland in the Mukundara landscape context.",
+        "width": 840,
+        "height": 425
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://mhtr.in/assets/imgs/mhtr-landscape-2.jpg",
+        "caption": "Tiger walking through dry grass and open woodland in the Mukundara landscape context.",
+        "width": 840,
+        "height": 425
+      },
+      "keywords": [
+        "Mukundara Hills Tiger Reserve",
+        "MHTR",
+        "Mukundra Hills",
+        "Mukandra Hills Tiger Reserve",
+        "Kota wildlife",
+        "Rajasthan tiger reserve",
+        "Mukundara biodiversity",
+        "Mukundara landscape",
+        "citizen science",
+        "ecology resources"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mhtr.in/inaturalist/callback/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MHTR.in",
+          "item": "https://mhtr.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "inaturalist",
+          "item": "https://mhtr.in/inaturalist/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "iNaturalist Authorization",
+          "item": "https://mhtr.in/inaturalist/callback/"
+        }
+      ]
     }
   ]
+}
   </script>
 </head>
 
@@ -181,6 +258,10 @@
                 
                   <li><a href="/field-reports/banyan-tree-birds-rajasthan/">Banyan tree and birds in Rajasthan</a></li>
                 
+                  <li><a href="/field-reports/cattle-egrets-mango-tree-kota/">Cattle egrets and mango trees</a></li>
+                
+                  <li><a href="/field-reports/munia-grass-use-abhera-kota/">Munia birds and native grasses</a></li>
+                
               </ul>
             
           </li>
@@ -233,7 +314,6 @@
 </header>
 
 
-  
   <main class="wrap" id="main" tabindex="-1" data-pagefind-ignore>
     
 <section class="card narrow">

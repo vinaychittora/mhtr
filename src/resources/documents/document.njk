@@ -6,8 +6,16 @@ pagination:
   alias: doc
 permalink: "/resources/documents/{{ doc.slug }}/"
 eleventyComputed:
-  title: "{{ doc.title }} | MHTR Resource Archive"
+  title: "{{ doc.title }} | MHTR Archive"
   description: "{{ doc.summary }}"
+  keywords: "{{ doc.title }}, {{ doc.source }}, {{ doc.category }}, Mukundara Hills Tiger Reserve, MHTR resource archive"
+  og_title: "{{ doc.title }}"
+  og_description: "{{ doc.summary }}"
+  og_image: "https://mhtr.in/assets/imgs/mhtr-resources.png"
+  og_image_alt: "Collection of MHTR research and policy documents."
+  og_image_width: 1475
+  og_image_height: 1015
+  schema_type: WebPage
 ---
 
 <article class="document-page">
@@ -52,4 +60,37 @@ eleventyComputed:
       src="{{ doc.localPath }}"
       loading="lazy"></iframe>
   </section>
+
+  <script type="application/ld+json">
+  {{ {
+    "@context": "https://schema.org",
+    "@type": "DigitalDocument",
+    "@id": site.url + page.url + "#document",
+    "name": doc.title,
+    "description": doc.summary,
+    "url": site.url + page.url,
+    "inLanguage": "en-IN",
+    "publisher": {
+      "@type": "Organization",
+      "name": doc.source
+    },
+    "isPartOf": {
+      "@id": site.url + page.url + "#webpage"
+    },
+    "about": [
+      "Mukundara Hills Tiger Reserve",
+      "Rajasthan wildlife conservation",
+      doc.category
+    ],
+    "citation": doc.sourceUrl,
+    "dateModified": doc.archivedAt,
+    "encoding": {
+      "@type": "MediaObject",
+      "contentUrl": site.url + doc.localPath,
+      "encodingFormat": "application/pdf",
+      "name": doc.fileName,
+      "contentSize": doc.fileSize
+    }
+  } | jsonLd | safe }}
+  </script>
 </article>
