@@ -84,6 +84,52 @@
 })();
 
 (() => {
+  const popovers = Array.from(document.querySelectorAll(".bio-help-popover"));
+
+  if (!popovers.length) return;
+
+  function closeAll(except) {
+    for (const popover of popovers) {
+      if (popover === except) continue;
+      popover.removeAttribute("open");
+      popover.querySelector("summary")?.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  function isInsidePopover(event) {
+    return event.target instanceof Element && Boolean(event.target.closest(".bio-help-popover"));
+  }
+
+  for (const popover of popovers) {
+    const summary = popover.querySelector("summary");
+    summary?.setAttribute("aria-expanded", String(popover.open));
+    summary?.addEventListener("click", () => {
+      window.setTimeout(() => {
+        summary.setAttribute("aria-expanded", String(popover.open));
+        if (popover.open) closeAll(popover);
+      }, 0);
+    });
+
+    popover.addEventListener("toggle", () => {
+      summary?.setAttribute("aria-expanded", String(popover.open));
+      if (popover.open) closeAll(popover);
+    });
+  }
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!isInsidePopover(event)) closeAll();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!isInsidePopover(event)) closeAll();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeAll();
+  });
+})();
+
+(() => {
   const charts = Array.from(document.querySelectorAll("[data-pie-chart]"));
   if (!charts.length) return;
 

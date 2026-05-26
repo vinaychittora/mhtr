@@ -1404,6 +1404,144 @@ body > footer a {
 }
 
 /* Biodiversity helpers */
+.bio-hero {
+  grid-template-columns: minmax(0, 0.78fr) minmax(300px, 1fr);
+  align-items: start;
+  gap: 18px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.bio-hero h1 {
+  font-size: 2.12rem;
+}
+
+.bio-hero p {
+  max-width: 650px;
+}
+
+.bio-hero .landscape-photo-frame img {
+  aspect-ratio: 21 / 9;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.bio-hero .landscape-photo-frame figcaption {
+  margin-top: 8px;
+  font-size: 0.92rem;
+}
+
+.bio-tool-card {
+  border-color: var(--line-strong);
+  box-shadow: 0 12px 26px rgba(18, 61, 44, 0.14);
+}
+
+.bio-tool-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.bio-tool-head h2 {
+  margin: 0 0 6px;
+  font-size: 1.5rem;
+}
+
+.bio-tool-head p:last-child {
+  margin-bottom: 0;
+}
+
+.bio-tool-actions {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: 420px;
+}
+
+.bio-help-popover {
+  position: relative;
+}
+
+.bio-help-popover summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface-alt);
+  color: var(--accent);
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bio-help-popover summary::-webkit-details-marker {
+  display: none;
+}
+
+.bio-help-popover summary::marker {
+  content: "";
+}
+
+.bio-help-popover summary:hover,
+.bio-help-popover summary:focus {
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+
+.bio-help-popover summary:focus {
+  outline: 3px solid rgba(210, 194, 144, 0.55);
+  outline-offset: 2px;
+}
+
+.bio-help-popover[open] summary {
+  background: var(--accent);
+  color: var(--header-ink);
+}
+
+.bio-help-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 24;
+  width: min(330px, calc(100vw - 44px));
+  padding: 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+
+.bio-help-panel-wide {
+  width: min(430px, calc(100vw - 44px));
+}
+
+.bio-help-panel h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.bio-help-panel p {
+  margin: 8px 0;
+}
+
+.bio-help-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.bio-community-link {
+  min-height: 42px;
+  white-space: nowrap;
+}
+
 .filter-panel {
   margin-top: 10px;
 }
@@ -2576,6 +2714,35 @@ html.has-modal {
   .split-panel,
   .source-panel {
     padding: 16px;
+  }
+
+  .bio-hero {
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .bio-hero .landscape-photo-frame img {
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+  }
+
+  .bio-tool-head {
+    flex-direction: column;
+  }
+
+  .bio-tool-actions {
+    justify-content: flex-start;
+    max-width: none;
+    width: 100%;
+  }
+
+  .bio-help-panel {
+    left: 0;
+    right: auto;
+  }
+
+  .bio-community-link {
+    flex: 1 1 190px;
   }
 
   .route-card,

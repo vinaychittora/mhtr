@@ -309,16 +309,18 @@
     
     
 
-    <section class="split-panel">
+    <section class="split-panel bio-hero">
       <div>
         <h1>Biodiversity</h1>
         <p>
-          This is a source-based biodiversity reference for Mukundara Hills Tiger Reserve, compiled from published reports and annexures.
-          No sensitive wildlife locations are shared on this page.
+          Source-based biodiversity records for Mukundara Hills Tiger Reserve, compiled from published reports,
+          annexures, and community observations. Search the curated explorer below by common name, scientific name,
+          family, local name, or group.
         </p>
         <p class="muted">
-          Looking for broader context? Start with the <a href="/landscape/">landscape overview</a> and then use
-          <a href="/resources/">resources</a> for source documents.
+          Sensitive wildlife locations are intentionally omitted. For landscape context, see the
+          <a href="/landscape/">landscape overview</a>; for source documents, use
+          <a href="/resources/">resources</a>.
         </p>
       </div>
 
@@ -336,37 +338,57 @@
       </figure>
     </section>
 
-    <section class="card">
-      <h2>How to use this page</h2>
-      <p class="muted">
-        Use search to find a species by common or scientific name, and use filters to narrow by domain and group.
-        The count updates automatically so you can see how many species match your selection. Search also recognizes
-        common spelling variants and widely used names for species that are already present in the curated table.
-      </p>
-    </section>
+    <section class="card bio-tool-card" aria-labelledby="bioExplorerTitle">
+      <div class="bio-tool-head">
+        <div>
+          <p class="eyebrow">Curated Species Explorer</p>
+          <h2 id="bioExplorerTitle">Search Mukundara biodiversity</h2>
+          <p class="muted">
+            Filter the source-backed list by domain and group, or search names, families, local notes, and common variants.
+          </p>
+        </div>
 
-    <section class="card">
-      <h2>Explore more (community observations)</h2>
-      <p>
-        A complementary way to explore biodiversity in Mukundara is through the public iNaturalist project: Biodiversity of MHTR.
-      </p>
-      <p>
-        This project is maintained by Sonu Kumar, a naturalist and student of ecology working on plant diversity, bird observations, and biodiversity documentation in and around the mukundara landscape.
-      </p>
-      <p>
-        It provides real-world observations, recent activity, and community contributions.
-      </p>
-      <p>
-        View project: <a href="https://www.inaturalist.org/projects/biodiversity-of-mhtr" rel="noopener" target="_blank">https://www.inaturalist.org/projects/biodiversity-of-mhtr</a><br>
-        Profile: <a href="https://www.inaturalist.org/people/sonukumar055" rel="noopener" target="_blank">https://www.inaturalist.org/people/sonukumar055</a>
-      </p>
-      <p class="muted">
-        This is an independent, community-driven dataset and complements the curated lists on this page.
-      </p>
-    </section>
+        <div class="bio-tool-actions" aria-label="Biodiversity context and links">
+          <details class="bio-help-popover">
+            <summary aria-label="How to use the biodiversity search" title="How to use this page">
+              <span aria-hidden="true">?</span>
+            </summary>
+            <div class="bio-help-panel">
+              <h3>How to use this page</h3>
+              <p>
+                Search by common or scientific name, family, local name, or notes. Use domain and group filters to narrow
+                the list. The count updates automatically, and the search recognizes spelling variants and widely used
+                names for species already present in the curated table.
+              </p>
+            </div>
+          </details>
 
-    <section class="card">
-      <h2>Species reference list</h2>
+          <details class="bio-help-popover">
+            <summary aria-label="Community observations and iNaturalist links" title="Community observations">
+              <span aria-hidden="true">i</span>
+            </summary>
+            <div class="bio-help-panel bio-help-panel-wide">
+              <h3>Community observations</h3>
+              <p>
+                The public iNaturalist project, Biodiversity of MHTR, complements this curated list with real-world
+                observations, recent activity, and community contributions.
+              </p>
+              <p>
+                It is maintained by Sonu Kumar, a naturalist and student of ecology working on plant diversity, bird observations, and biodiversity documentation in and around the mukundara landscape.
+              </p>
+              <p>
+                Project: <a href="https://www.inaturalist.org/projects/biodiversity-of-mhtr" rel="noopener" target="_blank">https://www.inaturalist.org/projects/biodiversity-of-mhtr</a><br>
+                Profile: <a href="https://www.inaturalist.org/people/sonukumar055" rel="noopener" target="_blank">https://www.inaturalist.org/people/sonukumar055</a>
+              </p>
+            </div>
+          </details>
+
+          <a class="button-link button-link-secondary bio-community-link" href="https://www.inaturalist.org/projects/biodiversity-of-mhtr" rel="noopener" target="_blank">
+            iNaturalist project
+          </a>
+        </div>
+      </div>
+
       <div class="filter-panel" role="search" aria-label="Search biodiversity lists">
         <label class="sr-only" for="bioSearch">Search</label>
         <input id="bioSearch" class="input bio-search" type="search" placeholder="Search species, scientific names, family, or notes…" autocomplete="off" />
