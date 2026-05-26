@@ -9,8 +9,8 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
     <lastmod>{{ item.date | htmlDateString }}</lastmod>
-    <changefreq>{% if item.url == "/" %}weekly{% elif item.url == "/resources/" or item.url == "/biodiversity/" %}weekly{% else %}monthly{% endif %}</changefreq>
-    <priority>{% if item.url == "/" %}1.0{% elif item.url == "/landscape/" or item.url == "/resources/" or item.url == "/biodiversity/" %}0.9{% else %}0.7{% endif %}</priority>
+    <changefreq>{% if item.url == "/" %}weekly{% elif item.url == "/resources/" or item.url == "/biodiversity/" or item.url == "/gis-maps/" %}weekly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if item.url == "/" %}1.0{% elif item.url == "/landscape/" or item.url == "/resources/" or item.url == "/biodiversity/" or item.url == "/gis-maps/" %}0.9{% else %}0.7{% endif %}</priority>
   </url>
 {%- endif %}
 {%- endfor %}

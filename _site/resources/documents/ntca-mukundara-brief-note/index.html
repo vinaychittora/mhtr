@@ -194,8 +194,13 @@
     </div>
 
     <nav id="primary-menu" aria-label="Primary">
+      <div class="drawer-head">
+        <span>Menu</span>
+        <button class="drawer-close" type="button" data-menu-close aria-label="Close menu">x</button>
+      </div>
       <ul>
         
+          
           
           <li class="nav-item">
             
@@ -210,33 +215,81 @@
           </li>
         
           
-          <li class="nav-item">
+          
             
-              <a class="nav-link" href="/landscape/" >
+              
+            
+              
+            
+              
+            
+          
+          <li class="nav-item has-dropdown">
+            
+              <div class="nav-parent">
+                <a class="nav-link" href="/landscape/" >
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
     
       <path d="m3.5 19 6.2-10.4 3.7 6.1 1.7-2.5L20.5 19h-17Z" />
       <path d="m9.7 8.6 1.4 2.3 1.4-1.5" />
     
   </svg>
-<span>Landscape</span></a>
-            
-          </li>
-        
-          
-          <li class="nav-item">
-            
-              <a class="nav-link" href="/biodiversity/" >
+<span>Explore</span></a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show Explore menu">
+                  <span aria-hidden="true"></span>
+                </button>
+              </div>
+              <ul class="dropdown-menu" aria-label="Explore submenu">
+                
+                  
+                    <li>
+                      <a href="/landscape/" >
+                        <span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="m3.5 19 6.2-10.4 3.7 6.1 1.7-2.5L20.5 19h-17Z" />
+      <path d="m9.7 8.6 1.4 2.3 1.4-1.5" />
+    
+  </svg>
+<span>Landscape</span></span>
+                        <span class="dropdown-link-desc">Terrain, habitat, corridors and pressure context</span>
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a href="/gis-maps/" >
+                        <span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z" />
+      <path d="M9 4v14M15 6v14" />
+    
+  </svg>
+<span>GIS Maps</span></span>
+                        <span class="dropdown-link-desc">Boundary, hydrology, terrain, elevation and land cover</span>
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a href="/biodiversity/" >
+                        <span class="dropdown-link-title">
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
     
       <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
       <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
     
   </svg>
-<span>Biodiversity</span></a>
+<span>Biodiversity</span></span>
+                        <span class="dropdown-link-desc">Species lists and citizen-science context</span>
+                      </a>
+                    </li>
+                  
+                
+              </ul>
             
           </li>
         
+          
           
           <li class="nav-item has-dropdown">
             
@@ -255,22 +308,64 @@
                 </button>
               </div>
               <ul class="dropdown-menu" aria-label="Field Reports submenu">
-                <li><a href="/field-reports/">All field reports</a></li>
                 
-                  <li><a href="/field-reports/banyan-tree-birds-rajasthan/">Banyan tree and birds in Rajasthan</a></li>
+                <li><a href="/field-reports/"><span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h6.4" />
+    
+  </svg>
+<span>All field reports</span></span></a></li>
                 
-                  <li><a href="/field-reports/cattle-egrets-mango-tree-kota/">Cattle egrets and mango trees</a></li>
+                  <li><a href="/field-reports/banyan-tree-birds-rajasthan/"><span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h6.4" />
+    
+  </svg>
+<span>Banyan tree and birds in Rajasthan</span></span></a></li>
                 
-                  <li><a href="/field-reports/munia-grass-use-abhera-kota/">Munia birds and native grasses</a></li>
+                  <li><a href="/field-reports/cattle-egrets-mango-tree-kota/"><span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h6.4" />
+    
+  </svg>
+<span>Cattle egrets and mango trees</span></span></a></li>
+                
+                  <li><a href="/field-reports/munia-grass-use-abhera-kota/"><span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h6.4" />
+    
+  </svg>
+<span>Munia birds and native grasses</span></span></a></li>
+                
                 
               </ul>
             
           </li>
         
           
-          <li class="nav-item">
+          
             
-              <a class="nav-link" href="/resources/" >
+              
+            
+              
+            
+          
+          <li class="nav-item has-dropdown">
+            
+              <div class="nav-parent">
+                <a class="nav-link" href="/resources/" aria-current="page">
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
     
       <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
@@ -278,9 +373,47 @@
     
   </svg>
 <span>Resources</span></a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show Resources menu">
+                  <span aria-hidden="true"></span>
+                </button>
+              </div>
+              <ul class="dropdown-menu" aria-label="Resources submenu">
+                
+                  
+                    <li>
+                      <a href="/resources/" >
+                        <span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
+      <path d="M13.5 6.6v13" />
+    
+  </svg>
+<span>Resource Archive</span></span>
+                        <span class="dropdown-link-desc">Official documents, PDFs and source links</span>
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a href="/about/" >
+                        <span class="dropdown-link-title">
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
+      <path d="M12 10.5v5M12 8h.1" />
+    
+  </svg>
+<span>About &amp; Ethics</span></span>
+                        <span class="dropdown-link-desc">Editorial approach and conservation-safe publishing</span>
+                      </a>
+                    </li>
+                  
+                
+              </ul>
             
           </li>
         
+          
           
           <li class="nav-item">
             
@@ -295,23 +428,10 @@
             
           </li>
         
-          
-          <li class="nav-item">
-            
-              <a class="nav-link" href="/about/" >
-  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
-    
-      <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
-      <path d="M12 10.5v5M12 8h.1" />
-    
-  </svg>
-<span>About</span></a>
-            
-          </li>
-        
       </ul>
     </nav>
   </div>
+  <button class="nav-backdrop" type="button" data-menu-close aria-label="Close menu"></button>
 </header>
 
 
