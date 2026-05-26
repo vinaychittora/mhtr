@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+  <title id="title">MHTR logo and favicon concept sheet</title>
+  <desc id="desc">Four vector logo directions for Mukundara Hills Tiger Reserve with favicon previews.</desc>
+  <defs>
+    <style>
+      :root {
+        --bg: #eef2e8;
+        --surface: #fffdf7;
+        --ink: #172216;
+        --muted: #586250;
+        --green: #123d2c;
+        --leaf: #6f8b57;
+        --khaki: #d8bd68;
+        --water: #d9eaee;
+        --water-deep: #326f78;
+        --rust: #a4512c;
+        --line: #b8c7ae;
+      }
+
+      * { box-sizing: border-box; }
+
+      .sheet-bg { fill: #eef2e8; }
+      .card { fill: #fffdf7; stroke: #b8c7ae; stroke-width: 2; }
+      .card-strong { stroke: #123d2c; stroke-width: 3; }
+      .title { fill: #172216; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 54px; font-weight: 850; letter-spacing: 0; }
+      .subtitle { fill: #586250; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 25px; font-weight: 500; letter-spacing: 0; }
+      .label { fill: #a4512c; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 18px; font-weight: 850; letter-spacing: 0; text-transform: uppercase; }
+      .name { fill: #123d2c; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 32px; font-weight: 850; letter-spacing: 0; }
+      .body { fill: #586250; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 19px; font-weight: 500; letter-spacing: 0; }
+      .small { fill: #586250; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 16px; font-weight: 650; letter-spacing: 0; }
+      .tiny { fill: #586250; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0; }
+      .wordmark { fill: #172216; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 36px; font-weight: 900; letter-spacing: 0; }
+      .wordmark-sub { fill: #586250; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; }
+      .pill { fill: #e8efd9; stroke: #b8c7ae; stroke-width: 1.5; }
+      .pill-text { fill: #123d2c; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 15px; font-weight: 850; letter-spacing: 0; }
+      .guide-line { stroke: #b8c7ae; stroke-width: 2; stroke-dasharray: 4 8; }
+
+      .mark-bg { fill: #123d2c; }
+      .mark-bg-light { fill: #f8f6ea; stroke: #b8c7ae; stroke-width: 2; }
+      .hill { fill: #d8bd68; }
+      .hill-dark { fill: #6f733e; }
+      .forest { fill: #6f8b57; }
+      .water { fill: none; stroke: #d9eaee; stroke-width: 9; stroke-linecap: round; }
+      .water-fill { fill: #326f78; }
+      .stripe { fill: #a4512c; }
+      .stroke-light { fill: none; stroke: #fff8e8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+      .stroke-khaki { fill: none; stroke: #d8bd68; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+
+    <clipPath id="circle-clip">
+      <circle cx="64" cy="64" r="60" />
+    </clipPath>
+
+    <symbol id="mark-ridge-river" viewBox="0 0 128 128">
+      <circle class="mark-bg" cx="64" cy="64" r="60" />
+      <g clip-path="url(#circle-clip)">
+        <rect x="0" y="0" width="128" height="128" fill="#123d2c" />
+        <path class="hill" d="M-6 84 L28 48 L49 68 L76 31 L136 84 Z" />
+        <path class="forest" d="M-4 96 C18 82 38 88 54 76 C72 62 90 66 134 49 L134 134 L-4 134 Z" opacity="0.72" />
+        <path class="water" d="M18 101 C39 86 53 98 71 84 C88 71 101 76 118 61" />
+        <path class="stripe" d="M90 18 L101 16 L93 44 Z" />
+        <path class="stripe" d="M110 23 L121 28 L101 55 Z" />
+        <path class="stripe" d="M76 14 L84 9 L82 35 Z" />
+      </g>
+      <circle cx="64" cy="64" r="60" fill="none" stroke="#d8bd68" stroke-width="6" />
+    </symbol>
+
+    <symbol id="mark-m-monogram" viewBox="0 0 128 128">
+      <rect class="mark-bg" x="10" y="10" width="108" height="108" rx="24" />
+      <path class="stroke-khaki" d="M31 86 V40 L50 68 L64 45 L78 68 L97 40 V86" />
+      <path class="water" d="M29 96 C48 88 59 103 78 93 C89 87 96 89 102 84" />
+      <path class="stripe" d="M91 23 L103 30 L91 45 Z" />
+      <path class="stripe" d="M104 44 L112 54 L96 61 Z" />
+    </symbol>
+
+    <symbol id="mark-river-pin" viewBox="0 0 128 128">
+      <path class="mark-bg" d="M64 8 C34 8 15 29 15 57 C15 94 64 122 64 122 C64 122 113 94 113 57 C113 29 94 8 64 8 Z" />
+      <circle class="mark-bg-light" cx="64" cy="57" r="36" />
+      <path class="hill-dark" d="M30 66 L50 45 L63 59 L80 36 L100 66 Z" />
+      <path class="water-fill" d="M31 76 C46 70 55 82 69 75 C82 69 90 71 99 63 L99 91 L31 91 Z" opacity="0.9" />
+      <path class="stripe" d="M84 28 L93 30 L84 46 Z" />
+      <path class="stripe" d="M98 35 L104 43 L90 53 Z" />
+      <path d="M64 8 C34 8 15 29 15 57 C15 94 64 122 64 122 C64 122 113 94 113 57 C113 29 94 8 64 8 Z" fill="none" stroke="#d8bd68" stroke-width="5" />
+    </symbol>
+
+    <symbol id="mark-field-crest" viewBox="0 0 128 128">
+      <path class="mark-bg" d="M22 16 H106 V61 C106 91 86 111 64 120 C42 111 22 91 22 61 Z" />
+      <path class="hill" d="M22 71 L44 48 L59 64 L77 39 L106 72 Z" />
+      <path class="forest" d="M22 85 C43 76 57 88 76 78 C88 72 96 72 106 67 V96 C94 108 79 116 64 122 C48 116 34 107 22 96 Z" opacity="0.72" />
+      <path class="water" d="M35 93 C48 86 56 96 70 90 C82 85 88 87 96 81" />
+      <path class="stripe" d="M81 26 L91 24 L82 48 Z" />
+      <path class="stripe" d="M96 33 L105 39 L88 59 Z" />
+      <path d="M22 16 H106 V61 C106 91 86 111 64 120 C42 111 22 91 22 61 Z" fill="none" stroke="#d8bd68" stroke-width="5" />
+    </symbol>
+  </defs>
+
+  <rect class="sheet-bg" width="1600" height="1050" />
+
+  <text class="title" x="80" y="92">MHTR logo and favicon directions</text>
+  <text class="subtitle" x="80" y="135">Small, source-aware marks built around Mukundara's hills, water systems, dry forest, and tiger reserve identity.</text>
+
+  <g transform="translate(80 178)">
+    <rect class="card card-strong" x="0" y="0" width="690" height="365" rx="18" />
+    <use href="#mark-ridge-river" x="34" y="48" width="128" height="128" />
+    <text class="label" x="192" y="62">Recommended</text>
+    <text class="name" x="192" y="102">Ridge + River + Stripe</text>
+    <text class="body" x="192" y="140">Best all-rounder for favicon, social avatar,</text>
+    <text class="body" x="192" y="168">header mark, and maps. Reads as landscape first,</text>
+    <text class="body" x="192" y="196">with a subtle tiger-reserve cue.</text>
+
+    <text class="small" x="34" y="236">Favicon scale check</text>
+    <use href="#mark-ridge-river" x="34" y="256" width="64" height="64" />
+    <use href="#mark-ridge-river" x="116" y="272" width="32" height="32" />
+    <use href="#mark-ridge-river" x="170" y="280" width="16" height="16" />
+    <text class="tiny" x="34" y="342">64px</text>
+    <text class="tiny" x="116" y="342">32px</text>
+    <text class="tiny" x="166" y="342">16px</text>
+
+    <text class="wordmark" x="284" y="280">MHTR</text>
+    <text class="wordmark-sub" x="286" y="307">Mukundara Hills Tiger Reserve</text>
+  </g>
+
+  <g transform="translate(830 178)">
+    <rect class="card" x="0" y="0" width="690" height="365" rx="18" />
+    <use href="#mark-m-monogram" x="34" y="48" width="128" height="128" />
+    <text class="label" x="192" y="62">Clean institutional</text>
+    <text class="name" x="192" y="102">MHTR Monogram</text>
+    <text class="body" x="192" y="140">More formal and compact. Good if the site should</text>
+    <text class="body" x="192" y="168">feel like an archive or independent research hub.</text>
+    <text class="body" x="192" y="196">Less immediate for people unfamiliar with MHTR.</text>
+
+    <text class="small" x="34" y="236">Favicon scale check</text>
+    <use href="#mark-m-monogram" x="34" y="256" width="64" height="64" />
+    <use href="#mark-m-monogram" x="116" y="272" width="32" height="32" />
+    <use href="#mark-m-monogram" x="170" y="280" width="16" height="16" />
+    <text class="tiny" x="34" y="342">64px</text>
+    <text class="tiny" x="116" y="342">32px</text>
+    <text class="tiny" x="166" y="342">16px</text>
+
+    <text class="wordmark" x="284" y="280">MHTR.in</text>
+    <text class="wordmark-sub" x="286" y="307">Independent ecology and resources</text>
+  </g>
+
+  <g transform="translate(80 590)">
+    <rect class="card" x="0" y="0" width="690" height="340" rx="18" />
+    <use href="#mark-river-pin" x="34" y="42" width="128" height="128" />
+    <text class="label" x="192" y="56">Map-friendly</text>
+    <text class="name" x="192" y="96">Reserve Map Pin</text>
+    <text class="body" x="192" y="134">Strong for GIS, maps, field reports, and location</text>
+    <text class="body" x="192" y="162">context. It says 'place' clearly, though it can</text>
+    <text class="body" x="192" y="190">feel a little app-icon-like as the main brand.</text>
+
+    <text class="small" x="34" y="230">Favicon scale check</text>
+    <use href="#mark-river-pin" x="34" y="250" width="64" height="64" />
+    <use href="#mark-river-pin" x="116" y="266" width="32" height="32" />
+    <use href="#mark-river-pin" x="170" y="274" width="16" height="16" />
+    <text class="tiny" x="34" y="326">64px</text>
+    <text class="tiny" x="116" y="326">32px</text>
+    <text class="tiny" x="166" y="326">16px</text>
+
+    <text class="wordmark" x="284" y="274">Mukundara</text>
+    <text class="wordmark-sub" x="286" y="301">Maps, species, field notes, sources</text>
+  </g>
+
+  <g transform="translate(830 590)">
+    <rect class="card" x="0" y="0" width="690" height="340" rx="18" />
+    <use href="#mark-field-crest" x="34" y="42" width="128" height="128" />
+    <text class="label" x="192" y="56">Conservation crest</text>
+    <text class="name" x="192" y="96">Field Guide Shield</text>
+    <text class="body" x="192" y="134">Feels protective and official-adjacent. Good for</text>
+    <text class="body" x="192" y="162">reports and PDFs, but it is slightly too complex</text>
+    <text class="body" x="192" y="190">for the smallest favicon sizes.</text>
+
+    <text class="small" x="34" y="230">Favicon scale check</text>
+    <use href="#mark-field-crest" x="34" y="250" width="64" height="64" />
+    <use href="#mark-field-crest" x="116" y="266" width="32" height="32" />
+    <use href="#mark-field-crest" x="170" y="274" width="16" height="16" />
+    <text class="tiny" x="34" y="326">64px</text>
+    <text class="tiny" x="116" y="326">32px</text>
+    <text class="tiny" x="166" y="326">16px</text>
+
+    <text class="wordmark" x="284" y="274">MHTR Field Notes</text>
+    <text class="wordmark-sub" x="286" y="301">Conservation-first public documentation</text>
+  </g>
+
+  <g transform="translate(80 980)">
+    <rect class="pill" x="0" y="-35" width="160" height="36" rx="18" />
+    <text class="pill-text" x="18" y="-12">Forest green</text>
+    <rect x="178" y="-35" width="36" height="36" rx="8" fill="#123d2c" />
+    <rect class="pill" x="246" y="-35" width="140" height="36" rx="18" />
+    <text class="pill-text" x="264" y="-12">Dry ridge</text>
+    <rect x="404" y="-35" width="36" height="36" rx="8" fill="#d8bd68" />
+    <rect class="pill" x="472" y="-35" width="125" height="36" rx="18" />
+    <text class="pill-text" x="490" y="-12">Chambal</text>
+    <rect x="615" y="-35" width="36" height="36" rx="8" fill="#326f78" />
+    <rect class="pill" x="683" y="-35" width="125" height="36" rx="18" />
+    <text class="pill-text" x="701" y="-12">Tiger cue</text>
+    <rect x="826" y="-35" width="36" height="36" rx="8" fill="#a4512c" />
+    <text class="small" x="910" y="-19">Recommendation: use option 1 for favicon/header mark.</text>
+    <text class="small" x="910" y="3">Keep the wordmark as real text for SEO and accessibility.</text>
+  </g>
+</svg>

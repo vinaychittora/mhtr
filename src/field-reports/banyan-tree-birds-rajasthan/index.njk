@@ -2,12 +2,20 @@
 layout: base.njk
 title: "The Role of Banyan in Rajasthan’s Biodiversity: Birds | Field Report"
 description: "A bilingual field note by Sonu Kumar on banyan trees, bird activity, food sources, shade, and microhabitats in Rajasthan."
+keywords: "banyan tree birds Rajasthan, Ficus benghalensis ecology, Rajasthan bird habitat, banyan biodiversity, Sonu Kumar field note, Mukundara field report, citizen science birds"
 activeSection: field-reports
 og_type: article
+og_title: "Banyan Trees and Birds in Rajasthan"
+og_description: "A bilingual field note by Sonu Kumar on how banyan trees support birds, shade, food, microhabitats, and ecological memory."
 author: Sonu Kumar
+authorUrl: "https://www.inaturalist.org/people/sonukumar055"
 publishedTime: "2026-05-21T00:00:00+05:30"
 modifiedTime: "2026-05-21T00:00:00+05:30"
 og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
+og_image_alt: "Aerial roots, trunk, and green leaves of a banyan tree."
+og_image_width: 1600
+og_image_height: 1066
+schema_type: WebPage
 ---
 
 {% set sonu = authors.sonuKumar %}
@@ -301,8 +309,8 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
     </div>
 
     <div class="language-switcher" aria-label="Choose article language">
-      <button class="language-button is-active" type="button" data-lang-target="hi" aria-pressed="true">Hindi</button>
-      <button class="language-button" type="button" data-lang-target="en" aria-pressed="false">English</button>
+      <button class="language-button" type="button" data-lang-target="hi" aria-pressed="false">Hindi</button>
+      <button class="language-button is-active" type="button" data-lang-target="en" aria-pressed="true">English</button>
     </div>
   </header>
 
@@ -323,7 +331,7 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
 
   <div class="article-layout">
     <div class="article-body" itemprop="articleBody">
-      <section id="hindi" class="language-panel" data-lang-panel="hi" lang="hi">
+      <section id="hindi" class="language-panel" data-lang-panel="hi" lang="hi" hidden>
         <h2>राजस्थान की जैव विविधता में बरगद की भूमिका : पक्षियों के संदर्भ में</h2>
         <p>
           राजस्थान को सामान्यतः मरुस्थलीय एवं शुष्क प्रदेश के रूप में देखा जाता है, किन्तु पारिस्थितिकीय
@@ -390,7 +398,7 @@ og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
         {{ observationCards(birdObservationRecords, "hi") }}
       </section>
 
-      <section id="english" class="language-panel" data-lang-panel="en" lang="en" hidden>
+      <section id="english" class="language-panel" data-lang-panel="en" lang="en">
         <h2>The Role of Banyan in Rajasthan’s Biodiversity: With Reference to Birds</h2>
         <p>
           Rajasthan is often seen as a desert and dryland state, but ecologically it is highly diverse.
