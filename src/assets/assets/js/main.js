@@ -7,7 +7,14 @@
 
   function setMenu(open) {
     header.classList.toggle("is-menu-open", open);
+    document.documentElement.classList.toggle("has-nav-drawer", open);
     menuButton.setAttribute("aria-expanded", String(open));
+    if (!open) {
+      for (const item of header.querySelectorAll(".has-dropdown")) {
+        item.classList.remove("is-open");
+        item.querySelector(".nav-toggle")?.setAttribute("aria-expanded", "false");
+      }
+    }
   }
 
   menuButton.addEventListener("click", () => {
@@ -18,12 +25,173 @@
     if (event.target.closest("a")) setMenu(false);
   });
 
+  header.addEventListener("click", (event) => {
+    if (event.target.closest("[data-menu-close]")) setMenu(false);
+  });
+
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".site-header")) setMenu(false);
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") setMenu(false);
+  });
+})();
+
+(() => {
+  const triggers = Array.from(document.querySelectorAll("[data-map-viewer]"));
+  if (!triggers.length) return;
+
+  const modal = document.createElement("div");
+  modal.className = "map-viewer-modal";
+  modal.hidden = true;
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-labelledby", "mapViewerTitle");
+  modal.innerHTML = `
+    <div class="map-viewer-backdrop" data-map-close></div>
+    <section class="map-viewer-panel">
+      <header class="map-viewer-header">
+        <div>
+          <p class="eyebrow">GIS Map Viewer</p>
+          <h2 id="mapViewerTitle">Map</h2>
+        </div>
+        <button class="map-viewer-close" type="button" data-map-close aria-label="Close map viewer">x</button>
+      </header>
+      <div class="map-viewer-toolbar" aria-label="Map zoom controls">
+        <button type="button" data-map-zoom="out">-</button>
+        <button type="button" data-map-zoom="reset">100%</button>
+        <button type="button" data-map-zoom="in">+</button>
+        <button type="button" data-map-fullscreen>Fullscreen</button>
+      </div>
+      <div class="map-viewer-stage" tabindex="0" aria-label="Scrollable map area">
+        <img class="map-viewer-image" src="" alt="">
+      </div>
+    </section>
+  `;
+  document.body.appendChild(modal);
+
+  const title = modal.querySelector("#mapViewerTitle");
+  const stage = modal.querySelector(".map-viewer-stage");
+  const image = modal.querySelector(".map-viewer-image");
+  const resetButton = modal.querySelector("[data-map-zoom='reset']");
+  const fullscreenButton = modal.querySelector("[data-map-fullscreen]");
+  let activeTrigger = null;
+  let scale = 1;
+  let dragging = false;
+  let dragStart = { x: 0, y: 0, left: 0, top: 0 };
+
+  function setScale(nextScale, anchorX, anchorY) {
+    const oldScale = scale;
+    scale = Math.min(4, Math.max(0.65, nextScale));
+
+    const rect = stage.getBoundingClientRect();
+    const localX = anchorX == null ? rect.width / 2 : anchorX - rect.left;
+    const localY = anchorY == null ? rect.height / 2 : anchorY - rect.top;
+    const ratio = scale / oldScale;
+    const oldLeft = stage.scrollLeft;
+    const oldTop = stage.scrollTop;
+
+    image.style.width = `${scale * 100}%`;
+    resetButton.textContent = `${Math.round(scale * 100)}%`;
+
+    requestAnimationFrame(() => {
+      stage.scrollLeft = (oldLeft + localX) * ratio - localX;
+      stage.scrollTop = (oldTop + localY) * ratio - localY;
+    });
+  }
+
+  function openViewer(trigger) {
+    activeTrigger = trigger;
+    title.textContent = trigger.dataset.mapTitle || "GIS map";
+    image.src = trigger.dataset.mapSrc || trigger.querySelector("img")?.src || "";
+    image.alt = trigger.dataset.mapAlt || trigger.querySelector("img")?.alt || "";
+    modal.hidden = false;
+    document.documentElement.classList.add("has-modal");
+    setScale(1);
+    requestAnimationFrame(() => {
+      stage.scrollLeft = 0;
+      stage.scrollTop = 0;
+      stage.focus({ preventScroll: true });
+    });
+  }
+
+  function closeViewer() {
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    modal.hidden = true;
+    document.documentElement.classList.remove("has-modal");
+    scale = 1;
+    image.removeAttribute("src");
+    activeTrigger?.focus({ preventScroll: true });
+    activeTrigger = null;
+  }
+
+  for (const trigger of triggers) {
+    trigger.addEventListener("click", () => openViewer(trigger));
+  }
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-map-close]")) closeViewer();
+
+    const zoomButton = event.target.closest("[data-map-zoom]");
+    if (!zoomButton) return;
+
+    const action = zoomButton.dataset.mapZoom;
+    if (action === "in") setScale(scale * 1.25);
+    if (action === "out") setScale(scale / 1.25);
+    if (action === "reset") setScale(1);
+  });
+
+  fullscreenButton.addEventListener("click", () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {});
+    } else {
+      modal.querySelector(".map-viewer-panel").requestFullscreen?.();
+    }
+  });
+
+  stage.addEventListener("wheel", (event) => {
+    if (!event.ctrlKey && !event.metaKey) return;
+    event.preventDefault();
+    const direction = event.deltaY > 0 ? 0.9 : 1.1;
+    setScale(scale * direction, event.clientX, event.clientY);
+  }, { passive: false });
+
+  stage.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    dragging = true;
+    stage.setPointerCapture(event.pointerId);
+    dragStart = {
+      x: event.clientX,
+      y: event.clientY,
+      left: stage.scrollLeft,
+      top: stage.scrollTop,
+    };
+    stage.classList.add("is-dragging");
+  });
+
+  stage.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+    stage.scrollLeft = dragStart.left - (event.clientX - dragStart.x);
+    stage.scrollTop = dragStart.top - (event.clientY - dragStart.y);
+  });
+
+  stage.addEventListener("pointerup", () => {
+    dragging = false;
+    stage.classList.remove("is-dragging");
+  });
+
+  stage.addEventListener("pointercancel", () => {
+    dragging = false;
+    stage.classList.remove("is-dragging");
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (modal.hidden) return;
+    if (event.key === "Escape") closeViewer();
+    if (event.key === "+" || event.key === "=") setScale(scale * 1.25);
+    if (event.key === "-") setScale(scale / 1.25);
+    if (event.key === "0") setScale(1);
   });
 })();
 

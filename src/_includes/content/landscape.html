@@ -5,7 +5,7 @@
     <p class="lede">
       MHTR is not one uniform forest block. It is a long hill-and-river system shaped by
       Vindhyan ridges, dry deciduous woodland, Chambal-linked water bodies, villages,
-      roads, rail, reservoirs and wider wildlife corridors.
+      roads, rail, reservoirs, the Bhainsrodgarh core addition and wider wildlife corridors.
     </p>
     <div class="hero-actions" aria-label="Landscape page actions">
       <a class="button-link cta-primary" href="#gis-maps">Jump to GIS maps</a>
@@ -14,14 +14,23 @@
   </div>
 
   <figure class="home-hero-figure">
-    <img
-      src="/assets/imgs/mhtr-map.png"
-      alt="Map of Mukundara Hills Tiger Reserve and surrounding landscape context"
-      width="912"
-      height="594"
-      loading="eager"
-      fetchpriority="high"
-      decoding="async">
+    <button
+      class="map-zoom-trigger"
+      type="button"
+      data-map-viewer
+      data-map-title="MHTR Boundary and Landscape Context"
+      data-map-src="/assets/imgs/maps/mhtr-boundary-context-map.png"
+      data-map-alt="GIS map showing Mukundara Hills Tiger Reserve, Bhainsrodgarh core addition, surrounding protected areas, rivers, roads and district context">
+      <img
+        src="/assets/imgs/maps/mhtr-boundary-context-map.png"
+        alt="GIS map showing Mukundara Hills Tiger Reserve, Bhainsrodgarh core addition, surrounding protected areas, rivers, roads and district context"
+        width="2400"
+        height="1600"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async">
+      <span>Open zoom view</span>
+    </button>
     <figcaption>
       Public map context for learning. Sensitive wildlife points should not be published.
     </figcaption>
@@ -43,6 +52,12 @@
       <span class="metric-value">2013 / 2023</span>
       <h3>Notification context</h3>
       <p>Rajasthan Forest Department lists the 09.04.2013 notification and a 05.10.2023 notification for MHTR.</p>
+    </article>
+
+    <article class="metric-card">
+      <span class="metric-value">05.10.2023</span>
+      <h3>Bhainsrodgarh update</h3>
+      <p>The newer TCP says Bhainsrodgarh Sanctuary was added to MHTR by order 4854336 and made part of the core tiger reserve.</p>
     </article>
 
     <article class="metric-card">
@@ -108,20 +123,91 @@
     </p>
   </div>
 
-  <div class="map-gallery">
+  <div class="map-gallery map-gallery-large">
     <figure class="map-card">
-      <img src="/assets/imgs/mhtr-map.png" alt="MHTR broad map and surrounding context" width="912" height="594" loading="lazy" decoding="async">
+      <button
+        class="map-zoom-trigger"
+        type="button"
+        data-map-viewer
+        data-map-title="MHTR Boundary and Landscape Context"
+        data-map-src="/assets/imgs/maps/mhtr-boundary-context-map.png"
+        data-map-alt="GIS map showing Mukundara Hills Tiger Reserve, Bhainsrodgarh core addition, surrounding protected areas, rivers, roads and district context">
+        <img src="/assets/imgs/maps/mhtr-boundary-context-map.png" alt="GIS map showing Mukundara Hills Tiger Reserve, Bhainsrodgarh core addition, surrounding protected areas, rivers, roads and district context" width="2400" height="1600" loading="lazy" decoding="async">
+        <span>Open zoom view</span>
+      </button>
       <figcaption>
-        <strong>Boundary context:</strong> Use for orientation, public education and high-level planning discussion.
+        <strong>Boundary context:</strong> Use for orientation, public education, Bhainsrodgarh context and high-level planning discussion.
       </figcaption>
     </figure>
 
-    <figure class="map-card map-card-tall">
-      <img src="/assets/imgs/mhtr-water-map.png" alt="Water bodies and hydrology map for Mukundara Hills" width="1264" height="1552" loading="lazy" decoding="async">
+    <figure class="map-card">
+      <button
+        class="map-zoom-trigger"
+        type="button"
+        data-map-viewer
+        data-map-title="MHTR Water Systems"
+        data-map-src="/assets/imgs/maps/mhtr-water-systems-map.png"
+        data-map-alt="Hydrology GIS map of Mukundara Hills Tiger Reserve showing rivers, reservoirs, drainage lines and core boundary">
+        <img src="/assets/imgs/maps/mhtr-water-systems-map.png" alt="Hydrology GIS map of Mukundara Hills Tiger Reserve showing rivers, reservoirs, drainage lines and core boundary" width="2400" height="1600" loading="lazy" decoding="async">
+        <span>Open zoom view</span>
+      </button>
       <figcaption>
         <strong>Water context:</strong> Useful for explaining seasonal stress, wetland value and ridge-to-river connections.
       </figcaption>
     </figure>
+
+    <figure class="map-card">
+      <button
+        class="map-zoom-trigger"
+        type="button"
+        data-map-viewer
+        data-map-title="MHTR Terrain Relief"
+        data-map-src="/assets/imgs/maps/mhtr-terrain-relief-map.png"
+        data-map-alt="Shaded relief terrain map of Mukundara Hills Tiger Reserve showing ridges, valleys, water lines and core boundary">
+        <img src="/assets/imgs/maps/mhtr-terrain-relief-map.png" alt="Shaded relief terrain map of Mukundara Hills Tiger Reserve showing ridges, valleys, water lines and core boundary" width="2400" height="1600" loading="lazy" decoding="async">
+        <span>Open zoom view</span>
+      </button>
+      <figcaption>
+        <strong>Terrain context:</strong> Useful for reading ridges, plateaus, valleys and movement constraints.
+      </figcaption>
+    </figure>
+
+    <figure class="map-card">
+      <button
+        class="map-zoom-trigger"
+        type="button"
+        data-map-viewer
+        data-map-title="MHTR Elevation Zones"
+        data-map-src="/assets/imgs/maps/mhtr-elevation-zones-map.png"
+        data-map-alt="Elevation-zone GIS map of Mukundara Hills Tiger Reserve with DEM-derived bands, contours, waterways and core boundary">
+        <img src="/assets/imgs/maps/mhtr-elevation-zones-map.png" alt="Elevation-zone GIS map of Mukundara Hills Tiger Reserve with DEM-derived bands, contours, waterways and core boundary" width="2400" height="1600" loading="lazy" decoding="async">
+        <span>Open zoom view</span>
+      </button>
+      <figcaption>
+        <strong>Elevation context:</strong> Useful for explaining high ridges, lower drainage floors and microhabitat variation.
+      </figcaption>
+    </figure>
+
+    <figure class="map-card">
+      <button
+        class="map-zoom-trigger"
+        type="button"
+        data-map-viewer
+        data-map-title="MHTR Land-cover Habitat"
+        data-map-src="/assets/imgs/maps/mhtr-land-cover-habitat-map.png"
+        data-map-alt="ESA WorldCover land-cover map around Mukundara Hills Tiger Reserve showing tree cover, grassland, shrubland, cropland, built-up area and water">
+        <img src="/assets/imgs/maps/mhtr-land-cover-habitat-map.png" alt="ESA WorldCover land-cover map around Mukundara Hills Tiger Reserve showing tree cover, grassland, shrubland, cropland, built-up area and water" width="2400" height="1600" loading="lazy" decoding="async">
+        <span>Open zoom view</span>
+      </button>
+      <figcaption>
+        <strong>Land-cover context:</strong> Useful for explaining tree cover, scrub, grassland, cropland edges, water and built-up pressure.
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="inline-actions">
+    <a class="button-link" href="/gis-maps/">Open dedicated GIS map library</a>
+    <a class="button-link button-link-secondary" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Read Bhainsrodgarh source note</a>
   </div>
 
   <div class="layer-stack" aria-label="Recommended public GIS layers">
@@ -132,7 +218,7 @@
       <li><strong>Water:</strong> rivers, reservoirs, nalas, seasonal water points and wetland margins.</li>
       <li><strong>Habitat:</strong> dry forest, scrub, grass patches, riparian belts and invasive-dominated areas.</li>
       <li><strong>Pressure:</strong> roads, rail, settlements, agriculture, extraction zones and tourism concentration.</li>
-      <li><strong>Connectivity:</strong> broad corridors towards Ranthambhore, Ramgarh Vishdhari, Bhainsrorgarh and Gandhi Sagar.</li>
+      <li><strong>Connectivity:</strong> Bhainsrodgarh as current core context, plus broad links towards Ranthambhore, Ramgarh Vishdhari and Gandhi Sagar.</li>
     </ol>
   </div>
 </section>
@@ -207,8 +293,8 @@
 
 <section class="section split-panel" aria-labelledby="corridor-heading">
   <figure class="map-frame">
-    <img src="/assets/imgs/mhtr-landscape-1.jpg" alt="Rocky ridge and dry deciduous habitat in Mukundara Hills" width="1080" height="1350" loading="lazy" decoding="async">
-    <figcaption>Linear hill terrain means corridors and edge management are not optional details.</figcaption>
+    <img src="/assets/imgs/mhtr-landscape-1.jpg" alt="Leopard photographed in dense green habitat in the Mukundara landscape context" width="1080" height="1350" loading="lazy" decoding="async">
+    <figcaption>A leopard in cover is a reminder that habitat quality, water and quiet corridors are the real conservation story.</figcaption>
   </figure>
 
   <div>
@@ -217,8 +303,9 @@
     <p>
       WII's MEE-TR profile describes MHTR as part of a larger landscape with potential
       links towards Ranthambhore, Ramgarh Vishdhari, Bhainsrorgarh and Gandhi Sagar.
-      These links are not just lines on a map. They decide whether wildlife populations
-      can remain connected over time.
+      The newer TCP also changes the public reading of Bhainsrodgarh by noting it as a
+      2023 core addition to MHTR. These links are not just lines on a map. They decide
+      whether wildlife populations can remain connected over time.
     </p>
     <ul class="check-list">
       <li><strong>Genetic exchange:</strong> connected populations are more resilient than isolated ones.</li>
@@ -296,6 +383,7 @@
   </div>
   <div class="source-actions">
     <a class="button-link" href="/resources/documents/ntca-mukundara-brief-note/">NTCA brief note</a>
+    <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Updated TCP</a>
     <a class="button-link" href="/resources/documents/rajasthan-zmp-mhtr-2023/">Zonal Master Plan</a>
     <a class="button-link" href="/resources/documents/researchgate-kota-barrage-jawahar-sagar-wildlife-status/">Chambal wildlife report</a>
     <a class="button-link button-link-secondary" href="https://mee-tr.wii.gov.in/Home/Geospatial/mukundara-hills-tiger-reserve" target="_blank" rel="noopener noreferrer">WII MEE-TR GIS profile</a>

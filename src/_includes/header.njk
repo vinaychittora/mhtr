@@ -8,6 +8,9 @@
     {% elif name == "leaf" %}
       <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
       <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    {% elif name == "map" %}
+      <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z" />
+      <path d="M9 4v14M15 6v14" />
     {% elif name == "note" %}
       <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
       <path d="M14 4.8V9h4" />
@@ -45,22 +48,44 @@
     </div>
 
     <nav id="primary-menu" aria-label="Primary">
+      <div class="drawer-head">
+        <span>Menu</span>
+        <button class="drawer-close" type="button" data-menu-close aria-label="Close menu">x</button>
+      </div>
       <ul>
         {% for item in nav %}
           {% set isActive = page.url == item.match or (activeSection and item.section == activeSection) %}
-          <li class="nav-item{% if item.collection %} has-dropdown{% endif %}">
-            {% if item.collection == "fieldReports" %}
+          {% if item.children %}
+            {% for child in item.children %}
+              {% if page.url == child.match %}
+                {% set isActive = true %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <li class="nav-item{% if item.collection or item.children %} has-dropdown{% endif %}">
+            {% if item.collection == "fieldReports" or item.children %}
               <div class="nav-parent">
                 <a class="nav-link" href="{{ item.href }}" {% if isActive %}aria-current="page"{% endif %}>{{ icon(item.icon) }}<span>{{ item.label }}</span></a>
-                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show Field Reports menu">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show {{ item.label }} menu">
                   <span aria-hidden="true"></span>
                 </button>
               </div>
-              <ul class="dropdown-menu" aria-label="Field Reports submenu">
-                <li><a href="{{ item.href }}">All field reports</a></li>
+              <ul class="dropdown-menu" aria-label="{{ item.label }} submenu">
+                {% if item.children %}
+                  {% for child in item.children %}
+                    <li>
+                      <a href="{{ child.href }}" {% if page.url == child.match %}aria-current="page"{% endif %}>
+                        <span class="dropdown-link-title">{{ icon(child.icon) }}<span>{{ child.label }}</span></span>
+                        {% if child.description %}<span class="dropdown-link-desc">{{ child.description }}</span>{% endif %}
+                      </a>
+                    </li>
+                  {% endfor %}
+                {% else %}
+                <li><a href="{{ item.href }}"><span class="dropdown-link-title">{{ icon(item.icon) }}<span>All field reports</span></span></a></li>
                 {% for report in fieldReports %}
-                  <li><a href="{{ report.href }}">{{ report.shortTitle }}</a></li>
+                  <li><a href="{{ report.href }}"><span class="dropdown-link-title">{{ icon(item.icon) }}<span>{{ report.shortTitle }}</span></span></a></li>
                 {% endfor %}
+                {% endif %}
               </ul>
             {% else %}
               <a class="nav-link" href="{{ item.href }}" {% if isActive %}aria-current="page"{% endif %}>{{ icon(item.icon) }}<span>{{ item.label }}</span></a>
@@ -70,4 +95,5 @@
       </ul>
     </nav>
   </div>
+  <button class="nav-backdrop" type="button" data-menu-close aria-label="Close menu"></button>
 </header>

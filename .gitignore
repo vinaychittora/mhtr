@@ -1,3 +1,4 @@
 node_modules/
 .DS_Store
 *:Zone.Identifier
+Data/source-materials/gis/cache/

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "boundary-context",
+    "title": "Boundary and Landscape Context",
+    "shortTitle": "Boundary",
+    "image": "/assets/imgs/maps/mhtr-boundary-context-map.png",
+    "alt": "GIS map showing Mukundara Hills Tiger Reserve, Bhainsrodgarh core addition, surrounding protected areas, rivers, roads and district context",
+    "width": 2400,
+    "height": 1600,
+    "summary": "Shows the public MHTR boundary context, including Bhainsrodgarh Wildlife Sanctuary as a core addition noted in the newer Tiger Conservation Plan.",
+    "useFor": "Use this first when explaining where MHTR sits in the wider Kota, Bundi, Chittaurgarh and Jhalawar landscape.",
+    "sources": "MHTR TCP, OpenStreetMap, geoBoundaries"
+  },
+  {
+    "slug": "terrain-relief",
+    "title": "Terrain and Ridge Relief",
+    "shortTitle": "Terrain",
+    "image": "/assets/imgs/maps/mhtr-terrain-relief-map.png",
+    "alt": "Shaded relief terrain map of Mukundara Hills Tiger Reserve showing ridges, valleys, water lines and core boundary",
+    "width": 2400,
+    "height": 1600,
+    "summary": "Uses DEM-derived shaded relief with metre-based elevation bands and high/low callouts to make the ridge-to-valley structure visible.",
+    "useFor": "Use this to explain why slopes, valleys and long linear ridges shape habitat, visibility, patrol access and movement, with approximate elevation context.",
+    "sources": "Mapzen/AWS Terrarium elevation tiles, OpenStreetMap, MHTR TCP"
+  },
+  {
+    "slug": "water-systems",
+    "title": "Water Systems and Hydrology",
+    "shortTitle": "Water",
+    "image": "/assets/imgs/maps/mhtr-water-systems-map.png",
+    "alt": "Hydrology map of Mukundara Hills Tiger Reserve showing rivers, reservoirs, canals, roads, rail and nearby settlements",
+    "width": 2400,
+    "height": 1600,
+    "summary": "Highlights Chambal-linked rivers, reservoirs, canals and drainage lines around the reserve, with key public water-body names labelled.",
+    "useFor": "Use this for dry-season stress, wetland value, riparian corridors and water-linked movement context.",
+    "sources": "OpenStreetMap, Mapzen/AWS Terrarium elevation tiles, MHTR TCP"
+  },
+  {
+    "slug": "elevation-zones",
+    "title": "Elevation Zones and Contours",
+    "shortTitle": "Elevation",
+    "image": "/assets/imgs/maps/mhtr-elevation-zones-map.png",
+    "alt": "Elevation-zone GIS map of Mukundara Hills Tiger Reserve with DEM-derived bands, contours, waterways and core boundary",
+    "width": 2400,
+    "height": 1600,
+    "summary": "Classifies local elevation bands in metres, adds 50 m contours, and marks representative high-ridge and lower-valley points.",
+    "useFor": "Use this when discussing high ridges, lower valleys, drainage floors and terrain-driven microhabitats with approximate DEM elevation values.",
+    "sources": "Mapzen/AWS Terrarium elevation tiles, OpenStreetMap, MHTR TCP"
+  },
+  {
+    "slug": "land-cover-habitat",
+    "title": "Land-cover and Habitat Context",
+    "shortTitle": "Land Cover",
+    "image": "/assets/imgs/maps/mhtr-land-cover-habitat-map.png",
+    "alt": "ESA WorldCover land-cover map around Mukundara Hills Tiger Reserve showing tree cover, grassland, shrubland, cropland, built-up area and water",
+    "width": 2400,
+    "height": 1600,
+    "summary": "Uses ESA WorldCover 2021 to show broad tree cover, shrubland, grassland, cropland, built-up area, bare ground and water.",
+    "useFor": "Use this as a habitat base layer, then interpret fine habitat details with field notes and forest records.",
+    "sources": "ESA WorldCover 2021, OpenStreetMap, MHTR TCP"
+  }
+]

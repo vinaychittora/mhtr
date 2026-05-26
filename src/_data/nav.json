@@ -1,9 +1,28 @@
 [
   {"label": "Home", "href": "/", "match": "/", "icon": "home"},
-  {"label": "Landscape", "href": "/landscape/", "match": "/landscape/", "icon": "mountain"},
-  {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf"},
+  {
+    "label": "Explore",
+    "href": "/landscape/",
+    "match": "/landscape/",
+    "section": "explore",
+    "icon": "mountain",
+    "children": [
+      {"label": "Landscape", "href": "/landscape/", "match": "/landscape/", "icon": "mountain", "description": "Terrain, habitat, corridors and pressure context"},
+      {"label": "GIS Maps", "href": "/gis-maps/", "match": "/gis-maps/", "icon": "map", "description": "Boundary, hydrology, terrain, elevation and land cover"},
+      {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf", "description": "Species lists and citizen-science context"}
+    ]
+  },
   {"label": "Field Reports", "href": "/field-reports/", "match": "/field-reports/", "section": "field-reports", "collection": "fieldReports", "icon": "note"},
-  {"label": "Resources", "href": "/resources/", "match": "/resources/", "icon": "book"},
-  {"label": "Search", "href": "/search/", "match": "/search/", "icon": "search"},
-  {"label": "About", "href": "/about/", "match": "/about/", "icon": "info"}
+  {
+    "label": "Resources",
+    "href": "/resources/",
+    "match": "/resources/",
+    "section": "resources",
+    "icon": "book",
+    "children": [
+      {"label": "Resource Archive", "href": "/resources/", "match": "/resources/", "icon": "book", "description": "Official documents, PDFs and source links"},
+      {"label": "About & Ethics", "href": "/about/", "match": "/about/", "icon": "info", "description": "Editorial approach and conservation-safe publishing"}
+    ]
+  },
+  {"label": "Search", "href": "/search/", "match": "/search/", "section": "search", "icon": "search"}
 ]

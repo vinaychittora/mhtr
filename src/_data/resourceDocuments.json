@@ -35,7 +35,7 @@
   },
   {
     "slug": "wii-mukundara-tiger-conservation-plan-2020-2030",
-    "title": "Tiger Conservation Plan - Mukundara Hills Tiger Reserve",
+    "title": "Tiger Conservation Plan - Mukundara Hills Tiger Reserve (Earlier Archive)",
     "category": "Planning and management",
     "type": "Core management plan",
     "source": "WII MEE-TR portal / Rajasthan Forest Department",
@@ -46,9 +46,26 @@
     "pages": 417,
     "issued": "2020-21 to 2029-30",
     "archivedAt": "2026-05-21",
-    "summary": "The main long-form planning document for reserve management, protection, habitat, prey, tourism, eco-development, and monitoring priorities.",
-    "useFor": "Use for serious work on management direction, habitat interventions, staffing, conflict, tourism, and long-term conservation planning.",
-    "researchNote": "This is the first document to read for management questions. It is large, so use the embedded viewer or open the PDF in a dedicated tab."
+    "summary": "Earlier archived long-form planning document for reserve management, protection, habitat, prey, tourism, eco-development, and monitoring priorities.",
+    "useFor": "Use for management background and comparison with newer TCP material that includes the Bhainsrodgarh core-addition context.",
+    "researchNote": "Useful for management questions, but read alongside the newer TCP archive where Bhainsrodgarh is noted as a 2023 core addition."
+  },
+  {
+    "slug": "mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition",
+    "title": "Tiger Conservation Plan - MHTR with Bhainsrodgarh Core Addition",
+    "category": "Planning and management",
+    "type": "Core management plan / updated official copy",
+    "source": "Mukundara Hills Tiger Reserve / Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/wildlife/details-of-protected-area-/mukundara-hills-tiger-reserve.html",
+    "localPath": "/assets/docs/resources/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition.pdf",
+    "fileName": "mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition.pdf",
+    "fileSize": "28 MB",
+    "pages": 773,
+    "issued": "Updated copy references 05 Oct 2023 order",
+    "archivedAt": "2026-05-26",
+    "summary": "Newer official TCP archive that states Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve by order 4854336 dated 05.10.2023 and made part of the core tiger reserve.",
+    "useFor": "Use for the current Bhainsrodgarh core-addition context, updated management framing, corridor notes, protection infrastructure and long-form planning details.",
+    "researchNote": "This is the key source for the Bhainsrodgarh update. It is large; open in a dedicated tab when reading maps, annexures or tables."
   },
   {
     "slug": "ntca-mhtr-apo-2019-20",
@@ -83,6 +100,23 @@
     "summary": "Recent NTCA sanction document for tiger reserve work in Rajasthan, useful for tracking funded priorities and current-cycle conservation support.",
     "useFor": "Use to understand sanctioned priorities, funding direction, and current-cycle management support.",
     "researchNote": "Read alongside reserve-specific APOs and implementation reports; sanction does not by itself prove field completion."
+  },
+  {
+    "slug": "ntca-mee-tiger-reserves-technical-manual-2022",
+    "title": "Management Effectiveness Evaluation Technical Manual - Tiger Reserves in India",
+    "category": "Planning and management",
+    "type": "Official technical manual",
+    "source": "National Tiger Conservation Authority (NTCA)",
+    "sourceUrl": "https://ntca.gov.in/assets/uploads/Reports/MEE/MEE_Technical_Manual_2022.pdf",
+    "localPath": "/assets/docs/resources/ntca-mee-tiger-reserves-technical-manual-2022.pdf",
+    "fileName": "ntca-mee-tiger-reserves-technical-manual-2022.pdf",
+    "fileSize": "3.3 MB",
+    "pages": 34,
+    "issued": "2022",
+    "archivedAt": "2026-05-26",
+    "summary": "NTCA technical manual explaining the Management Effectiveness Evaluation framework used for tiger reserves in India.",
+    "useFor": "Use for understanding MEE terminology, evaluation criteria, management-effectiveness context and how tiger reserves are assessed.",
+    "researchNote": "This is not MHTR-specific, but it helps readers understand official management evaluation language used across tiger reserves."
   },
   {
     "slug": "rajasthan-zmp-mhtr-2023",
@@ -185,6 +219,23 @@
     "summary": "A WII rapid assessment report on aquatic wildlife and river habitat quality along the Chambal River stretch between Kota Barrage and Jawahar Sagar Dam.",
     "useFor": "Use for Chambal river-valley context, otter signs, crocodile and turtle records, waterbirds, raptors, fish diversity, and development-impact interpretation around the wider Mukundara landscape.",
     "researchNote": "This report can contain sensitive field locations. Use it for ecological context and citation, but avoid republishing precise nest, roost, or wildlife-use coordinates."
+  },
+  {
+    "slug": "ijemmasss-mukundra-wildlife-corridors-2023",
+    "title": "Wildlife Corridors of Mukundra Hills Tiger Reserve",
+    "category": "Biodiversity references",
+    "type": "Research paper",
+    "source": "International Journal of Education, Modern Management, Applied Science & Social Science",
+    "sourceUrl": "https://ijemmasss.com/",
+    "localPath": "/assets/docs/resources/ijemmasss-mukundra-wildlife-corridors-2023.pdf",
+    "fileName": "ijemmasss-mukundra-wildlife-corridors-2023.pdf",
+    "fileSize": "1.9 MB",
+    "pages": 16,
+    "issued": "2023",
+    "archivedAt": "2026-05-26",
+    "summary": "Research paper focused on wildlife-corridor significance for Mukundra Hills Tiger Reserve and wider biodiversity conservation.",
+    "useFor": "Use as a secondary corridor-context source, especially when discussing connectivity, gene flow, landscape permeability and conservation planning.",
+    "researchNote": "Treat as a research reference rather than a legal or management notification. Cross-check corridor claims against official plans and GIS sources."
   },
   {
     "slug": "global-tiger-protected-area-compendium-2021",

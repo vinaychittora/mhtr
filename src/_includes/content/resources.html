@@ -25,11 +25,26 @@
   </figure>
 </section>
 
+<section class="section" aria-labelledby="resource-update-heading">
+  <div class="notice-panel">
+    <div>
+      <p class="eyebrow">Important Update</p>
+      <h2 id="resource-update-heading">Bhainsrodgarh source added to the archive</h2>
+      <p>
+        The newer Tiger Conservation Plan copy says Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve
+        by order 4854336 dated 05.10.2023 and made part of the core tiger reserve. That PDF is now listed near the
+        top of this archive because it changes how the landscape and GIS maps should be read.
+      </p>
+    </div>
+    <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Open updated TCP</a>
+  </div>
+</section>
+
 <section class="card" aria-label="Archived PDF documents">
   <h2>Archived documents</h2>
   <p class="muted">
-    These documents were downloaded and stored locally on May 21, 2026. Each document has a detail page with summary,
-    source, archive metadata, suggested use, and an embedded PDF viewer.
+    These documents were downloaded and stored locally on May 21 and May 26, 2026. Each document has a detail page with
+    summary, source, archive metadata, suggested use, and an embedded PDF viewer.
   </p>
 
   <div class="resource-list">
@@ -47,7 +62,7 @@
           <span>{{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</span>
         </p>
         <p><strong>Use this for:</strong> {{ doc.useFor }}</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved from the original source on {{ doc.archivedAt }}.</p>
+        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on {{ doc.archivedAt }}.</p>
         <div class="resource-actions">
           <a href="/resources/documents/{{ doc.slug }}/">View archive page</a>
           <a href="{{ doc.localPath }}" target="_blank" rel="noopener">Open PDF</a>
