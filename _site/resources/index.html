@@ -57,8 +57,9 @@
   <meta name="twitter:image:alt" content="Collection of MHTR research and policy documents." />
   <meta name="twitter:url" content="https://mhtr.in/resources/" />
 
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260527g">
+  <script src="/assets/js/main.js?v=20260527g" defer></script>
+  <script src="/assets/js/resource-browser.js?v=20260527g" defer></script>
 
   <script type="application/ld+json">
 {
@@ -217,7 +218,7 @@
           <li class="nav-item has-dropdown">
             
               <div class="nav-parent">
-                <a class="nav-link" href="/landscape/" >
+                <a class="nav-link" href="/landscape/" aria-expanded="false" aria-controls="nav-submenu-2" >
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
     
       <path d="m3.5 19 6.2-10.4 3.7 6.1 1.7-2.5L20.5 19h-17Z" />
@@ -225,11 +226,11 @@
     
   </svg>
 <span>Explore</span></a>
-                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show Explore menu">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-submenu-2" aria-label="Toggle Explore menu">
                   <span aria-hidden="true"></span>
                 </button>
               </div>
-              <ul class="dropdown-menu" aria-label="Explore submenu">
+              <ul class="dropdown-menu" id="nav-submenu-2" aria-label="Explore submenu" aria-hidden="true">
                 
                   
                     <li>
@@ -284,7 +285,7 @@
           <li class="nav-item has-dropdown">
             
               <div class="nav-parent">
-                <a class="nav-link" href="/field-reports/" >
+                <a class="nav-link" href="/field-reports/" aria-expanded="false" aria-controls="nav-submenu-3" >
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
     
       <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
@@ -293,11 +294,11 @@
     
   </svg>
 <span>Field Reports</span></a>
-                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show Field Reports menu">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-submenu-3" aria-label="Toggle Field Reports menu">
                   <span aria-hidden="true"></span>
                 </button>
               </div>
-              <ul class="dropdown-menu" aria-label="Field Reports submenu">
+              <ul class="dropdown-menu" id="nav-submenu-3" aria-label="Field Reports submenu" aria-hidden="true">
                 
                 <li><a href="/field-reports/"><span class="dropdown-link-title">
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
@@ -357,7 +358,7 @@
           <li class="nav-item has-dropdown">
             
               <div class="nav-parent">
-                <a class="nav-link" href="/resources/" aria-current="page">
+                <a class="nav-link" href="/resources/" aria-expanded="false" aria-controls="nav-submenu-4" aria-current="page">
   <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
     
       <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
@@ -365,11 +366,11 @@
     
   </svg>
 <span>Resources</span></a>
-                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show Resources menu">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-submenu-4" aria-label="Toggle Resources menu">
                   <span aria-hidden="true"></span>
                 </button>
               </div>
-              <ul class="dropdown-menu" aria-label="Resources submenu">
+              <ul class="dropdown-menu" id="nav-submenu-4" aria-label="Resources submenu" aria-hidden="true">
                 
                   
                     <li>
@@ -428,20 +429,22 @@
 
 
   <main class="wrap" id="main" tabindex="-1" data-pagefind-body>
-    <section class="split-panel">
+    
+
+
+
+<section class="split-panel resource-hero">
   <div>
     <h1>Mukundara Hills Tiger Reserve Resource Archive</h1>
     <p class="lede">
-      A locally archived research library for Mukundara Hills Tiger Reserve: official notifications, conservation plans,
-      ESZ records, clearance files, biodiversity references, and live public datasets.
+      Documents, maps, plans, field references and live portals for understanding Mukundara Hills Tiger Reserve.
     </p>
     <p class="muted">
-      We preserve local PDF copies because government and institutional links can move, fail, or disappear. The original
-      source link is still shown on every document page for citation and version checking.
+      Use the filters to narrow the archive by subject, then open the detail page, PDF, or original link.
     </p>
   </div>
 
-  <figure class="map-frame landscape-photo-frame">
+  <figure class="map-frame landscape-photo-frame resource-hero-image">
     <img
       src="/assets/imgs/mhtr-resources.png"
       alt="Collage of Mukundara Hills Tiger Reserve research papers, notifications and conservation documents"
@@ -450,7 +453,7 @@
       loading="eager"
       decoding="async">
     <figcaption>
-      The archive keeps source documents close to the public explanation, so claims can be checked.
+      A working library for official records, planning documents and ecological references.
     </figcaption>
   </figure>
 </section>
@@ -459,451 +462,784 @@
   <div class="notice-panel">
     <div>
       <p class="eyebrow">Important Update</p>
-      <h2 id="resource-update-heading">Bhainsrodgarh source added to the archive</h2>
+      <h2 id="resource-update-heading">Bhainsrodgarh TCP added</h2>
       <p>
-        The newer Tiger Conservation Plan copy says Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve
-        by order 4854336 dated 05.10.2023 and made part of the core tiger reserve. That PDF is now listed near the
-        top of this archive because it changes how the landscape and GIS maps should be read.
+        The newer Tiger Conservation Plan copy includes the 05 Oct 2023 Bhainsrodgarh core-addition context and is
+        listed near the top of this archive.
       </p>
     </div>
     <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Open updated TCP</a>
   </div>
 </section>
 
-<section class="card" aria-label="Archived PDF documents">
-  <h2>Archived documents</h2>
-  <p class="muted">
-    These documents were downloaded and stored locally on May 21 and May 26, 2026. Each document has a detail page with
-    summary, source, archive metadata, suggested use, and an embedded PDF viewer.
-  </p>
+<section class="section resource-browser" data-resource-browser aria-labelledby="resource-browser-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Find Resources</p>
+    <h2 id="resource-browser-heading">Search and filter the archive</h2>
+  </div>
 
-  <div class="resource-list">
+  <div class="resource-toolbar">
+    <label class="resource-search-field">
+      <span>Search this page</span>
+      <input type="search" data-resource-search placeholder="Try TCP, ESZ, river, reptiles..." autocomplete="off">
+    </label>
 
-      <article class="resource-item">
-        <p class="eyebrow">Core official sources</p>
+    <div class="resource-filter-list" role="group" aria-label="Filter resources by category">
+      <button class="resource-filter-button is-active" type="button" data-resource-filter="all" aria-pressed="true">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
+      <path d="M13.5 6.6v13" />
+    
+  </svg>
+<span>All</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="official" aria-pressed="false">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h5" />
+    
+  </svg>
+<span>Official</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="management" aria-pressed="false">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M4.5 19.5V6.2l7.5-3.1 7.5 3.1v13.3" />
+      <path d="M8 19.5v-6.2h8v6.2" />
+      <path d="M9.2 8.4h5.6" />
+    
+  </svg>
+<span>Management</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="esz" aria-pressed="false">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z" />
+      <path d="M9 4v14M15 6v14" />
+    
+  </svg>
+<span>ESZ &amp; maps</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="clearance" aria-pressed="false">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M12 3.8 19 7v5.2c0 4.4-2.8 7.3-7 8.8-4.2-1.5-7-4.4-7-8.8V7l7-3.2Z" />
+      <path d="m8.8 12.2 2.1 2.1 4.5-5" />
+    
+  </svg>
+<span>Clearance</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="biodiversity" aria-pressed="false">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
+      <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    
+  </svg>
+<span>Biodiversity</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="context" aria-pressed="false">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
+      <path d="M13.5 6.6v13" />
+    
+  </svg>
+<span>Context</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="live" aria-pressed="false">
+        
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Live links</span>
+      </button>
+    </div>
+
+    <p class="resource-result-count muted" data-resource-count aria-live="polite"></p>
+  </div>
+
+  <section class="resource-section" data-resource-section aria-label="Archived PDF documents">
+    <div class="resource-section-heading">
+      <h2>Archived documents</h2>
+      <p class="muted">PDF copies are stored locally; original links remain available for citation and version checks.</p>
+    </div>
+
+    <div class="resource-list">
+
+      
+      <article class="resource-item" data-resource-item data-resource-category="official">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h5" />
+    
+  </svg>
+<span>Core official sources</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/ntca-mukundara-brief-note/">Mukundara Hills Tiger Reserve Brief Note</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Official central-government brief</span>
-          <span class="resource-sep">•</span>
-          <span>Source: National Tiger Conservation Authority (NTCA)</span>
-          <span class="resource-sep">•</span>
-          <span>87 KB / 2 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use as a quick orientation before reading full planning, legal, and compliance documents.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">A concise official profile of Mukundara Hills Tiger Reserve in the national tiger conservation context.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Official central-government brief</dd></div>
+          <div><dt>Source</dt><dd>National Tiger Conservation Authority (NTCA)</dd></div>
+          <div><dt>File</dt><dd>87 KB / 2 pages</dd></div>
+          <div><dt>Issued</dt><dd>Not stated</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use as a quick orientation before reading full planning, legal, and compliance documents.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/ntca-mukundara-brief-note/">View archive page</a>
+          <a href="/resources/documents/ntca-mukundara-brief-note/">View page</a>
           <a href="/assets/docs/resources/ntca-mukundara-brief-note.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://ntca.gov.in/assets/uploads/briefnote/mukundara.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://ntca.gov.in/assets/uploads/briefnote/mukundara.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Legal and notification records</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="official">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h5" />
+    
+  </svg>
+<span>Legal and notification records</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/moefcc-mukundara-notification-2020/">Mukundara Hills Tiger Reserve Notification</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Government notification / legal document</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Ministry of Environment, Forest and Climate Change (MoEFCC)</span>
-          <span class="resource-sep">•</span>
-          <span>2.5 MB / 46 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for legal basis, notified details, regulated activity context, and compliance interpretation.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Official Gazette notification related to the Mukundara Hills Tiger Reserve eco-sensitive zone context.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Government notification / legal document</dd></div>
+          <div><dt>Source</dt><dd>Ministry of Environment, Forest and Climate Change (MoEFCC)</dd></div>
+          <div><dt>File</dt><dd>2.5 MB / 46 pages</dd></div>
+          <div><dt>Issued</dt><dd>25 Nov 2020</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for legal basis, notified details, regulated activity context, and compliance interpretation.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/moefcc-mukundara-notification-2020/">View archive page</a>
+          <a href="/resources/documents/moefcc-mukundara-notification-2020/">View page</a>
           <a href="/assets/docs/resources/moefcc-mukundara-notification-2020.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://moef.gov.in/uploads/2020/12/mukundra-1.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://moef.gov.in/uploads/2020/12/mukundra-1.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Planning and management</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="management">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M4.5 19.5V6.2l7.5-3.1 7.5 3.1v13.3" />
+      <path d="M8 19.5v-6.2h8v6.2" />
+      <path d="M9.2 8.4h5.6" />
+    
+  </svg>
+<span>Planning and management</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/wii-mukundara-tiger-conservation-plan-2020-2030/">Tiger Conservation Plan - Mukundara Hills Tiger Reserve (Earlier Archive)</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Core management plan</span>
-          <span class="resource-sep">•</span>
-          <span>Source: WII MEE-TR portal / Rajasthan Forest Department</span>
-          <span class="resource-sep">•</span>
-          <span>45.2 MB / 417 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for management background and comparison with newer TCP material that includes the Bhainsrodgarh core-addition context.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Earlier archived long-form planning document for reserve management, protection, habitat, prey, tourism, eco-development, and monitoring priorities.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Core management plan</dd></div>
+          <div><dt>Source</dt><dd>WII MEE-TR portal / Rajasthan Forest Department</dd></div>
+          <div><dt>File</dt><dd>45.2 MB / 417 pages</dd></div>
+          <div><dt>Issued</dt><dd>2020-21 to 2029-30</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for management background and comparison with newer TCP material that includes the Bhainsrodgarh core-addition context.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/wii-mukundara-tiger-conservation-plan-2020-2030/">View archive page</a>
+          <a href="/resources/documents/wii-mukundara-tiger-conservation-plan-2020-2030/">View page</a>
           <a href="/assets/docs/resources/wii-mukundara-tiger-conservation-plan-2020-2030.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://mee-tr.wii.gov.in/Home/DownloadFilenew?filePath=~%5CUploadedFiles%5CMukundara_Hills_Tiger_Reserve%5CTCP_CTR%5CTCP_Mukundara_Hills.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://mee-tr.wii.gov.in/Home/DownloadFilenew?filePath=~%5CUploadedFiles%5CMukundara_Hills_Tiger_Reserve%5CTCP_CTR%5CTCP_Mukundara_Hills.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Planning and management</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="management">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M4.5 19.5V6.2l7.5-3.1 7.5 3.1v13.3" />
+      <path d="M8 19.5v-6.2h8v6.2" />
+      <path d="M9.2 8.4h5.6" />
+    
+  </svg>
+<span>Planning and management</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Tiger Conservation Plan - MHTR with Bhainsrodgarh Core Addition</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Core management plan / updated official copy</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Mukundara Hills Tiger Reserve / Rajasthan Forest Department</span>
-          <span class="resource-sep">•</span>
-          <span>28 MB / 773 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for the current Bhainsrodgarh core-addition context, updated management framing, corridor notes, protection infrastructure and long-form planning details.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-26.</p>
+        <p class="resource-summary">Newer official TCP archive that states Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve by order 4854336 dated 05.10.2023 and made part of the core tiger reserve.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Core management plan / updated official copy</dd></div>
+          <div><dt>Source</dt><dd>Mukundara Hills Tiger Reserve / Rajasthan Forest Department</dd></div>
+          <div><dt>File</dt><dd>28 MB / 773 pages</dd></div>
+          <div><dt>Issued</dt><dd>Updated copy references 05 Oct 2023 order</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for the current Bhainsrodgarh core-addition context, updated management framing, corridor notes, protection infrastructure and long-form planning details.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-26</p>
         <div class="resource-actions">
-          <a href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">View archive page</a>
+          <a href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">View page</a>
           <a href="/assets/docs/resources/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/wildlife/details-of-protected-area-/mukundara-hills-tiger-reserve.html" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/wildlife/details-of-protected-area-/mukundara-hills-tiger-reserve.html" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Planning and management</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="management">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M4.5 19.5V6.2l7.5-3.1 7.5 3.1v13.3" />
+      <path d="M8 19.5v-6.2h8v6.2" />
+      <path d="M9.2 8.4h5.6" />
+    
+  </svg>
+<span>Planning and management</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/ntca-mhtr-apo-2019-20/">Annual Plan of Operation 2019-20 - MHTR</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Financial and operational plan</span>
-          <span class="resource-sep">•</span>
-          <span>Source: National Tiger Conservation Authority (NTCA)</span>
-          <span class="resource-sep">•</span>
-          <span>953 KB / 23 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for budget heads, approved actions, implementation priorities, and annual management intent.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Operational and financial planning record for Mukundara Hills Tiger Reserve for the 2019-20 cycle.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Financial and operational plan</dd></div>
+          <div><dt>Source</dt><dd>National Tiger Conservation Authority (NTCA)</dd></div>
+          <div><dt>File</dt><dd>953 KB / 23 pages</dd></div>
+          <div><dt>Issued</dt><dd>2019-20</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for budget heads, approved actions, implementation priorities, and annual management intent.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/ntca-mhtr-apo-2019-20/">View archive page</a>
+          <a href="/resources/documents/ntca-mhtr-apo-2019-20/">View page</a>
           <a href="/assets/docs/resources/ntca-mhtr-apo-2019-20.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://ntca.gov.in/assets/uploads/APO/sanction_orders/2019/MHTR_2019-20.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://ntca.gov.in/assets/uploads/APO/sanction_orders/2019/MHTR_2019-20.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Planning and management</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="management">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M4.5 19.5V6.2l7.5-3.1 7.5 3.1v13.3" />
+      <path d="M8 19.5v-6.2h8v6.2" />
+      <path d="M9.2 8.4h5.6" />
+    
+  </svg>
+<span>Planning and management</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/ntca-rajasthan-sanction-2024/">NTCA Sanction Order - Rajasthan 2024</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Funding sanction document</span>
-          <span class="resource-sep">•</span>
-          <span>Source: National Tiger Conservation Authority (NTCA)</span>
-          <span class="resource-sep">•</span>
-          <span>1.8 MB / 21 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use to understand sanctioned priorities, funding direction, and current-cycle management support.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Recent NTCA sanction document for tiger reserve work in Rajasthan, useful for tracking funded priorities and current-cycle conservation support.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Funding sanction document</dd></div>
+          <div><dt>Source</dt><dd>National Tiger Conservation Authority (NTCA)</dd></div>
+          <div><dt>File</dt><dd>1.8 MB / 21 pages</dd></div>
+          <div><dt>Issued</dt><dd>2024</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use to understand sanctioned priorities, funding direction, and current-cycle management support.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/ntca-rajasthan-sanction-2024/">View archive page</a>
+          <a href="/resources/documents/ntca-rajasthan-sanction-2024/">View page</a>
           <a href="/assets/docs/resources/ntca-rajasthan-sanction-2024.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://ntca.gov.in/assets/uploads/APO/sanction_orders/2024/Sanction_Rajasthan_1st.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://ntca.gov.in/assets/uploads/APO/sanction_orders/2024/Sanction_Rajasthan_1st.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Planning and management</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="management">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M4.5 19.5V6.2l7.5-3.1 7.5 3.1v13.3" />
+      <path d="M8 19.5v-6.2h8v6.2" />
+      <path d="M9.2 8.4h5.6" />
+    
+  </svg>
+<span>Planning and management</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/ntca-mee-tiger-reserves-technical-manual-2022/">Management Effectiveness Evaluation Technical Manual - Tiger Reserves in India</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Official technical manual</span>
-          <span class="resource-sep">•</span>
-          <span>Source: National Tiger Conservation Authority (NTCA)</span>
-          <span class="resource-sep">•</span>
-          <span>3.3 MB / 34 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for understanding MEE terminology, evaluation criteria, management-effectiveness context and how tiger reserves are assessed.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-26.</p>
+        <p class="resource-summary">NTCA technical manual explaining the Management Effectiveness Evaluation framework used for tiger reserves in India.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Official technical manual</dd></div>
+          <div><dt>Source</dt><dd>National Tiger Conservation Authority (NTCA)</dd></div>
+          <div><dt>File</dt><dd>3.3 MB / 34 pages</dd></div>
+          <div><dt>Issued</dt><dd>2022</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for understanding MEE terminology, evaluation criteria, management-effectiveness context and how tiger reserves are assessed.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-26</p>
         <div class="resource-actions">
-          <a href="/resources/documents/ntca-mee-tiger-reserves-technical-manual-2022/">View archive page</a>
+          <a href="/resources/documents/ntca-mee-tiger-reserves-technical-manual-2022/">View page</a>
           <a href="/assets/docs/resources/ntca-mee-tiger-reserves-technical-manual-2022.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://ntca.gov.in/assets/uploads/Reports/MEE/MEE_Technical_Manual_2022.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://ntca.gov.in/assets/uploads/Reports/MEE/MEE_Technical_Manual_2022.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">ESZ and spatial planning</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="esz">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z" />
+      <path d="M9 4v14M15 6v14" />
+    
+  </svg>
+<span>ESZ and spatial planning</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/rajasthan-zmp-mhtr-2023/">Zonal Master Plan for Eco-sensitive Zone of Mukundara Hills Tiger Reserve</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Spatial planning / zoning document</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Rajasthan Environment Department</span>
-          <span class="resource-sep">•</span>
-          <span>4.0 MB / 78 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for zoning logic, permissible activity interpretation, land-use compatibility, and planning controls.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Zonal planning document for the eco-sensitive zone context around Mukundara Hills Tiger Reserve.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Spatial planning / zoning document</dd></div>
+          <div><dt>Source</dt><dd>Rajasthan Environment Department</dd></div>
+          <div><dt>File</dt><dd>4.0 MB / 78 pages</dd></div>
+          <div><dt>Issued</dt><dd>7 Dec 2023</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for zoning logic, permissible activity interpretation, land-use compatibility, and planning controls.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/rajasthan-zmp-mhtr-2023/">View archive page</a>
+          <a href="/resources/documents/rajasthan-zmp-mhtr-2023/">View page</a>
           <a href="/assets/docs/resources/rajasthan-zmp-mhtr-2023.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://environment.rajasthan.gov.in/content/dam/environment/Env/ZMP/ZMP_MHTR071223.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://environment.rajasthan.gov.in/content/dam/environment/Env/ZMP/ZMP_MHTR071223.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">ESZ and compliance</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="esz">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z" />
+      <path d="M9 4v14M15 6v14" />
+    
+  </svg>
+<span>ESZ and compliance</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/rajasthan-notified-esz-v-tr/">Notified ESZ Document - Rajasthan Tiger Reserve Section</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: ESZ notification record</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Rajasthan Forest Department</span>
-          <span class="resource-sep">•</span>
-          <span>802 KB / 3 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for quick ESZ and reserve-area reference across Rajasthan tiger reserves.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">A compact Rajasthan Forest Department PDF covering ESZ and tiger reserve reference tables, including Mukundara.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>ESZ notification record</dd></div>
+          <div><dt>Source</dt><dd>Rajasthan Forest Department</dd></div>
+          <div><dt>File</dt><dd>802 KB / 3 pages</dd></div>
+          <div><dt>Issued</dt><dd>Not stated</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for quick ESZ and reserve-area reference across Rajasthan tiger reserves.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/rajasthan-notified-esz-v-tr/">View archive page</a>
+          <a href="/resources/documents/rajasthan-notified-esz-v-tr/">View page</a>
           <a href="/assets/docs/resources/rajasthan-notified-esz-v-tr.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/V%20TR.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/V%20TR.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Clearance and compliance</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="clearance">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M12 3.8 19 7v5.2c0 4.4-2.8 7.3-7 8.8-4.2-1.5-7-4.4-7-8.8V7l7-3.2Z" />
+      <path d="m8.8 12.2 2.1 2.1 4.5-5" />
+    
+  </svg>
+<span>Clearance and compliance</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/environment-clearance-wildlife-2019/">Wildlife Clearance File - Bharatmala NH-148N Section near MHTR</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Clearance / regulatory compliance file</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Environment clearance portal</span>
-          <span class="resource-sep">•</span>
-          <span>1.0 MB / 37 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for mitigation commitments, project conditions, and wildlife-clearance context around infrastructure proposals.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Wildlife conservation / clearance file for a highway section in the wider Mukundara-Darrah landscape context.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Clearance / regulatory compliance file</dd></div>
+          <div><dt>Source</dt><dd>Environment clearance portal</dd></div>
+          <div><dt>File</dt><dd>1.0 MB / 37 pages</dd></div>
+          <div><dt>Issued</dt><dd>14 Nov 2019</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for mitigation commitments, project conditions, and wildlife-clearance context around infrastructure proposals.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/environment-clearance-wildlife-2019/">View archive page</a>
+          <a href="/resources/documents/environment-clearance-wildlife-2019/">View page</a>
           <a href="/assets/docs/resources/environment-clearance-wildlife-2019.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://environmentclearance.nic.in/writereaddata/Form-2/General7/14_Nov_2019_103937537KE9A2KQPWILDLIFE.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://environmentclearance.nic.in/writereaddata/Form-2/General7/14_Nov_2019_103937537KE9A2KQPWILDLIFE.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Biodiversity references</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="biodiversity">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
+      <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    
+  </svg>
+<span>Biodiversity references</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/rajasthan-reptiles-amphibians-mhtr-field-guide/">Reptiles and Amphibians of Mukundara Hills Tiger Reserve</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Taxa-focused field reference</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Rajasthan Forest Department</span>
-          <span class="resource-sep">•</span>
-          <span>3.6 MB / 84 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for non-mammal baseline context, field identification support, and biodiversity education.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">A field guide-style reference focused on reptiles and amphibians recorded in Mukundara Hills Tiger Reserve.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Taxa-focused field reference</dd></div>
+          <div><dt>Source</dt><dd>Rajasthan Forest Department</dd></div>
+          <div><dt>File</dt><dd>3.6 MB / 84 pages</dd></div>
+          <div><dt>Issued</dt><dd>Not stated</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for non-mammal baseline context, field identification support, and biodiversity education.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/rajasthan-reptiles-amphibians-mhtr-field-guide/">View archive page</a>
+          <a href="/resources/documents/rajasthan-reptiles-amphibians-mhtr-field-guide/">View page</a>
           <a href="/assets/docs/resources/rajasthan-reptiles-amphibians-mhtr-field-guide.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Preliminary-Birds-guide-/Reptiles%20%26%20Amphibians%20book%20of%20MHTR0.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Preliminary-Birds-guide-/Reptiles%20%26%20Amphibians%20book%20of%20MHTR0.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Biodiversity references</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="biodiversity">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
+      <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    
+  </svg>
+<span>Biodiversity references</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/ijcmas-dharmendra-kumar-2020/">Phytodiversity Characterization of Mukundara Hills Tiger Reserve</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Regional biodiversity research paper</span>
-          <span class="resource-sep">•</span>
-          <span>Source: International Journal of Current Microbiology and Applied Sciences</span>
-          <span class="resource-sep">•</span>
-          <span>379 KB / 11 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for sampling design, plant diversity records, and habitat interpretation.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Research article on plant diversity characterization in Mukundara Hills Tiger Reserve.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Regional biodiversity research paper</dd></div>
+          <div><dt>Source</dt><dd>International Journal of Current Microbiology and Applied Sciences</dd></div>
+          <div><dt>File</dt><dd>379 KB / 11 pages</dd></div>
+          <div><dt>Issued</dt><dd>2020</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for sampling design, plant diversity records, and habitat interpretation.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/ijcmas-dharmendra-kumar-2020/">View archive page</a>
+          <a href="/resources/documents/ijcmas-dharmendra-kumar-2020/">View page</a>
           <a href="/assets/docs/resources/ijcmas-dharmendra-kumar-2020.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://www.ijcmas.com/9-7-2020/Dharmendra%20Kumar,%20et%20al.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://www.ijcmas.com/9-7-2020/Dharmendra%20Kumar,%20et%20al.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Biodiversity references</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="biodiversity">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
+      <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    
+  </svg>
+<span>Biodiversity references</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/researchgate-kota-barrage-jawahar-sagar-wildlife-status/">Status of Wildlife between Kota Barrage and Jawahar Sagar Dam, Rajasthan</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Technical report</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Wildlife Institute of India, Dehradun</span>
-          <span class="resource-sep">•</span>
-          <span>23 MB / 64 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for Chambal river-valley context, otter signs, crocodile and turtle records, waterbirds, raptors, fish diversity, and development-impact interpretation around the wider Mukundara landscape.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">A WII rapid assessment report on aquatic wildlife and river habitat quality along the Chambal River stretch between Kota Barrage and Jawahar Sagar Dam.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Technical report</dd></div>
+          <div><dt>Source</dt><dd>Wildlife Institute of India, Dehradun</dd></div>
+          <div><dt>File</dt><dd>23 MB / 64 pages</dd></div>
+          <div><dt>Issued</dt><dd>2021</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for Chambal river-valley context, otter signs, crocodile and turtle records, waterbirds, raptors, fish diversity, and development-impact interpretation around the wider Mukundara landscape.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/researchgate-kota-barrage-jawahar-sagar-wildlife-status/">View archive page</a>
+          <a href="/resources/documents/researchgate-kota-barrage-jawahar-sagar-wildlife-status/">View page</a>
           <a href="/assets/docs/resources/researchgate-kota-barrage-jawahar-sagar-wildlife-status.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://digitalrepository.wii.gov.in/items/1a1593de-05db-47d2-8e47-51df236c9e3c/full" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://digitalrepository.wii.gov.in/items/1a1593de-05db-47d2-8e47-51df236c9e3c/full" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Biodiversity references</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="biodiversity">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
+      <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    
+  </svg>
+<span>Biodiversity references</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/ijemmasss-mukundra-wildlife-corridors-2023/">Wildlife Corridors of Mukundra Hills Tiger Reserve</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Research paper</span>
-          <span class="resource-sep">•</span>
-          <span>Source: International Journal of Education, Modern Management, Applied Science &amp; Social Science</span>
-          <span class="resource-sep">•</span>
-          <span>1.9 MB / 16 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use as a secondary corridor-context source, especially when discussing connectivity, gene flow, landscape permeability and conservation planning.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-26.</p>
+        <p class="resource-summary">Research paper focused on wildlife-corridor significance for Mukundra Hills Tiger Reserve and wider biodiversity conservation.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Research paper</dd></div>
+          <div><dt>Source</dt><dd>International Journal of Education, Modern Management, Applied Science &amp; Social Science</dd></div>
+          <div><dt>File</dt><dd>1.9 MB / 16 pages</dd></div>
+          <div><dt>Issued</dt><dd>2023</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use as a secondary corridor-context source, especially when discussing connectivity, gene flow, landscape permeability and conservation planning.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-26</p>
         <div class="resource-actions">
-          <a href="/resources/documents/ijemmasss-mukundra-wildlife-corridors-2023/">View archive page</a>
+          <a href="/resources/documents/ijemmasss-mukundra-wildlife-corridors-2023/">View page</a>
           <a href="/assets/docs/resources/ijemmasss-mukundra-wildlife-corridors-2023.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://ijemmasss.com/" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://ijemmasss.com/" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-      <article class="resource-item">
-        <p class="eyebrow">Supplementary context</p>
+      
+      <article class="resource-item" data-resource-item data-resource-category="context">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
+      <path d="M13.5 6.6v13" />
+    
+  </svg>
+<span>Supplementary context</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/global-tiger-protected-area-compendium-2021/">Global Tiger Protected Area Compendium</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Comparative reference</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Global Tiger Forum</span>
-          <span class="resource-sep">•</span>
-          <span>53.5 MB / 164 pages</span>
-        </p>
-        <p><strong>Use this for:</strong> Use for broad comparative framing against other tiger landscapes.</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on 2026-05-21.</p>
+        <p class="resource-summary">Large comparative compendium for tiger protected areas across the tiger range.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>Comparative reference</dd></div>
+          <div><dt>Source</dt><dd>Global Tiger Forum</dd></div>
+          <div><dt>File</dt><dd>53.5 MB / 164 pages</dd></div>
+          <div><dt>Issued</dt><dd>2021</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> Use for broad comparative framing against other tiger landscapes.</p>
+        <p class="resource-archive-note">Stored locally: 2026-05-21</p>
         <div class="resource-actions">
-          <a href="/resources/documents/global-tiger-protected-area-compendium-2021/">View archive page</a>
+          <a href="/resources/documents/global-tiger-protected-area-compendium-2021/">View page</a>
           <a href="/assets/docs/resources/global-tiger-protected-area-compendium-2021.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="https://globaltigerforum.org/wp-content/uploads/2021/07/Global-Tiger-Protected-Area-Compendium.pdf" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="https://globaltigerforum.org/wp-content/uploads/2021/07/Global-Tiger-Protected-Area-Compendium.pdf" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 
-  </div>
-</section>
+    </div>
+  </section>
 
-<section class="card" aria-label="Live external resources">
-  <h2>Live portals and context links</h2>
-  <p class="muted">
-    These links are useful but are not locally archived as PDFs. Some are live datasets, portal pages, or context links
-    that are better opened at the source.
-  </p>
+  <section class="resource-section" data-resource-section aria-label="Live external resources">
+    <div class="resource-section-heading">
+      <h2>Live portals and context links</h2>
+      <p class="muted">Useful portals, datasets and context links that are best opened at their source.</p>
+    </div>
 
-  <ul class="resource-list">
+    <div class="resource-list resource-list-compact">
 
-      <li class="resource-item">
+      <article class="resource-item" data-resource-item data-resource-category="live">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Live link</span></span>
+          <span class="resource-format">Official state portal</span>
+        </div>
         <h3 class="resource-title">
           <a href="https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/wildlife/details-of-protected-area-/mukundara-hills-tiger-reserve.html" target="_blank" rel="noopener noreferrer">Mukundara Hills Tiger Reserve - Rajasthan Forest Department</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Official state portal</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Rajasthan Forest Department</span>
-        </p>
-        <p><strong>Use this for:</strong> Baseline official profile, administrative framing, and entry-point information.</p>
-        <p class="muted"><strong>Note:</strong> Live portal page; details can change without notice.</p>
-      </li>
+        <p class="resource-summary">Baseline official profile, administrative framing, and entry-point information.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Source</dt><dd>Rajasthan Forest Department</dd></div>
+          <div><dt>Note</dt><dd>Live portal page; details can change without notice.</dd></div>
+        </dl>
+      </article>
 
-      <li class="resource-item">
+      <article class="resource-item" data-resource-item data-resource-category="live">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Live link</span></span>
+          <span class="resource-format">Geospatial portal / GIS reference</span>
+        </div>
         <h3 class="resource-title">
           <a href="https://mee-tr.wii.gov.in/Home/Geospatial/mukundara-hills-tiger-reserve#process" target="_blank" rel="noopener noreferrer">MEE-TR Geospatial Portal - Mukundara Hills Tiger Reserve</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Geospatial portal / GIS reference</span>
-          <span class="resource-sep">•</span>
-          <span>Source: Wildlife Institute of India (WII)</span>
-        </p>
-        <p><strong>Use this for:</strong> Boundary context, landscape orientation, and broad planning visualization.</p>
-        <p class="muted"><strong>Note:</strong> Use for orientation only; do not republish sensitive wildlife-use locations.</p>
-      </li>
+        <p class="resource-summary">Boundary context, landscape orientation, and broad planning visualization.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Source</dt><dd>Wildlife Institute of India (WII)</dd></div>
+          <div><dt>Note</dt><dd>Use for orientation only; do not republish sensitive wildlife-use locations.</dd></div>
+        </dl>
+      </article>
 
-      <li class="resource-item">
+      <article class="resource-item" data-resource-item data-resource-category="live">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Live link</span></span>
+          <span class="resource-format">Citizen-science dataset</span>
+        </div>
         <h3 class="resource-title">
           <a href="https://ebird.org/hotspot/L11953655" target="_blank" rel="noopener noreferrer">eBird hotspot - Mukundara Hills</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Citizen-science dataset</span>
-          <span class="resource-sep">•</span>
-          <span>Source: eBird / Cornell Lab</span>
-        </p>
-        <p><strong>Use this for:</strong> Seasonality, checklist frequency, and birding effort trends over time.</p>
-        <p class="muted"><strong>Note:</strong> Interpret with observer bias and uneven sampling effort in mind.</p>
-      </li>
+        <p class="resource-summary">Seasonality, checklist frequency, and birding effort trends over time.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Source</dt><dd>eBird / Cornell Lab</dd></div>
+          <div><dt>Note</dt><dd>Interpret with observer bias and uneven sampling effort in mind.</dd></div>
+        </dl>
+      </article>
 
-      <li class="resource-item">
+      <article class="resource-item" data-resource-item data-resource-category="live">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Live link</span></span>
+          <span class="resource-format">Citizen-science dataset</span>
+        </div>
         <h3 class="resource-title">
           <a href="https://www.inaturalist.org/projects/biodiversity-of-mhtr" target="_blank" rel="noopener noreferrer">Biodiversity of MHTR - iNaturalist project</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: Citizen-science dataset</span>
-          <span class="resource-sep">•</span>
-          <span>Source: iNaturalist / Sonu Kumar</span>
-        </p>
-        <p><strong>Use this for:</strong> Recent community observations, live species context, and public field documentation.</p>
-        <p class="muted"><strong>Note:</strong> This complements the curated list on the biodiversity page.</p>
-      </li>
+        <p class="resource-summary">Recent community observations, live species context, and public field documentation.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Source</dt><dd>iNaturalist / Sonu Kumar</dd></div>
+          <div><dt>Note</dt><dd>This complements the curated list on the biodiversity page.</dd></div>
+        </dl>
+      </article>
 
-      <li class="resource-item">
+      <article class="resource-item" data-resource-item data-resource-category="live">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Live link</span></span>
+          <span class="resource-format">ResearchGate landing page</span>
+        </div>
         <h3 class="resource-title">
           <a href="https://www.researchgate.net/publication/343481667_Phytodiversity_Characterization_of_Mukundara_Hills_Tiger_Reserve" target="_blank" rel="noopener noreferrer">Phytodiversity Characterization of Mukundara Hills Tiger Reserve</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: ResearchGate landing page</span>
-          <span class="resource-sep">•</span>
-          <span>Source: ResearchGate mirror</span>
-        </p>
-        <p><strong>Use this for:</strong> Citation traceability and alternate access to the plant diversity paper.</p>
-        <p class="muted"><strong>Note:</strong> The locally archived IJCMA PDF appears to cover the same research article.</p>
-      </li>
+        <p class="resource-summary">Citation traceability and alternate access to the plant diversity paper.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Source</dt><dd>ResearchGate mirror</dd></div>
+          <div><dt>Note</dt><dd>The locally archived IJCMA PDF appears to cover the same research article.</dd></div>
+        </dl>
+      </article>
 
-      <li class="resource-item">
+      <article class="resource-item" data-resource-item data-resource-category="live">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    
+  </svg>
+<span>Live link</span></span>
+          <span class="resource-format">News archive</span>
+        </div>
         <h3 class="resource-title">
           <a href="https://www.thehindu.com/news/national/other-states/mukundara-hills-is-rajasthans-third-tiger-reserve/article4610690.ece" target="_blank" rel="noopener noreferrer">Mukundara Hills is Rajasthan&#39;s third tiger reserve</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: News archive</span>
-          <span class="resource-sep">•</span>
-          <span>Source: The Hindu</span>
-        </p>
-        <p><strong>Use this for:</strong> Historical context during designation and early public communication.</p>
-        <p class="muted"><strong>Note:</strong> Use primary documents for legal or technical conclusions.</p>
-      </li>
+        <p class="resource-summary">Historical context during designation and early public communication.</p>
+        <dl class="resource-meta-list">
+          <div><dt>Source</dt><dd>The Hindu</dd></div>
+          <div><dt>Note</dt><dd>Use primary documents for legal or technical conclusions.</dd></div>
+        </dl>
+      </article>
 
-  </ul>
+    </div>
+  </section>
+
+  <p class="resource-empty" data-resource-empty hidden>No resources match that search and filter.</p>
 </section>
 
-<section class="card" aria-label="How to use this resource library">
-  <h2>How to use this library effectively</h2>
-  <ul class="list">
-    <li><strong>For legal status:</strong> start with notification, ESZ, ZMP, and clearance documents.</li>
-    <li><strong>For management direction:</strong> read the Tiger Conservation Plan and NTCA sanction/APO documents.</li>
-    <li><strong>For ecological understanding:</strong> combine field guides, peer-reviewed studies, and seasonal datasets.</li>
-    <li><strong>For maps:</strong> use geospatial tools for orientation, never for sharing sensitive wildlife coordinates.</li>
-  </ul>
+<section class="section resource-guidance" aria-labelledby="resource-guide-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Reading Guide</p>
+    <h2 id="resource-guide-heading">Where to start</h2>
+  </div>
+  <div class="resource-guidance-grid">
+    <div><strong>Legal status</strong><span>Start with notification, ESZ, ZMP and clearance documents.</span></div>
+    <div><strong>Management direction</strong><span>Read the Tiger Conservation Plan, APO and NTCA sanction records.</span></div>
+    <div><strong>Ecology</strong><span>Combine field guides, research papers and seasonal public datasets.</span></div>
+    <div><strong>Maps</strong><span>Use maps for orientation and planning context.</span></div>
+  </div>
 </section>
 
-<section class="card" aria-label="Contribute a source">
-  <h2>Suggest a source or correction</h2>
-  <p class="muted">
-    If you have a primary document, peer-reviewed study, or reliable dataset relevant to Mukundara Hills Tiger Reserve,
-    send it for review. We prioritize source quality, citation traceability, and conservation-safe publishing.
-  </p>
-  <p><strong>Contact:</strong> <a href="mailto:hello@caneandcamera.com">hello@caneandcamera.com</a></p>
+<section class="section source-panel" aria-label="Suggest a source or correction">
+  <div>
+    <p class="eyebrow">Contribute</p>
+    <h2>Suggest a source or correction</h2>
+    <p>
+      Send primary documents, peer-reviewed studies or reliable datasets relevant to Mukundara Hills Tiger Reserve.
+    </p>
+  </div>
+  <div class="source-actions">
+    <a class="button-link" href="mailto:hello@caneandcamera.com">Email a source</a>
+  </div>
 </section>
 
 

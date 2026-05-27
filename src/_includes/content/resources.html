@@ -1,17 +1,46 @@
-<section class="split-panel">
+{% macro resourceIcon(kind) %}
+  <svg class="resource-category-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    {% if kind == "official" %}
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h5" />
+    {% elif kind == "management" %}
+      <path d="M4.5 19.5V6.2l7.5-3.1 7.5 3.1v13.3" />
+      <path d="M8 19.5v-6.2h8v6.2" />
+      <path d="M9.2 8.4h5.6" />
+    {% elif kind == "esz" %}
+      <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z" />
+      <path d="M9 4v14M15 6v14" />
+    {% elif kind == "clearance" %}
+      <path d="M12 3.8 19 7v5.2c0 4.4-2.8 7.3-7 8.8-4.2-1.5-7-4.4-7-8.8V7l7-3.2Z" />
+      <path d="m8.8 12.2 2.1 2.1 4.5-5" />
+    {% elif kind == "biodiversity" %}
+      <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
+      <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    {% elif kind == "live" %}
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    {% else %}
+      <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
+      <path d="M13.5 6.6v13" />
+    {% endif %}
+  </svg>
+{% endmacro %}
+
+{% macro categoryKey(category) %}{% if category == "Core official sources" or category == "Legal and notification records" %}official{% elif category == "Planning and management" %}management{% elif category == "ESZ and spatial planning" or category == "ESZ and compliance" %}esz{% elif category == "Clearance and compliance" %}clearance{% elif category == "Biodiversity references" %}biodiversity{% else %}context{% endif %}{% endmacro %}
+
+<section class="split-panel resource-hero">
   <div>
     <h1>Mukundara Hills Tiger Reserve Resource Archive</h1>
     <p class="lede">
-      A locally archived research library for Mukundara Hills Tiger Reserve: official notifications, conservation plans,
-      ESZ records, clearance files, biodiversity references, and live public datasets.
+      Documents, maps, plans, field references and live portals for understanding Mukundara Hills Tiger Reserve.
     </p>
     <p class="muted">
-      We preserve local PDF copies because government and institutional links can move, fail, or disappear. The original
-      source link is still shown on every document page for citation and version checking.
+      Use the filters to narrow the archive by subject, then open the detail page, PDF, or original link.
     </p>
   </div>
 
-  <figure class="map-frame landscape-photo-frame">
+  <figure class="map-frame landscape-photo-frame resource-hero-image">
     <img
       src="/assets/imgs/mhtr-resources.png"
       alt="Collage of Mukundara Hills Tiger Reserve research papers, notifications and conservation documents"
@@ -20,7 +49,7 @@
       loading="eager"
       decoding="async">
     <figcaption>
-      The archive keeps source documents close to the public explanation, so claims can be checked.
+      A working library for official records, planning documents and ecological references.
     </figcaption>
   </figure>
 </section>
@@ -29,90 +58,145 @@
   <div class="notice-panel">
     <div>
       <p class="eyebrow">Important Update</p>
-      <h2 id="resource-update-heading">Bhainsrodgarh source added to the archive</h2>
+      <h2 id="resource-update-heading">Bhainsrodgarh TCP added</h2>
       <p>
-        The newer Tiger Conservation Plan copy says Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve
-        by order 4854336 dated 05.10.2023 and made part of the core tiger reserve. That PDF is now listed near the
-        top of this archive because it changes how the landscape and GIS maps should be read.
+        The newer Tiger Conservation Plan copy includes the 05 Oct 2023 Bhainsrodgarh core-addition context and is
+        listed near the top of this archive.
       </p>
     </div>
     <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Open updated TCP</a>
   </div>
 </section>
 
-<section class="card" aria-label="Archived PDF documents">
-  <h2>Archived documents</h2>
-  <p class="muted">
-    These documents were downloaded and stored locally on May 21 and May 26, 2026. Each document has a detail page with
-    summary, source, archive metadata, suggested use, and an embedded PDF viewer.
-  </p>
+<section class="section resource-browser" data-resource-browser aria-labelledby="resource-browser-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Find Resources</p>
+    <h2 id="resource-browser-heading">Search and filter the archive</h2>
+  </div>
 
-  <div class="resource-list">
+  <div class="resource-toolbar">
+    <label class="resource-search-field">
+      <span>Search this page</span>
+      <input type="search" data-resource-search placeholder="Try TCP, ESZ, river, reptiles..." autocomplete="off">
+    </label>
+
+    <div class="resource-filter-list" role="group" aria-label="Filter resources by category">
+      <button class="resource-filter-button is-active" type="button" data-resource-filter="all" aria-pressed="true">
+        {{ resourceIcon("all") }}<span>All</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="official" aria-pressed="false">
+        {{ resourceIcon("official") }}<span>Official</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="management" aria-pressed="false">
+        {{ resourceIcon("management") }}<span>Management</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="esz" aria-pressed="false">
+        {{ resourceIcon("esz") }}<span>ESZ &amp; maps</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="clearance" aria-pressed="false">
+        {{ resourceIcon("clearance") }}<span>Clearance</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="biodiversity" aria-pressed="false">
+        {{ resourceIcon("biodiversity") }}<span>Biodiversity</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="context" aria-pressed="false">
+        {{ resourceIcon("context") }}<span>Context</span>
+      </button>
+      <button class="resource-filter-button" type="button" data-resource-filter="live" aria-pressed="false">
+        {{ resourceIcon("live") }}<span>Live links</span>
+      </button>
+    </div>
+
+    <p class="resource-result-count muted" data-resource-count aria-live="polite"></p>
+  </div>
+
+  <section class="resource-section" data-resource-section aria-label="Archived PDF documents">
+    <div class="resource-section-heading">
+      <h2>Archived documents</h2>
+      <p class="muted">PDF copies are stored locally; original links remain available for citation and version checks.</p>
+    </div>
+
+    <div class="resource-list">
 {% for doc in resourceDocuments %}
-      <article class="resource-item">
-        <p class="eyebrow">{{ doc.category }}</p>
+      {% set docCategory = categoryKey(doc.category) | trim %}
+      <article class="resource-item" data-resource-item data-resource-category="{{ docCategory }}">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">{{ resourceIcon(docCategory) }}<span>{{ doc.category }}</span></span>
+          <span class="resource-format">PDF</span>
+        </div>
         <h3 class="resource-title">
           <a href="/resources/documents/{{ doc.slug }}/">{{ doc.title }}</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: {{ doc.type }}</span>
-          <span class="resource-sep">•</span>
-          <span>Source: {{ doc.source }}</span>
-          <span class="resource-sep">•</span>
-          <span>{{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</span>
-        </p>
-        <p><strong>Use this for:</strong> {{ doc.useFor }}</p>
-        <p class="muted"><strong>Archive note:</strong> local PDF saved or preserved for this archive on {{ doc.archivedAt }}.</p>
+        <p class="resource-summary">{{ doc.summary }}</p>
+        <dl class="resource-meta-list">
+          <div><dt>Type</dt><dd>{{ doc.type }}</dd></div>
+          <div><dt>Source</dt><dd>{{ doc.source }}</dd></div>
+          <div><dt>File</dt><dd>{{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</dd></div>
+          <div><dt>Issued</dt><dd>{{ doc.issued }}</dd></div>
+        </dl>
+        <p class="resource-use"><strong>Best for:</strong> {{ doc.useFor }}</p>
+        <p class="resource-archive-note">Stored locally: {{ doc.archivedAt }}</p>
         <div class="resource-actions">
-          <a href="/resources/documents/{{ doc.slug }}/">View archive page</a>
+          <a href="/resources/documents/{{ doc.slug }}/">View page</a>
           <a href="{{ doc.localPath }}" target="_blank" rel="noopener">Open PDF</a>
-          <a href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Original source</a>
+          <a href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
 {% endfor %}
-  </div>
-</section>
+    </div>
+  </section>
 
-<section class="card" aria-label="Live external resources">
-  <h2>Live portals and context links</h2>
-  <p class="muted">
-    These links are useful but are not locally archived as PDFs. Some are live datasets, portal pages, or context links
-    that are better opened at the source.
-  </p>
+  <section class="resource-section" data-resource-section aria-label="Live external resources">
+    <div class="resource-section-heading">
+      <h2>Live portals and context links</h2>
+      <p class="muted">Useful portals, datasets and context links that are best opened at their source.</p>
+    </div>
 
-  <ul class="resource-list">
+    <div class="resource-list resource-list-compact">
 {% for item in resourceLinks %}
-      <li class="resource-item">
+      <article class="resource-item" data-resource-item data-resource-category="live">
+        <div class="resource-item-head">
+          <span class="resource-category-badge">{{ resourceIcon("live") }}<span>Live link</span></span>
+          <span class="resource-format">{{ item.type }}</span>
+        </div>
         <h3 class="resource-title">
           <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
         </h3>
-        <p class="resource-meta muted">
-          <span>Type: {{ item.type }}</span>
-          <span class="resource-sep">•</span>
-          <span>Source: {{ item.source }}</span>
-        </p>
-        <p><strong>Use this for:</strong> {{ item.useFor }}</p>
-        <p class="muted"><strong>Note:</strong> {{ item.note }}</p>
-      </li>
+        <p class="resource-summary">{{ item.useFor }}</p>
+        <dl class="resource-meta-list">
+          <div><dt>Source</dt><dd>{{ item.source }}</dd></div>
+          <div><dt>Note</dt><dd>{{ item.note }}</dd></div>
+        </dl>
+      </article>
 {% endfor %}
-  </ul>
+    </div>
+  </section>
+
+  <p class="resource-empty" data-resource-empty hidden>No resources match that search and filter.</p>
 </section>
 
-<section class="card" aria-label="How to use this resource library">
-  <h2>How to use this library effectively</h2>
-  <ul class="list">
-    <li><strong>For legal status:</strong> start with notification, ESZ, ZMP, and clearance documents.</li>
-    <li><strong>For management direction:</strong> read the Tiger Conservation Plan and NTCA sanction/APO documents.</li>
-    <li><strong>For ecological understanding:</strong> combine field guides, peer-reviewed studies, and seasonal datasets.</li>
-    <li><strong>For maps:</strong> use geospatial tools for orientation, never for sharing sensitive wildlife coordinates.</li>
-  </ul>
+<section class="section resource-guidance" aria-labelledby="resource-guide-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Reading Guide</p>
+    <h2 id="resource-guide-heading">Where to start</h2>
+  </div>
+  <div class="resource-guidance-grid">
+    <div><strong>Legal status</strong><span>Start with notification, ESZ, ZMP and clearance documents.</span></div>
+    <div><strong>Management direction</strong><span>Read the Tiger Conservation Plan, APO and NTCA sanction records.</span></div>
+    <div><strong>Ecology</strong><span>Combine field guides, research papers and seasonal public datasets.</span></div>
+    <div><strong>Maps</strong><span>Use maps for orientation and planning context.</span></div>
+  </div>
 </section>
 
-<section class="card" aria-label="Contribute a source">
-  <h2>Suggest a source or correction</h2>
-  <p class="muted">
-    If you have a primary document, peer-reviewed study, or reliable dataset relevant to Mukundara Hills Tiger Reserve,
-    send it for review. We prioritize source quality, citation traceability, and conservation-safe publishing.
-  </p>
-  <p><strong>Contact:</strong> <a href="mailto:hello@caneandcamera.com">hello@caneandcamera.com</a></p>
+<section class="section source-panel" aria-label="Suggest a source or correction">
+  <div>
+    <p class="eyebrow">Contribute</p>
+    <h2>Suggest a source or correction</h2>
+    <p>
+      Send primary documents, peer-reviewed studies or reliable datasets relevant to Mukundara Hills Tiger Reserve.
+    </p>
+  </div>
+  <div class="source-actions">
+    <a class="button-link" href="mailto:hello@caneandcamera.com">Email a source</a>
+  </div>
 </section>

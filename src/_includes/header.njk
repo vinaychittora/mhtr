@@ -65,12 +65,12 @@
           <li class="nav-item{% if item.collection or item.children %} has-dropdown{% endif %}">
             {% if item.collection == "fieldReports" or item.children %}
               <div class="nav-parent">
-                <a class="nav-link" href="{{ item.href }}" {% if isActive %}aria-current="page"{% endif %}>{{ icon(item.icon) }}<span>{{ item.label }}</span></a>
-                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Show {{ item.label }} menu">
+                <a class="nav-link" href="{{ item.href }}" aria-expanded="false" aria-controls="nav-submenu-{{ loop.index }}" {% if isActive %}aria-current="page"{% endif %}>{{ icon(item.icon) }}<span>{{ item.label }}</span></a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-submenu-{{ loop.index }}" aria-label="Toggle {{ item.label }} menu">
                   <span aria-hidden="true"></span>
                 </button>
               </div>
-              <ul class="dropdown-menu" aria-label="{{ item.label }} submenu">
+              <ul class="dropdown-menu" id="nav-submenu-{{ loop.index }}" aria-label="{{ item.label }} submenu" aria-hidden="true">
                 {% if item.children %}
                   {% for child in item.children %}
                     <li>

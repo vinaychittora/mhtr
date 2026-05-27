@@ -57,8 +57,9 @@
   {% if pageImageAlt %}<meta name="twitter:image:alt" content="{{ pageImageAlt }}" />{% endif %}
   <meta name="twitter:url" content="{{ pageCanonical }}" />
 
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.assetVersion }}">
+  <script src="/assets/js/main.js?v={{ site.assetVersion }}" defer></script>
+  {% if resource_browser %}<script src="/assets/js/resource-browser.js?v={{ site.assetVersion }}" defer></script>{% endif %}
 
   <script type="application/ld+json">
 {% seoJsonLd {
