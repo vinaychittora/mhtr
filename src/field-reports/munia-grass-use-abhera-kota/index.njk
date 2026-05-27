@@ -10,11 +10,11 @@ og_description: "A 280-observation field study showing how four munia species us
 author: Sonu Kumar
 authorUrl: "https://www.inaturalist.org/people/sonukumar055"
 publishedTime: "2025-12-22T00:00:00+05:30"
-modifiedTime: "2026-05-26T00:00:00+05:30"
-og_image: "https://mhtr.in/assets/imgs/field-reports/munia-grass-use-combined-abhera.png"
-og_image_alt: "Pie chart showing percentage contribution of grass species to munia foraging at Abhera Biological Park, Kota."
-og_image_width: 786
-og_image_height: 679
+modifiedTime: "2026-05-27T00:00:00+05:30"
+og_image: "https://mhtr.in/assets/imgs/field-reports/munia-red-avadavat-apluda-mutica-2025-12-27-101456.jpg"
+og_image_alt: "Red Avadavat feeding among Apluda mutica seed heads at Abhera Biological Park, Kota."
+og_image_width: 1600
+og_image_height: 1200
 schema_type: WebPage
 ---
 
@@ -36,14 +36,21 @@ schema_type: WebPage
   </figure>
 {% endmacro %}
 
+{% macro photoEvidence(src, alt, caption, width="1600", height="1200") %}
+  <figure class="evidence-card field-photo-card">
+    <img src="{{ src }}" alt="{{ alt }}" width="{{ width }}" height="{{ height }}" loading="lazy" decoding="async">
+    <figcaption>{{ caption | safe }}</figcaption>
+  </figure>
+{% endmacro %}
+
 <article class="article-page" itemscope itemtype="https://schema.org/Article">
   <header class="page-hero article-hero">
     <p class="eyebrow">Field Report / Published Paper</p>
     <h1 itemprop="headline">Grass Species Utilization by Munia Birds at Abhera Biological Park</h1>
     <p class="hindi-title" lang="hi">अभेड़ा जैविक उद्यान, कोटा में मुनिया पक्षियों द्वारा घास प्रजातियों का उपयोग</p>
     <p class="lede">
-      A source-backed field report from a 280-observation study on four munia species and their grass-seed foraging
-      choices in an urban protected-area landscape in Kota, Rajasthan.
+      A field report from a 280-observation study on four munia species and their grass-seed foraging choices in an
+      urban protected-area landscape in Kota, Rajasthan.
     </p>
     <div class="article-meta">
       <span>By <strong itemprop="author">Sonu Kumar</strong> and Om Prakash Bairwa</span>
@@ -67,7 +74,7 @@ schema_type: WebPage
       data-values="33|29|38|24|22|22|22|70|20"
       data-colors="{{ grassColors }}"></div>
     <figcaption>
-      Data-driven rendering of the combined grass-use chart from the source table. The study recorded 280 focal foraging observations.
+      Combined grass-use chart from 280 focal foraging observations.
     </figcaption>
   </figure>
 
@@ -263,8 +270,8 @@ schema_type: WebPage
         </p>
       </section>
 
-      <section class="data-section" aria-label="Munia grass use source table">
-        <h2>Source Data Preserved From the Paper</h2>
+      <section class="data-section" aria-label="Munia grass use observation table">
+        <h2>Grass-use observations by munia species</h2>
         <div class="table-wrap field-table-wrap">
           <table class="table field-table">
             <thead>
@@ -311,10 +318,9 @@ schema_type: WebPage
       </section>
 
       <section class="aside-box">
-        <h2>Evidence Status</h2>
+        <h2>Field Photographs</h2>
         <p>
-          The PDF includes charts and the source data table, but no field photograph suitable for a munia hero image.
-          Photo placeholders below should be replaced only when a properly credited image is available.
+          Photographs show Scaly-breasted Munia, Red Avadavat and Tricoloured Munia using Saramola and Apluda seed heads.
         </p>
       </section>
 
@@ -328,13 +334,66 @@ schema_type: WebPage
     </aside>
   </div>
 
+  <section class="section evidence-gallery" aria-label="Munia grass-use field photographs">
+    <div class="evidence-header">
+      <p class="eyebrow">Field Photographs</p>
+      <h2>Munias using grass seed heads</h2>
+      <p>
+        Photographs from the study period show munias feeding among seed heads of Saramola and Apluda grasses.
+      </p>
+    </div>
+
+    <div class="evidence-grid field-photo-grid">
+      {{ photoEvidence(
+        "/assets/imgs/field-reports/munia-scaly-breasted-saramola-ischaemum-2025-12-10-122248.jpg",
+        "Scaly-breasted Munia holding a Saramola grass stem with seed heads",
+        "Scaly-breasted Munia feeding on Saramola grass (<em>Ischaemum rugosum</em>). Captured <time datetime=\"2025-12-10T12:22:48+05:30\">10 Dec 2025, 12:22:48 PM IST</time>.",
+        "1200",
+        "1600"
+      ) }}
+      {{ photoEvidence(
+        "/assets/imgs/field-reports/munia-scaly-breasted-saramola-ischaemum-2025-12-10-122200.jpg",
+        "Scaly-breasted Munia perched within Saramola grass seed heads",
+        "Scaly-breasted Munia on Saramola grass (<em>Ischaemum rugosum</em>). Captured <time datetime=\"2025-12-10T12:22:00+05:30\">10 Dec 2025, 12:22:00 PM IST</time>."
+      ) }}
+      {{ photoEvidence(
+        "/assets/imgs/field-reports/munia-scaly-breasted-saramola-ischaemum-2025-12-10-122609.jpg",
+        "Scaly-breasted Munia feeding from a Saramola grass seed head",
+        "Scaly-breasted Munia feeding on Saramola grass (<em>Ischaemum rugosum</em>). Captured <time datetime=\"2025-12-10T12:26:09+05:30\">10 Dec 2025, 12:26:09 PM IST</time>."
+      ) }}
+      {{ photoEvidence(
+        "/assets/imgs/field-reports/munia-red-avadavat-apluda-mutica-2025-12-27-101456.jpg",
+        "Red Avadavat feeding among Apluda mutica grass seed heads",
+        "Red Avadavat feeding on <em>Apluda mutica</em>. Captured <time datetime=\"2025-12-27T10:14:56+05:30\">27 Dec 2025, 10:14:56 AM IST</time>."
+      ) }}
+      {{ photoEvidence(
+        "/assets/imgs/field-reports/munia-red-avadavat-apluda-mutica-2025-12-27-102747.jpg",
+        "Red Avadavat partly hidden while feeding on Apluda mutica grass",
+        "Red Avadavat feeding on <em>Apluda mutica</em>. Captured <time datetime=\"2025-12-27T10:27:47+05:30\">27 Dec 2025, 10:27:47 AM IST</time>."
+      ) }}
+      {{ photoEvidence(
+        "/assets/imgs/field-reports/munia-red-avadavat-saramola-ischaemum-supporting.jpg",
+        "Red Avadavat among Saramola grass seed heads",
+        "Red Avadavat among Saramola grass (<em>Ischaemum rugosum</em>) seed heads.",
+        "1600",
+        "1199"
+      ) }}
+      {{ photoEvidence(
+        "/assets/imgs/field-reports/munia-tricoloured-saramola-ischaemum-supporting.jpg",
+        "Tricoloured Munia among Saramola grass seed heads with another munia nearby",
+        "Tricoloured Munia among Saramola grass (<em>Ischaemum rugosum</em>) seed heads.",
+        "1600",
+        "1199"
+      ) }}
+    </div>
+  </section>
+
   <section class="section evidence-gallery" aria-label="Munia grass-use figures">
     <div class="evidence-header">
-      <p class="eyebrow">Paper Figures</p>
-      <h2>Grass-use charts rendered from the source data</h2>
+      <p class="eyebrow">Grass-use Charts</p>
+      <h2>Observation counts by munia species</h2>
       <p>
-        These charts use the exact observation counts from the paper table and the same color sequence as the original pie figures,
-        but render as responsive SVG so labels are not cropped.
+        The charts summarize how each munia species used the nine recorded grass species.
       </p>
     </div>
 
@@ -343,18 +402,6 @@ schema_type: WebPage
       {{ muniaPie("Foraging preference of Scaly-breasted Munia", "Abhera Biological Park, Kota", "6|15|10|14|6|5|4|18|2", "Scaly-breasted Munia grass-use preference from 80 observations.") }}
       {{ muniaPie("Foraging preference of Red Avadavat", "Abhera Biological Park, Kota", "4|3|4|2|2|3|12|15|10", "Red Avadavat grass-use preference from 55 observations.") }}
       {{ muniaPie("Foraging preference of Tricoloured Munia", "Abhera Biological Park, Kota", "5|4|8|3|2|10|3|17|3", "Tricoloured Munia grass-use preference from 55 observations.") }}
-      <figure class="evidence-card">
-        <div class="media-preview media-preview-empty">
-          Field photo placeholder: munia feeding on grass seed heads.
-        </div>
-        <figcaption>Add only a credited field photograph with species, date, and permission confirmed.</figcaption>
-      </figure>
-      <figure class="evidence-card">
-        <div class="media-preview media-preview-empty">
-          Habitat photo placeholder: native grass patch at Abhera Biological Park.
-        </div>
-        <figcaption>Add a broad habitat image without sensitive nesting or roosting detail.</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -403,8 +450,8 @@ schema_type: WebPage
       "url": "{{ site.publisherUrl }}"
     },
     "datePublished": "2025-12-22",
-    "dateModified": "2026-05-26",
-    "image": "https://mhtr.in/assets/imgs/field-reports/munia-grass-use-combined-abhera.png",
+    "dateModified": "2026-05-27",
+    "image": "https://mhtr.in/assets/imgs/field-reports/munia-red-avadavat-apluda-mutica-2025-12-27-101456.jpg",
     "mainEntityOfPage": "https://mhtr.in/field-reports/munia-grass-use-abhera-kota/",
     "description": "A bilingual field report on grass species utilization by four munia species at Abhera Biological Park, Kota."
   }
