@@ -1,0 +1,111 @@
+---
+layout: base.njk
+title: Field Reports & Notes | Mukundara Hills Tiger Reserve
+description: Field reports and field notes from the Mukundara landscape and wider Rajasthan ecology, with author credit, bilingual reading where available, and no sensitive wildlife locations.
+keywords: "Mukundara field reports, Rajasthan ecology field notes, MHTR field notes, biodiversity observation, citizen science reports, Mukundara birds"
+og_title: "Field Reports from Mukundara and Rajasthan Ecology"
+og_description: "Conservation-safe field notes with author credit, bilingual reading, ecological context, and linked evidence where available."
+og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
+og_image_alt: "Aerial roots, trunk, and green leaves of a banyan tree in Rajasthan."
+og_image_width: 1600
+og_image_height: 1066
+schema_type: CollectionPage
+activeSection: field-reports
+---
+
+<section class="section split-panel" aria-label="Field reports introduction">
+  <div>
+    <p class="eyebrow">Field Reports</p>
+    <h1>Field reports and notes from Rajasthan’s living landscapes.</h1>
+    <p class="lede">
+      Field reports bring local observation, ecological context, and careful documentation together.
+      This section will grow into a readable archive of notes, articles, field evidence, and translated material.
+    </p>
+  </div>
+
+  <figure class="map-frame landscape-photo-frame">
+    <img
+      src="/assets/imgs/field-reports/banyan-header-1600.jpg"
+      alt="Banyan tree trunk, aerial roots and green canopy used in a Rajasthan biodiversity field report"
+      width="1600"
+      height="1066"
+      loading="eager"
+      decoding="async">
+    <figcaption>
+      Field notes should show habitat, context and evidence while avoiding sensitive wildlife locations.
+    </figcaption>
+  </figure>
+</section>
+
+<section class="section" aria-label="Field reports list">
+  <div class="report-list">
+    {% for report in fieldReports %}
+      <article class="report-card">
+        <div>
+          <p class="eyebrow">{{ report.topic }}</p>
+          <h2><a href="{{ report.href }}">{{ report.title }}</a></h2>
+          <p class="hindi-title" lang="hi">{{ report.hindiTitle }}</p>
+          <p>{{ report.summary }}</p>
+        </div>
+        <footer class="report-meta">
+          <span>By {{ report.author }}</span>
+          <span>{{ report.date }}</span>
+        </footer>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-label="Related external reading">
+  <div class="evidence-header">
+    <p class="eyebrow">External Reading</p>
+    <h2>Related field writing and public observations</h2>
+    <p>
+      These links remain on their original platforms. They are included as source trails and author-credit context,
+      not as copied articles.
+    </p>
+  </div>
+  <div class="report-list">
+    <article class="report-card">
+      <div>
+        <p class="eyebrow">Rajasthan Biodiversity Network</p>
+        <h2><a href="https://rajasthanbiodiversity.org/mango-and-egrets/" target="_blank" rel="noopener noreferrer">बसंत में सफेद बगुलों का आश्रय - आम का पेड़</a></h2>
+        <p>A Hindi field article by Sonu Kumar that complements the cattle egret and mango tree research paper.</p>
+      </div>
+      <footer class="report-meta">
+        <span>External source</span>
+        <span>Apr 2024</span>
+      </footer>
+    </article>
+    <article class="report-card">
+      <div>
+        <p class="eyebrow">Rajasthan Biodiversity Network</p>
+        <h2><a href="https://rajasthanbiodiversity.org/junonia-buckeyes-of-rajasthan/" target="_blank" rel="noopener noreferrer">राजस्थान में पाई जाने वाली पैंसी तितलियां</a></h2>
+        <p>A Sonu Kumar article on Rajasthan's <em>Junonia</em> / pansy butterflies, useful for butterfly and citizen-science readers.</p>
+      </div>
+      <footer class="report-meta">
+        <span>External source</span>
+        <span>Jun 2024</span>
+      </footer>
+    </article>
+    <article class="report-card">
+      <div>
+        <p class="eyebrow">iNaturalist</p>
+        <h2><a href="https://www.inaturalist.org/observations?place_id=7215&amp;subview=map&amp;taxon_id=47208&amp;user_id=sonukumar055" target="_blank" rel="noopener noreferrer">Sonu Kumar's Kota beetle observations</a></h2>
+        <p>Public observation context for Coleoptera records in Kota; useful as a traceable citizen-science source trail.</p>
+      </div>
+      <footer class="report-meta">
+        <span>External observations</span>
+        <span>iNaturalist</span>
+      </footer>
+    </article>
+  </div>
+</section>
+
+<section class="section narrow" aria-label="Contribution note">
+  <h2>Contribution standard</h2>
+  <p>
+    Reports should preserve author credit, avoid sensitive coordinates, and separate direct observation from
+    interpretation. Photo and video evidence can be added once captions, dates, and permissions are confirmed.
+  </p>
+</section>

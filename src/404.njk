@@ -1,0 +1,26 @@
+---
+layout: base.njk
+permalink: /404.html
+title: Page Not Found | MHTR
+description: The requested MHTR page could not be found.
+robots: noindex,follow
+---
+
+<section class="not-found" data-pagefind-ignore>
+  <p class="eyebrow">404</p>
+  <h1>Page not found</h1>
+  <p>
+    The page may have moved, or the address may be mistyped. Search the site or jump back into the main MHTR sections.
+  </p>
+  <form class="not-found-search" action="/search/" method="get">
+    <label for="notFoundQuery">Search MHTR</label>
+    <div>
+      <input id="notFoundQuery" name="q" type="search" placeholder="Search maps, wildlife, documents..." autocomplete="off">
+      <button class="button-link" type="submit">Search</button>
+    </div>
+  </form>
+  <div class="hero-actions">
+    <a class="button-link cta-primary" href="/">Go home</a>
+    <a class="button-link button-link-secondary" href="/resources/">Open resources</a>
+  </div>
+</section>

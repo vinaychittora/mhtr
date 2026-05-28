@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="{{ lang or 'en-IN' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#123d32" />
+
+  {% set pageTitle = title or site.title %}
+  {% set pageDescription = description or site.description %}
+  {% set pageImage = og_image or site.ogImage %}
+  {% set pageImageAlt = og_image_alt or site.ogImageAlt %}
+  {% set pageImageWidth = og_image_width or site.ogImageWidth %}
+  {% set pageImageHeight = og_image_height or site.ogImageHeight %}
+  {% set pageCanonical = canonical or (site.url + page.url) %}
+  {% set pageLang = lang or site.locale or 'en-IN' %}
+  {% set pageSchemaType = schema_type or 'WebPage' %}
+  {% set pageRobots = robots or 'index,follow,max-image-preview:large' %}
+  {% set pageKeywords = keywords or site.keywords %}
+
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}" />
+  {% if pageKeywords %}<meta name="keywords" content="{{ pageKeywords }}" />{% endif %}
+  <meta name="robots" content="{{ pageRobots }}" />
+  <meta name="application-name" content="MHTR" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="format-detection" content="telephone=no" />
+  {% if author %}<meta name="author" content="{{ author }}" />{% endif %}
+
+  <link rel="canonical" href="{{ pageCanonical }}" />
+  <link rel="alternate" hreflang="{{ pageLang }}" href="{{ pageCanonical }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ pageCanonical }}" />
+  {% if preload_image %}<link rel="preload" as="image" href="{{ preload_image }}" fetchpriority="high" />{% endif %}
+  <link rel="icon" href="/assets/imgs/mhtr-logo.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/imgs/mhtr-favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/assets/imgs/mhtr-apple-touch-icon.png" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Search MHTR" href="/opensearch.xml" />
+  {% if pagefind_ui %}<link rel="stylesheet" href="/pagefind/pagefind-component-ui.css">{% endif %}
+
+  <meta property="og:type" content="{{ og_type or 'website' }}" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:title" content="{{ og_title or pageTitle }}" />
+  <meta property="og:description" content="{{ og_description or pageDescription }}" />
+  <meta property="og:url" content="{{ pageCanonical }}" />
+  <meta property="og:image" content="{{ pageImage }}" />
+  <meta property="og:image:secure_url" content="{{ pageImage }}" />
+  {% if pageImageAlt %}<meta property="og:image:alt" content="{{ pageImageAlt }}" />{% endif %}
+  {% if pageImageWidth %}<meta property="og:image:width" content="{{ pageImageWidth }}" />{% endif %}
+  {% if pageImageHeight %}<meta property="og:image:height" content="{{ pageImageHeight }}" />{% endif %}
+  {% if publishedTime %}<meta property="article:published_time" content="{{ publishedTime }}" />{% endif %}
+  {% if modifiedTime %}<meta property="article:modified_time" content="{{ modifiedTime }}" />{% endif %}
+  {% if author %}<meta property="article:author" content="{{ author }}" />{% endif %}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ og_title or pageTitle }}" />
+  <meta name="twitter:description" content="{{ og_description or pageDescription }}" />
+  <meta name="twitter:image" content="{{ pageImage }}" />
+  {% if pageImageAlt %}<meta name="twitter:image:alt" content="{{ pageImageAlt }}" />{% endif %}
+  <meta name="twitter:url" content="{{ pageCanonical }}" />
+
+  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.assetVersion }}">
+  <script src="/assets/js/main.js?v={{ site.assetVersion }}" defer></script>
+  {% if resource_browser %}<script src="/assets/js/resource-browser.js?v={{ site.assetVersion }}" defer></script>{% endif %}
+
+  <script type="application/ld+json">
+{% seoJsonLd {
+  site: site,
+  pageUrl: page.url,
+  pageTitle: pageTitle,
+  pageDescription: pageDescription,
+  pageCanonical: pageCanonical,
+  pageImage: pageImage,
+  pageImageAlt: pageImageAlt,
+  pageImageWidth: pageImageWidth,
+  pageImageHeight: pageImageHeight,
+  pageLang: pageLang,
+  pageSchemaType: pageSchemaType,
+  author: author,
+  authorUrl: authorUrl,
+  publishedTime: publishedTime,
+  modifiedTime: modifiedTime,
+  keywords: pageKeywords
+} %}
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  {% include "header.njk" %}
+
+  <main class="wrap" id="main" tabindex="-1" {% if 'noindex' in pageRobots %}data-pagefind-ignore{% else %}data-pagefind-body{% endif %}>
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script>
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+  {% if pagefind_ui %}
+  <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+  <script type="module">
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("q");
+    const searchRoot = document.getElementById("site-search");
+
+    if (query && window.PagefindComponents) {
+      await customElements.whenDefined("pagefind-input");
+      window.PagefindComponents.getInstanceManager().getInstance("default").triggerSearch(query);
+    }
+
+    searchRoot?.addEventListener("click", (event) => {
+      const anchor = event.composedPath().find((item) => item instanceof HTMLAnchorElement);
+      if (!anchor || anchor.origin !== window.location.origin) return;
+
+      const input =
+        document.querySelector("pagefind-input input") ||
+        document.querySelector("pagefind-input")?.shadowRoot?.querySelector("input");
+      const activeQuery = (input?.value || query || "").trim();
+      if (!activeQuery) return;
+
+      const url = new URL(anchor.href);
+      if (url.pathname === "/search/") return;
+
+      url.searchParams.set("q", activeQuery);
+      if (url.pathname === "/biodiversity/" && !url.hash) url.hash = "bioSearch";
+      anchor.href = `${url.pathname}${url.search}${url.hash}`;
+    });
+  </script>
+  {% endif %}
+</body>
+</html>

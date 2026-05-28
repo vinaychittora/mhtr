@@ -1,0 +1,21 @@
+node_modules/
+_site/
+.DS_Store
+*:Zone.Identifier
+Data/source-materials/gis/cache/
+
+# Local-only original media. Keep optimized web assets under src/assets/assets/imgs/.
+local-assets/
+src/assets/assets/imgs/mhtr/
+*.RAF
+*.raf
+*.RAW
+*.raw
+*.ARW
+*.arw
+*.CR2
+*.cr2
+*.NEF
+*.nef
+*.DNG
+*.dng

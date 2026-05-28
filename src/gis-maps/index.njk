@@ -1,0 +1,100 @@
+---
+layout: base.njk
+activeSection: explore
+title: "GIS Maps of Mukundara Hills Tiger Reserve | MHTR"
+description: "High-resolution public GIS maps for Mukundara Hills Tiger Reserve: boundary context, terrain, hydrology, elevation and land-cover habitat."
+keywords: "MHTR GIS maps, Mukundara Hills map, Mukundara hydrology map, Mukundara terrain map, Mukundara land cover, Bhainsrodgarh MHTR core"
+og_title: "GIS Maps of Mukundara Hills Tiger Reserve"
+og_description: "Boundary, terrain, hydrology, elevation and land-cover maps for public landscape understanding."
+og_image: "https://mhtr.in/assets/imgs/maps/mhtr-boundary-context-map.png"
+og_image_alt: "GIS map showing Mukundara Hills Tiger Reserve boundary and surrounding landscape context."
+og_image_width: 2400
+og_image_height: 1600
+schema_type: CollectionPage
+---
+
+<section class="page-hero maps-hero" aria-labelledby="maps-title">
+  <p class="eyebrow">GIS Map Library</p>
+  <h1 id="maps-title">Mukundara Hills Tiger Reserve maps for public landscape understanding.</h1>
+  <p class="lede">
+    These maps are built from public GIS layers and official documents. They explain broad geography,
+    terrain, hydrology, elevation and habitat context without exposing sensitive wildlife locations.
+  </p>
+  <div class="hero-actions">
+    <a class="button-link" href="#map-library">Open map library</a>
+    <a class="button-link button-link-secondary" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Bhainsrodgarh update source</a>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="map-note-heading">
+  <div class="notice-panel">
+    <div>
+      <p class="eyebrow">Important Update</p>
+      <h2 id="map-note-heading">Bhainsrodgarh is shown as an MHTR core addition</h2>
+      <p>
+        The newer Tiger Conservation Plan says Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve
+        by order 4854336 dated 05.10.2023 and made part of the core tiger reserve. These maps reflect that
+        public planning context while still using OSM geometries for broad orientation.
+      </p>
+    </div>
+    <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Read source note</a>
+  </div>
+</section>
+
+<section class="section" id="map-library" aria-labelledby="map-library-heading">
+  <div class="section-heading">
+    <p class="eyebrow">High-resolution Maps</p>
+    <h2 id="map-library-heading">Open any map in the zoom viewer</h2>
+    <p class="muted">
+      Select a map to open a full-screen viewer. Use the zoom buttons, drag the map, or scroll with a trackpad
+      to inspect details.
+    </p>
+  </div>
+
+  <div class="gis-map-grid">
+{% for map in gisMaps %}
+    <article class="gis-map-card" id="{{ map.slug }}">
+      <button
+        class="map-zoom-trigger"
+        type="button"
+        data-map-viewer
+        data-map-title="{{ map.title }}"
+        data-map-src="{{ map.image }}"
+        data-map-alt="{{ map.alt }}">
+        <img
+          src="{{ map.image }}"
+          alt="{{ map.alt }}"
+          width="{{ map.width }}"
+          height="{{ map.height }}"
+          loading="{% if loop.first %}eager{% else %}lazy{% endif %}"
+          decoding="async">
+        <span>Open zoom view</span>
+      </button>
+      <div class="gis-map-card-body">
+        <p class="eyebrow">{{ map.shortTitle }}</p>
+        <h3>{{ map.title }}</h3>
+        <p>{{ map.summary }}</p>
+        <p><strong>Use this for:</strong> {{ map.useFor }}</p>
+        <p class="muted"><strong>Sources:</strong> {{ map.sources }}</p>
+      </div>
+    </article>
+{% endfor %}
+  </div>
+</section>
+
+<section class="section source-panel" aria-labelledby="gis-source-heading">
+  <div>
+    <p class="eyebrow">Source and Safety Notes</p>
+    <h2 id="gis-source-heading">Public maps, not sensitive field locations</h2>
+    <p>
+      The map stack uses public data and official planning documents: MHTR TCP, OpenStreetMap,
+      ESA WorldCover, Mapzen/AWS Terrarium elevation tiles and geoBoundaries. The maps are for
+      public interpretation and should not be treated as legal survey demarcation.
+    </p>
+  </div>
+  <div class="source-actions">
+    <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Updated TCP</a>
+    <a class="button-link" href="/resources/documents/rajasthan-zmp-mhtr-2023/">Zonal Master Plan</a>
+    <a class="button-link button-link-secondary" href="/landscape/#gis-maps">Landscape guide</a>
+  </div>
+</section>

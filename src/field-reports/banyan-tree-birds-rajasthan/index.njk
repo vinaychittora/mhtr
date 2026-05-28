@@ -1,0 +1,595 @@
+---
+layout: base.njk
+title: "The Role of Banyan in Rajasthan’s Biodiversity: Birds | Field Report"
+description: "A bilingual field note by Sonu Kumar on banyan trees, bird activity, food sources, shade, and microhabitats in Rajasthan."
+keywords: "banyan tree birds Rajasthan, Ficus benghalensis ecology, Rajasthan bird habitat, banyan biodiversity, Sonu Kumar field note, Mukundara field report, citizen science birds"
+activeSection: field-reports
+og_type: article
+og_title: "Banyan Trees and Birds in Rajasthan"
+og_description: "A bilingual field note by Sonu Kumar on how banyan trees support birds, shade, food, microhabitats, and ecological memory."
+author: Sonu Kumar
+authorUrl: "https://www.inaturalist.org/people/sonukumar055"
+publishedTime: "2026-05-21T00:00:00+05:30"
+modifiedTime: "2026-05-21T00:00:00+05:30"
+og_image: "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg"
+og_image_alt: "Aerial roots, trunk, and green leaves of a banyan tree."
+og_image_width: 1600
+og_image_height: 1066
+schema_type: WebPage
+---
+
+{% set sonu = authors.sonuKumar %}
+{% set birdObservationRecords = [
+  {
+    common: "Cinereous Tit",
+    scientific: "Parus cinereus",
+    behaviorHi: "फलों के बीच कीट खोजते हुए देखा गया",
+    behaviorEn: "Observed searching for insects among the fruits",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "620290654",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Indian Paradise Flycatcher",
+    scientific: "Terpsiphone paradisi",
+    behaviorHi: "वृक्ष के नीचे कीट खोजते हुए",
+    behaviorEn: "Searching for insects below the tree",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657052826",
+    evidenceKind: "video",
+    evidenceHi: "आपके दिए गए flycatcher video लिंक से जोड़ा गया Macaulay वीडियो रिकॉर्ड।",
+    evidenceEn: "Macaulay video record linked from your flycatcher video note."
+  },
+  {
+    common: "Indian Cuckooshrike",
+    scientific: "Coracina macei",
+    behaviorHi: "वृक्ष की ऊपरी शाखाओं एवं फलों पर कीट खोजते हुए",
+    behaviorEn: "Searching for insects on upper branches and around fruits",
+    periodHi: "मई-जून",
+    periodEn: "May-June",
+    evidenceId: "657285889",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Tickell's Blue Flycatcher",
+    scientific: "Cyornis tickelliae",
+    behaviorHi: "शाखाओं में बैठकर कीट पकड़ते हुए देखा गया",
+    behaviorEn: "Observed perching on branches and catching insects",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657794725",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए 'banyan trunk' संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-trunk behavior note."
+  },
+  {
+    common: "Yellow-footed Green Pigeon",
+    scientific: "Treron phoenicoptera",
+    behaviorHi: "बरगद के फलों का सेवन; बीज प्रसार में महत्वपूर्ण भूमिका",
+    behaviorEn: "Feeding on banyan fruits; important for seed dispersal",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "657794645",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए बरगद फल-भक्षण संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-fruit feeding note."
+  },
+  {
+    common: "Tawny-bellied Babbler",
+    scientific: "Dumetia hyperythra",
+    behaviorHi: "शाखाओं, जटाओं एवं फलों के बीच सक्रिय; छोटे कीट खोजते हुए",
+    behaviorEn: "Active among branches, aerial roots, and fruits; searching for small insects",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657052733",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए बरगद फल-भक्षण संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-fruit feeding note."
+  },
+  {
+    common: "Indian White-eye",
+    scientific: "Zosterops palpebrosus",
+    behaviorHi: "छोटे समूहों में फलों के बीच कीट खोजते हुए",
+    behaviorEn: "Small groups searching for insects among fruits",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "620290695",
+    evidenceKind: "photo"
+  },
+  {
+    common: "White-browed Fantail",
+    scientific: "Rhipidura aureola",
+    behaviorHi: "कीट पकड़ते हुए; निचली शाखाओं में सक्रिय",
+    behaviorEn: "Catching insects; active in lower branches",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June"
+  },
+  {
+    common: "Indian Grey Hornbill",
+    scientific: "Ocyceros birostris",
+    behaviorHi: "वृक्षों के फलों एवं कीटों का सेवन करते हुए देखा गया; ऊँची शाखाओं पर जोड़ों या छोटे समूहों में सक्रिय",
+    behaviorEn: "Observed eating fruits and insects; active in pairs or small groups on high branches",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "655690907",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए Grey Hornbill banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your Grey Hornbill banyan note."
+  },
+  {
+    common: "Indian Pied Starling",
+    scientific: "Gracupica contra",
+    behaviorHi: "वृक्ष के आसपास समूहों में भोजन खोजते हुए; कीट एवं फलों का सेवन",
+    behaviorEn: "Foraging in groups around the tree; feeding on insects and fruits",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "656627643",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए बरगद फल-भक्षण संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your banyan-fruit feeding note."
+  },
+  {
+    common: "Asian Koel",
+    scientific: "Eudynamys scolopaceus",
+    behaviorHi: "वृक्षों के अंदर सक्रिय; फलों का सेवन",
+    behaviorEn: "Active inside the tree; feeding on fruits",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "620290420",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए Asian Koel on banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your Asian Koel banyan note."
+  },
+  {
+    common: "Rose-ringed Parakeet",
+    scientific: "Psittacula krameri",
+    behaviorHi: "समूहों में उड़ते एवं फलों, बीजों तथा कोमल कलियों का सेवन करते हुए",
+    behaviorEn: "Flying in groups and feeding on fruits, seeds, and soft buds",
+    periodHi: "वर्ष भर",
+    periodEn: "Year-round",
+    evidenceId: "656627763",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Yellow-crowned Woodpecker",
+    scientific: "Leiopicus mahrattensis",
+    behaviorHi: "छाल पर चोंच मारकर कीट खोजते हुए; तनों एवं शाखाओं पर सक्रिय",
+    behaviorEn: "Pecking bark to find insects; active on trunks and branches",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "657794694",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Crested Bunting",
+    scientific: "Melophus lathami",
+    behaviorHi: "वृक्ष के नीचे बीज एवं छोटे कीट खोजते हुए",
+    behaviorEn: "Searching below the tree for seeds and small insects",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "655311430",
+    evidenceKind: "photo"
+  },
+  {
+    common: "Tree Pipit",
+    scientific: "Anthus trivialis",
+    behaviorHi: "वृक्ष के नीचे भूमि पर कीट खोजते हुए",
+    behaviorEn: "Searching for insects on the ground below the tree",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "655311423",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए 'under a banyan' संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your under-a-banyan note."
+  },
+  {
+    common: "Spotted Owlet",
+    scientific: "Athene brama",
+    behaviorHi: "खोखलों एवं शाखाओं में विश्राम करते हुए",
+    behaviorEn: "Resting in cavities and branches",
+    periodHi: "अप्रैल-जून",
+    periodEn: "April-June",
+    evidenceId: "620290439",
+    evidenceKind: "photo"
+  }
+] %}
+{% set additionalMacaulayEvidence = [
+  {
+    common: "White-naped Woodpecker",
+    scientific: "Chrysocolaptes festivus",
+    behaviorHi: "बरगद पर भोजन/कीट खोजते हुए योगदानकर्ता-चिह्नित रिकॉर्ड",
+    behaviorEn: "Contributor-identified feeding/foraging record on banyan",
+    periodHi: "15 मई 2026",
+    periodEn: "15 May 2026",
+    evidenceId: "657794707",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए White-naped / flameback बरगद-भोजन संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your White-naped/flameback feeding-on-banyan note."
+  },
+  {
+    common: "Black-crowned Night Heron",
+    scientific: "Nycticorax nycticorax",
+    behaviorHi: "बरगद पर विश्राम/रोस्टिंग से जुड़ा रिकॉर्ड",
+    behaviorEn: "Record linked to roosting on banyan",
+    periodHi: "योगदानकर्ता मीडिया",
+    periodEn: "Contributor media",
+    evidenceId: "655849921",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए night heron roosting on banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your night-heron roosting-on-banyan note."
+  },
+  {
+    common: "Indian Pitta",
+    scientific: "Pitta brachyura",
+    behaviorHi: "बरगद के नीचे सक्रियता से जुड़ा रिकॉर्ड",
+    behaviorEn: "Record linked to activity below a banyan",
+    periodHi: "योगदानकर्ता मीडिया",
+    periodEn: "Contributor media",
+    evidenceId: "620290555",
+    evidenceKind: "photo",
+    evidenceHi: "आपके दिए गए pitta under a banyan संदर्भ से जोड़ा गया Macaulay रिकॉर्ड।",
+    evidenceEn: "Macaulay record linked from your pitta-under-a-banyan note."
+  }
+] %}
+
+{% macro observationCards(records, lang) %}
+  <div class="observation-card-grid" role="list">
+    {% for record in records %}
+      <article class="observation-card{% if record.evidenceId %} has-evidence{% endif %}" role="listitem">
+        <div class="observation-card-copy">
+          <div class="observation-card-head">
+            <div>
+              <p class="observation-kicker">{% if record.evidenceId %}{% if lang == "hi" %}साक्ष्य सहित{% else %}Evidence linked{% endif %}{% elif record.evidenceUrl %}{% if lang == "hi" %}स्रोत लिंक{% else %}Source link{% endif %}{% else %}{% if lang == "hi" %}क्षेत्र अवलोकन{% else %}Field observation{% endif %}{% endif %}</p>
+              <h4>{{ record.common }}</h4>
+              <p class="scientific-name"><em>{{ record.scientific }}</em></p>
+            </div>
+            <span class="activity-chip">{% if lang == "hi" %}{{ record.periodHi }}{% else %}{{ record.periodEn }}{% endif %}</span>
+          </div>
+          <p class="observation-behavior">{% if lang == "hi" %}{{ record.behaviorHi }}{% else %}{{ record.behaviorEn }}{% endif %}</p>
+          {% if not record.evidenceId and not record.evidenceUrl %}
+            <p class="observation-evidence-note is-pending">
+              {% if lang == "hi" %}
+                सटीक मीडिया एसेट जोड़े जाने तक यह रिकॉर्ड केवल पाठ्य क्षेत्र-अवलोकन के रूप में रखा गया है।
+              {% else %}
+                Kept as a text field observation until an exact media asset is attached.
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
+
+        <div class="observation-card-media">
+          {% if record.evidenceId %}
+            <a
+              class="media-preview"
+              href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="{{ record.common }} Macaulay Library record ML{{ record.evidenceId }}">
+              <img
+                src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/{{ record.evidenceId }}/480"
+                alt="{{ record.common }} media preview from Macaulay Library"
+                loading="lazy"
+                decoding="async">
+              <span class="media-type-badge">{{ record.evidenceKind | upper }}</span>
+            </a>
+            <a class="evidence-asset-link" href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}" target="_blank" rel="noopener noreferrer">ML{{ record.evidenceId }}</a>
+          {% else %}
+            <div class="evidence-pending-box{% if record.evidenceUrl %} has-source-link{% endif %}">
+              {% if record.evidenceUrl %}
+                <a href="{{ record.evidenceUrl }}" target="_blank" rel="noopener noreferrer">
+                  {% if lang == "hi" %}{{ record.evidenceLabelHi or record.evidenceLabel }}{% else %}{{ record.evidenceLabel }}{% endif %}
+                </a>
+                <span>{% if lang == "hi" %}Exact ML asset अभी confirm करना है{% else %}Exact ML asset still needs confirmation{% endif %}</span>
+              {% else %}
+                <span>{% if lang == "hi" %}सटीक Macaulay asset URL चाहिए{% else %}Exact Macaulay asset URL needed{% endif %}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+<article class="article-page" itemscope itemtype="https://schema.org/Article">
+  <header class="page-hero article-hero">
+    <p class="eyebrow">Field Report / Field Note</p>
+    <h1 itemprop="headline">The Role of Banyan in Rajasthan’s Biodiversity: A Bird-Focused Field Note</h1>
+    <p class="hindi-title" lang="hi">राजस्थान की जैव विविधता में बरगद की भूमिका : पक्षियों के संदर्भ में</p>
+    <p class="lede">
+      A field note on <em>Ficus benghalensis</em> as food source, microhabitat, shade tree, and bird activity
+      site in Rajasthan’s dry-season ecology.
+    </p>
+    <div class="article-meta">
+      <span>By <strong itemprop="author">{{ sonu.name }}</strong></span>
+      <span>Published May 21, 2026</span>
+      <span>Hindi original with English translation</span>
+    </div>
+
+    <div class="language-switcher" aria-label="Choose article language">
+      <button class="language-button" type="button" data-lang-target="hi" aria-pressed="false">Hindi</button>
+      <button class="language-button is-active" type="button" data-lang-target="en" aria-pressed="true">English</button>
+    </div>
+  </header>
+
+  <figure class="article-figure">
+    <img
+      src="/assets/imgs/field-reports/banyan-header-1600.jpg"
+      srcset="/assets/imgs/field-reports/banyan-header-900.jpg 900w, /assets/imgs/field-reports/banyan-header-1600.jpg 1600w"
+      sizes="(max-width: 760px) 100vw, 1120px"
+      alt="Aerial roots, trunk, and green leaves of a banyan tree"
+      width="1600"
+      height="1066"
+      loading="eager"
+      decoding="async">
+    <figcaption>
+      Banyan aerial roots and evergreen canopy structure. Exact location is omitted for responsible field documentation.
+    </figcaption>
+  </figure>
+
+  <div class="article-layout">
+    <div class="article-body" itemprop="articleBody">
+      <section id="hindi" class="language-panel" data-lang-panel="hi" lang="hi" hidden>
+        <h2>राजस्थान की जैव विविधता में बरगद की भूमिका : पक्षियों के संदर्भ में</h2>
+        <p>
+          राजस्थान को सामान्यतः मरुस्थलीय एवं शुष्क प्रदेश के रूप में देखा जाता है, किन्तु पारिस्थितिकीय
+          दृष्टि से यह अत्यंत विविधतापूर्ण क्षेत्र है। यहाँ के तालाब, नदी तट, चारागाह, कृषि क्षेत्र,
+          अरावली पर्वतमाला एवं ग्रामीण वृक्ष समुदाय अनेक प्रकार के जीवों को आश्रय प्रदान करते हैं।
+          इस पारिस्थितिकीय संरचना में कुछ वृक्ष ऐसे हैं जो केवल वनस्पति का हिस्सा नहीं, बल्कि संपूर्ण
+          जैव विविधता के आधार स्तंभ के रूप में कार्य करते हैं। बरगद (<em>Ficus benghalensis</em>) ऐसा ही
+          एक वृक्ष है, जिसे पारिस्थितिकी विज्ञान में की-स्टोन प्रजाति (Keystone Species) के रूप में देखा जाता है।
+        </p>
+        <p>
+          की-स्टोन प्रजातियाँ वे होती हैं जिनकी उपस्थिति पर अनेक अन्य जीव प्रत्यक्ष अथवा अप्रत्यक्ष रूप
+          से निर्भर रहते हैं। राजस्थान जैसे गर्म एवं जल-संकट वाले प्रदेश में बरगद का महत्व और भी बढ़ जाता है,
+          क्योंकि यह वृक्ष वर्षभर भोजन, आश्रय, विश्राम स्थल एवं सूक्ष्म आवास (Microhabitat) उपलब्ध कराता है।
+        </p>
+
+        <h3>बरगद की संरचना एवं सूक्ष्म पारिस्थितिकी</h3>
+        <p>
+          बरगद एक विशाल सदाबहार वृक्ष है जिसकी शाखाएँ चारों ओर फैलती हैं तथा उनसे निकलने वाली वायवीय
+          जटाएँ (Aerial Roots) भूमि तक पहुँचकर अतिरिक्त तनों का निर्माण करती हैं। समय के साथ एक अकेला
+          वृक्ष कई तनों वाले छोटे वन जैसा स्वरूप ग्रहण कर लेता है। इसकी यही संरचना इसे अन्य वृक्षों की
+          तुलना में अधिक जटिल एवं समृद्ध सूक्ष्म पारिस्थितिकी तंत्र बनाती है।
+        </p>
+        <p>
+          इसकी घनी शाखाएँ एवं विस्तृत कैनोपी (Canopy) विभिन्न स्तरों पर अनेक जीवों को स्थान उपलब्ध कराते हैं।
+          ऊपरी शाखाओं पर शिकारी पक्षी बैठते हैं, मध्य भाग में फलभक्षी एवं कीटभक्षी पक्षी सक्रिय रहते हैं,
+          जबकि जटाओं एवं तनों के बीच छोटे कीट, मकड़ियाँ एवं सरीसृप आश्रय प्राप्त करते हैं। वृक्ष की छाल पर
+          काई, लाइकेन एवं सूक्ष्म जीव समुदाय विकसित हो जाते हैं, जो आगे अन्य कीटों एवं पक्षियों के लिए भोजन
+          का आधार बनते हैं।
+        </p>
+        <p>
+          बरगद की पत्तियाँ मोटी, गुद्देदार एवं चमड़े जैसी होती हैं, जिससे अत्यधिक गर्मी एवं जल की कमी की
+          स्थिति में भी यह लंबे समय तक हरित बना रहता है। राजस्थान की गर्मियों में जब अधिकांश वृक्षों में
+          पतझड़ चल रहा होता है, तब बरगद अपनी हरियाली बनाए रखता है और फल देता है। यही विशेषता इसे गर्मियों
+          में पक्षियों एवं अन्य जीवों के लिए अत्यंत महत्वपूर्ण आश्रय बनाती है।
+        </p>
+
+        <h3>फलन एवं पक्षियों के लिए भोजन स्रोत</h3>
+        <p>
+          बरगद के छोटे फल (Figs) पारिस्थितिकी की दृष्टि से अत्यंत महत्वपूर्ण होते हैं। ये फल जोड़ों में लगते
+          हैं तथा पकने पर लाल रंग के हो जाते हैं। राजस्थान में इसका मुख्य फलन अप्रैल-जून एवं अक्टूबर-नवंबर
+          के दौरान देखा जाता है। विशेष रूप से अप्रैल-जून का समय अत्यधिक गर्म एवं शुष्क होता है, जब प्राकृतिक
+          भोजन स्रोत सीमित होने लगते हैं। ऐसे समय में बरगद अनेक पक्षियों को ऊर्जा एवं पोषण उपलब्ध कराता है।
+        </p>
+        <p>
+          पक्षियों के लिए <em>Ficus</em> प्रजातियों के वृक्ष वर्षभर संसाधन देने वाली प्रजातियाँ माने जाते हैं,
+          क्योंकि वे वर्ष के विभिन्न समयों में फल उपलब्ध कराते रहते हैं। इससे पक्षियों एवं अन्य जीवों को
+          निरंतर भोजन प्राप्त होता रहता है। राजस्थान में बरगद के फल अनेक फलभक्षी पक्षियों के लिए महत्वपूर्ण
+          आहार स्रोत हैं।
+        </p>
+
+        <h3>सूक्ष्म जलवायु एवं तापीय शरणस्थल</h3>
+        <p>
+          राजस्थान में गर्मियों के दौरान अप्रैल से जून का तापमान 45°C से अधिक पहुँच जाता है। ऐसे वातावरण में
+          बरगद जैसे बड़े वृक्ष तापीय शरणस्थल (Thermal Refuge) का कार्य करते हैं। इसकी घनी छाया आसपास के
+          क्षेत्र का तापमान कम करती है तथा आर्द्रता बनाए रखने में सहायता करती है।
+        </p>
+        <p>
+          सामान्यतः देखा गया है कि बड़े वृक्षों की छाया के नीचे तापमान खुले क्षेत्र की तुलना में कई डिग्री कम
+          हो सकता है। इससे पक्षियों एवं अन्य जीवों को आवास और भोजन तलाशने में आसानी रहती है, इसीलिए गर्मियों
+          में पक्षियों की गतिविधियाँ प्रायः ऐसे वृक्षों में या आसपास अधिक देखी जाती हैं।
+        </p>
+
+        <h3>बरगद पर आश्रित पक्षियों का पारिस्थितिकीय अवलोकन</h3>
+        {{ observationCards(birdObservationRecords, "hi") }}
+      </section>
+
+      <section id="english" class="language-panel" data-lang-panel="en" lang="en">
+        <h2>The Role of Banyan in Rajasthan’s Biodiversity: With Reference to Birds</h2>
+        <p>
+          Rajasthan is often seen as a desert and dryland state, but ecologically it is highly diverse.
+          Its ponds, riverbanks, grazing lands, agricultural edges, Aravalli hills, and rural tree communities
+          provide shelter for many kinds of life. Within this ecological structure, some trees are not just
+          part of the vegetation; they act as foundation species for wider biodiversity. The banyan
+          (<em>Ficus benghalensis</em>) is one such tree, widely understood in ecology as a keystone species.
+        </p>
+        <p>
+          Keystone species are those whose presence directly or indirectly supports many other organisms.
+          In a hot and water-stressed region like Rajasthan, the importance of the banyan increases because
+          it provides food, shelter, resting space, and microhabitats across the year.
+        </p>
+
+        <h3>Structure and Micro-Ecology of the Banyan</h3>
+        <p>
+          The banyan is a large evergreen tree with branches that spread widely in all directions. Aerial
+          roots descend from these branches and, after reaching the ground, form additional trunks. Over time,
+          a single tree can take the shape of a small grove with many trunks. This structure makes the banyan
+          a more complex and richer micro-ecosystem than many other trees.
+        </p>
+        <p>
+          Its dense branches and broad canopy create many layers of habitat. Raptors perch on the upper branches,
+          fruit-eating and insect-eating birds remain active in the middle canopy, and small insects, spiders,
+          and reptiles find shelter among the roots and trunks. Moss, lichens, and microbial communities develop
+          on the bark, forming another food base for insects and birds.
+        </p>
+        <p>
+          Banyan leaves are thick, fleshy, and leathery, allowing the tree to remain green even under extreme heat
+          and limited water. During Rajasthan’s summers, when many trees are shedding leaves, banyan trees often
+          retain greenery and produce fruit. This makes them especially important refuges for birds and other life
+          in the hot season.
+        </p>
+
+        <h3>Fruiting and Food Value for Birds</h3>
+        <p>
+          Banyan figs are small but ecologically important. They occur in pairs and turn red when ripe. In Rajasthan,
+          the main fruiting period is usually observed during April-June and October-November. April-June is an
+          especially hot and dry period, when natural food sources can become limited. At such times, the banyan
+          provides energy and nutrition to many birds.
+        </p>
+        <p>
+          For birds, trees in the genus <em>Ficus</em> are often treated as year-round resource species because
+          different individuals can fruit at different times of the year. This helps birds and other animals find a
+          continuing food supply. In Rajasthan, banyan fruits are an important food source for many frugivorous birds.
+        </p>
+
+        <h3>Microclimate and Thermal Refuge</h3>
+        <p>
+          During April to June, summer temperatures in Rajasthan can rise above 45°C. In this environment, large trees
+          such as banyans function as thermal refuges. Their dense shade reduces local temperature and helps retain humidity.
+        </p>
+        <p>
+          It is commonly observed that the temperature below large tree shade can be several degrees lower than in open
+          areas. This makes it easier for birds and other animals to rest, move, and search for food. For this reason,
+          bird activity in summer is often seen in and around such trees.
+        </p>
+
+        <h3>Ecological Observations of Birds Using Banyan Trees</h3>
+        {{ observationCards(birdObservationRecords, "en") }}
+      </section>
+    </div>
+
+    <aside class="article-sidebar" aria-label="Field report metadata">
+      <section class="aside-box">
+        <h2>Author Credit</h2>
+        <p><strong>{{ sonu.name }}</strong></p>
+        <p>{{ sonu.bio }}</p>
+        <p>
+          <a href="{{ sonu.inatProject }}" target="_blank" rel="noopener noreferrer">Biodiversity of MHTR project</a><br>
+          <a href="{{ sonu.inatProfile }}" target="_blank" rel="noopener noreferrer">iNaturalist profile</a>
+        </p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Field Note Context</h2>
+        <p>
+          The observation table and field photographs describe banyan use as food, shade and habitat context.
+        </p>
+        <p class="muted">Precise sensitive wildlife locations are intentionally omitted.</p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Taxa Mentioned</h2>
+        <p>Banyan (<em>Ficus benghalensis</em>), frugivorous birds, insectivorous birds, cavity-resting birds.</p>
+      </section>
+    </aside>
+  </div>
+
+  <section class="section evidence-gallery" aria-label="Field evidence photographs">
+    <div class="evidence-header">
+      <p class="eyebrow">Field Evidence</p>
+      <h2>Banyan structure and canopy context</h2>
+      <p>
+        These photographs support the note by showing canopy density, branching structure, shade, and ground-level
+        habitat around the tree. Exact locations are intentionally not published.
+      </p>
+    </div>
+    <div class="evidence-grid">
+      <figure class="evidence-card">
+        <img
+          src="/assets/imgs/field-reports/banyan-root-habitat-1400.jpg"
+          srcset="/assets/imgs/field-reports/banyan-root-habitat-900.jpg 900w, /assets/imgs/field-reports/banyan-root-habitat-1400.jpg 1400w"
+          sizes="(max-width: 760px) 100vw, 50vw"
+          alt="Wide view of a banyan tree with spreading branches and shaded ground habitat"
+          width="1400"
+          height="787"
+          loading="lazy"
+          decoding="async">
+        <figcaption>Wide habitat view showing shade, branching, and ground-level structure.</figcaption>
+      </figure>
+      <figure class="evidence-card evidence-card-tall">
+        <img
+          src="/assets/imgs/field-reports/banyan-monsoon-canopy-1400.jpg"
+          srcset="/assets/imgs/field-reports/banyan-monsoon-canopy-900.jpg 900w, /assets/imgs/field-reports/banyan-monsoon-canopy-1400.jpg 1400w"
+          sizes="(max-width: 760px) 100vw, 34vw"
+          alt="Vertical view into the dense green canopy of a banyan tree during monsoon"
+          width="787"
+          height="1400"
+          loading="lazy"
+          decoding="async">
+        <figcaption>Dense canopy view documenting cover and layered perch space.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="macaulay-evidence" class="section evidence-gallery" aria-label="Macaulay Library bird evidence">
+    <div class="evidence-header">
+      <p class="eyebrow">External Media Evidence</p>
+      <h2>Additional Macaulay evidence linked to banyan use</h2>
+      <p>
+        These contributor-identified records are linked only where a direct Macaulay Library asset has been identified
+        for the banyan behavior note. Missing or uncertain media are intentionally kept out until the exact asset is known.
+      </p>
+    </div>
+
+    {{ observationCards(additionalMacaulayEvidence, "en") }}
+
+    <p class="muted evidence-source-note">
+      Contributor profile:
+      <a href="https://search.macaulaylibrary.org/catalog?searchField=user&amp;userId=USER1136410" target="_blank" rel="noopener noreferrer">Vinay Chittora media on Macaulay Library</a>.
+      Squirrel, Indian Blackbird, Golden Oriole, and Northern Grey Langur still need exact Macaulay asset IDs before thumbnails are shown here.
+    </p>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Role of Banyan in Rajasthan’s Biodiversity: A Bird-Focused Field Note",
+    "alternativeHeadline": "राजस्थान की जैव विविधता में बरगद की भूमिका : पक्षियों के संदर्भ में",
+    "author": {
+      "@type": "Person",
+      "name": "Sonu Kumar",
+      "url": "https://www.inaturalist.org/people/sonukumar055"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MHTR",
+      "url": "{{ site.url }}"
+    },
+    "datePublished": "2026-05-21",
+    "dateModified": "2026-05-21",
+    "inLanguage": ["hi", "en-IN"],
+    "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+    "image": [
+      "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg",
+      "https://mhtr.in/assets/imgs/field-reports/banyan-root-habitat-1400.jpg",
+      "https://mhtr.in/assets/imgs/field-reports/banyan-monsoon-canopy-1400.jpg"
+    ],
+    "citation": [
+      "https://macaulaylibrary.org/asset/620290654",
+      "https://macaulaylibrary.org/asset/657052826",
+      "https://macaulaylibrary.org/asset/657285889",
+      "https://macaulaylibrary.org/asset/657794725",
+      "https://macaulaylibrary.org/asset/657794645",
+      "https://macaulaylibrary.org/asset/657052733",
+      "https://macaulaylibrary.org/asset/620290695",
+      "https://macaulaylibrary.org/asset/655690907",
+      "https://macaulaylibrary.org/asset/656627643",
+      "https://macaulaylibrary.org/asset/620290420",
+      "https://macaulaylibrary.org/asset/656627763",
+      "https://macaulaylibrary.org/asset/657794694",
+      "https://macaulaylibrary.org/asset/655311430",
+      "https://macaulaylibrary.org/asset/655311423",
+      "https://macaulaylibrary.org/asset/620290439",
+      "https://macaulaylibrary.org/asset/657794707",
+      "https://macaulaylibrary.org/asset/655849921",
+      "https://macaulaylibrary.org/asset/620290555"
+    ],
+    "description": "A bilingual field note by Sonu Kumar on banyan trees, bird activity, food sources, shade, and microhabitats in Rajasthan."
+  }
+  </script>
+</article>

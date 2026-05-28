@@ -1,0 +1,19 @@
+{
+  "name": "mhtr",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "npm run build && eleventy --serve",
+    "build": "npm run build:site && npm run build:search",
+    "build:site": "eleventy",
+    "build:search": "node -e \"require('fs').rmSync('_site/pagefind',{recursive:true,force:true})\" && pagefind --site _site --glob \"**/*.html\"",
+    "protect:images": "node scripts/embed-image-rights.js",
+    "check:seo": "node scripts/check-seo.js",
+    "check": "npm run build && npm run check:seo && npm audit --audit-level=moderate"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "pagefind": "^1.5.2"
+  }
+}

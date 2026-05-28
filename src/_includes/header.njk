@@ -1,0 +1,99 @@
+{% macro icon(name) %}
+  <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+    {% if name == "home" %}
+      <path d="M4 10.8 12 4l8 6.8v8.7a.5.5 0 0 1-.5.5h-5v-5.8h-5V20h-5a.5.5 0 0 1-.5-.5v-8.7Z" />
+    {% elif name == "mountain" %}
+      <path d="m3.5 19 6.2-10.4 3.7 6.1 1.7-2.5L20.5 19h-17Z" />
+      <path d="m9.7 8.6 1.4 2.3 1.4-1.5" />
+    {% elif name == "leaf" %}
+      <path d="M19.5 4.5c-6.7.1-11.8 3.1-13.7 8.1-1 2.7-.4 5.1 1.2 6.5 1.5 1.2 3.9 1.5 6.2.3 4.4-2.3 6.4-8.2 6.3-14.9Z" />
+      <path d="M6.8 18.7c2.2-4.4 5.1-7.3 9.4-9.6" />
+    {% elif name == "map" %}
+      <path d="m4 6 5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z" />
+      <path d="M9 4v14M15 6v14" />
+    {% elif name == "note" %}
+      <path d="M6 4.5h8.2L18 8.3v11.2H6v-15Z" />
+      <path d="M14 4.8V9h4" />
+      <path d="M8.8 12h6.4M8.8 15h6.4" />
+    {% elif name == "book" %}
+      <path d="M5 5.5h6.2c1.1 0 1.8.4 2.3 1.1.5-.7 1.2-1.1 2.3-1.1H22v13h-6.2c-1.1 0-1.8.4-2.3 1.1-.5-.7-1.2-1.1-2.3-1.1H5v-13Z" />
+      <path d="M13.5 6.6v13" />
+    {% elif name == "search" %}
+      <path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13Z" />
+      <path d="m15.5 15.5 4 4" />
+    {% else %}
+      <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" />
+      <path d="M12 10.5v5M12 8h.1" />
+    {% endif %}
+  </svg>
+{% endmacro %}
+
+<header class="site-header" data-pagefind-ignore>
+  <div class="nav">
+    <div class="brand-row">
+      <div class="brand">
+        <a href="/" class="brand-link" aria-label="Mukundara Hills Tiger Reserve home">
+          <img class="brand-logo" src="/assets/imgs/mhtr-logo.svg" alt="" width="42" height="42" decoding="async">
+          <span class="brand-copy">
+            <span class="brand-title">Mukundara Hills Tiger Reserve</span>
+            <span class="brand-subtitle">Independent ecology, field notes &amp; resources</span>
+          </span>
+        </a>
+      </div>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-menu">
+        <span class="menu-lines" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+    </div>
+
+    <nav id="primary-menu" aria-label="Primary">
+      <div class="drawer-head">
+        <span>Menu</span>
+        <button class="drawer-close" type="button" data-menu-close aria-label="Close menu">x</button>
+      </div>
+      <ul>
+        {% for item in nav %}
+          {% set isActive = page.url == item.match or (activeSection and item.section == activeSection) %}
+          {% if item.children %}
+            {% for child in item.children %}
+              {% if page.url == child.match %}
+                {% set isActive = true %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <li class="nav-item{% if item.collection or item.children %} has-dropdown{% endif %}">
+            {% if item.collection == "fieldReports" or item.children %}
+              <div class="nav-parent">
+                <a class="nav-link" href="{{ item.href }}" aria-expanded="false" aria-controls="nav-submenu-{{ loop.index }}" {% if isActive %}aria-current="page"{% endif %}>{{ icon(item.icon) }}<span>{{ item.label }}</span></a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-submenu-{{ loop.index }}" aria-label="Toggle {{ item.label }} menu">
+                  <span aria-hidden="true"></span>
+                </button>
+              </div>
+              <ul class="dropdown-menu" id="nav-submenu-{{ loop.index }}" aria-label="{{ item.label }} submenu" aria-hidden="true">
+                {% if item.children %}
+                  {% for child in item.children %}
+                    <li>
+                      <a href="{{ child.href }}" {% if page.url == child.match %}aria-current="page"{% endif %}>
+                        <span class="dropdown-link-title">{{ icon(child.icon) }}<span>{{ child.label }}</span></span>
+                        {% if child.description %}<span class="dropdown-link-desc">{{ child.description }}</span>{% endif %}
+                      </a>
+                    </li>
+                  {% endfor %}
+                {% else %}
+                <li><a href="{{ item.href }}"><span class="dropdown-link-title">{{ icon(item.icon) }}<span>All field reports</span></span></a></li>
+                {% for report in fieldReports %}
+                  <li><a href="{{ report.href }}"><span class="dropdown-link-title">{{ icon(item.icon) }}<span>{{ report.shortTitle }}</span></span></a></li>
+                {% endfor %}
+                {% endif %}
+              </ul>
+            {% else %}
+              <a class="nav-link" href="{{ item.href }}" {% if isActive %}aria-current="page"{% endif %}>{{ icon(item.icon) }}<span>{{ item.label }}</span></a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+  <button class="nav-backdrop" type="button" data-menu-close aria-label="Close menu"></button>
+</header>
