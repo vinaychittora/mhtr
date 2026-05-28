@@ -1,5 +1,6 @@
 [build]
   command = "npm run build"
+  ignore = "test \"$BRANCH\" != \"main\""
   publish = "_site"
 
 [build.environment]
