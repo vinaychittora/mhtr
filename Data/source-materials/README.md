@@ -1,15 +1,13 @@
 # MHTR Source Materials
 
-This directory keeps project inputs separate from files served directly by the website.
+This directory is for local source drops and lightweight notes that should stay separate from files served directly by the website.
+
+Large raw downloads, drafts, screenshots, Search Console exports and research-paper source copies are intentionally ignored by git. Keep website-ready PDFs, images and other public assets under `src/assets/`.
 
 ## Folders
 
-- `documents/official/` - Official PDFs and planning documents used for reference or archiving.
-- `documents/research/` - Research papers and technical references used for ecology, biodiversity and corridor context.
-- `field-report-inputs/` - Draft documents, photographs and source inputs used while preparing field reports.
-- `gis/` - Source notes, intermediate GIS inputs and cached public map tiles used by `scripts/build-gis-maps.py`.
-- `search-console/` - Google Search Console exports for site maintenance and SEO review.
-- `user-uploads/` - One-off uploads or screenshots kept as project context.
+- `gis/` - Source notes for generated map assets.
+- `documents/`, `field-report-inputs/`, `search-console/` and `user-uploads/` are local-only scratch folders when needed.
 
 ## Website-ready Outputs
 
