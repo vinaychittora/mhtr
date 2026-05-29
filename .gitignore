@@ -1,7 +1,15 @@
 node_modules/
 _site/
 .DS_Store
+**/.DS_Store
 *:Zone.Identifier
+
+# Keep bulky/raw source drops local. Publish optimized website assets from src/assets/.
+Data/source-materials/documents/
+Data/source-materials/field-report-inputs/
+Data/source-materials/search-console/
+Data/source-materials/user-uploads/
+Data/source-materials/gis/*.png
 Data/source-materials/gis/cache/
 
 # Local-only original media. Keep optimized web assets under src/assets/assets/imgs/.

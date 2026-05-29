@@ -1294,7 +1294,7 @@ def write_source_notes(paths: list[Path]) -> None:
         "- ESA WorldCover 2021 through Terrascope WMS: broad land-cover classes. CC BY 4.0.",
         "- Mapzen/AWS Terrarium elevation tiles: DEM-derived shaded relief and elevation bands.",
         "- geoBoundaries India ADM2: district boundaries. ODbL.",
-        "- MHTR Tiger Conservation Plan (`Data/source-materials/documents/official/MHTR_TCP.pdf`): Bhainsrodgarh Sanctuary status as a 05 Oct 2023 core addition to MHTR.",
+        "- MHTR Tiger Conservation Plan (`src/assets/docs/resources/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition.pdf`): Bhainsrodgarh Sanctuary status as a 05 Oct 2023 core addition to MHTR.",
         "",
         "Editorial rule: these maps intentionally avoid exact wildlife observation, nest, den, roost, carcass or breeding-site locations.",
         "Boundary note: OSM geometries are public orientation layers and should not be treated as official cadastral or legal survey demarcations.",

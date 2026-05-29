@@ -98,7 +98,7 @@ npm run check
 - `src/` - website source files, templates, data and public assets.
 - `src/_data/` - structured site data, resources, authors, maps and field report listings.
 - `src/assets/docs/resources/` - public PDFs shown in the resources section.
-- `Data/source-materials/` - source inputs, research documents, field-report inputs, GIS notes and maintenance exports.
+- `Data/source-materials/` - local-only source drops and GIS notes; bulky raw inputs are ignored and website-ready assets live under `src/assets/`.
 - `scripts/` - utility scripts for maps, image-rights metadata and SEO checks.
 - `docs/` - project documentation and setup notes.
 
