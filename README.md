@@ -93,6 +93,24 @@ Run project checks:
 npm run check
 ```
 
+## Social Preview Images
+
+When replacing a primary page image, update the matching `og_image` front matter so social previews stay aligned with the visible page.
+
+- Home: `/assets/imgs/mhtr-landscape-1.jpg`
+- Landscape: `/assets/imgs/landscape/landscape-ancient-trees.jpg`
+- GIS Maps: `/assets/imgs/maps/mhtr-terrain-relief-map-preview.jpg`
+- Biodiversity: `/assets/imgs/mhtr-caracal.jpg`
+- Field Reports: `/assets/imgs/field-reports/banyan-header-1600.jpg`
+- Resources: `/assets/imgs/mhtr-resources.png`
+- About: `/assets/imgs/mukundara-hills-tiger-reserve-landscape.png`
+
+Full-resolution GIS map PNGs should be reserved for the fullscreen zoom viewer. Use lightweight JPG/WebP derivatives for cards, thumbnails and social previews.
+
+## Image Rights Metadata
+
+Run `npm run protect:images` after adding or replacing image assets. The script embeds `MHTR_IMAGE_RIGHTS_v1`, creator, credit, copyright and usage terms metadata for Cane & Camera by Vinay Chittora across JPG, PNG, WebP and SVG assets in `src/assets/assets/imgs/`.
+
 ## Project Structure
 
 - `src/` - website source files, templates, data and public assets.

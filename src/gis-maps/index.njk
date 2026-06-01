@@ -6,10 +6,10 @@ description: "High-resolution public GIS maps for Mukundara Hills Tiger Reserve:
 keywords: "MHTR GIS maps, Mukundara Hills map, Mukundara hydrology map, Mukundara terrain map, Mukundara land cover, Bhainsrodgarh MHTR core"
 og_title: "GIS Maps of Mukundara Hills Tiger Reserve"
 og_description: "Boundary, terrain, hydrology, elevation and land-cover maps for public landscape understanding."
-og_image: "https://mhtr.in/assets/imgs/maps/mhtr-boundary-context-map.png"
-og_image_alt: "GIS map showing Mukundara Hills Tiger Reserve boundary and surrounding landscape context."
-og_image_width: 2400
-og_image_height: 1600
+og_image: "https://mhtr.in/assets/imgs/maps/mhtr-terrain-relief-map-preview.jpg"
+og_image_alt: "Terrain relief GIS map of Mukundara Hills Tiger Reserve and the surrounding landscape."
+og_image_width: 1200
+og_image_height: 800
 schema_type: CollectionPage
 ---
 
@@ -62,10 +62,10 @@ schema_type: CollectionPage
         data-map-src="{{ map.image }}"
         data-map-alt="{{ map.alt }}">
         <img
-          src="{{ map.image }}"
+          src="{{ map.preview or map.image }}"
           alt="{{ map.alt }}"
-          width="{{ map.width }}"
-          height="{{ map.height }}"
+          width="{{ map.previewWidth or map.width }}"
+          height="{{ map.previewHeight or map.height }}"
           loading="{% if loop.first %}eager{% else %}lazy{% endif %}"
           decoding="async">
         <span>Open zoom view</span>

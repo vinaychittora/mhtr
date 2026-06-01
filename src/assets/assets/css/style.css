@@ -2405,6 +2405,11 @@ body > footer a {
   overflow: hidden;
 }
 
+.home-hero-figure picture,
+.route-card-media picture {
+  display: block;
+}
+
 .route-card-media img {
   display: block;
   width: 100%;
