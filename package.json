@@ -5,8 +5,9 @@
   "type": "commonjs",
   "scripts": {
     "dev": "npm run build && eleventy --serve",
-    "build": "npm run build:site && npm run build:search",
+    "build": "npm run build:site && npm run minify:css && npm run build:search",
     "build:site": "eleventy",
+    "minify:css": "node scripts/minify-css.js",
     "build:search": "node -e \"require('fs').rmSync('_site/pagefind',{recursive:true,force:true})\" && pagefind --site _site --glob \"**/*.html\"",
     "protect:images": "node scripts/embed-image-rights.js",
     "check:seo": "node scripts/check-seo.js",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5",
+    "clean-css": "^5.3.3",
     "pagefind": "^1.5.2"
   }
 }

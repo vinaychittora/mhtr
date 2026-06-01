@@ -140,8 +140,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/*.webp": "assets/imgs" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/home/plain-guide/*.jpg": "assets/imgs/home/plain-guide" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/home/routes/*.jpg": "assets/imgs/home/routes" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/home/routes/*.webp": "assets/imgs/home/routes" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/landscape/*.jpg": "assets/imgs/landscape" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.png": "assets/imgs/maps" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.jpg": "assets/imgs/maps" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.webp": "assets/imgs/maps" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.jpg": "assets/imgs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.png": "assets/imgs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/field-reports/*.pdf": "assets/docs/field-reports" });
