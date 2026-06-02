@@ -112,7 +112,7 @@
     <section class="map-viewer-panel">
       <header class="map-viewer-header">
         <div>
-          <p class="eyebrow">GIS Map Viewer</p>
+          <p class="eyebrow">Zoom Viewer</p>
           <h2 id="mapViewerTitle">Map</h2>
         </div>
         <button class="map-viewer-close" type="button" data-map-close aria-label="Close map viewer">x</button>

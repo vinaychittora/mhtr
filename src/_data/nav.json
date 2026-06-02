@@ -8,6 +8,7 @@
     "icon": "mountain",
     "children": [
       {"label": "Landscape", "href": "/landscape/", "match": "/landscape/", "icon": "mountain", "description": "Terrain, habitat, corridors and pressure context"},
+      {"label": "Illustrated Overview", "href": "/landscape/illustrated-overview/", "match": "/landscape/illustrated-overview/", "icon": "map", "description": "Artist-made visual guide to the Mukundara landscape"},
       {"label": "GIS Maps", "href": "/gis-maps/", "match": "/gis-maps/", "icon": "map", "description": "Boundary, hydrology, terrain, elevation and land cover"},
       {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf", "description": "Species lists and citizen-science context"}
     ]
