@@ -30,7 +30,7 @@
 {% macro categoryKey(category) %}{% if category == "Core official sources" or category == "Legal and notification records" %}official{% elif category == "Planning and management" %}management{% elif category == "ESZ and spatial planning" or category == "ESZ and compliance" %}esz{% elif category == "Clearance and compliance" %}clearance{% elif category == "Biodiversity references" %}biodiversity{% else %}context{% endif %}{% endmacro %}
 
 <section class="split-panel resource-hero">
-  <div>
+  <div class="resource-hero-copy">
     <h1>Mukundara Hills Tiger Reserve Resource Archive</h1>
     <p class="lede">
       Documents, maps, plans, field references, official access links and live portals for understanding
@@ -39,17 +39,18 @@
     <p class="muted">
       Use the filters to narrow the archive by subject, then open the detail page, PDF, or original link.
     </p>
+    <div class="inline-actions">
+      <a class="button-link" href="#resource-browser">Search the archive</a>
+    </div>
   </div>
 
-  <div class="resource-hero-card" aria-label="Resource archive scope">
-    <div>
-      <p class="eyebrow">Archive at a Glance</p>
-      <h2>Source trails before summaries</h2>
-      <p>
-        Local copies help preserve access, while original links remain available for citation,
-        version checks and official verification.
-      </p>
-    </div>
+  <aside class="resource-hero-card" aria-label="Resource archive scope">
+    <p class="eyebrow">Archive at a Glance</p>
+    <h2>Source trails before summaries</h2>
+    <p class="muted">
+      Local copies help preserve access, while original links remain available for citation, version checks
+      and official verification.
+    </p>
     <dl class="resource-hero-stats" aria-label="Archive summary">
       <div>
         <dt>{{ resourceDocuments.length }}</dt>
@@ -60,28 +61,16 @@
         <dd>live source links</dd>
       </div>
     </dl>
-    <div class="resource-hero-list">
-      <div>
-        {{ resourceIcon("official") }}
-        <span><strong>Official records</strong> Notifications, department pages, ESZ and planning files.</span>
-      </div>
-      <div>
-        {{ resourceIcon("management") }}
-        <span><strong>Management context</strong> Conservation plans, APOs, sanction orders and technical manuals.</span>
-      </div>
-      <div>
-        {{ resourceIcon("biodiversity") }}
-        <span><strong>Ecology references</strong> Field guides, research papers and species records.</span>
-      </div>
-      <div>
-        {{ resourceIcon("live") }}
-        <span><strong>Live portals</strong> Official access links, GIS portals and public datasets.</span>
-      </div>
+    <div class="resource-hero-list" aria-label="Resource categories">
+      <div>{{ resourceIcon("official") }}<strong>Official records</strong><span>Notifications, department pages, ESZ and planning files.</span></div>
+      <div>{{ resourceIcon("management") }}<strong>Management context</strong><span>Conservation plans, APOs, sanction orders and technical manuals.</span></div>
+      <div>{{ resourceIcon("biodiversity") }}<strong>Ecology references</strong><span>Field guides, research papers and species records.</span></div>
+      <div>{{ resourceIcon("live") }}<strong>Live portals</strong><span>Official access links, GIS portals and public datasets.</span></div>
     </div>
-  </div>
+  </aside>
 </section>
 
-<section class="section resource-browser" data-resource-browser aria-labelledby="resource-browser-heading">
+<section class="section resource-browser" id="resource-browser" data-resource-browser aria-labelledby="resource-browser-heading">
   <div class="section-heading">
     <p class="eyebrow">Find Resources</p>
     <h2 id="resource-browser-heading">Search and filter the archive</h2>
