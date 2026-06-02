@@ -41,6 +41,63 @@
 })();
 
 (() => {
+  const rail = document.querySelector("[data-support-rail]");
+  if (!rail) return;
+
+  const toggle = rail.querySelector("[data-support-rail-toggle]");
+  const panel = rail.querySelector("#supportRailPanel");
+  const closeButtons = Array.from(rail.querySelectorAll("[data-support-rail-close]"));
+  const donateLink = rail.querySelector("[data-support-rail-donate]");
+  let isOpen = false;
+
+  if (!toggle || !panel) return;
+
+  try {
+    window.localStorage?.removeItem("mhtrSupportRailHiddenUntil");
+  } catch (error) {
+    // Storage may be blocked in some browser privacy modes.
+  }
+
+  function closePanel() {
+    try {
+      panel.hidden = true;
+      rail.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      isOpen = false;
+    } catch (error) {
+      // Keep the persistent tab available even if the panel cannot be updated.
+    }
+  }
+
+  function openPanel() {
+    panel.hidden = false;
+    rail.classList.add("is-open");
+    toggle.setAttribute("aria-expanded", "true");
+    isOpen = true;
+  }
+
+  function togglePanel() {
+    if (isOpen) {
+      closePanel();
+    } else {
+      openPanel();
+    }
+  }
+
+  function onKeydown(event) {
+    if (event.key === "Escape" && isOpen) {
+      closePanel();
+      toggle.focus({ preventScroll: true });
+    }
+  }
+
+  toggle.addEventListener("click", togglePanel);
+  closeButtons.forEach((button) => button.addEventListener("click", closePanel));
+  donateLink?.addEventListener("click", closePanel);
+  document.addEventListener("keydown", onKeydown);
+})();
+
+(() => {
   const triggers = Array.from(document.querySelectorAll("[data-map-viewer]"));
   if (!triggers.length) return;
 

@@ -8,6 +8,22 @@
     "note": "Live portal page; details can change without notice."
   },
   {
+    "title": "Online Safari/Zoo Ticket Booking - Rajasthan Forest Department",
+    "type": "Official public-access links",
+    "source": "Rajasthan Forest Department",
+    "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/citizen-services/safari-zoo-ticket-booking.html",
+    "useFor": "Official route to Rajasthan Forest Department booking and permit links. MHTR.in does not arrange safaris or take payments.",
+    "note": "Use only as an official link-out; availability, fees, rules and closures must be verified on the live government portal."
+  },
+  {
+    "title": "Official OBMS Wildlife Attractions Portal",
+    "type": "Official permit portal",
+    "source": "Government of Rajasthan",
+    "url": "https://obms-tourist.rajasthan.gov.in/wildlife-attraction",
+    "useFor": "Live government portal for wildlife-attraction permits where available.",
+    "note": "Do not assume Mukundara availability from this archive entry; check the live portal before planning travel."
+  },
+  {
     "title": "MEE-TR Geospatial Portal - Mukundara Hills Tiger Reserve",
     "type": "Geospatial portal / GIS reference",
     "source": "Wildlife Institute of India (WII)",
