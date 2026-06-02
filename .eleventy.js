@@ -57,41 +57,27 @@ module.exports = function (eleventyConfig) {
         description: site.description,
         inLanguage: language,
         publisher: { "@id": `${siteUrl}#publisher` },
-      },
-      {
-        "@type": pageType,
-        "@id": `${canonical}#webpage`,
-        url: canonical,
-        name: payload.pageTitle,
-        description: payload.pageDescription,
-        isPartOf: { "@id": `${siteUrl}#website` },
-        inLanguage: language,
-        publisher: { "@id": `${siteUrl}#publisher` },
-        ...(image ? { primaryImageOfPage: image, image } : {}),
-        ...(keywords.length ? { keywords } : {}),
-        ...(payload.author
-          ? {
-              author: {
-                "@type": "Person",
-                name: payload.author,
-                ...(payload.authorUrl ? { url: payload.authorUrl } : {}),
-              },
-            }
-          : {}),
-        ...(payload.publishedTime ? { datePublished: payload.publishedTime } : {}),
-        ...(payload.modifiedTime ? { dateModified: payload.modifiedTime } : {}),
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${siteUrl}/search/?q={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
       },
     ];
 
     const pagePath = new URL(canonical).pathname;
+    let breadcrumb;
     if (pagePath !== "/") {
       const segmentLabels = {
         about: "About",
         biodiversity: "Biodiversity",
         "field-reports": "Field Reports",
+        "gis-maps": "GIS Maps",
         landscape: "Landscape",
         resources: "Resources",
         documents: "Documents",
+        inaturalist: "iNaturalist",
+        callback: "Callback",
         search: "Search",
       };
       const segments = pagePath.replace(/^\/|\/$/g, "").split("/");
@@ -108,8 +94,8 @@ module.exports = function (eleventyConfig) {
         path += `/${segment}`;
         const isLast = index === segments.length - 1;
         const name =
-          isLast && payload.pageTitle
-            ? payload.pageTitle.replace(/\s+\|\s+.*$/, "")
+          isLast && (payload.breadcrumbLabel || payload.pageTitle)
+            ? (payload.breadcrumbLabel || payload.pageTitle).replace(/\s+\|\s+.*$/, "")
             : segmentLabels[segment] || segment.replace(/-/g, " ");
         itemListElement.push({
           "@type": "ListItem",
@@ -119,12 +105,39 @@ module.exports = function (eleventyConfig) {
         });
       });
 
-      graph.push({
+      breadcrumb = {
         "@type": "BreadcrumbList",
         "@id": `${canonical}#breadcrumb`,
         itemListElement,
-      });
+      };
     }
+
+    graph.push({
+      "@type": pageType,
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: payload.pageTitle,
+      description: payload.pageDescription,
+      isPartOf: { "@id": `${siteUrl}#website` },
+      inLanguage: language,
+      publisher: { "@id": `${siteUrl}#publisher` },
+      ...(breadcrumb ? { breadcrumb: { "@id": `${canonical}#breadcrumb` } } : {}),
+      ...(image ? { primaryImageOfPage: image, image } : {}),
+      ...(keywords.length ? { keywords } : {}),
+      ...(payload.author
+        ? {
+            author: {
+              "@type": "Person",
+              name: payload.author,
+              ...(payload.authorUrl ? { url: payload.authorUrl } : {}),
+            },
+          }
+        : {}),
+      ...(payload.publishedTime ? { datePublished: payload.publishedTime } : {}),
+      ...(payload.modifiedTime ? { dateModified: payload.modifiedTime } : {}),
+    });
+
+    if (breadcrumb) graph.push(breadcrumb);
 
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/</g, "\\u003c");
   });

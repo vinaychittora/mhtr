@@ -33,38 +33,51 @@
   <div>
     <h1>Mukundara Hills Tiger Reserve Resource Archive</h1>
     <p class="lede">
-      Documents, maps, plans, field references and live portals for understanding Mukundara Hills Tiger Reserve.
+      Documents, maps, plans, field references, official access links and live portals for understanding
+      Mukundara Hills Tiger Reserve.
     </p>
     <p class="muted">
       Use the filters to narrow the archive by subject, then open the detail page, PDF, or original link.
     </p>
   </div>
 
-  <figure class="map-frame landscape-photo-frame resource-hero-image">
-    <img
-      src="/assets/imgs/mhtr-resources.png"
-      alt="Collage of Mukundara Hills Tiger Reserve research papers, notifications and conservation documents"
-      width="1475"
-      height="1015"
-      loading="eager"
-      decoding="async">
-    <figcaption>
-      A working library for official records, planning documents and ecological references.
-    </figcaption>
-  </figure>
-</section>
-
-<section class="section" aria-labelledby="resource-update-heading">
-  <div class="notice-panel">
+  <div class="resource-hero-card" aria-label="Resource archive scope">
     <div>
-      <p class="eyebrow">Important Update</p>
-      <h2 id="resource-update-heading">Bhainsrodgarh TCP added</h2>
+      <p class="eyebrow">Archive at a Glance</p>
+      <h2>Source trails before summaries</h2>
       <p>
-        The newer Tiger Conservation Plan copy includes the 05 Oct 2023 Bhainsrodgarh core-addition context and is
-        listed near the top of this archive.
+        Local copies help preserve access, while original links remain available for citation,
+        version checks and official verification.
       </p>
     </div>
-    <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Open updated TCP</a>
+    <dl class="resource-hero-stats" aria-label="Archive summary">
+      <div>
+        <dt>{{ resourceDocuments.length }}</dt>
+        <dd>archived PDFs</dd>
+      </div>
+      <div>
+        <dt>{{ resourceLinks.length }}</dt>
+        <dd>live source links</dd>
+      </div>
+    </dl>
+    <div class="resource-hero-list">
+      <div>
+        {{ resourceIcon("official") }}
+        <span><strong>Official records</strong> Notifications, department pages, ESZ and planning files.</span>
+      </div>
+      <div>
+        {{ resourceIcon("management") }}
+        <span><strong>Management context</strong> Conservation plans, APOs, sanction orders and technical manuals.</span>
+      </div>
+      <div>
+        {{ resourceIcon("biodiversity") }}
+        <span><strong>Ecology references</strong> Field guides, research papers and species records.</span>
+      </div>
+      <div>
+        {{ resourceIcon("live") }}
+        <span><strong>Live portals</strong> Official access links, GIS portals and public datasets.</span>
+      </div>
+    </div>
   </div>
 </section>
 
