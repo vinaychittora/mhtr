@@ -1,4 +1,10 @@
 module.exports = function (eleventyConfig) {
+  const deploymentTarget = process.env.MHTR_DEPLOY_TARGET || "default";
+
+  eleventyConfig.addGlobalData("deployment", {
+    target: deploymentTarget,
+  });
+
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return new Date(dateObj).toISOString().slice(0, 10);
   });
@@ -142,6 +148,41 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/</g, "\\u003c");
   });
 
+  eleventyConfig.addShortcode("documentJsonLd", (site, page, doc, localArchiveAvailable) => {
+    const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
+    const payload = {
+      "@context": "https://schema.org",
+      "@type": "DigitalDocument",
+      "@id": `${siteUrl}${page.url}#document`,
+      name: doc.title,
+      description: doc.summary,
+      url: `${siteUrl}${page.url}`,
+      inLanguage: "en-IN",
+      publisher: {
+        "@type": "Organization",
+        name: doc.source,
+      },
+      isPartOf: {
+        "@id": `${siteUrl}${page.url}#webpage`,
+      },
+      about: ["Mukundara Hills Tiger Reserve", "Rajasthan wildlife conservation", doc.category],
+      citation: doc.sourceUrl,
+      dateModified: doc.archivedAt,
+    };
+
+    if (localArchiveAvailable) {
+      payload.encoding = {
+        "@type": "MediaObject",
+        contentUrl: `${siteUrl}${doc.localPath}`,
+        encodingFormat: "application/pdf",
+        name: doc.fileName,
+        contentSize: doc.fileSize,
+      };
+    }
+
+    return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
+  });
+
   // Copy only web-ready assets, not OS/browser metadata sidecar files.
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/style.css": "assets/css/style.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/main.js": "assets/js/main.js" });
@@ -163,6 +204,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/field-reports/*.pdf": "assets/docs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/resources/*.pdf": "assets/docs/resources" });
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
+  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 
   return {

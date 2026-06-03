@@ -121,6 +121,7 @@
     <div class="resource-list">
 {% for doc in resourceDocuments %}
       {% set docCategory = categoryKey(doc.category) | trim %}
+      {% set localArchiveAvailable = deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal %}
       <article class="resource-item" data-resource-item data-resource-category="{{ docCategory }}">
         <div class="resource-item-head">
           <span class="resource-category-badge">{{ resourceIcon(docCategory) }}<span>{{ doc.category }}</span></span>
@@ -137,10 +138,16 @@
           <div><dt>Issued</dt><dd>{{ doc.issued }}</dd></div>
         </dl>
         <p class="resource-use"><strong>Best for:</strong> {{ doc.useFor }}</p>
+{% if localArchiveAvailable %}
         <p class="resource-archive-note">Stored locally: {{ doc.archivedAt }}</p>
+{% else %}
+        <p class="resource-archive-note">Linked to original source during Cloudflare staging; large local PDF pending R2/archive review.</p>
+{% endif %}
         <div class="resource-actions">
           <a href="/resources/documents/{{ doc.slug }}/">View page</a>
+{% if localArchiveAvailable %}
           <a href="{{ doc.localPath }}" target="_blank" rel="noopener">Open PDF</a>
+{% endif %}
           <a href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Original link</a>
         </div>
       </article>
