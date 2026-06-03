@@ -19,7 +19,9 @@ eleventyComputed:
   schema_type: WebPage
 ---
 
-{% set localArchiveAvailable = deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal %}
+{% set archiveUrl = doc.localPath | archiveDocumentUrl %}
+{% set archiveAvailable = deployment.docsArchiveBaseUrl or deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal %}
+{% set archiveIsExternal = deployment.docsArchiveBaseUrl %}
 
 <article class="document-page">
   <header class="page-hero document-hero">
@@ -27,8 +29,8 @@ eleventyComputed:
     <h1>{{ doc.title }}</h1>
     <p class="lede">{{ doc.summary }}</p>
     <div class="document-actions">
-{% if localArchiveAvailable %}
-      <a class="button-link" href="{{ doc.localPath }}" target="_blank" rel="noopener">Open archived PDF</a>
+{% if archiveAvailable %}
+      <a class="button-link" href="{{ archiveUrl }}" target="_blank" rel="noopener">Open archived PDF</a>
       <a class="button-link button-link-secondary" href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Original source</a>
 {% else %}
       <a class="button-link" href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Open original source</a>
@@ -43,7 +45,9 @@ eleventyComputed:
       <p><strong>Source:</strong> {{ doc.source }}</p>
       <p><strong>Type:</strong> {{ doc.type }}</p>
       <p><strong>Issued:</strong> {{ doc.issued }}</p>
-{% if localArchiveAvailable %}
+{% if archiveAvailable and archiveIsExternal %}
+      <p><strong>Archive status:</strong> Stored in the MHTR document archive; original source retained for citation.</p>
+{% elif archiveAvailable %}
       <p><strong>Archived locally:</strong> {{ doc.archivedAt }}</p>
 {% else %}
       <p><strong>Archive status:</strong> Original-source link shown during Cloudflare staging; large local PDF pending R2/archive review.</p>
@@ -58,18 +62,18 @@ eleventyComputed:
     </div>
   </section>
 
-{% if localArchiveAvailable %}
+{% if archiveAvailable %}
   <section class="section" aria-label="Archived document viewer">
     <div class="pdf-toolbar">
       <p class="muted">
-        The PDF below is a local archive copy. Keep using the original source link for citation and version checking.
+        The PDF below is an archive copy. Keep using the original source link for citation and version checking.
       </p>
-      <a href="{{ doc.localPath }}" target="_blank" rel="noopener">Open in a new tab</a>
+      <a href="{{ archiveUrl }}" target="_blank" rel="noopener">Open in a new tab</a>
     </div>
     <iframe
       class="pdf-viewer"
       title="{{ doc.title }} PDF viewer"
-      src="{{ doc.localPath }}"
+      src="{{ archiveUrl }}"
       loading="lazy"></iframe>
   </section>
 {% else %}
@@ -90,6 +94,6 @@ eleventyComputed:
 {% endif %}
 
   <script type="application/ld+json">
-  {% documentJsonLd site, page, doc, localArchiveAvailable %}
+  {% documentJsonLd site, page, doc, archiveAvailable, archiveUrl %}
   </script>
 </article>

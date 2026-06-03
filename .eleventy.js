@@ -1,8 +1,10 @@
 module.exports = function (eleventyConfig) {
   const deploymentTarget = process.env.MHTR_DEPLOY_TARGET || "default";
+  const docsArchiveBaseUrl = (process.env.MHTR_DOCS_BASE_URL || "").replace(/\/$/, "");
 
   eleventyConfig.addGlobalData("deployment", {
     target: deploymentTarget,
+    docsArchiveBaseUrl,
   });
 
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
@@ -11,6 +13,11 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("jsonLd", (value) => {
     return JSON.stringify(value).replace(/</g, "\\u003c");
+  });
+
+  eleventyConfig.addFilter("archiveDocumentUrl", (localPath) => {
+    if (!localPath) return "";
+    return docsArchiveBaseUrl ? `${docsArchiveBaseUrl}${localPath.startsWith("/") ? localPath : `/${localPath}`}` : localPath;
   });
 
   eleventyConfig.addShortcode("seoJsonLd", (payload) => {
@@ -148,7 +155,7 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/</g, "\\u003c");
   });
 
-  eleventyConfig.addShortcode("documentJsonLd", (site, page, doc, localArchiveAvailable) => {
+  eleventyConfig.addShortcode("documentJsonLd", (site, page, doc, archiveAvailable, archiveUrl) => {
     const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
     const payload = {
       "@context": "https://schema.org",
@@ -170,10 +177,10 @@ module.exports = function (eleventyConfig) {
       dateModified: doc.archivedAt,
     };
 
-    if (localArchiveAvailable) {
+    if (archiveAvailable) {
       payload.encoding = {
         "@type": "MediaObject",
-        contentUrl: `${siteUrl}${doc.localPath}`,
+        contentUrl: archiveUrl && /^https?:\/\//.test(archiveUrl) ? archiveUrl : `${siteUrl}${archiveUrl || doc.localPath}`,
         encodingFormat: "application/pdf",
         name: doc.fileName,
         contentSize: doc.fileSize,

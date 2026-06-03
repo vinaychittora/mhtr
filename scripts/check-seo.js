@@ -54,7 +54,8 @@ for (const rule of requiredRedirects) {
   if (!redirects.includes(rule)) {
     fail(`Missing redirect rule: ${rule}`);
   }
-  if (!builtRedirects.includes(rule)) {
+  const cloudflareRule = rule.replace(/\s(30[1278]|303)!($|\s)/, " $1$2");
+  if (!builtRedirects.includes(rule) && !builtRedirects.includes(cloudflareRule)) {
     fail(`Built _site/_redirects is missing rule: ${rule}`);
   }
 }

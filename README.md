@@ -93,6 +93,30 @@ Run project checks:
 npm run check
 ```
 
+## Cloudflare Pages and R2
+
+Cloudflare Pages builds should set `MHTR_DOCS_BASE_URL` so PDFs are served from R2 instead of being bundled into the Pages output.
+
+Sync local PDFs to the R2 bucket:
+
+```sh
+npm run sync:docs:r2
+```
+
+Preview the upload commands without changing R2:
+
+```sh
+npm run sync:docs:r2 -- --dry-run
+```
+
+Deploy the staging alias:
+
+```sh
+MHTR_DOCS_BASE_URL=https://pub-4e1957b6823149509c59fa97dc87285d.r2.dev npm run deploy:cloudflare:staging
+```
+
+When DNS is fully on Cloudflare, replace the temporary `r2.dev` URL with the custom R2 domain, for example `MHTR_DOCS_BASE_URL=https://docs.mhtr.in`.
+
 ## Social Preview Images
 
 When replacing a primary page image, update the matching `og_image` front matter so social previews stay aligned with the visible page.
