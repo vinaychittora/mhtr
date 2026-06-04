@@ -203,6 +203,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/home/routes/*.jpg": "assets/imgs/home/routes" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/home/routes/*.webp": "assets/imgs/home/routes" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/landscape/*.jpg": "assets/imgs/landscape" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/landscape/*.webp": "assets/imgs/landscape" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.png": "assets/imgs/maps" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.jpg": "assets/imgs/maps" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.webp": "assets/imgs/maps" });
