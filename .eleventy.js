@@ -1,10 +1,23 @@
 module.exports = function (eleventyConfig) {
+  const deploymentTarget = process.env.MHTR_DEPLOY_TARGET || "default";
+  const docsArchiveBaseUrl = (process.env.MHTR_DOCS_BASE_URL || "").replace(/\/$/, "");
+
+  eleventyConfig.addGlobalData("deployment", {
+    target: deploymentTarget,
+    docsArchiveBaseUrl,
+  });
+
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return new Date(dateObj).toISOString().slice(0, 10);
   });
 
   eleventyConfig.addFilter("jsonLd", (value) => {
     return JSON.stringify(value).replace(/</g, "\\u003c");
+  });
+
+  eleventyConfig.addFilter("archiveDocumentUrl", (localPath) => {
+    if (!localPath) return "";
+    return docsArchiveBaseUrl ? `${docsArchiveBaseUrl}${localPath.startsWith("/") ? localPath : `/${localPath}`}` : localPath;
   });
 
   eleventyConfig.addShortcode("seoJsonLd", (payload) => {
@@ -142,6 +155,41 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/</g, "\\u003c");
   });
 
+  eleventyConfig.addShortcode("documentJsonLd", (site, page, doc, archiveAvailable, archiveUrl) => {
+    const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
+    const payload = {
+      "@context": "https://schema.org",
+      "@type": "DigitalDocument",
+      "@id": `${siteUrl}${page.url}#document`,
+      name: doc.title,
+      description: doc.summary,
+      url: `${siteUrl}${page.url}`,
+      inLanguage: "en-IN",
+      publisher: {
+        "@type": "Organization",
+        name: doc.source,
+      },
+      isPartOf: {
+        "@id": `${siteUrl}${page.url}#webpage`,
+      },
+      about: ["Mukundara Hills Tiger Reserve", "Rajasthan wildlife conservation", doc.category],
+      citation: doc.sourceUrl,
+      dateModified: doc.archivedAt,
+    };
+
+    if (archiveAvailable) {
+      payload.encoding = {
+        "@type": "MediaObject",
+        contentUrl: archiveUrl && /^https?:\/\//.test(archiveUrl) ? archiveUrl : `${siteUrl}${archiveUrl || doc.localPath}`,
+        encodingFormat: "application/pdf",
+        name: doc.fileName,
+        contentSize: doc.fileSize,
+      };
+    }
+
+    return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
+  });
+
   // Copy only web-ready assets, not OS/browser metadata sidecar files.
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/style.css": "assets/css/style.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/main.js": "assets/js/main.js" });
@@ -155,6 +203,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/home/routes/*.jpg": "assets/imgs/home/routes" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/home/routes/*.webp": "assets/imgs/home/routes" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/landscape/*.jpg": "assets/imgs/landscape" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/landscape/*.webp": "assets/imgs/landscape" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.png": "assets/imgs/maps" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.jpg": "assets/imgs/maps" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.webp": "assets/imgs/maps" });
@@ -163,6 +212,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/field-reports/*.pdf": "assets/docs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/resources/*.pdf": "assets/docs/resources" });
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
+  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 
   return {

@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "npm run build && eleventy --serve",
     "build": "npm run build:site && npm run minify:css && npm run build:search",
-    "build:site": "eleventy",
+    "build:cloudflare": "MHTR_DEPLOY_TARGET=cloudflare-pages npm run build && node scripts/prepare-cloudflare-pages.js",
+    "deploy:cloudflare:staging": "npm run build:cloudflare && npx wrangler pages deploy _site --project-name mhtr-in --branch cloudflare-staging",
+    "sync:docs:r2": "node scripts/sync-r2-docs.js",
+    "build:site": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\" && eleventy",
     "minify:css": "node scripts/minify-css.js",
     "build:search": "node -e \"require('fs').rmSync('_site/pagefind',{recursive:true,force:true})\" && pagefind --site _site --glob \"**/*.html\"",
     "protect:images": "node scripts/embed-image-rights.js",

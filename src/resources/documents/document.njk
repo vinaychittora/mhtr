@@ -19,14 +19,22 @@ eleventyComputed:
   schema_type: WebPage
 ---
 
+{% set archiveUrl = doc.localPath | archiveDocumentUrl %}
+{% set archiveAvailable = deployment.docsArchiveBaseUrl or deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal %}
+{% set archiveIsExternal = deployment.docsArchiveBaseUrl %}
+
 <article class="document-page">
   <header class="page-hero document-hero">
     <p class="eyebrow">Resource Archive / {{ doc.category }}</p>
     <h1>{{ doc.title }}</h1>
     <p class="lede">{{ doc.summary }}</p>
     <div class="document-actions">
-      <a class="button-link" href="{{ doc.localPath }}" target="_blank" rel="noopener">Open archived PDF</a>
+{% if archiveAvailable %}
+      <a class="button-link" href="{{ archiveUrl }}" target="_blank" rel="noopener">Open archived PDF</a>
       <a class="button-link button-link-secondary" href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Original source</a>
+{% else %}
+      <a class="button-link" href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Open original source</a>
+{% endif %}
       <a class="button-link button-link-secondary" href="/resources/">All resources</a>
     </div>
   </header>
@@ -37,7 +45,13 @@ eleventyComputed:
       <p><strong>Source:</strong> {{ doc.source }}</p>
       <p><strong>Type:</strong> {{ doc.type }}</p>
       <p><strong>Issued:</strong> {{ doc.issued }}</p>
+{% if archiveAvailable and archiveIsExternal %}
+      <p><strong>Archive status:</strong> Stored in the MHTR document archive; original source retained for citation.</p>
+{% elif archiveAvailable %}
       <p><strong>Archived locally:</strong> {{ doc.archivedAt }}</p>
+{% else %}
+      <p><strong>Archive status:</strong> Original-source link shown during Cloudflare staging; large local PDF pending R2/archive review.</p>
+{% endif %}
       <p><strong>File:</strong> {{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</p>
     </div>
 
@@ -48,50 +62,38 @@ eleventyComputed:
     </div>
   </section>
 
+{% if archiveAvailable %}
   <section class="section" aria-label="Archived document viewer">
     <div class="pdf-toolbar">
       <p class="muted">
-        The PDF below is a local archive copy. Keep using the original source link for citation and version checking.
+        The PDF below is an archive copy. Keep using the original source link for citation and version checking.
       </p>
-      <a href="{{ doc.localPath }}" target="_blank" rel="noopener">Open in a new tab</a>
+      <a href="{{ archiveUrl }}" target="_blank" rel="noopener">Open in a new tab</a>
     </div>
     <iframe
       class="pdf-viewer"
       title="{{ doc.title }} PDF viewer"
-      src="{{ doc.localPath }}"
+      src="{{ archiveUrl }}"
       loading="lazy"></iframe>
   </section>
+{% else %}
+  <section class="section source-panel" aria-label="Original document source">
+    <div>
+      <p class="eyebrow">Large Document</p>
+      <h2>Use the original source while the archive copy is staged separately</h2>
+      <p>
+        This PDF is larger than Cloudflare Pages allows for a single static asset. For the staging deployment,
+        the page links readers to the original source while the local copy is reviewed for R2 hosting or a
+        source-only archive entry.
+      </p>
+    </div>
+    <div class="source-actions">
+      <a class="button-link" href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Open original source</a>
+    </div>
+  </section>
+{% endif %}
 
   <script type="application/ld+json">
-  {{ {
-    "@context": "https://schema.org",
-    "@type": "DigitalDocument",
-    "@id": site.url + page.url + "#document",
-    "name": doc.title,
-    "description": doc.summary,
-    "url": site.url + page.url,
-    "inLanguage": "en-IN",
-    "publisher": {
-      "@type": "Organization",
-      "name": doc.source
-    },
-    "isPartOf": {
-      "@id": site.url + page.url + "#webpage"
-    },
-    "about": [
-      "Mukundara Hills Tiger Reserve",
-      "Rajasthan wildlife conservation",
-      doc.category
-    ],
-    "citation": doc.sourceUrl,
-    "dateModified": doc.archivedAt,
-    "encoding": {
-      "@type": "MediaObject",
-      "contentUrl": site.url + doc.localPath,
-      "encodingFormat": "application/pdf",
-      "name": doc.fileName,
-      "contentSize": doc.fileSize
-    }
-  } | jsonLd | safe }}
+  {% documentJsonLd site, page, doc, archiveAvailable, archiveUrl %}
   </script>
 </article>
