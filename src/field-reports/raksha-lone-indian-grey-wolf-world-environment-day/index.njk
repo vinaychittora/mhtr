@@ -1,0 +1,838 @@
+---
+layout: base.njk
+title: "World Environment Day 2026: Indian Grey Wolf at Alania Wetland, Kota"
+description: "World Environment Day 2026 field report from Alania wetland, Kota: a lone Indian grey wolf, migratory birds, breeding chicks, and a plea to protect habitat from disturbance."
+keywords: "World Environment Day 2026, Indian grey wolf, Alania wetland, Alania Dam, Alniya Dam, Kota Rajasthan, wetland conservation, habitat disturbance, Small Pratincole breeding, Sarus Crane, Ruddy Turnstone, Black-tailed Godwit, Rajasthan wildlife"
+activeSection: field-reports
+og_type: article
+og_title: "World Environment Day 2026: Indian Grey Wolf at Alania Wetland"
+og_description: "A field report from Alania wetland, Kota, where a lone Indian grey wolf, migratory birds, and breeding chicks turn World Environment Day into a plea for habitat protection."
+author: Vinay Chittora
+publishedTime: "2026-06-05T00:00:00+05:30"
+modifiedTime: "2026-06-05T00:00:00+05:30"
+og_image: "https://mhtr.in/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg"
+og_image_alt: "A lone Indian grey wolf walking beside shallow water at Alania wetland in Rajasthan."
+og_image_width: 1600
+og_image_height: 1066
+preload_image: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg"
+preload_image_type: "image/jpeg"
+schema_type: WebPage
+---
+
+{% set fieldPhotos = [
+  {
+    src: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-cooling-water-1600.jpg",
+    alt: "Indian grey wolf sitting in shallow wetland water in Rajasthan during summer heat",
+    caption: "The wolf lowered himself into the shallow water. What looked like relief also looked like a warning."
+  },
+  {
+    src: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-with-waterbirds-1600.jpg",
+    alt: "Indian grey wolf in shallow water with a Black-winged Stilt visible in the background",
+    caption: "A wolf in the water, a stilt behind him, and the wetland holding both lives in one fragile frame."
+  },
+  {
+    src: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-water-close-1600.jpg",
+    alt: "Close field photograph of an Indian grey wolf resting in shallow water at Alania wetland",
+    caption: "The exact observation point is intentionally not published. The habitat matters more than the chase."
+  }
+] %}
+
+{% set alaniaBirdMedia = [
+  {
+    common: "Ruddy Turnstone",
+    scientific: "Arenaria interpres",
+    evidenceId: "615905785",
+    evidenceKind: "photo",
+    observed: "12 Mar 2023",
+    checklist: "S164399219",
+    role: "Rare sighting",
+    note: "A turnstone at Alania feels like a small shock of distance: a coastal wanderer, a rare inland gift, standing on this mud because the wetland still offers a pause."
+  },
+  {
+    common: "Asian Woolly-necked Stork",
+    scientific: "Ciconia episcopus",
+    evidenceId: "650247708",
+    evidenceKind: "photo",
+    observed: "3 Feb 2026",
+    checklist: "S297814182",
+    role: "Threatened presence",
+    note: "The Woolly-necked Stork carries the uneasy word threatened with it now. Its presence asks whether Alania can remain quiet enough, wet enough, and safe enough for large wetland birds."
+  },
+  {
+    common: "Greater Short-toed Lark",
+    scientific: "Calandrella brachydactyla",
+    evidenceId: "650745754",
+    evidenceKind: "photo",
+    observed: "3 Feb 2026",
+    checklist: "S297814182",
+    role: "Long-distance migrant",
+    note: "A tiny lark that crosses distances larger than our imagination, feeding and gathering strength on this land before the next hard flight begins."
+  },
+  {
+    common: "Sarus Crane",
+    scientific: "Antigone antigone",
+    evidenceId: "658708988",
+    evidenceKind: "photo",
+    observed: "30 May 2026",
+    checklist: "S349387936",
+    role: "Family at Alania",
+    note: "A Sarus Crane family is more than a beautiful sighting. It is one of the living symbols of India's wetland heritage, and it needs space more than applause."
+  },
+  {
+    common: "Black-tailed Godwit",
+    scientific: "Limosa limosa",
+    evidenceId: "656030970",
+    evidenceKind: "video",
+    observed: "23 Apr 2026",
+    checklist: "S325916449",
+    role: "Feeding migrant",
+    note: "Busy feeding godwits show what migration really means: hunger, timing, mud, water, and a chain of wetlands that cannot afford to lose one more link."
+  },
+  {
+    common: "Whiskered Tern",
+    scientific: "Chlidonias hybrida",
+    evidenceId: "656031000",
+    evidenceKind: "video",
+    observed: "23 Apr 2026",
+    checklist: "S325916449",
+    role: "Bathing and preening",
+    note: "Bathing and preening terns remind us that habitat is not only food. It is also safety, feather care, rest, and the ordinary dignity of being left alone."
+  },
+  {
+    common: "Little Stint",
+    scientific: "Calidris minuta",
+    evidenceId: "656031031",
+    evidenceKind: "video",
+    observed: "23 Apr 2026",
+    checklist: "S325916449",
+    role: "Flock on the mud",
+    note: "A group of Little Stints turns the mud into motion. Each bird is tiny, but together they make the wetland feel alive, alert, and ancient."
+  },
+  {
+    common: "Indian Courser",
+    scientific: "Cursorius coromandelicus",
+    evidenceId: "658354283",
+    evidenceKind: "photo",
+    observed: "24 May 2026",
+    checklist: "S345332789",
+    role: "Breeding ground",
+    note: "An Indian Courser with a chick says plainly what maps often fail to say: this is not vacant land. This is nursery, shelter, and inheritance."
+  },
+  {
+    common: "Pallas's Gull",
+    scientific: "Ichthyaetus ichthyaetus",
+    evidenceId: "651194099",
+    evidenceKind: "photo",
+    observed: "12 Feb 2026",
+    checklist: "S299998839",
+    role: "Winter visitor",
+    note: "Pallas's Gulls arrive as winter visitors and move energy through the wetland system, feeding, scavenging, watching, and reminding us that ecology is work."
+  },
+  {
+    common: "Ruff",
+    scientific: "Calidris pugnax",
+    evidenceId: "656031088",
+    evidenceKind: "video",
+    observed: "23 Apr 2026",
+    checklist: "S325916449",
+    role: "Passage wader",
+    note: "Ruffs carry another migration story into Alania: restless, delicate, dependent on wet places that humans too easily dismiss as empty margins."
+  },
+  {
+    common: "Small Pratincole",
+    scientific: "Glareola lactea",
+    evidenceId: "658709015",
+    evidenceKind: "photo",
+    observed: "30 May 2026",
+    checklist: "S349387936",
+    role: "Breeding life",
+    note: "Small Pratincoles belong to the exposed edges and bare ground. When they raise chicks here, Alania is no longer just a birding spot. It is a home under pressure."
+  }
+] %}
+
+{% set rareAndMigrantMedia = [alaniaBirdMedia[0], alaniaBirdMedia[1], alaniaBirdMedia[2]] %}
+{% set wetlandFamilyMedia = [alaniaBirdMedia[3], alaniaBirdMedia[4], alaniaBirdMedia[5], alaniaBirdMedia[6]] %}
+{% set winterAndPassageMedia = [alaniaBirdMedia[8], alaniaBirdMedia[9]] %}
+{% set breedingMedia = [alaniaBirdMedia[7], alaniaBirdMedia[10]] %}
+
+{% macro photoEvidence(photo) %}
+  <figure class="evidence-card field-photo-card">
+    <img src="{{ photo.src }}" alt="{{ photo.alt }}" width="1600" height="{% if 'walking' in photo.src or 'cooling' in photo.src %}1066{% else %}900{% endif %}" loading="lazy" decoding="async">
+    <figcaption>{{ photo.caption }}</figcaption>
+  </figure>
+{% endmacro %}
+
+{% macro inlinePhotoEvidence(photo) %}
+  <figure class="evidence-card field-photo-card inline-media-figure">
+    <img src="{{ photo.src }}" alt="{{ photo.alt }}" width="1600" height="{% if 'walking' in photo.src or 'cooling' in photo.src %}1066{% else %}900{% endif %}" loading="lazy" decoding="async">
+    <figcaption>{{ photo.caption }}</figcaption>
+  </figure>
+{% endmacro %}
+
+{% macro instagramReelEmbed() %}
+  <figure class="instagram-inline-embed">
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DWocNNJjbm4/"
+      data-instgrm-version="14">
+      <a href="https://www.instagram.com/reel/DWocNNJjbm4/" target="_blank" rel="noopener noreferrer">
+        Small Pratincole raising chicks in Alania
+      </a>
+    </blockquote>
+    <figcaption>
+      Small Pratincole raising chicks in Alania.
+      <a href="https://www.instagram.com/reel/DWocNNJjbm4/" target="_blank" rel="noopener noreferrer">Open the reel on Instagram</a>.
+    </figcaption>
+  </figure>
+  <script async src="https://www.instagram.com/embed.js"></script>
+{% endmacro %}
+
+{% macro birdMediaCards(records) %}
+  <div class="observation-card-grid" role="list">
+    {% for record in records %}
+      <article class="observation-card has-evidence" role="listitem">
+        <div class="observation-card-copy">
+          <div class="observation-card-head">
+            <div>
+              <p class="observation-kicker">Macaulay evidence linked</p>
+              <h4>{{ record.common }}</h4>
+              <p class="scientific-name"><em>{{ record.scientific }}</em></p>
+            </div>
+            <span class="activity-chip">{{ record.role }}</span>
+          </div>
+          <p class="observation-behavior">{{ record.note }}</p>
+          <p class="observation-evidence-note">
+            {{ record.evidenceKind }} from {{ record.observed }}.
+            <a href="https://ebird.org/checklist/{{ record.checklist }}" target="_blank" rel="noopener noreferrer">{{ record.checklist }}</a>
+          </p>
+        </div>
+
+        <div class="observation-card-media">
+          <a
+            class="media-preview"
+            href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ record.common }} Macaulay Library record ML{{ record.evidenceId }}">
+            <img
+              src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/{{ record.evidenceId }}/480"
+              alt="{{ record.common }} media preview from Macaulay Library"
+              loading="lazy"
+              decoding="async">
+            <span class="media-type-badge">{{ record.evidenceKind | upper }}</span>
+          </a>
+          <a class="evidence-asset-link" href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}" target="_blank" rel="noopener noreferrer">ML{{ record.evidenceId }}</a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+<article class="article-page" itemscope itemtype="https://schema.org/Article">
+  <header class="page-hero article-hero">
+    <p class="eyebrow">Field Report / World Environment Day Reflection</p>
+    <h1 itemprop="headline">Raksha's Question: A Lone Indian Grey Wolf and the Shame of World Environment Day</h1>
+    <p class="lede">
+      On 30 May 2026, a lone Indian grey wolf at Alania wetland brought back Raksha, Mowgli's wolf mother from
+      <em>The Jungle Book</em>. The joy of that sighting did not stay simple for long.
+    </p>
+    <div class="article-meta">
+      <span>By <strong itemprop="author">Vinay Chittora</strong></span>
+      <span>Observed 30 May 2026</span>
+      <span>Published 5 Jun 2026</span>
+      <span>Alania wetland, Kota, Rajasthan</span>
+    </div>
+  </header>
+
+  <figure class="article-figure">
+    <img
+      src="/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg"
+      alt="A lone Indian grey wolf walking beside shallow water at Alania wetland in Rajasthan"
+      width="1600"
+      height="1066"
+      loading="eager"
+      decoding="async">
+    <figcaption>
+      A lone Indian grey wolf seen beside shallow water at Alania wetland on 30 May 2026. The exact observation point is
+      intentionally not disclosed.
+    </figcaption>
+  </figure>
+
+  <div class="article-layout">
+    <div class="article-body" itemprop="articleBody">
+      <h2>Alania before the wolf</h2>
+      <p>
+        Alania, also written as Alniya or Aalaniya in public sources, is not an empty waterbody on the edge of Kota.
+        It is a living wetland system, an irrigation landscape, a winter waterbird gathering place, a breeding landscape
+        for Sarus Crane, a feeding ground for waders, a refuge for fish, reptiles, mammals, insects, grasses, reeds,
+        mud, and all the small lives that rarely get a dramatic headline.
+      </p>
+      <p>
+        The Key Biodiversity Areas profile lists Alniya Dam as a confirmed KBA of about 10.32147 sq km, with a
+        freshwater and terrestrial system. It describes the site as an irrigation tank supporting agriculture through
+        canals, and records historic winter waterbird numbers of 20,000 to 21,000 birds during a February 2002 survey.
+        In normal water years, that same public profile notes that the wetland could hold even more waterfowl.
+      </p>
+      <p>
+        A 2026 avifaunal study from Alania wetland recorded 89 bird species between October 2023 and September 2024,
+        including resident birds and seasonal migrants. Another study has treated Alniya Dam as important habitat for
+        Black-winged Stilt. Even the public KBA threat summary is uncomfortable: agriculture, pesticides,
+        encroachment, eutrophication, water over-use, cattle use, clay gathering, and human disturbance are not future
+        possibilities. They are already part of the story.
+      </p>
+      <p>
+        And then there are the pressures many of us have seen with our own eyes: illegal fishing, soil and stone
+        excavation, vehicles pushing too close, people walking into habitat edges, and visitors who behave as if a
+        wild animal's personal space is only an obstacle between them and a sharper Instagram or Facebook post.
+      </p>
+      <p>
+        The eBird checklist for this field day is linked in the source trail. I am not reproducing the full checklist
+        here, because the point of this report is not to turn Alania into a target list. The point is to ask whether we
+        still know how to stand near a living wetland without trying to possess it.
+      </p>
+
+      <h2>The birds were already telling the story</h2>
+      <p>
+        Before the wolf entered the frame, Alania had already been speaking through birds.
+      </p>
+      <p>
+        A Ruddy Turnstone appeared like a rare inland surprise. An Asian Woolly-necked Stork stood with the heaviness
+        of a threatened species. Greater Short-toed Larks, tiny travellers from far away, used this land to feed,
+        breathe, gather strength, and prepare for the next distance.
+      </p>
+
+      <div class="inline-media-cluster">
+        {{ birdMediaCards(rareAndMigrantMedia) }}
+      </div>
+
+      <p>
+        A Sarus Crane family moved through the wetland with the quiet authority of one of India's living natural
+        symbols. Black-tailed Godwits were busy feeding after long journeys. Whiskered Terns bathed and preened.
+        Little Stints gathered as a small, nervous pulse over the mud.
+      </p>
+
+      <div class="inline-media-cluster">
+        {{ birdMediaCards(wetlandFamilyMedia) }}
+      </div>
+
+      <p>
+        Pallas's Gulls arrived as winter visitors. Ruffs stitched their own passage story into the same waterline.
+        Each one is part of a wider map of movement, weather, hunger, and survival.
+      </p>
+
+      <div class="inline-media-cluster compact-media-cluster">
+        {{ birdMediaCards(winterAndPassageMedia) }}
+      </div>
+
+      <p>
+        There was also breeding life: an Indian Courser chick on the ground, and Small Pratincoles raising chicks in
+        Alania. These are not decorative birds for our feeds. They are lives with hunger, exhaustion, fear, parenting,
+        rest, and boundaries. Every time we walk too close, drive too close, shout too close, or photograph too close,
+        we are not only disturbing a bird. We are disturbing a life-history event that took thousands of years to
+        learn this landscape.
+      </p>
+
+      <div class="inline-media-cluster compact-media-cluster">
+        {{ birdMediaCards(breedingMedia) }}
+      </div>
+
+      {{ instagramReelEmbed() }}
+
+      <h2>The first sighting</h2>
+      <p>
+        30 May 2026 was a very special day for me.
+      </p>
+      <p>
+        That day, I saw a lone Indian grey wolf for the first time in my life.
+      </p>
+      <p>
+        For a few seconds I was not standing in the harsh summer landscape of Rajasthan anymore. I was back in my
+        childhood. Back in front of Doordarshan. Back to Sunday mornings. Back to <em>The Jungle Book</em>.
+      </p>
+      <p>
+        I think I was 8 or 9 years old when <em>The Jungle Book</em> used to air at 10 AM every Sunday. Like many
+        children of that generation, I watched it with complete awe. In my child mind, Mowgli was not just a cartoon
+        character. I believed he was real. The jungle was real. The wolf pack was real. And the love between Mowgli
+        and his wolf mother was real.
+      </p>
+      <p>
+        More than Mowgli, it was Raksha who stayed with me.
+      </p>
+      <p>
+        Raksha, the wolf mother. The one who protected the man-cub. The one who accepted a human child as her own.
+        The one who showed that love, protection, and motherhood are not human inventions.
+      </p>
+      <p>
+        That idea shaped something deep inside me. Maybe it shaped my entire thought process.
+      </p>
+      <p>
+        And I owe a lot of that to those few Doordarshan shows that quietly shaped an entire generation:
+        <em>The Jungle Book</em>, <em>Turning Point</em>, <em>Surabhi</em>, <em>Potli Baba Ki</em>,
+        <em>Tarram Too</em>, and the stories of my favourite human being, Tabassum.
+      </p>
+      <p>
+        These were not just television shows. They were windows. They gave us imagination, curiosity, scientific
+        temperament, and respect for the wild world. They made us feel that nature was not background scenery, but
+        something alive, intelligent, ancient, and sacred in its own way.
+      </p>
+      <p>
+        And after all these years, when I saw that lone wolf in the heat of Alania, Raksha returned.
+      </p>
+      <p>
+        Not as nostalgia. As a question.
+      </p>
+
+      <h2>It is not always humans who protect wildlife</h2>
+      <p>
+        We often like to believe that we are the saviours of nature.
+      </p>
+      <p>
+        We make speeches. We plant ceremonial trees. We celebrate World Environment Day. We post green graphics. We
+        write slogans. We call ourselves conservationists, environmentalists, birders, wildlife lovers, nature lovers.
+      </p>
+      <p>
+        But the truth is far more uncomfortable.
+      </p>
+      <p>
+        It is not always humans who protect wildlife. Most of the time, whether we understand it or not, it is nature
+        and the wild that are protecting us.
+      </p>
+      <p>
+        The forests that hold climate together. The oceans and coral reefs that support life in ways we barely
+        understand. The phytoplankton that helped shape the atmosphere of this planet. The elephants that open pathways
+        and shape forests. The rivers that gave birth to civilizations. The grasslands that hold life even when we
+        foolishly call them wastelands. The wetlands that hold water, silt, fish, birds, memory, and relief in a
+        heating world.
+      </p>
+      <p>
+        There are countless examples of the mercy of the wild.
+      </p>
+      <p>
+        And yet, with full arrogance, we call animals <em>bezubaan jaanwar</em>.
+      </p>
+      <p>
+        No. They are not voiceless. We are the ones who have become deaf.
+      </p>
+
+      <h2>The problem is that we refuse to listen</h2>
+      <p>
+        Animals are not silent.
+      </p>
+      <p>
+        The wolf speaks through his absence from landscapes where he once belonged. The river speaks when it runs dry.
+        The forest speaks when it burns. The grassland speaks when it is turned into real estate, mining blocks, or
+        solar parks without ecological thought. The birds speak when their timing changes. The insects speak when they
+        disappear. The night speaks when even darkness brings no relief from heat.
+      </p>
+      <p>
+        Everything is speaking.
+      </p>
+      <p>
+        But we are busy scrolling. Busy consuming. Busy pretending. Busy celebrating.
+      </p>
+      <p>
+        We call animals <em>bezubaan</em> because their language does not serve our convenience. If we understood
+        them, we would have to change. And change is exactly what our greedy species avoids.
+      </p>
+      <p>
+        We misuse science, technology, law, politics, religion, and every other tool available to us for our own
+        benefit, while ignoring the habitat, ecosystem, soil, water, air, and living world that made our own evolution
+        possible.
+      </p>
+      <p>
+        We behave like owners of this planet. But we are not owners.
+      </p>
+      <p>
+        We are recent tenants with a terrible maintenance record.
+      </p>
+
+      <h2>The joy did not last long</h2>
+      <p>
+        The sighting of this Indian grey wolf was a moment of pure joy for me.
+      </p>
+      <p>
+        But honestly, that joy did not last very long.
+      </p>
+      <p>
+        A wolf is not just an animal of the wild. A wolf is family. A wolf is pack. A wolf is belonging.
+      </p>
+      <p>
+        Yes, a lone wolf can simply be a naturally dispersing animal. Young wolves move. Animals travel. Survival has
+        its own patterns, and not every lonely-looking field moment should be forced into tragedy.
+      </p>
+      <p>
+        But in today's broken landscape, a lone wolf also raises painful questions.
+      </p>
+      <p>
+        Why was he alone? Where was his pack? Where was his family? Did we already snatch away too much of his natural
+        habitat? Did our roads, farms, mining, fences, settlements, garbage, free-ranging dogs, politics, and
+        development dreams tear apart a world that was never ours to destroy?
+      </p>
+      <p>
+        I do not want to romanticise every wild sighting into sorrow. That would also be dishonest.
+      </p>
+      <p>
+        But I cannot ignore the condition of the world around him.
+      </p>
+      <p>
+        It was the end of May. The landscape was burning. A wild animal, one of the ancient citizens of this land, was
+        using a stressed wetland for relief.
+      </p>
+
+      {{ inlinePhotoEvidence(fieldPhotos[0]) }}
+
+      <p>
+        And we still discuss heatwaves as if they are only weather events.
+      </p>
+      <p>
+        They are not. They are warnings.
+      </p>
+      <p>
+        This heat is a warning. The shrinking water is a warning. The excavation scars are warnings. The illegal nets
+        are warnings. The vehicles too close to waterbirds are warnings. The vanishing quiet is a warning.
+      </p>
+      <p>
+        The landscape is speaking. The wolf is speaking. The wetland is speaking.
+      </p>
+      <p>
+        We are just refusing to listen.
+      </p>
+
+      <h2>Raksha protected the man-cub. Are we protecting Raksha?</h2>
+      <p>
+        Mowgli's wolf mother was named Raksha.
+      </p>
+      <p>
+        Raksha means protection.
+      </p>
+      <p>
+        She protected the man-cub.
+      </p>
+      <p>
+        But are we returning the favour to her? Are we protecting Raksha? Or have we completely forgotten where we
+        come from?
+      </p>
+      <p>
+        Are we so blinded by greed that we can no longer see what we are leaving behind for future generations?
+      </p>
+      <p>
+        An unlivable scorched earth. Polluted water. Poisoned air. Heat-trapped cities. Dead rivers. Fragmented
+        forests. Excavated hills. Disturbed wetlands. Children who may know wild animals only through screens, logos,
+        and textbook drawings.
+      </p>
+      <p>
+        This is not a future problem. This is already happening.
+      </p>
+      <p>
+        And still, every year, World Environment Day arrives like a scheduled social media festival.
+      </p>
+      <p>
+        People post green graphics. Brands post campaigns. Governments post slogans. Celebrities plant saplings for
+        cameras. Everyone discovers nature for one day.
+      </p>
+      <p>
+        Then the next day, ancient forests are cleared, rivers are polluted, wetlands are filled, grasslands are
+        called barren, hills are blasted, and wildlife corridors are cut into pieces.
+      </p>
+      <p>
+        The performance continues. The destruction continues.
+      </p>
+
+      <h2>One tree cannot compensate for an ancient ecosystem</h2>
+      <p>
+        Planting a tree is not wrong.
+      </p>
+      <p>
+        But using tree plantation as moral cover for destroying ancient ecosystems is deeply wrong.
+      </p>
+      <p>
+        What is the meaning of planting one tree in the name of mother while staying silent about forests being cut in
+        Hasdeo, Nicobar, the Aravallis, and so many other landscapes?
+      </p>
+      <p>
+        What is the meaning of saying <em>Ek Ped Maa Ke Naam</em> when entire living forests, mothers to countless
+        species, are treated as obstacles to mining, infrastructure, and political ambition?
+      </p>
+      <p>
+        A sapling is not a forest. A plantation is not an ecosystem. A slogan is not conservation. A photo-op is not
+        climate action.
+      </p>
+      <p>
+        A tree guard on a roadside does not replace an ancient forest, a grassland, a wetland, a river, a ravine, or a
+        wildlife corridor.
+      </p>
+      <p>
+        We cannot keep destroying complex living systems and then console ourselves with symbolic gestures.
+      </p>
+      <p>
+        That is not environmental responsibility. That is theatre.
+      </p>
+      <p>
+        And the wild is paying the price for our theatre.
+      </p>
+
+      <h2>The wetland is not a stage</h2>
+      <p>
+        Alania is under pressure from many directions at once.
+      </p>
+      <p>
+        Some pressures come through livelihood and water demand, and those need serious, fair, community-aware
+        solutions. But some pressures come from pure carelessness: illegal fishing that treats a wetland like loot,
+        soil and stone excavation that wounds the edge, habitat disturbance that pushes birds from feeding and nesting
+        space, and photographers who keep moving closer because one more step might bring one more like.
+      </p>
+      <p>
+        That last part hurts because it comes from people who claim to love wildlife.
+      </p>
+      <p>
+        A photograph can document, educate, and move people. But a photograph taken by invading an animal's personal
+        space is not conservation. It is extraction with a nice caption.
+      </p>
+      <p>
+        Birders, twitchers, and photographers need to say this honestly within our own circles: if our presence changes
+        the animal's behaviour, if it forces a bird to leave a feeding patch, if it makes a nesting pair anxious, if it
+        blocks a wolf's path to water, if it turns a quiet wetland into a chase, then we are not observers. We are the
+        disturbance.
+      </p>
+      <p>
+        The first ethic of field observation should be distance.
+      </p>
+      <p>
+        The second should be silence.
+      </p>
+      <p>
+        The third should be the humility to leave without the shot.
+      </p>
+
+      <h2>Who is the real janwar here?</h2>
+      <p>
+        We buy water in plastic bottles and throw the bottle into the same world that gave us rivers.
+      </p>
+      <p>
+        We eat from plastic packets and throw the wrapper into the same soil that grows our food.
+      </p>
+      <p>
+        We pollute the air for endless energy demand and then buy air purifiers.
+      </p>
+      <p>
+        We dump garbage into rivers we call mother and goddess.
+      </p>
+      <p>
+        We worship nature in slogans and destroy it in policy.
+      </p>
+      <p>
+        Then we call ourselves the most intelligent species.
+      </p>
+      <p>
+        What intelligence is this?
+      </p>
+      <p>
+        Who is the real <em>janwar</em> here? The wolf trying to survive in his ancestral land? Or us?
+      </p>
+      <p>
+        Life on this planet has survived ice ages, asteroid impacts, volcanoes, earthquakes, tsunamis, and mass
+        extinctions. The Earth is not begging us to save it.
+      </p>
+      <p>
+        Let us be very clear. The Earth will survive us.
+      </p>
+      <p>
+        It is humans who need saving from their own arrogance.
+      </p>
+
+      <h2>The Indian grey wolf belongs here. We are the disturbance.</h2>
+      <p>
+        The Indian grey wolf is not a visitor here. He is not an outsider. He is not a symbol placed here for our
+        poetry, photography, or social media engagement.
+      </p>
+      <p>
+        He is one of the original citizens of this land.
+      </p>
+      <p>
+        His ancestors have walked these drylands, scrublands, grasslands, ravines, forest edges, and waterbody margins
+        long before our roads, mines, cities, borders, speeches, and hollow environmental slogans.
+      </p>
+
+      {{ inlinePhotoEvidence(fieldPhotos[1]) }}
+
+      <p>
+        We are the disturbance here. Not him.
+      </p>
+      <p>
+        And yet it is always wildlife that is asked to adjust.
+      </p>
+      <p>
+        Move away from farms. Move away from roads. Move away from cities. Move away from mines. Move away from power
+        lines. Move away from villages. Move away from development.
+      </p>
+      <p>
+        But where should they go?
+      </p>
+      <p>
+        How much more should the wild shrink so that our greed can expand?
+      </p>
+
+      {{ inlinePhotoEvidence(fieldPhotos[2]) }}
+
+      <h2>I do not feel like celebrating</h2>
+      <p>
+        On this World Environment Day, I do not feel like celebrating.
+      </p>
+      <p>
+        I feel ashamed.
+      </p>
+      <p>
+        I put my head down with shame because I am part of a species that was given everything for free: clean air,
+        clean water, forests, rivers, soil, rain, birdsong, shade, food, life. And still we chose greed.
+      </p>
+      <p>
+        We were given a living planet. We are turning it into a marketplace, a dumping ground, and a furnace.
+      </p>
+      <p>
+        So please, do not call them <em>bezubaan jaanwar</em>.
+      </p>
+      <p>
+        They are not voiceless. They are not dumb. They are not lesser.
+      </p>
+      <p>
+        They are speaking through absence, hunger, thirst, shrinking habitat, silence, and disappearance.
+      </p>
+      <p>
+        It is we who have forgotten how to listen.
+      </p>
+      <p>
+        That lone wolf brought Raksha back to me. And Raksha still asks the same question:
+      </p>
+      <p>
+        She protected the man-cub.
+      </p>
+      <p>
+        Will the man-cub ever learn to protect her?
+      </p>
+      <p>
+        Or will he destroy everything and still call himself intelligent?
+      </p>
+      <p>
+        On this World Environment Day, I have no right to celebrate. Not until we learn humility. Not until we stop
+        pretending. Not until we understand that saving nature is not charity.
+      </p>
+      <p>
+        It is self-defence.
+      </p>
+      <p>
+        And perhaps, after all these years, the wolf mother is still protecting us.
+      </p>
+      <p>
+        But this time, maybe she is protecting us by reminding us of our shame.
+      </p>
+    </div>
+
+    <aside class="article-sidebar" aria-label="Field report metadata">
+      <section class="aside-box">
+        <h2>Field Context</h2>
+        <p><strong>Date:</strong> 30 May 2026</p>
+        <p><strong>Species:</strong> Indian grey wolf</p>
+        <p><strong>Landscape:</strong> Alania wetland, Kota, Rajasthan</p>
+        <p class="muted">The exact observation point and approach route are intentionally not published.</p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Day Checklist</h2>
+        <p>
+          <a href="https://ebird.org/checklist/S349387936" target="_blank" rel="noopener noreferrer">eBird checklist S349387936</a>
+        </p>
+        <p class="muted">Linked as field-day observation context; the checklist itself remains on eBird.</p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Media Evidence</h2>
+        <p>
+          <a href="https://search.macaulaylibrary.org/catalog?searchField=region&amp;regionCode=L6209429&amp;userId=USER1136410" target="_blank" rel="noopener noreferrer">Alania media on Macaulay Library</a><br>
+          <a href="https://www.instagram.com/reel/DWocNNJjbm4/" target="_blank" rel="noopener noreferrer">Small Pratincole chick-rearing reel</a>
+        </p>
+        <p class="muted">Public field media is woven into the report, with exact habitat details kept off the page.</p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Alania Public Data</h2>
+        <p>
+          KBA profile: confirmed KBA, about 10.32147 sq km, freshwater and terrestrial system, historic Sarus Crane
+          breeding and large waterfowl counts.
+        </p>
+        <p>
+          2026 avifaunal study: 89 bird species recorded in and around Alania wetland from October 2023 to September
+          2024.
+        </p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Source Trail</h2>
+        <p>
+          <a href="https://www.keybiodiversityareas.org/site/factsheet/18345" target="_blank" rel="noopener noreferrer">Key Biodiversity Areas: Alniya Dam</a><br>
+          <a href="https://www.ijfmr.com/research-paper.php?id=72616" target="_blank" rel="noopener noreferrer">IJFMR 2026: Alania avifaunal diversity</a><br>
+          <a href="https://www.ijsrset.com/index.php/home/article/download/IJSRSET2512104/IJSRSET2512104/1081" target="_blank" rel="noopener noreferrer">IJSRSET 2025: Black-winged Stilt at Alniya Dam</a><br>
+          <a href="https://en.wikipedia.org/wiki/Aalaniya_River" target="_blank" rel="noopener noreferrer">Aalaniya River public geography summary</a><br>
+          <a href="https://search.macaulaylibrary.org/catalog?searchField=region&amp;regionCode=L6209429&amp;userId=USER1136410" target="_blank" rel="noopener noreferrer">Macaulay Library: Alania media by Vinay Chittora</a>
+        </p>
+      </section>
+    </aside>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Raksha's Question: A Lone Indian Grey Wolf and the Shame of World Environment Day",
+    "author": {
+      "@type": "Person",
+      "name": "Vinay Chittora"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.publisherName }}",
+      "url": "{{ site.publisherUrl }}"
+    },
+    "datePublished": "2026-06-05",
+    "dateModified": "2026-06-05",
+    "articleSection": "Field Reports",
+    "keywords": [
+      "World Environment Day 2026",
+      "Indian grey wolf",
+      "Alania wetland",
+      "Alania Dam",
+      "Kota Rajasthan",
+      "wetland conservation",
+      "habitat disturbance",
+      "migratory birds",
+      "Small Pratincole breeding",
+      "Sarus Crane"
+    ],
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "World Environment Day"
+      },
+      {
+        "@type": "Place",
+        "name": "Alania wetland, Kota, Rajasthan"
+      },
+      {
+        "@type": "Thing",
+        "name": "Indian grey wolf"
+      },
+      {
+        "@type": "Thing",
+        "name": "Wetland conservation"
+      }
+    ],
+    "image": "https://mhtr.in/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg",
+    "citation": [
+      "https://ebird.org/checklist/S349387936",
+      "https://search.macaulaylibrary.org/catalog?searchField=region&regionCode=L6209429&userId=USER1136410",
+      "https://www.instagram.com/reel/DWocNNJjbm4/"
+    ],
+    "mainEntityOfPage": "https://mhtr.in/field-reports/raksha-lone-indian-grey-wolf-world-environment-day/",
+    "description": "A World Environment Day field reflection from Alania wetland, Kota, after a lone Indian grey wolf sighting on 30 May 2026, with public bird media evidence from the same landscape."
+  }
+  </script>
+</article>

@@ -1411,6 +1411,45 @@ section[id],
   text-decoration: none;
 }
 
+.inline-media-cluster,
+.inline-media-figure,
+.instagram-inline-embed {
+  margin: 18px 0 26px;
+}
+
+.article-body .inline-media-cluster .observation-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+}
+
+.article-body .compact-media-cluster .observation-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.article-body .inline-media-figure img {
+  height: clamp(260px, 42vw, 430px);
+}
+
+.instagram-inline-embed {
+  max-width: 560px;
+}
+
+.instagram-inline-embed .instagram-media {
+  width: min(100%, 540px) !important;
+  min-width: 0 !important;
+  max-width: 540px !important;
+  margin: 0 !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  background: var(--surface) !important;
+}
+
+.instagram-inline-embed figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .support-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
