@@ -10,20 +10,25 @@ og_description: "A field report from Alania wetland, Kota, where a lone Indian g
 author: Vinay Chittora
 publishedTime: "2026-06-05T00:00:00+05:30"
 modifiedTime: "2026-06-05T00:00:00+05:30"
-og_image: "https://mhtr.in/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg"
-og_image_alt: "A lone Indian grey wolf walking beside shallow water at Alania wetland in Rajasthan."
+og_image: "https://mhtr.in/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-crossing-water-1600.jpg"
+og_image_alt: "Indian grey wolf crossing shallow water at Alania wetland in Rajasthan."
 og_image_width: 1600
-og_image_height: 1066
-preload_image: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg"
+og_image_height: 900
+preload_image: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-crossing-water-1600.jpg"
 preload_image_type: "image/jpeg"
 schema_type: WebPage
 ---
 
 {% set fieldPhotos = [
   {
-    src: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-cooling-water-1600.jpg",
-    alt: "Indian grey wolf sitting in shallow wetland water in Rajasthan during summer heat",
-    caption: "The wolf lowered himself into the shallow water. What looked like relief also looked like a warning."
+    src: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg",
+    alt: "A lone Indian grey wolf walking beside shallow water at Alania wetland in Rajasthan",
+    caption: "The first clear frame of the wolf: a living presence moving through a wetland that should never become a chase."
+  },
+  {
+    src: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-resting-water-1600.jpg",
+    alt: "Close photograph of an Indian grey wolf resting in shallow wetland water during summer heat",
+    caption: "DSCF7365 holds the moment more closely: the wolf resting in shallow water, cooling his body in a landscape already under stress."
   },
   {
     src: "/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-with-waterbirds-1600.jpg",
@@ -147,24 +152,54 @@ schema_type: WebPage
     checklist: "S349387936",
     role: "Breeding life",
     note: "Small Pratincoles belong to the exposed edges and bare ground. When they raise chicks here, Alania is no longer just a birding spot. It is a home under pressure."
+  },
+  {
+    common: "Tawny Lark",
+    scientific: "Galerida deva",
+    evidenceId: "658709046",
+    evidenceKind: "photo",
+    observed: "30 May 2026",
+    checklist: "S349387936",
+    role: "Open-country bird",
+    note: "Tawny Lark belongs to the dry open edges that too many people mistake for empty ground."
+  },
+  {
+    common: "Caspian Gull",
+    scientific: "Larus cachinnans",
+    evidenceId: "650248348",
+    evidenceKind: "photo",
+    observed: "3 Feb 2026",
+    checklist: "S297814182",
+    role: "Winter visitor",
+    note: "Caspian Gull adds another winter-waterbird thread to Alania's seasonal life."
+  },
+  {
+    common: "Little Ringed Plover",
+    scientific: "Thinornis dubius",
+    evidenceId: "658708992",
+    evidenceKind: "photo",
+    observed: "30 May 2026",
+    checklist: "S349387936",
+    role: "Mud-edge life",
+    note: "Little Ringed Plover is one of the small wetland-edge lives that needs exposed mud, quiet, and distance."
   }
 ] %}
 
-{% set rareAndMigrantMedia = [alaniaBirdMedia[0], alaniaBirdMedia[1], alaniaBirdMedia[2]] %}
-{% set wetlandFamilyMedia = [alaniaBirdMedia[3], alaniaBirdMedia[4], alaniaBirdMedia[5], alaniaBirdMedia[6]] %}
-{% set winterAndPassageMedia = [alaniaBirdMedia[8], alaniaBirdMedia[9]] %}
+{% set rareAndMigrantMedia = [alaniaBirdMedia[0], alaniaBirdMedia[1], alaniaBirdMedia[2], alaniaBirdMedia[11]] %}
+{% set wetlandFamilyMedia = [alaniaBirdMedia[3], alaniaBirdMedia[4], alaniaBirdMedia[5], alaniaBirdMedia[6], alaniaBirdMedia[13]] %}
+{% set winterAndPassageMedia = [alaniaBirdMedia[8], alaniaBirdMedia[12], alaniaBirdMedia[9]] %}
 {% set breedingMedia = [alaniaBirdMedia[7], alaniaBirdMedia[10]] %}
 
 {% macro photoEvidence(photo) %}
   <figure class="evidence-card field-photo-card">
-    <img src="{{ photo.src }}" alt="{{ photo.alt }}" width="1600" height="{% if 'walking' in photo.src or 'cooling' in photo.src %}1066{% else %}900{% endif %}" loading="lazy" decoding="async">
+    <img src="{{ photo.src }}" alt="{{ photo.alt }}" width="1600" height="{% if 'walking' in photo.src or 'cooling' in photo.src or 'resting' in photo.src %}1066{% else %}900{% endif %}" loading="lazy" decoding="async">
     <figcaption>{{ photo.caption }}</figcaption>
   </figure>
 {% endmacro %}
 
 {% macro inlinePhotoEvidence(photo) %}
   <figure class="evidence-card field-photo-card inline-media-figure">
-    <img src="{{ photo.src }}" alt="{{ photo.alt }}" width="1600" height="{% if 'walking' in photo.src or 'cooling' in photo.src %}1066{% else %}900{% endif %}" loading="lazy" decoding="async">
+    <img src="{{ photo.src }}" alt="{{ photo.alt }}" width="1600" height="{% if 'walking' in photo.src or 'cooling' in photo.src or 'resting' in photo.src %}1066{% else %}900{% endif %}" loading="lazy" decoding="async">
     <figcaption>{{ photo.caption }}</figcaption>
   </figure>
 {% endmacro %}
@@ -190,39 +225,23 @@ schema_type: WebPage
 {% macro birdMediaCards(records) %}
   <div class="observation-card-grid" role="list">
     {% for record in records %}
-      <article class="observation-card has-evidence" role="listitem">
-        <div class="observation-card-copy">
-          <div class="observation-card-head">
-            <div>
-              <p class="observation-kicker">Macaulay evidence linked</p>
-              <h4>{{ record.common }}</h4>
-              <p class="scientific-name"><em>{{ record.scientific }}</em></p>
-            </div>
-            <span class="activity-chip">{{ record.role }}</span>
-          </div>
-          <p class="observation-behavior">{{ record.note }}</p>
-          <p class="observation-evidence-note">
-            {{ record.evidenceKind }} from {{ record.observed }}.
-            <a href="https://ebird.org/checklist/{{ record.checklist }}" target="_blank" rel="noopener noreferrer">{{ record.checklist }}</a>
-          </p>
+      <article class="observation-card media-only-card" role="listitem">
+        <div class="media-only-card-head">
+          <h4>{{ record.common }}</h4>
         </div>
-
-        <div class="observation-card-media">
-          <a
-            class="media-preview"
-            href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="{{ record.common }} Macaulay Library record ML{{ record.evidenceId }}">
-            <img
-              src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/{{ record.evidenceId }}/480"
-              alt="{{ record.common }} media preview from Macaulay Library"
-              loading="lazy"
-              decoding="async">
-            <span class="media-type-badge">{{ record.evidenceKind | upper }}</span>
-          </a>
-          <a class="evidence-asset-link" href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}" target="_blank" rel="noopener noreferrer">ML{{ record.evidenceId }}</a>
-        </div>
+        <a
+          class="media-preview"
+          href="https://macaulaylibrary.org/asset/{{ record.evidenceId }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{ record.common }} Macaulay Library media">
+          <img
+            src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/{{ record.evidenceId }}/480"
+            alt="{{ record.common }} media preview from Macaulay Library"
+            loading="lazy"
+            decoding="async">
+          <span class="media-only-tag">{{ record.role }}</span>
+        </a>
       </article>
     {% endfor %}
   </div>
@@ -246,14 +265,14 @@ schema_type: WebPage
 
   <figure class="article-figure">
     <img
-      src="/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg"
-      alt="A lone Indian grey wolf walking beside shallow water at Alania wetland in Rajasthan"
+      src="/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-crossing-water-1600.jpg"
+      alt="Indian grey wolf crossing shallow water at Alania wetland in Rajasthan"
       width="1600"
-      height="1066"
+      height="900"
       loading="eager"
       decoding="async">
     <figcaption>
-      A lone Indian grey wolf seen beside shallow water at Alania wetland on 30 May 2026. The exact observation point is
+      A lone Indian grey wolf crossing shallow water at Alania wetland on 30 May 2026. The exact observation point is
       intentionally not disclosed.
     </figcaption>
   </figure>
@@ -298,7 +317,8 @@ schema_type: WebPage
       <p>
         A Ruddy Turnstone appeared like a rare inland surprise. An Asian Woolly-necked Stork stood with the heaviness
         of a threatened species. Greater Short-toed Larks, tiny travellers from far away, used this land to feed,
-        breathe, gather strength, and prepare for the next distance.
+        breathe, gather strength, and prepare for the next distance. Tawny Larks held the dry open edge, reminding us
+        that the wetland is not only water. It is also the surrounding ground.
       </p>
 
       <div class="inline-media-cluster">
@@ -308,7 +328,8 @@ schema_type: WebPage
       <p>
         A Sarus Crane family moved through the wetland with the quiet authority of one of India's living natural
         symbols. Black-tailed Godwits were busy feeding after long journeys. Whiskered Terns bathed and preened.
-        Little Stints gathered as a small, nervous pulse over the mud.
+        Little Stints gathered as a small, nervous pulse over the mud. Little Ringed Plovers worked the same exposed
+        wetland edge in their quieter way.
       </p>
 
       <div class="inline-media-cluster">
@@ -316,8 +337,8 @@ schema_type: WebPage
       </div>
 
       <p>
-        Pallas's Gulls arrived as winter visitors. Ruffs stitched their own passage story into the same waterline.
-        Each one is part of a wider map of movement, weather, hunger, and survival.
+        Pallas's Gulls and Caspian Gulls arrived as winter visitors. Ruffs stitched their own passage story into the
+        same waterline. Each one is part of a wider map of movement, weather, hunger, and survival.
       </p>
 
       <div class="inline-media-cluster compact-media-cluster">
@@ -345,6 +366,9 @@ schema_type: WebPage
       <p>
         That day, I saw a lone Indian grey wolf for the first time in my life.
       </p>
+
+      {{ inlinePhotoEvidence(fieldPhotos[0]) }}
+
       <p>
         For a few seconds I was not standing in the harsh summer landscape of Rajasthan anymore. I was back in my
         childhood. Back in front of Doordarshan. Back to Sunday mornings. Back to <em>The Jungle Book</em>.
@@ -479,7 +503,7 @@ schema_type: WebPage
         using a stressed wetland for relief.
       </p>
 
-      {{ inlinePhotoEvidence(fieldPhotos[0]) }}
+      {{ inlinePhotoEvidence(fieldPhotos[1]) }}
 
       <p>
         And we still discuss heatwaves as if they are only weather events.
@@ -653,7 +677,7 @@ schema_type: WebPage
         long before our roads, mines, cities, borders, speeches, and hollow environmental slogans.
       </p>
 
-      {{ inlinePhotoEvidence(fieldPhotos[1]) }}
+      {{ inlinePhotoEvidence(fieldPhotos[2]) }}
 
       <p>
         We are the disturbance here. Not him.
@@ -672,7 +696,7 @@ schema_type: WebPage
         How much more should the wild shrink so that our greed can expand?
       </p>
 
-      {{ inlinePhotoEvidence(fieldPhotos[2]) }}
+      {{ inlinePhotoEvidence(fieldPhotos[3]) }}
 
       <h2>I do not feel like celebrating</h2>
       <p>
@@ -825,7 +849,7 @@ schema_type: WebPage
         "name": "Wetland conservation"
       }
     ],
-    "image": "https://mhtr.in/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-walking-1600.jpg",
+    "image": "https://mhtr.in/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-indian-grey-wolf-crossing-water-1600.jpg",
     "citation": [
       "https://ebird.org/checklist/S349387936",
       "https://search.macaulaylibrary.org/catalog?searchField=region&regionCode=L6209429&userId=USER1136410",
