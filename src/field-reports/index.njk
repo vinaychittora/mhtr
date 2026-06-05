@@ -44,7 +44,7 @@ activeSection: field-reports
         <div>
           <p class="eyebrow">{{ report.topic }}</p>
           <h2><a href="{{ report.href }}">{{ report.title }}</a></h2>
-          <p class="hindi-title" lang="hi">{{ report.hindiTitle }}</p>
+          {% if report.hindiTitle %}<p class="hindi-title" lang="hi">{{ report.hindiTitle }}</p>{% endif %}
           <p>{{ report.summary }}</p>
         </div>
         <footer class="report-meta">
