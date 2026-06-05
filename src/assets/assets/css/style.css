@@ -1228,6 +1228,50 @@ section[id],
   border-color: var(--line-strong);
 }
 
+.observation-card.media-only-card {
+  gap: 9px;
+  padding: 9px;
+  background: var(--surface);
+}
+
+.media-only-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.observation-card.media-only-card h4 {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.media-only-tag {
+  display: inline-flex;
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 8px;
+  flex: 0 1 auto;
+  align-items: center;
+  max-width: calc(100% - 16px);
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(241, 247, 238, 0.92);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 850;
+  line-height: 1.15;
+  text-align: center;
+  box-shadow: 0 2px 7px rgba(11, 63, 45, 0.12);
+  overflow-wrap: anywhere;
+}
+
 .observation-card-copy,
 .observation-card-media {
   min-width: 0;
@@ -4229,8 +4273,16 @@ html.has-nav-drawer {
 }
 
 @media (max-width: 620px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   .wrap {
+    width: 100%;
+    max-width: 100%;
     padding: 15px;
+    overflow-x: hidden;
   }
 
   .nav {
@@ -4517,6 +4569,10 @@ html.has-nav-drawer {
   .report-card,
   .article-body,
   .aside-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 16px;
   }
 
@@ -4537,6 +4593,10 @@ html.has-nav-drawer {
     grid-template-columns: 1fr;
     gap: 10px;
     padding: 13px;
+  }
+
+  .observation-card.media-only-card {
+    padding: 9px;
   }
 
   .observation-card-head {
@@ -4573,11 +4633,28 @@ html.has-nav-drawer {
   }
 
   .article-layout {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     gap: 16px;
     padding-top: 16px;
+    overflow-x: hidden;
+  }
+
+  .article-body {
+    overflow-x: hidden;
+  }
+
+  .article-body h1,
+  .article-body h2,
+  .article-body h3,
+  .article-body p {
+    overflow-wrap: anywhere;
   }
 
   .article-figure {
+    width: 100%;
+    max-width: 100%;
     margin-top: 14px;
   }
 
