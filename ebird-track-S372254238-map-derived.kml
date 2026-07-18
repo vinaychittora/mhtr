@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>eBird track S372254238 (map-derived)</name>
+    <description>Approximate route traced from the signed-in eBird checklist map for Mandirgarh, 15 Jul 2026. The original eBird point array and timestamps are not included.</description>
+    <Style id="trackStyle">
+      <LineStyle><color>ffff7446</color><width>5</width></LineStyle>
+    </Style>
+    <Placemark>
+      <name>Approximate eBird GPS track</name>
+      <description>Source checklist: https://ebird.org/checklist/S372254238. Map-derived approximation; reported checklist distance is 2.3 mi.</description>
+      <styleUrl>#trackStyle</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          75.875952,24.904651,0
+          75.875180,24.904495,0
+          75.873978,24.904106,0
+          75.872777,24.903716,0
+          75.871575,24.903249,0
+          75.870288,24.902471,0
+          75.868829,24.901614,0
+          75.868056,24.901069,0
+          75.867713,24.899980,0
+          75.867799,24.899123,0
+          75.866683,24.898423,0
+          75.866769,24.897410,0
+          75.865910,24.896632,0
+          75.865138,24.896476,0
+          75.864108,24.896009,0
+          75.862735,24.895931,0
+          75.861275,24.895931,0
+          75.859816,24.895931,0
+          75.858700,24.896320,0
+          75.857756,24.896865,0
+          75.856898,24.897021,0
+          75.857756,24.896710,0
+          75.858872,24.896087,0
+          75.860074,24.895698,0
+          75.861533,24.895698,0
+          75.862906,24.895775,0
+          75.864279,24.896165,0
+          75.865567,24.896632,0
+          75.866339,24.896476,0
+          75.866511,24.895386,0
+          75.867112,24.894218,0
+          75.868142,24.892895,0
+          75.869086,24.891883,0
+          75.869515,24.890948,0
+          75.869000,24.890326,0
+          75.869343,24.889625,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

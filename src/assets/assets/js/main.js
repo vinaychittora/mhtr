@@ -461,6 +461,46 @@
 (() => {
   const $ = (id) => document.getElementById(id);
 
+  const languageButtons = Array.from(document.querySelectorAll("[data-language-button]"));
+  const languagePanels = Array.from(document.querySelectorAll("[data-language-panel]"));
+  const languageStatus = $("proposalLanguageStatus");
+
+  if (languageButtons.length && languagePanels.length) {
+    const setLanguage = (language) => {
+      languagePanels.forEach((panel) => {
+        panel.hidden = panel.dataset.languagePanel !== language;
+      });
+
+      languageButtons.forEach((button) => {
+        const active = button.dataset.languageButton === language;
+        button.setAttribute("aria-pressed", String(active));
+      });
+
+      document.documentElement.lang = language === "hi" ? "hi" : "en";
+      if (languageStatus) {
+        languageStatus.textContent = language === "hi" ? "हिंदी संस्करण दिखाया गया है।" : "English version is shown.";
+      }
+    };
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.languageButton));
+    });
+
+    setLanguage("en");
+  }
+
+  document.querySelectorAll("[data-proposal-inquiry]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const response = form.querySelector(".form-response");
+      if (!response) return;
+      response.textContent = form.dataset.formLanguage === "hi"
+        ? "पूर्वावलोकन पूरा हुआ। यह बीटा फॉर्म है—आपकी जानकारी भेजी या संग्रहीत नहीं की गई।"
+        : "Preview complete. This is a beta form—your information was not sent or stored.";
+      response.focus?.();
+    });
+  });
+
   const searchEl = $("bioSearch");
   const domainEl = $("bioDomain");
   const groupEl = $("bioGroup");

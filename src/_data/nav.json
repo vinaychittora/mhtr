@@ -1,4 +1,4 @@
-[
+[ 
   {"label": "Home", "href": "/", "match": "/", "icon": "home"},
   {
     "label": "Explore",
@@ -10,7 +10,8 @@
       {"label": "Landscape", "href": "/landscape/", "match": "/landscape/", "icon": "mountain", "description": "Terrain, habitat, corridors and pressure context"},
       {"label": "Illustrated Overview", "href": "/landscape/illustrated-overview/", "match": "/landscape/illustrated-overview/", "icon": "map", "description": "Artist-made visual guide to the Mukundara landscape"},
       {"label": "GIS Maps", "href": "/gis-maps/", "match": "/gis-maps/", "icon": "map", "description": "Boundary, hydrology, terrain, elevation and land cover"},
-      {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf", "description": "Species lists and citizen-science context"}
+      {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf", "description": "Species lists and citizen-science context"},
+      {"label": "Mandirgarh Homestay Pilot", "href": "/mandirgarh-homestay/", "match": "/mandirgarh-homestay/", "icon": "home", "description": "Bilingual community homestay, nature and heritage proposal"}
     ]
   },
   {"label": "Field Reports", "href": "/field-reports/", "match": "/field-reports/", "section": "field-reports", "collection": "fieldReports", "icon": "note"},
