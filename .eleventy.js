@@ -211,8 +211,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.jpg": "assets/imgs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.png": "assets/imgs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/mandirgarh/*.jpg": "assets/imgs/mandirgarh" });
-  eleventyConfig.addPassthroughCopy({ "src/mandirgarh-homestay/*.jpg": "mandirgarh-homestay" });
-  eleventyConfig.addPassthroughCopy({ "src/mandirgarh-homestay/*.png": "mandirgarh-homestay" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/mandirgarh/*.webp": "assets/imgs/mandirgarh" });
   eleventyConfig.addPassthroughCopy({
     "src/assets/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-*.jpg":
       "assets/imgs/field-reports/indian-gray-wolf-sighting-alania",
