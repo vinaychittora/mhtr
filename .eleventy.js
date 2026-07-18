@@ -87,6 +87,7 @@ module.exports = function (eleventyConfig) {
         "field-reports": "Field Reports",
         "gis-maps": "GIS Maps",
         landscape: "Landscape",
+        "mandirgarh-homestay": "Mandirgarh Homestay Pilot",
         resources: "Resources",
         documents: "Documents",
         inaturalist: "iNaturalist",
@@ -209,6 +210,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.webp": "assets/imgs/maps" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.jpg": "assets/imgs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.png": "assets/imgs/field-reports" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/mandirgarh/*.jpg": "assets/imgs/mandirgarh" });
+  eleventyConfig.addPassthroughCopy({ "src/mandirgarh-homestay/*.jpg": "mandirgarh-homestay" });
+  eleventyConfig.addPassthroughCopy({ "src/mandirgarh-homestay/*.png": "mandirgarh-homestay" });
   eleventyConfig.addPassthroughCopy({
     "src/assets/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-*.jpg":
       "assets/imgs/field-reports/indian-gray-wolf-sighting-alania",
@@ -218,6 +222,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
+  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-map.html": "mandirgarh-trails-map.html" });
+  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-and-sites.geojson": "downloads/mandirgarh-trails-and-sites.geojson" });
+  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-and-sites.kml": "downloads/mandirgarh-trails-and-sites.kml" });
 
   return {
     dir: {

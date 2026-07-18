@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Mandirgarh Trails Map</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Mandirgarh Trails Map" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Mandirgarh Trails Map&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(--background) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 12.5px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--viz-font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;mandirgarh-trail-map&quot;&gt;
+  &lt;div class=&quot;viz-row map-legend&quot; aria-label=&quot;Map legend&quot;&gt;
+    &lt;span&gt;&lt;i class=&quot;legend-line recorded-line&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Accessible trail&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;legend-line proposed-line&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Accessible-area boundary (on foot)&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;legend-mark stay-mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Potential stay&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;legend-mark heritage-mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Heritage / sacred&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;legend-mark nature-mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Nature / wildlife&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;legend-mark community-mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Community / facility&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;map-wrap&quot;&gt;
+    &lt;svg class=&quot;mandirgarh-map&quot; viewBox=&quot;0 0 1000 690&quot; role=&quot;img&quot; aria-labelledby=&quot;mandirgarh-map-title mandirgarh-map-desc&quot;&gt;
+      &lt;title id=&quot;mandirgarh-map-title&quot;&gt;Mandirgarh trails and important sites&lt;/title&gt;
+      &lt;desc id=&quot;mandirgarh-map-desc&quot;&gt;A local GIS map showing the recorded eBird route, a conceptual circuit connector, village roads, and visitor-interest locations around the Mandirgarh waterbody.&lt;/desc&gt;
+    &lt;/svg&gt;
+    &lt;div class=&quot;tooltip text-small&quot; role=&quot;status&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card map-detail&quot; aria-live=&quot;polite&quot;&gt;
+    &lt;span class=&quot;viz-badge&quot;&gt;Map note&lt;/span&gt;
+    &lt;span id=&quot;mandirgarh-selected&quot;&gt;Select a site marker to see its description. The dashed green line marks the approximate boundary of places currently accessible on foot.&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+#mandirgarh-trail-map { width: 100%; color: var(--foreground); }
+#mandirgarh-trail-map .map-legend { margin-bottom: 10px; gap: 8px 16px; align-items: center; }
+#mandirgarh-trail-map .map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+#mandirgarh-trail-map .legend-line { width: 28px; height: 0; display: inline-block; border-top: 4px solid var(--viz-series-1); }
+#mandirgarh-trail-map .proposed-line { border-top-color: var(--viz-series-3); border-top-style: dashed; }
+#mandirgarh-trail-map .legend-mark { width: 11px; height: 11px; display: inline-block; background: var(--viz-series-2); border-radius: 50%; }
+#mandirgarh-trail-map .stay-mark { background: var(--viz-series-4); border-radius: 1px; }
+#mandirgarh-trail-map .heritage-mark { background: var(--viz-series-5); border-radius: 1px; transform: rotate(45deg); }
+#mandirgarh-trail-map .community-mark { background: var(--viz-series-6); clip-path: polygon(50% 0,100% 100%,0 100%); border-radius: 0; }
+#mandirgarh-trail-map .map-wrap { position: relative; width: 100%; }
+#mandirgarh-trail-map .mandirgarh-map { display: block; width: 100%; height: auto; overflow: visible; }
+#mandirgarh-trail-map .osm-residential { fill: var(--muted); fill-opacity: .5; stroke: var(--border); stroke-width: 1; }
+#mandirgarh-trail-map .osm-road { fill: none; stroke: var(--border); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+#mandirgarh-trail-map .osm-track { stroke-dasharray: 3 3; stroke-width: 1.2; }
+#mandirgarh-trail-map .recorded-track { fill: none; stroke: var(--viz-series-1); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+#mandirgarh-trail-map .proposed-track { fill: none; stroke: var(--viz-series-3); stroke-width: 4; stroke-dasharray: 10 7; stroke-linecap: round; stroke-linejoin: round; }
+#mandirgarh-trail-map .route-end { fill: var(--background); stroke: var(--viz-series-1); stroke-width: 3; }
+#mandirgarh-trail-map .site-marker { cursor: pointer; stroke: var(--background); stroke-width: 2; }
+#mandirgarh-trail-map .site-stay { fill: var(--viz-series-4); }
+#mandirgarh-trail-map .site-heritage { fill: var(--viz-series-5); }
+#mandirgarh-trail-map .site-nature { fill: var(--viz-series-2); }
+#mandirgarh-trail-map .site-community { fill: var(--viz-series-6); }
+#mandirgarh-trail-map .site-label { fill: var(--foreground); stroke: var(--background); stroke-width: 4px; paint-order: stroke; font-weight: 500; }
+#mandirgarh-trail-map .map-caption { fill: var(--muted-foreground); stroke: var(--background); stroke-width: 3px; paint-order: stroke; }
+#mandirgarh-trail-map .north-arrow { fill: var(--foreground); }
+#mandirgarh-trail-map .scale-bar { stroke: var(--foreground); stroke-width: 3; }
+#mandirgarh-trail-map .scale-tick { stroke: var(--foreground); stroke-width: 2; }
+#mandirgarh-trail-map .map-detail { margin-top: 10px; display: flex; gap: 10px; align-items: center; }
+#mandirgarh-trail-map .tooltip { position: absolute; opacity: 0; pointer-events: none; transform: translate(-50%,-110%); }
+@media (max-width: 520px) {
+  #mandirgarh-trail-map .map-legend { gap: 6px 10px; }
+  #mandirgarh-trail-map .site-label { display: none; }
+  #mandirgarh-trail-map .map-detail { align-items: flex-start; }
+}
+&lt;/style&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.getElementById(&quot;mandirgarh-trail-map&quot;);
+  const svg = d3.select(root).select(&quot;.mandirgarh-map&quot;);
+  const tooltip = d3.select(root).select(&quot;.tooltip&quot;);
+  const detail = root.querySelector(&quot;#mandirgarh-selected&quot;);
+  const data = {&quot;track&quot;:[[75.87149348249812,24.903354551761726],[75.87129493578456,24.903288391485],[75.87095977423932,24.903016193636272],[75.8705147944648,24.902848186001002],[75.8702764027493,24.902402478583948],[75.86961217249211,24.902162003166122],[75.86925831808527,24.90194153947306],[75.86900079665124,24.901890820632357],[75.86864920995062,24.90197104126899],[75.86838433409778,24.90188761022439],[75.86800416357582,24.90123890043927],[75.8680129314597,24.900913765822015],[75.86782674122041,24.900570363986365],[75.86773935723795,24.900182761066937],[75.86781963172126,24.899866451601294],[75.86737623343534,24.89919139199393],[75.86678219610553,24.89885236178319],[75.8666719772089,24.89843068425593],[75.86689039152766,24.89730867848],[75.86688617807513,24.896917064478362],[75.86751263771764,24.896607444898645],[75.86746970841558,24.89599990652658],[75.86727012552765,24.895318508917843],[75.86723969305851,24.894493878347635],[75.86731297906758,24.894238702904723],[75.86760125154527,24.893661457854034],[75.86850688066902,24.892740329941542],[75.86932355654993,24.89167003922337],[75.86935269905003,24.89157889482163],[75.86919439393165,24.891268576869237],[75.86929899957373,24.890874165061792],[75.86883659722272,24.890173640924544],[75.86921328870923,24.889624305650898],[75.86930012028458,24.890077234711473],[75.86955190357315,24.889660939603193],[75.86953566080147,24.889498022123007],[75.86920359710845,24.889580248808358],[75.86952523548736,24.889521148178748],[75.86942249548127,24.88966779160573],[75.86922116961159,24.88959336284875],[75.86924840324082,24.890014122320235],[75.86919328880373,24.889594456979847],[75.86927287100816,24.889483661249486],[75.86900143086908,24.889768673983514],[75.86883965486922,24.89014880510963],[75.86900757469556,24.89049621259373],[75.86928403657353,24.89082156451459],[75.86920304744747,24.891351160035477],[75.86941584881502,24.891504749952162],[75.8700944651175,24.891109011421502],[75.8697490378493,24.891230981840103],[75.86911626729025,24.891750943062473],[75.86876996875911,24.892367611627847],[75.86755671787306,24.893668611076343],[75.86736397582669,24.894051071170203],[75.86721615601016,24.894673838050355],[75.86726640280894,24.895457773802928],[75.86747579347151,24.895993353735566],[75.86752593027208,24.89643387087175],[75.86743338902086,24.896643039140894],[75.86680300257541,24.896913182194993],[75.86632644079087,24.89679579352061],[75.86598072465986,24.896888560209387],[75.86417903838051,24.895908710785868],[75.86334542787716,24.895831799897287],[75.86244397097929,24.895964903481527],[75.8607996488724,24.89579377761526],[75.85930086151494,24.895743484728655],[75.8578167507197,24.896158751325363],[75.85703615845628,24.89681759523869],[75.85786379641264,24.896153712013184],[75.85944324980053,24.895743732605986],[75.8625166355481,24.895985586370674],[75.86316357254265,24.895851773562324],[75.86411842664957,24.895920941080988],[75.86434003550602,24.895964575362857],[75.86500775651349,24.896457031559763],[75.86588871014885,24.896916664352375],[75.86664324810296,24.896855550648972],[75.8668693666339,24.897087212449396],[75.86664845440117,24.89830725109107],[75.86669844055096,24.898685184059552],[75.8668250374197,24.898945473946277],[75.86741979465077,24.899272448561714],[75.86780272401265,24.89986456399633],[75.86770861766612,24.90012820842912],[75.86777039673561,24.90045082812738],[75.86798869118246,24.900948677135744],[75.86804714946665,24.901325830652297],[75.86834531570206,24.901871067020927],[75.86861818772167,24.902032055559733],[75.8690515035742,24.901906947749676],[75.86926425875954,24.90193612592531],[75.86969785048099,24.90222841394239],[75.8702345593486,24.90238649388284],[75.87060858619716,24.902944158594494],[75.87112188336255,24.90309926438557],[75.87124514622882,24.90325261603245],[75.87215524561933,24.903553306018857],[75.8736666132813,24.90421687776585],[75.87607214059784,24.90471387201354]],&quot;proposed&quot;:[[75.87149348249812,24.903354551761726],[75.869048,24.9019289],[75.8646629592969,24.897884631884803],[75.86469598544622,24.89614193369255],[75.862413,24.89587],[75.858195,24.896378],[75.85790023815679,24.895744400193966],[75.85895874260609,24.8931288593678],[75.8566,24.8918],[75.86448570485268,24.890251216952176],[75.8672656538698,24.890088050926984],[75.86855793493764,24.890433305215925],[75.86972968217054,24.890796575281684],[75.87607214059784,24.90471387201354]],&quot;points&quot;:[{&quot;id&quot;:&quot;h1&quot;,&quot;name&quot;:&quot;Potential Homestay 1&quot;,&quot;short&quot;:&quot;Homestay 1&quot;,&quot;category&quot;:&quot;stay&quot;,&quot;lat&quot;:24.89587,&quot;lon&quot;:75.862413,&quot;detail&quot;:&quot;Potential community homestay location.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;h2&quot;,&quot;name&quot;:&quot;Potential Homestay 2&quot;,&quot;short&quot;:&quot;Homestay 2&quot;,&quot;category&quot;:&quot;stay&quot;,&quot;lat&quot;:24.896378,&quot;lon&quot;:75.858195,&quot;detail&quot;:&quot;Potential community homestay location.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;well&quot;,&quot;name&quot;:&quot;Andhe Ki Bawdi heritage stepwell&quot;,&quot;short&quot;:&quot;Heritage stepwell&quot;,&quot;category&quot;:&quot;heritage&quot;,&quot;lat&quot;:24.9019289,&quot;lon&quot;:75.869048,&quot;detail&quot;:&quot;Old heritage water well / stepwell.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;muslim&quot;,&quot;name&quot;:&quot;Muslim religious site&quot;,&quot;short&quot;:&quot;Muslim religious site&quot;,&quot;category&quot;:&quot;heritage&quot;,&quot;lat&quot;:24.899246762245365,&quot;lon&quot;:75.86711413191117,&quot;detail&quot;:&quot;Local religious site.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;hindu-ruin&quot;,&quot;name&quot;:&quot;Heritage Hindu temple ruin&quot;,&quot;short&quot;:&quot;Temple ruin&quot;,&quot;category&quot;:&quot;heritage&quot;,&quot;lat&quot;:24.898155433943582,&quot;lon&quot;:75.86761386507494,&quot;detail&quot;:&quot;Heritage Hindu religious temple ruin.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;goraji&quot;,&quot;name&quot;:&quot;Gora Ji Temple&quot;,&quot;short&quot;:&quot;Gora Ji Temple&quot;,&quot;category&quot;:&quot;heritage&quot;,&quot;lat&quot;:24.897259072380677,&quot;lon&quot;:75.8665340186784,&quot;detail&quot;:&quot;Temple landmark close to the trail.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;shiva&quot;,&quot;name&quot;:&quot;Shiva Temple&quot;,&quot;short&quot;:&quot;Shiva Temple&quot;,&quot;category&quot;:&quot;heritage&quot;,&quot;lat&quot;:24.895032259069193,&quot;lon&quot;:75.86768634728669,&quot;detail&quot;:&quot;Temple landmark near the waterbody.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;ruin1&quot;,&quot;name&quot;:&quot;Temple ruin 1&quot;,&quot;short&quot;:&quot;Temple ruin 1&quot;,&quot;category&quot;:&quot;heritage&quot;,&quot;lat&quot;:24.893461160957695,&quot;lon&quot;:75.8685168476055,&quot;detail&quot;:&quot;Temple ruin on the southern trail.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;ruin2&quot;,&quot;name&quot;:&quot;Temple ruin 2&quot;,&quot;short&quot;:&quot;Temple ruin 2&quot;,&quot;category&quot;:&quot;heritage&quot;,&quot;lat&quot;:24.897884631884803,&quot;lon&quot;:75.8646629592969,&quot;detail&quot;:&quot;Temple ruin near the north-west approach.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;chowki2&quot;,&quot;name&quot;:&quot;Forest Chowki 2 and public toilet&quot;,&quot;short&quot;:&quot;Forest Chowki 2 + toilet&quot;,&quot;category&quot;:&quot;community&quot;,&quot;lat&quot;:24.890088050926984,&quot;lon&quot;:75.8672656538698,&quot;detail&quot;:&quot;Forest post and public-toilet facility.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;village&quot;,&quot;name&quot;:&quot;Village centre and grocery shop&quot;,&quot;short&quot;:&quot;Village centre&quot;,&quot;category&quot;:&quot;community&quot;,&quot;lat&quot;:24.8931288593678,&quot;lon&quot;:75.85895874260609,&quot;detail&quot;:&quot;Village centre, local grocery and services.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;nature1&quot;,&quot;name&quot;:&quot;Forest vegetation and nature trail site&quot;,&quot;short&quot;:&quot;Nature trail site&quot;,&quot;category&quot;:&quot;nature&quot;,&quot;lat&quot;:24.890796575281684,&quot;lon&quot;:75.86972968217054,&quot;detail&quot;:&quot;Forest vegetation and nature-trail experience.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;water&quot;,&quot;name&quot;:&quot;Waterbody centre&quot;,&quot;short&quot;:&quot;Waterbody&quot;,&quot;category&quot;:&quot;nature&quot;,&quot;lat&quot;:24.894250273785232,&quot;lon&quot;:75.86553198860199,&quot;detail&quot;:&quot;Reference point for the central waterbody.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;farmland&quot;,&quot;name&quot;:&quot;Tribal farmland centre&quot;,&quot;short&quot;:&quot;Tribal farmland&quot;,&quot;category&quot;:&quot;nature&quot;,&quot;lat&quot;:24.89456192598277,&quot;lon&quot;:75.86133738238297,&quot;detail&quot;:&quot;Tribal farmland landscape and interpretation point.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;scrub&quot;,&quot;name&quot;:&quot;Open-country shrubland and scrub trail&quot;,&quot;short&quot;:&quot;Scrub trail&quot;,&quot;category&quot;:&quot;nature&quot;,&quot;lat&quot;:24.890251216952176,&quot;lon&quot;:75.86448570485268,&quot;detail&quot;:&quot;Open-country shrubland and scrub trail experience.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;hide1&quot;,&quot;name&quot;:&quot;Wader-watching point and potential bird hide&quot;,&quot;short&quot;:&quot;Bird-hide point&quot;,&quot;category&quot;:&quot;nature&quot;,&quot;lat&quot;:24.894791913316716,&quot;lon&quot;:75.86724782029496,&quot;detail&quot;:&quot;Potential temporary bird hide and waterbird watching point.&quot;,&quot;label&quot;:true},{&quot;id&quot;:&quot;watch2&quot;,&quot;name&quot;:&quot;Wader-watching point 2&quot;,&quot;short&quot;:&quot;Wader point 2&quot;,&quot;category&quot;:&quot;nature&quot;,&quot;lat&quot;:24.891911626283434,&quot;lon&quot;:75.86458326677572,&quot;detail&quot;:&quot;Secondary waterbird watching point.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;play&quot;,&quot;name&quot;:&quot;Playground and shaded relaxation point&quot;,&quot;short&quot;:&quot;Playground / shade&quot;,&quot;category&quot;:&quot;community&quot;,&quot;lat&quot;:24.895744400193966,&quot;lon&quot;:75.85790023815679,&quot;detail&quot;:&quot;Playground and shaded resting point.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;relax2&quot;,&quot;name&quot;:&quot;Relaxation point 2&quot;,&quot;short&quot;:&quot;Relax point 2&quot;,&quot;category&quot;:&quot;community&quot;,&quot;lat&quot;:24.89614193369255,&quot;lon&quot;:75.86469598544622,&quot;detail&quot;:&quot;Convenient trail rest point.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;relief&quot;,&quot;name&quot;:&quot;Trail relief and relaxation point&quot;,&quot;short&quot;:&quot;Trail rest point&quot;,&quot;category&quot;:&quot;community&quot;,&quot;lat&quot;:24.890433305215925,&quot;lon&quot;:75.86855793493764,&quot;detail&quot;:&quot;Southern trail relief and relaxation point.&quot;,&quot;label&quot;:false},{&quot;id&quot;:&quot;chowki1&quot;,&quot;name&quot;:&quot;Forest Chowki 1 / flora-fauna trailhead&quot;,&quot;short&quot;:&quot;Forest Chowki 1&quot;,&quot;category&quot;:&quot;nature&quot;,&quot;lat&quot;:24.90471387201354,&quot;lon&quot;:75.87607214059784,&quot;detail&quot;:&quot;Top-right forest post and trailhead for flora and fauna observation.&quot;,&quot;label&quot;:true}],&quot;base&quot;:{&quot;type&quot;:&quot;FeatureCollection&quot;,&quot;features&quot;:[{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;place&quot;,&quot;name&quot;:&quot;Mandirgarh&quot;},&quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[75.8589944,24.8929961]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;residential&quot;},&quot;geometry&quot;:{&quot;type&quot;:&quot;Polygon&quot;,&quot;coordinates&quot;:[[[75.8578491,24.8943002],[75.8590937,24.8936871],[75.8595872,24.89358],[75.859952,24.8933951],[75.8606386,24.8931129],[75.8610248,24.892782],[75.8609927,24.892383],[75.8606815,24.8921494],[75.8600485,24.8920813],[75.8587932,24.8921883],[75.8585143,24.8922857],[75.8578813,24.8928793],[75.8575487,24.8932686],[75.8573234,24.8940374],[75.8574092,24.894271],[75.8578491,24.8943002]]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;track&quot;,&quot;surface&quot;:&quot;unpaved&quot;},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8669633,24.8908595],[75.8684951,24.8901511],[75.8687032,24.8900989],[75.8687848,24.8901117],[75.8688401,24.8901504],[75.8690907,24.8906776],[75.8692873,24.8911855],[75.8693809,24.8915753],[75.8693479,24.8916805],[75.8691792,24.8918152],[75.8690622,24.891956],[75.8687764,24.8924309],[75.8680093,24.8932726],[75.8676285,24.8936375],[75.867548,24.8937543],[75.8673388,24.8941727],[75.8671832,24.8946992],[75.8671832,24.894889],[75.8672637,24.895215],[75.8673495,24.8957356],[75.8674784,24.8960487],[75.8675277,24.8963896],[75.8675319,24.8966346],[75.8674414,24.8967155],[75.8673041,24.8967879],[75.8668832,24.8969655]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;track&quot;,&quot;surface&quot;:&quot;unpaved&quot;},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8782449,24.9024934],[75.8780411,24.902654],[75.8779231,24.9028243],[75.8772994,24.9042685],[75.8772079,24.9045318],[75.8771617,24.9048473],[75.8769697,24.9050073]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8572687,24.8954173],[75.857515,24.8951343],[75.8579141,24.8947655],[75.8579104,24.8946971],[75.8577236,24.8944438]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8573274,24.8953485],[75.8574114,24.8947626],[75.857457,24.8946637],[75.8577236,24.8944438],[75.8580375,24.8942262],[75.8583215,24.8939477],[75.858879,24.8935215],[75.8594116,24.8930384],[75.8598092,24.8927681],[75.8599141,24.8927218],[75.8602838,24.8926619],[75.8605195,24.8927358],[75.8606577,24.892735],[75.8609121,24.8926161],[75.8610686,24.8925147]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8576941,24.8944669],[75.8577592,24.8942015],[75.8579132,24.89385],[75.858122,24.893476],[75.8581109,24.8934064],[75.8580176,24.8932938]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8602838,24.8926619],[75.8605519,24.8925409],[75.8606413,24.892527],[75.8608549,24.8926455]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8588514,24.8935425],[75.8584022,24.8929098]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8593688,24.8935529],[75.8591943,24.8932414]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8558004,24.8963842],[75.8560361,24.8957663],[75.8562766,24.8955481],[75.8564891,24.8951711],[75.8566689,24.8949297],[75.8567739,24.8946988],[75.8569397,24.8941058],[75.8571989,24.8936525],[75.857374,24.8932585],[75.8575982,24.8929768],[75.8578224,24.8928095],[75.858768,24.8924261],[75.8588307,24.8923738],[75.8589099,24.8923991],[75.8591039,24.8925637],[75.8590974,24.8927202],[75.8591313,24.8928382],[75.8593899,24.8930567]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8606013,24.8925287],[75.8607067,24.8923687],[75.8608513,24.8922964],[75.8609255,24.892205]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8597815,24.8922784],[75.8599122,24.8925417],[75.8601053,24.8926879]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8601206,24.893165],[75.8599837,24.8930069],[75.8598241,24.8929557],[75.8597305,24.8928204]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;residential&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8568522,24.8956414],[75.8570258,24.895279],[75.8574114,24.8947626]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;unclassified&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8661358,24.8969305],[75.8660307,24.8969485],[75.8658599,24.8969179],[75.8655901,24.8967415],[75.8651019,24.8965179],[75.8645011,24.8960766],[75.864265,24.8959852],[75.8632886,24.8959],[75.8631222,24.8959135],[75.8626608,24.8960197],[75.862498,24.8960237],[75.861286,24.8959075],[75.8594221,24.8958199],[75.8590713,24.8958613],[75.857944,24.8961914],[75.8578051,24.8962523],[75.8571612,24.8968476],[75.8570935,24.8968794],[75.8570374,24.8968625],[75.8570056,24.8968107],[75.8570753,24.8963581],[75.8571075,24.8957742],[75.8572619,24.8954554],[75.8572614,24.8953962],[75.8572332,24.8953887],[75.8569627,24.895545],[75.8567219,24.8957944],[75.8564011,24.8959608],[75.856179,24.8961202],[75.8559998,24.8962868],[75.8555553,24.896528],[75.8542101,24.896948]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;track&quot;,&quot;surface&quot;:&quot;unpaved&quot;},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8731222,24.907975],[75.8732255,24.9079282],[75.8735231,24.9076968],[75.8737327,24.9076142],[75.8740971,24.9074214],[75.8748959,24.9066308],[75.8751055,24.9065647],[75.8753818,24.9064104],[75.8755489,24.9062148],[75.8756673,24.9059586],[75.8757463,24.9058457],[75.8759103,24.9056832],[75.8764782,24.9053085],[75.8769062,24.9049926]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;unclassified&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8784052,24.9049745],[75.878265,24.9050012],[75.8770703,24.9050154],[75.8769062,24.9049926],[75.8763959,24.9048502],[75.8759358,24.9048374],[75.8757765,24.9048053],[75.8748845,24.9045215],[75.8742016,24.9043879],[75.8737503,24.9042729],[75.8731009,24.9040316],[75.872432,24.9039417],[75.8723116,24.9038743],[75.8721311,24.9035662],[75.872025,24.9034795],[75.8713886,24.9033605],[75.8711225,24.9031938],[75.8704301,24.902879],[75.8703754,24.9028024],[75.870412,24.9026355],[75.8703392,24.902516],[75.870277,24.9024766],[75.8695686,24.9021856],[75.8691612,24.9019525],[75.8689709,24.9019512],[75.8686162,24.902063],[75.8685599,24.9020585],[75.8684166,24.9019865],[75.8682284,24.9017366],[75.8679995,24.901241],[75.8677696,24.9003139],[75.867759,24.9001719],[75.8678196,24.9000023],[75.8678247,24.8998304],[75.8677294,24.899651],[75.8675632,24.8994425],[75.8669578,24.8989702],[75.866829,24.8987423],[75.8667461,24.8984786],[75.8667217,24.8983238],[75.8667324,24.8981827],[75.8669202,24.8971657],[75.8669025,24.8970025],[75.8668832,24.8969655],[75.8664779,24.8968615],[75.8663178,24.8968992]]}},{&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;kind&quot;:&quot;road&quot;,&quot;class&quot;:&quot;unclassified&quot;,&quot;surface&quot;:null},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[75.8663178,24.8968992],[75.8661358,24.8969305]]}}]},&quot;bbox&quot;:[75.854,24.887,75.879,24.908]};
+  const width = 1000;
+  const height = 690;
+  const b = data.bbox;
+  const frame = {type:&quot;Feature&quot;,geometry:{type:&quot;Polygon&quot;,coordinates:[[[b[0],b[1]],[b[0],b[3]],[b[2],b[3]],[b[2],b[1]],[b[0],b[1]]]]}};
+  const projection = d3.geoMercator().fitExtent([[28,28],[width-28,height-35]], frame);
+  const path = d3.geoPath(projection);
+
+  const baseLayer = svg.append(&quot;g&quot;).attr(&quot;aria-label&quot;,&quot;OpenStreetMap base geometry&quot;);
+  baseLayer.selectAll(&quot;path&quot;)
+    .data(data.base.features)
+    .join(&quot;path&quot;)
+    .attr(&quot;d&quot;, path)
+    .attr(&quot;class&quot;, f =&gt; f.properties.kind === &quot;residential&quot; ? &quot;osm-residential&quot; : &quot;osm-road &quot; + (f.properties.class === &quot;track&quot; ? &quot;osm-track&quot; : &quot;&quot;));
+
+  const recorded = {type:&quot;Feature&quot;,geometry:{type:&quot;LineString&quot;,coordinates:data.track}};
+  const boundaryExtension = {type:&quot;Feature&quot;,geometry:{type:&quot;LineString&quot;,coordinates:[
+    [75.8672656538698,24.890088050926984],
+    [75.86448570485268,24.890251216952176],
+    [75.8628,24.89015],
+    [75.8608,24.89045],
+    [75.8587,24.8909],
+    [75.8569,24.89165],
+    [75.8558,24.89275],
+    [75.85545,24.8939],
+    [75.8558,24.89505],
+    [75.8567,24.89585],
+    [75.858195,24.896378],
+    [75.8601,24.89605],
+    [75.862413,24.89587]
+  ]}};
+  const accessibleBoundary = {type:&quot;Feature&quot;,geometry:{type:&quot;LineString&quot;,coordinates:[
+    [75.8562,24.8972],
+    [75.8600,24.8972],
+    [75.8648,24.8978],
+    [75.8677,24.9019],
+    [75.8712,24.9039],
+    [75.8764,24.9051],
+    [75.8770,24.9045],
+    [75.8738,24.9033],
+    [75.8708,24.9015],
+    [75.8692,24.8985],
+    [75.8695,24.8940],
+    [75.8701,24.8900],
+    [75.8693,24.8891],
+    [75.8665,24.8890],
+    [75.8625,24.8893],
+    [75.8590,24.8900],
+    [75.8564,24.8910],
+    [75.8552,24.8928],
+    [75.8550,24.8951],
+    [75.8562,24.8972]
+  ]}};
+  svg.append(&quot;path&quot;).datum(recorded).attr(&quot;class&quot;,&quot;recorded-track&quot;).attr(&quot;d&quot;,path);
+  svg.append(&quot;path&quot;).datum(boundaryExtension).attr(&quot;class&quot;,&quot;recorded-track&quot;).attr(&quot;d&quot;,path);
+  svg.append(&quot;path&quot;).datum(accessibleBoundary).attr(&quot;class&quot;,&quot;proposed-track&quot;).attr(&quot;d&quot;,path);
+
+  const ends = [data.track[0], data.track[data.track.length-1]];
+  svg.append(&quot;g&quot;).selectAll(&quot;circle&quot;).data(ends).join(&quot;circle&quot;)
+    .attr(&quot;class&quot;,&quot;route-end&quot;)
+    .attr(&quot;cx&quot;,p=&gt;projection(p)[0]).attr(&quot;cy&quot;,p=&gt;projection(p)[1]).attr(&quot;r&quot;,7);
+
+  const symbolType = {
+    stay:d3.symbolSquare,
+    heritage:d3.symbolDiamond,
+    nature:d3.symbolCircle,
+    community:d3.symbolTriangle
+  };
+  const markerLayer = svg.append(&quot;g&quot;).attr(&quot;aria-label&quot;,&quot;Important sites&quot;);
+  markerLayer.selectAll(&quot;path&quot;)
+    .data(data.points)
+    .join(&quot;path&quot;)
+    .attr(&quot;class&quot;,p=&gt;&quot;site-marker site-&quot;+p.category)
+    .attr(&quot;d&quot;,p=&gt;d3.symbol().type(symbolType[p.category]).size(p.label?150:105)())
+    .attr(&quot;transform&quot;,p=&gt;&quot;translate(&quot;+projection([p.lon,p.lat]).join(&quot;,&quot;)+&quot;)&quot;)
+    .attr(&quot;role&quot;,&quot;img&quot;)
+    .attr(&quot;aria-label&quot;,p=&gt;p.name+&quot;: &quot;+p.detail)
+    .on(&quot;mouseenter&quot;,function(event,p){
+      const box=root.querySelector(&quot;.map-wrap&quot;).getBoundingClientRect();
+      const pt=projection([p.lon,p.lat]);
+      const svgBox=svg.node().getBoundingClientRect();
+      tooltip.style(&quot;opacity&quot;,1).text(p.name)
+        .style(&quot;left&quot;,(svgBox.left-box.left+pt[0]*svgBox.width/width)+&quot;px&quot;)
+        .style(&quot;top&quot;,(svgBox.top-box.top+pt[1]*svgBox.height/height)+&quot;px&quot;);
+    })
+    .on(&quot;mouseleave&quot;,()=&gt;tooltip.style(&quot;opacity&quot;,0))
+    .on(&quot;click&quot;,(event,p)=&gt;{
+      detail.textContent=p.name+&quot; — &quot;+p.detail+&quot; Coordinates: &quot;+p.lat.toFixed(6)+&quot;, &quot;+p.lon.toFixed(6)+&quot;.&quot;;
+    });
+
+  const offsets = {
+    h1:[9,-9,&quot;start&quot;], h2:[-9,-9,&quot;end&quot;], well:[9,-9,&quot;start&quot;],
+    goraji:[9,16,&quot;start&quot;], chowki2:[9,18,&quot;start&quot;], village:[9,17,&quot;start&quot;],
+    nature1:[9,-9,&quot;start&quot;], water:[-9,-10,&quot;end&quot;], scrub:[-9,-12,&quot;end&quot;],
+    hide1:[9,-9,&quot;start&quot;], chowki1:[-9,-9,&quot;end&quot;]
+  };
+  svg.append(&quot;g&quot;).selectAll(&quot;text&quot;)
+    .data(data.points.filter(p=&gt;p.label))
+    .join(&quot;text&quot;)
+    .attr(&quot;class&quot;,&quot;site-label text-small&quot;)
+    .attr(&quot;x&quot;,p=&gt;projection([p.lon,p.lat])[0]+offsets[p.id][0])
+    .attr(&quot;y&quot;,p=&gt;projection([p.lon,p.lat])[1]+offsets[p.id][1])
+    .attr(&quot;text-anchor&quot;,p=&gt;offsets[p.id][2])
+    .text(p=&gt;p.short);
+
+  const north = svg.append(&quot;g&quot;).attr(&quot;transform&quot;,&quot;translate(947,42)&quot;).attr(&quot;aria-label&quot;,&quot;North&quot;);
+  north.append(&quot;path&quot;).attr(&quot;class&quot;,&quot;north-arrow&quot;).attr(&quot;d&quot;,&quot;M0,26 L10,0 L20,26 L10,20 Z&quot;);
+  north.append(&quot;text&quot;).attr(&quot;class&quot;,&quot;map-caption text-small&quot;).attr(&quot;x&quot;,10).attr(&quot;y&quot;,-6).attr(&quot;text-anchor&quot;,&quot;middle&quot;).text(&quot;N&quot;);
+
+  const centerLat=(b[1]+b[3])/2;
+  const centerLon=(b[0]+b[2])/2;
+  const halfKmLon=0.5/(111.32*Math.cos(centerLat*Math.PI/180));
+  const p0=projection([centerLon,centerLat]);
+  const p1=projection([centerLon+halfKmLon,centerLat]);
+  const bar=Math.abs(p1[0]-p0[0]);
+  const scale=svg.append(&quot;g&quot;).attr(&quot;transform&quot;,&quot;translate(48,646)&quot;).attr(&quot;aria-label&quot;,&quot;500 metre scale bar&quot;);
+  scale.append(&quot;line&quot;).attr(&quot;class&quot;,&quot;scale-bar&quot;).attr(&quot;x1&quot;,0).attr(&quot;x2&quot;,bar).attr(&quot;y1&quot;,0).attr(&quot;y2&quot;,0);
+  scale.selectAll(&quot;line.scale-tick&quot;).data([0,bar]).join(&quot;line&quot;).attr(&quot;class&quot;,&quot;scale-tick&quot;).attr(&quot;x1&quot;,x=&gt;x).attr(&quot;x2&quot;,x=&gt;x).attr(&quot;y1&quot;,-5).attr(&quot;y2&quot;,5);
+  scale.append(&quot;text&quot;).attr(&quot;class&quot;,&quot;map-caption text-small&quot;).attr(&quot;x&quot;,bar/2).attr(&quot;y&quot;,-9).attr(&quot;text-anchor&quot;,&quot;middle&quot;).text(&quot;500 m&quot;);
+
+  svg.append(&quot;text&quot;).attr(&quot;class&quot;,&quot;map-caption text-small&quot;).attr(&quot;x&quot;,width-34).attr(&quot;y&quot;,height-12).attr(&quot;text-anchor&quot;,&quot;end&quot;).text(&quot;Base geometry © OpenStreetMap contributors&quot;);
+})();
+&lt;/script&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
