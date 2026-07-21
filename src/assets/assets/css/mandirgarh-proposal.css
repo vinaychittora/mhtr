@@ -474,6 +474,40 @@
   box-shadow: 0 16px 40px rgba(20, 42, 30, .08);
 }
 
+.proposal-map .map-shell {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface, #fff);
+  box-shadow: 0 16px 40px rgba(20, 42, 30, .08);
+}
+
+.proposal-map .map-copy {
+  max-width: 900px;
+  padding: clamp(26px, 4vw, 44px) clamp(22px, 4vw, 46px) 22px;
+}
+
+.proposal-map .map-copy h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.proposal-map .map-copy > p:last-child {
+  color: var(--muted);
+}
+
+.proposal-map .proposal-map-frame {
+  min-height: 620px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.proposal-map .proposal-note {
+  padding: 18px clamp(22px, 4vw, 46px) 22px;
+}
+
 .route-review__visual {
   position: relative;
   min-height: 520px;
@@ -737,6 +771,10 @@
 
   .experience-card {
     border-radius: 18px;
+  }
+
+  .proposal-map .proposal-map-frame {
+    min-height: 540px;
   }
 
   .mandirgarh-proposal-page .species-gallery {
