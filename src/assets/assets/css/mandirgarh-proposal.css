@@ -1,0 +1,473 @@
+/* Mandirgarh conservation-first pilot page */
+.mandirgarh-hero__heading {
+  max-width: 520px;
+  margin: 10px 0 12px;
+  color: #fff;
+  font-size: clamp(2.45rem, 4.4vw, 4.35rem);
+  font-weight: 800;
+  line-height: .96;
+  letter-spacing: -.045em;
+}
+
+.mandirgarh-proposal-page .site-support-strip,
+.mandirgarh-proposal-page .support-rail {
+  display: none !important;
+}
+
+.proposal-identity {
+  padding-top: 12px;
+  padding-bottom: 0;
+}
+
+.proposal-identity__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  padding: 11px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(52, 105, 78, .045);
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .015em;
+}
+
+.proposal-identity__inner span + span {
+  position: relative;
+}
+
+.proposal-identity__inner span + span::before {
+  position: absolute;
+  top: .25em;
+  left: -12px;
+  width: 1px;
+  height: 1em;
+  background: var(--line);
+  content: "";
+}
+
+.proposal-facts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.proposal-facts > div {
+  min-height: 160px;
+}
+
+.fact-icon--school::before {
+  position: absolute;
+  right: 9px;
+  bottom: 10px;
+  left: 9px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  content: "";
+}
+
+.fact-icon--school::after {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  width: 20px;
+  height: 14px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  content: "";
+  transform: skewY(-18deg);
+}
+
+.school-program {
+  display: grid;
+  grid-template-columns: minmax(270px, .82fr) minmax(0, 1.18fr);
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 22px;
+  background: #183027;
+  color: #fff;
+  box-shadow: 0 18px 44px rgba(20, 42, 30, .14);
+}
+
+.school-program__media {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.school-program__media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 35, 24, .02) 35%, rgba(12, 35, 24, .8));
+  content: "";
+}
+
+.school-program__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.school-program__media > span {
+  position: absolute;
+  z-index: 1;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  color: rgba(255, 255, 255, .86);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.school-program__copy {
+  padding: clamp(28px, 4.5vw, 58px);
+}
+
+.school-program .proposal-kicker {
+  color: #e6c17f;
+}
+
+.school-program h3 {
+  margin: 7px 0 14px;
+  color: #fff;
+  font-size: clamp(1.8rem, 3.4vw, 3.15rem);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+
+.school-program__copy > p:not(.proposal-kicker):not(.program-condition) {
+  color: rgba(255, 255, 255, .82);
+}
+
+.program-focuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.program-focuses li {
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .055);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 650;
+}
+
+.program-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.program-meta span {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #e9efd9;
+  color: #183027;
+  font-size: .73rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.program-condition {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  color: rgba(255, 255, 255, .68);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.pilot-controls {
+  margin-top: clamp(55px, 8vw, 92px);
+  margin-bottom: clamp(55px, 8vw, 92px);
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(52, 105, 78, .08), rgba(192, 150, 78, .08));
+}
+
+.pilot-controls__heading {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.pilot-controls__heading h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.45rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.pilot-controls__heading > p:last-child {
+  color: var(--muted);
+}
+
+.pilot-control-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pilot-control-grid > div {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--surface, #fff);
+  box-shadow: 0 10px 28px rgba(20, 49, 34, .05);
+}
+
+.pilot-control-grid span {
+  display: block;
+  margin-bottom: 28px;
+  color: #be7b35;
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+
+.pilot-control-grid strong {
+  display: block;
+  color: var(--link);
+  font-size: 1.05rem;
+}
+
+.pilot-control-grid p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .84rem;
+  line-height: 1.5;
+}
+
+.pilot-control-grid em {
+  font-style: normal;
+  font-weight: 800;
+}
+
+.route-review {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface, #fff);
+  box-shadow: 0 16px 40px rgba(20, 42, 30, .08);
+}
+
+.route-review__visual {
+  position: relative;
+  min-height: 520px;
+}
+
+.route-review__visual::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(7, 24, 15, .76));
+  content: "";
+}
+
+.route-review__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.route-review__visual > span {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.route-review__copy {
+  align-self: center;
+  padding: clamp(28px, 4.5vw, 56px);
+}
+
+.route-review__copy h2 {
+  margin: 8px 0 14px;
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.route-review__copy > p:not(.proposal-kicker):not(.proposal-note) {
+  color: var(--muted);
+}
+
+.habitat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.habitat-chips span {
+  padding: 8px 11px;
+  border: 1px solid rgba(34, 91, 63, .2);
+  border-radius: 999px;
+  background: rgba(224, 233, 208, .62);
+  color: var(--link);
+  font-size: .78rem;
+  font-weight: 750;
+}
+
+.proposal-next-step {
+  margin-top: clamp(55px, 8vw, 92px);
+  padding: clamp(30px, 5vw, 64px);
+  border-radius: 22px;
+  background: #183027;
+  color: #fff;
+}
+
+.proposal-next-step__heading {
+  max-width: 790px;
+}
+
+.proposal-next-step__heading .proposal-kicker {
+  color: #e6c17f;
+}
+
+.proposal-next-step__heading h2 {
+  margin: 8px 0 14px;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.55rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.proposal-next-step__heading > p:last-child {
+  color: rgba(255, 255, 255, .72);
+}
+
+.proposal-next-step__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.proposal-next-step__grid > div {
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .055);
+}
+
+.proposal-next-step__grid span {
+  display: block;
+  margin-bottom: 8px;
+  color: #e6c17f;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.proposal-next-step__grid strong {
+  display: block;
+  color: #fff;
+  font-size: 1.12rem;
+}
+
+.proposal-next-step__grid p {
+  margin: 9px 0 0;
+  color: rgba(255, 255, 255, .7);
+  font-size: .86rem;
+}
+
+@media (max-width: 980px) {
+  .pilot-control-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .school-program,
+  .route-review {
+    grid-template-columns: 1fr;
+  }
+
+  .school-program__media {
+    min-height: 330px;
+  }
+
+  .route-review__visual {
+    min-height: 360px;
+  }
+
+  .proposal-identity__inner span + span::before {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .mandirgarh-hero__heading {
+    font-size: clamp(2.45rem, 12vw, 3.7rem);
+  }
+
+  .pilot-badge[data-language-panel="en"]::after {
+    content: "Consultation draft";
+  }
+
+  .pilot-badge[data-language-panel="hi"]::after {
+    content: "परामर्श प्रारूप";
+  }
+
+  .proposal-facts,
+  .pilot-control-grid,
+  .proposal-next-step__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pilot-controls {
+    padding: 24px 16px;
+  }
+
+  .school-program__copy,
+  .route-review__copy {
+    padding: 26px 20px;
+  }
+
+  .school-program__media {
+    min-height: 270px;
+  }
+
+  .route-review__visual {
+    min-height: 280px;
+  }
+
+  .proposal-identity__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media print {
+  .mandirgarh-proposal-page .mandirgarh-hero,
+  .mandirgarh-proposal-page .language-switch,
+  .mandirgarh-proposal-page .site-header,
+  .mandirgarh-proposal-page footer {
+    display: none !important;
+  }
+
+  .mandirgarh-proposal-page .section {
+    break-inside: avoid;
+  }
+}

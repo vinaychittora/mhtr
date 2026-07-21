@@ -193,6 +193,7 @@ module.exports = function (eleventyConfig) {
 
   // Copy only web-ready assets, not OS/browser metadata sidecar files.
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/style.css": "assets/css/style.css" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/mandirgarh-proposal.css": "assets/css/mandirgarh-proposal.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/main.js": "assets/js/main.js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/resource-browser.js": "assets/js/resource-browser.js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/*.jpg": "assets/imgs" });
@@ -221,9 +222,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
-  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-map.html": "mandirgarh-trails-map.html" });
-  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-and-sites.geojson": "downloads/mandirgarh-trails-and-sites.geojson" });
-  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-and-sites.kml": "downloads/mandirgarh-trails-and-sites.kml" });
+  // Exact pilot routes and sensitive locations are retained for controlled review,
+  // but are not published as public site assets.
 
   return {
     dir: {
