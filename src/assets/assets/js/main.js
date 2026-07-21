@@ -98,24 +98,21 @@
 })();
 
 (() => {
-  const triggers = Array.from(document.querySelectorAll("[data-map-viewer]"));
+  const triggers = Array.from(document.querySelectorAll("[data-map-viewer], [data-image-viewer]"));
   if (!triggers.length) return;
 
   const modal = document.createElement("div");
   modal.className = "map-viewer-modal";
   modal.hidden = true;
-  modal.setAttribute("role", "dialog");
-  modal.setAttribute("aria-modal", "true");
-  modal.setAttribute("aria-labelledby", "mapViewerTitle");
   modal.innerHTML = `
     <div class="map-viewer-backdrop" data-map-close></div>
-    <section class="map-viewer-panel">
+    <section class="map-viewer-panel" role="dialog" aria-modal="true" aria-labelledby="mapViewerTitle">
       <header class="map-viewer-header">
         <div>
-          <p class="eyebrow">Zoom Viewer</p>
+          <p class="eyebrow" data-viewer-eyebrow>Zoom Viewer</p>
           <h2 id="mapViewerTitle">Map</h2>
         </div>
-        <button class="map-viewer-close" type="button" data-map-close aria-label="Close map viewer">x</button>
+        <button class="map-viewer-close" type="button" data-map-close aria-label="Close map viewer">×</button>
       </header>
       <div class="map-viewer-toolbar" aria-label="Map zoom controls">
         <button type="button" data-map-zoom="out">-</button>
@@ -131,11 +128,15 @@
   document.body.appendChild(modal);
 
   const title = modal.querySelector("#mapViewerTitle");
+  const eyebrow = modal.querySelector("[data-viewer-eyebrow]");
+  const panel = modal.querySelector(".map-viewer-panel");
   const stage = modal.querySelector(".map-viewer-stage");
   const image = modal.querySelector(".map-viewer-image");
+  const closeButton = modal.querySelector(".map-viewer-close");
   const resetButton = modal.querySelector("[data-map-zoom='reset']");
   const fullscreenButton = modal.querySelector("[data-map-fullscreen]");
   let activeTrigger = null;
+  let imageMode = false;
   let scale = 1;
   let dragging = false;
   let dragStart = { x: 0, y: 0, left: 0, top: 0 };
@@ -162,16 +163,28 @@
 
   function openViewer(trigger) {
     activeTrigger = trigger;
-    title.textContent = trigger.dataset.mapTitle || "GIS map";
-    image.src = trigger.dataset.mapSrc || trigger.querySelector("img")?.src || "";
-    image.alt = trigger.dataset.mapAlt || trigger.querySelector("img")?.alt || "";
+    imageMode = trigger.hasAttribute("data-image-viewer");
+    const hindi = document.documentElement.lang === "hi";
+    const imageTitle = hindi
+      ? trigger.dataset.imageTitleHi || trigger.dataset.imageTitleEn
+      : trigger.dataset.imageTitleEn || trigger.dataset.imageTitleHi;
+
+    modal.classList.toggle("is-image-viewer", imageMode);
+    title.textContent = imageMode ? imageTitle || "Image" : trigger.dataset.mapTitle || "GIS map";
+    eyebrow.textContent = imageMode ? (hindi ? "तस्वीर बड़ी करके देखें" : "Image viewer") : "Zoom Viewer";
+    image.src = imageMode
+      ? trigger.dataset.imageSrc || trigger.querySelector("img")?.src || ""
+      : trigger.dataset.mapSrc || trigger.querySelector("img")?.src || "";
+    image.alt = trigger.dataset.imageAlt || trigger.dataset.mapAlt || trigger.querySelector("img")?.alt || "";
+    closeButton.setAttribute("aria-label", imageMode ? (hindi ? "तस्वीर बंद करें" : "Close image viewer") : "Close map viewer");
+    stage.setAttribute("aria-label", imageMode ? (hindi ? "बड़ी तस्वीर" : "Enlarged image") : "Scrollable map area");
     modal.hidden = false;
     document.documentElement.classList.add("has-modal");
     setScale(1);
     requestAnimationFrame(() => {
       stage.scrollLeft = 0;
       stage.scrollTop = 0;
-      stage.focus({ preventScroll: true });
+      (imageMode ? closeButton : stage).focus({ preventScroll: true });
     });
   }
 
@@ -180,6 +193,8 @@
     modal.hidden = true;
     document.documentElement.classList.remove("has-modal");
     scale = 1;
+    imageMode = false;
+    modal.classList.remove("is-image-viewer");
     image.removeAttribute("src");
     activeTrigger?.focus({ preventScroll: true });
     activeTrigger = null;
@@ -190,10 +205,13 @@
   }
 
   modal.addEventListener("click", (event) => {
-    if (event.target.closest("[data-map-close]")) closeViewer();
+    if (event.target.closest("[data-map-close]")) {
+      closeViewer();
+      return;
+    }
 
     const zoomButton = event.target.closest("[data-map-zoom]");
-    if (!zoomButton) return;
+    if (!zoomButton || imageMode) return;
 
     const action = zoomButton.dataset.mapZoom;
     if (action === "in") setScale(scale * 1.25);
@@ -202,14 +220,16 @@
   });
 
   fullscreenButton.addEventListener("click", () => {
+    if (imageMode) return;
     if (document.fullscreenElement) {
       document.exitFullscreen().catch(() => {});
     } else {
-      modal.querySelector(".map-viewer-panel").requestFullscreen?.();
+      panel.requestFullscreen?.();
     }
   });
 
   stage.addEventListener("wheel", (event) => {
+    if (imageMode) return;
     if (!event.ctrlKey && !event.metaKey) return;
     event.preventDefault();
     const direction = event.deltaY > 0 ? 0.9 : 1.1;
@@ -217,6 +237,7 @@
   }, { passive: false });
 
   stage.addEventListener("pointerdown", (event) => {
+    if (imageMode) return;
     if (event.button !== 0) return;
     dragging = true;
     stage.setPointerCapture(event.pointerId);
@@ -247,7 +268,30 @@
 
   document.addEventListener("keydown", (event) => {
     if (modal.hidden) return;
-    if (event.key === "Escape") closeViewer();
+    if (event.key === "Escape") {
+      closeViewer();
+      return;
+    }
+
+    if (event.key === "Tab") {
+      const focusable = Array.from(panel.querySelectorAll("button:not([hidden]), [href], [tabindex]:not([tabindex='-1'])"))
+        .filter((element) => element.getClientRects().length);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (first && last) {
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+      return;
+    }
+
+    if (imageMode) return;
     if (event.key === "+" || event.key === "=") setScale(scale * 1.25);
     if (event.key === "-") setScale(scale / 1.25);
     if (event.key === "0") setScale(1);
@@ -463,6 +507,7 @@
 
   const languageButtons = Array.from(document.querySelectorAll("[data-language-button]"));
   const languagePanels = Array.from(document.querySelectorAll("[data-language-panel]"));
+  const imageViewerButtons = Array.from(document.querySelectorAll("[data-image-viewer]"));
   const languageStatus = $("proposalLanguageStatus");
 
   if (languageButtons.length && languagePanels.length) {
@@ -477,6 +522,15 @@
       });
 
       document.documentElement.lang = language === "hi" ? "hi" : "en";
+      imageViewerButtons.forEach((button) => {
+        const imageTitle = language === "hi"
+          ? button.dataset.imageTitleHi || button.dataset.imageTitleEn
+          : button.dataset.imageTitleEn || button.dataset.imageTitleHi;
+        button.setAttribute(
+          "aria-label",
+          language === "hi" ? `चित्र बड़ा करके देखें: ${imageTitle}` : `View ${imageTitle} image`,
+        );
+      });
       if (languageStatus) {
         languageStatus.textContent = language === "hi" ? "हिंदी संस्करण दिखाया गया है।" : "English version is shown.";
       }
