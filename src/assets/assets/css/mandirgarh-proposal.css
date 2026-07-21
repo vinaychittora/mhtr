@@ -77,68 +77,129 @@
   transform: skewY(-18deg);
 }
 
-.school-program {
+.experience-list {
   display: grid;
-  grid-template-columns: minmax(270px, .82fr) minmax(0, 1.18fr);
-  margin-top: 20px;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.experience-card {
+  --experience-panel: #f2ecdf;
+  --experience-ink: #17372c;
+  --experience-muted: rgba(23, 55, 44, .76);
+  --experience-kicker: #8c5d25;
+  --experience-chip: rgba(23, 55, 44, .055);
+  --experience-chip-border: rgba(23, 55, 44, .19);
+  --experience-meta: #214b3b;
+  --experience-meta-ink: #fff;
+  --experience-rule: rgba(23, 55, 44, .18);
+  display: grid;
+  grid-template-columns: minmax(300px, .92fr) minmax(0, 1.08fr);
+  min-height: 470px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .1);
+  border: 1px solid rgba(23, 55, 44, .16);
   border-radius: 22px;
-  background: #183027;
-  color: #fff;
-  box-shadow: 0 18px 44px rgba(20, 42, 30, .14);
+  background: var(--experience-panel);
+  color: var(--experience-ink);
+  box-shadow: 0 16px 40px rgba(20, 42, 30, .09);
 }
 
-.school-program__media {
+.experience-card:nth-child(even) {
+  --experience-panel: #183027;
+  --experience-ink: #fff;
+  --experience-muted: rgba(255, 255, 255, .8);
+  --experience-kicker: #e6c17f;
+  --experience-chip: rgba(255, 255, 255, .055);
+  --experience-chip-border: rgba(255, 255, 255, .2);
+  --experience-meta: #e9efd9;
+  --experience-meta-ink: #183027;
+  --experience-rule: rgba(255, 255, 255, .16);
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.experience-card:nth-child(even) .experience-card__media {
+  order: 2;
+}
+
+.experience-card__media {
   position: relative;
-  min-height: 420px;
+  min-height: 470px;
   overflow: hidden;
+  background: #d8d6ca;
 }
 
-.school-program__media::after {
+.experience-card__media::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12, 35, 24, .02) 35%, rgba(12, 35, 24, .8));
+  background: linear-gradient(180deg, rgba(12, 35, 24, .01) 38%, rgba(12, 35, 24, .82));
   content: "";
 }
 
-.school-program__media img {
+.experience-card__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .5s ease;
 }
 
-.school-program__media > span {
+.experience-card--flora .experience-card__media img {
+  object-position: center 42%;
+}
+
+.experience-card--wetland .experience-card__media img {
+  object-position: center 55%;
+}
+
+.experience-card--heritage .experience-card__media img {
+  object-position: center 38%;
+}
+
+.experience-card--school .experience-card__media img {
+  object-position: center 55%;
+}
+
+.experience-card__media > span {
   position: absolute;
   z-index: 1;
-  right: 18px;
+  right: 20px;
   bottom: 18px;
-  left: 18px;
-  color: rgba(255, 255, 255, .86);
+  left: 20px;
+  color: rgba(255, 255, 255, .88);
   font-size: .72rem;
   font-weight: 800;
   letter-spacing: .09em;
   text-transform: uppercase;
 }
 
-.school-program__copy {
-  padding: clamp(28px, 4.5vw, 58px);
+.experience-card__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(30px, 4.8vw, 58px);
 }
 
-.school-program .proposal-kicker {
-  color: #e6c17f;
+.experience-card .proposal-kicker {
+  color: var(--experience-kicker);
 }
 
-.school-program h3 {
+.experience-card h3 {
   margin: 7px 0 14px;
-  color: #fff;
-  font-size: clamp(1.8rem, 3.4vw, 3.15rem);
+  color: var(--experience-ink);
+  font-size: clamp(1.9rem, 3.5vw, 3.3rem);
   line-height: 1.02;
   letter-spacing: -.03em;
 }
 
-.school-program__copy > p:not(.proposal-kicker):not(.program-condition) {
-  color: rgba(255, 255, 255, .82);
+.experience-card__copy > p:not(.proposal-kicker):not(.program-condition) {
+  color: var(--experience-muted);
+}
+
+[lang="hi"] .experience-card h3 {
+  line-height: 1.12;
+  letter-spacing: -.02em;
 }
 
 .program-focuses {
@@ -152,10 +213,10 @@
 
 .program-focuses li {
   padding: 8px 11px;
-  border: 1px solid rgba(255, 255, 255, .2);
+  border: 1px solid var(--experience-chip-border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, .055);
-  color: #fff;
+  background: var(--experience-chip);
+  color: var(--experience-ink);
   font-size: .78rem;
   font-weight: 650;
 }
@@ -170,8 +231,8 @@
 .program-meta span {
   padding: 8px 10px;
   border-radius: 8px;
-  background: #e9efd9;
-  color: #183027;
+  background: var(--experience-meta);
+  color: var(--experience-meta-ink);
   font-size: .73rem;
   font-weight: 800;
   line-height: 1.2;
@@ -180,10 +241,160 @@
 .program-condition {
   margin: 18px 0 0;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, .16);
-  color: rgba(255, 255, 255, .68);
+  border-top: 1px solid var(--experience-rule);
+  color: var(--experience-muted);
   font-size: .84rem;
   line-height: 1.55;
+}
+
+.mandirgarh-proposal-page .species-gallery {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 235px;
+  grid-auto-flow: dense;
+}
+
+.mandirgarh-proposal-page .wildlife-strip figure.species-card,
+.mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(n+6) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.mandirgarh-proposal-page .wildlife-strip figure.species-card--wide {
+  grid-column: span 3;
+}
+
+.mandirgarh-proposal-page .wildlife-strip figure.species-card--portrait {
+  grid-row: span 2;
+}
+
+.species-card__trigger {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: #10241c;
+  cursor: zoom-in;
+}
+
+.mandirgarh-proposal-page .wildlife-strip .species-card img {
+  object-position: var(--species-position, center);
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.species-card__trigger::after {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .48);
+  border-radius: 999px;
+  background: rgba(10, 27, 19, .68);
+  color: #fff;
+  content: "+";
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: .82;
+  backdrop-filter: blur(8px);
+}
+
+.species-card__trigger:hover img,
+.species-card__trigger:focus-visible img {
+  filter: saturate(1.06) contrast(1.02);
+  transform: scale(1.035);
+}
+
+.species-card__trigger:focus-visible {
+  outline: 3px solid #e6c17f;
+  outline-offset: -3px;
+}
+
+.mandirgarh-proposal-page .wildlife-strip .species-card figcaption {
+  display: none;
+}
+
+@media (min-width: 801px) {
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(1),
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(6),
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(7) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(2),
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(5) {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(3),
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(4) {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-panel {
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(1720px, calc(100vw - 24px));
+  height: min(1080px, calc(100dvh - 24px));
+  border-color: rgba(255, 255, 255, .18);
+  border-radius: 14px;
+  background: #08110d;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-header {
+  border-color: rgba(255, 255, 255, .13);
+  background: #10241c;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-header h2,
+.map-viewer-modal.is-image-viewer .map-viewer-header .eyebrow {
+  color: #fff;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-header .eyebrow {
+  color: #cfe7ac;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-close {
+  border-color: rgba(255, 255, 255, .34);
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-toolbar {
+  display: none;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-stage {
+  display: grid;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  padding: 12px;
+  background: #08110d;
+  cursor: default;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-image {
+  width: auto !important;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 132px);
+  margin: auto;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  object-fit: contain;
 }
 
 .pilot-controls {
@@ -398,13 +609,25 @@
 }
 
 @media (max-width: 800px) {
-  .school-program,
+  .experience-card,
   .route-review {
     grid-template-columns: 1fr;
   }
 
-  .school-program__media {
-    min-height: 330px;
+  .experience-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card:nth-child(even) .experience-card__media {
+    order: 0;
+  }
+
+  .experience-card__media {
+    min-height: clamp(300px, 72vw, 380px);
+  }
+
+  .experience-card--school .experience-card__media {
+    min-height: clamp(360px, 94vw, 430px);
   }
 
   .route-review__visual {
@@ -414,9 +637,55 @@
   .proposal-identity__inner span + span::before {
     display: none;
   }
+
+  .mandirgarh-proposal-page .species-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 230px;
+  }
+
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card,
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(n+6) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card--wide {
+    grid-column: span 2;
+  }
+
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card--portrait {
+    grid-row: span 2;
+  }
 }
 
 @media (max-width: 700px) {
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card {
+    height: auto;
+    min-height: 0;
+  }
+
+  .mandirgarh-proposal-page .mandirgarh-hero {
+    width: calc(100% + 44px);
+    min-height: max(720px, calc(100svh - 88px));
+    margin-right: -22px;
+    margin-left: -22px;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .mandirgarh-proposal-page .mandirgarh-hero__image {
+    object-position: 42% center;
+    transform: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .mandirgarh-proposal-page .mandirgarh-hero__shade {
+    background:
+      linear-gradient(180deg, rgba(17, 10, 4, .05) 0%, rgba(17, 10, 4, .18) 32%, rgba(17, 10, 4, .72) 64%, rgba(17, 10, 4, .96) 100%),
+      linear-gradient(90deg, rgba(17, 10, 4, .42), transparent 72%);
+  }
+
   .mandirgarh-hero__heading {
     font-size: clamp(2.45rem, 12vw, 3.7rem);
   }
@@ -439,13 +708,9 @@
     padding: 24px 16px;
   }
 
-  .school-program__copy,
+  .experience-card__copy,
   .route-review__copy {
     padding: 26px 20px;
-  }
-
-  .school-program__media {
-    min-height: 270px;
   }
 
   .route-review__visual {
@@ -456,6 +721,46 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 5px;
+  }
+}
+
+@media (max-width: 620px) {
+  .mandirgarh-proposal-page .mandirgarh-hero {
+    width: calc(100% + 30px);
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .mandirgarh-proposal-page .mandirgarh-hero__content {
+    padding: 20px;
+  }
+
+  .experience-card {
+    border-radius: 18px;
+  }
+
+  .mandirgarh-proposal-page .species-gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 290px;
+  }
+
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card,
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card:nth-child(n+6),
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card--wide,
+  .mandirgarh-proposal-page .wildlife-strip figure.species-card--portrait {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .map-viewer-modal.is-image-viewer .map-viewer-panel {
+    width: 100vw;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .map-viewer-modal.is-image-viewer .map-viewer-stage {
+    padding: 8px;
   }
 }
 
