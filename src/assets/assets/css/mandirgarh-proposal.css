@@ -14,6 +14,13 @@
   display: none !important;
 }
 
+@media (min-width: 901px) {
+  .mandirgarh-proposal-page .mandirgarh-hero__topline {
+    top: clamp(24px, 3vw, 40px);
+    bottom: auto;
+  }
+}
+
 .proposal-identity {
   padding-top: 12px;
   padding-bottom: 0;
