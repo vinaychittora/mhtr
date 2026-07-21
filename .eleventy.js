@@ -222,8 +222,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
-  // Exact pilot routes and sensitive locations are retained for controlled review,
-  // but are not published as public site assets.
+  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-map.html": "mandirgarh-trails-map.html" });
+  // The public interactive map is an indicative planning aid. Downloadable route
+  // files and other sensitive working data remain outside the published build.
 
   return {
     dir: {
