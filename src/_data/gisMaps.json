@@ -1,18 +1,65 @@
 [
   {
+    "slug": "esz-outer-limit",
+    "title": "Eco-sensitive Zone Outer-Limit Context",
+    "shortTitle": "Official ESZ limit",
+    "image": "/assets/imgs/maps/mhtr-esz-outer-limit-map.png",
+    "preview": "/assets/imgs/maps/mhtr-esz-outer-limit-map-preview.webp",
+    "previewWidth": 960,
+    "previewHeight": 640,
+    "alt": "Map comparing the official 2020 Mukundara Hills Tiger Reserve eco-sensitive-zone outer limit with indicative OpenStreetMap reserve reference outlines",
+    "width": 2400,
+    "height": 1600,
+    "summary": "Maps the official outer-limit geometry supplied by the Rajasthan Forest Department for the 2020 MHTR eco-sensitive zone. The Gazette-notified ESZ covers 248.70 km²; the KML polygon is the larger outer envelope around the reserve and ESZ, not the ESZ band alone.",
+    "useFor": "Use this to understand the outer extent of the notified 2020 ESZ and why its KML envelope area must not be reported as the ESZ area.",
+    "sources": "MoEFCC Gazette S.O. 4268(E), 25 Nov 2020; Rajasthan Forest Department MHTR ESZ KML, as on 1 Jun 2026; OpenStreetMap reference outlines",
+    "sourceLinks": [
+      {
+        "label": "2020 ESZ Gazette",
+        "url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/mukundra-1.pdf"
+      },
+      {
+        "label": "Forest Department KML register",
+        "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/forest-devlopment/districtwise-forest-blocks-google-earth.html"
+      },
+      {
+        "label": "Download official MHTR ESZ KMZ",
+        "url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/ESZ/MHTR.kmz"
+      }
+    ]
+  },
+  {
     "slug": "boundary-context",
-    "title": "Boundary and Landscape Context",
-    "shortTitle": "Boundary",
+    "title": "Indicative Reserve and Landscape Context",
+    "shortTitle": "Reference outlines",
     "image": "/assets/imgs/maps/mhtr-boundary-context-map.png",
     "preview": "/assets/imgs/maps/mhtr-boundary-context-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "GIS map showing Mukundara Hills Tiger Reserve, Bhainsrodgarh core addition, surrounding protected areas, rivers, roads and district context",
+    "alt": "GIS orientation map showing indicative Mukundara Hills Tiger Reserve and Bhainsrodgarh reference outlines, protected areas, rivers, roads and district context",
     "width": 2400,
     "height": 1600,
-    "summary": "Shows the public MHTR boundary context, including Bhainsrodgarh Wildlife Sanctuary as a core addition noted in the newer Tiger Conservation Plan.",
+    "summary": "Shows broad MHTR landscape context using public OpenStreetMap reference geometry. The 5 October 2023 notification and updated Tiger Conservation Plan establish Bhainsrodgarh's core status; the displayed linework is not a legal boundary survey.",
     "useFor": "Use this first when explaining where MHTR sits in the wider Kota, Bundi, Chittaurgarh and Jhalawar landscape.",
-    "sources": "MHTR TCP, OpenStreetMap, geoBoundaries"
+    "sources": "Rajasthan Forest Department notification dated 5 Oct 2023, updated MHTR TCP, OpenStreetMap, geoBoundaries",
+    "sourceLinks": [
+      {
+        "label": "5 Oct 2023 MHTR notification",
+        "url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Protectedarea/Mukundra%20hills_0001_1.pdf"
+      },
+      {
+        "label": "Updated Tiger Conservation Plan",
+        "url": "/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/"
+      },
+      {
+        "label": "OpenStreetMap attribution",
+        "url": "https://www.openstreetmap.org/copyright"
+      },
+      {
+        "label": "geoBoundaries",
+        "url": "https://www.geoboundaries.org/"
+      }
+    ]
   },
   {
     "slug": "terrain-relief",
@@ -22,12 +69,26 @@
     "preview": "/assets/imgs/maps/mhtr-terrain-relief-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Shaded relief terrain map of Mukundara Hills Tiger Reserve showing ridges, valleys, water lines and core boundary",
+    "alt": "Shaded relief terrain map of Mukundara Hills Tiger Reserve showing ridges, valleys, water lines and indicative reserve reference outlines",
     "width": 2400,
     "height": 1600,
     "summary": "Uses DEM-derived shaded relief with metre-based elevation bands and high/low callouts to make the ridge-to-valley structure visible.",
     "useFor": "Use this to explain why slopes, valleys and long linear ridges shape habitat, visibility, patrol access and movement, with approximate elevation context.",
-    "sources": "Mapzen/AWS Terrarium elevation tiles, OpenStreetMap, MHTR TCP"
+    "sources": "Mapzen/AWS Terrarium elevation tiles, OpenStreetMap, MHTR TCP",
+    "sourceLinks": [
+      {
+        "label": "AWS terrain tiles",
+        "url": "https://registry.opendata.aws/terrain-tiles/"
+      },
+      {
+        "label": "OpenStreetMap attribution",
+        "url": "https://www.openstreetmap.org/copyright"
+      },
+      {
+        "label": "Updated Tiger Conservation Plan",
+        "url": "/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/"
+      }
+    ]
   },
   {
     "slug": "water-systems",
@@ -37,12 +98,26 @@
     "preview": "/assets/imgs/maps/mhtr-water-systems-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Hydrology map of Mukundara Hills Tiger Reserve showing rivers, reservoirs, canals, roads, rail and nearby settlements",
+    "alt": "Hydrology map of the Mukundara Hills landscape showing rivers, reservoirs, canals, roads, rail, settlements and indicative reserve reference outlines",
     "width": 2400,
     "height": 1600,
     "summary": "Highlights Chambal-linked rivers, reservoirs, canals and drainage lines around the reserve, with key public water-body names labelled.",
     "useFor": "Use this for dry-season stress, wetland value, riparian corridors and water-linked movement context.",
-    "sources": "OpenStreetMap, Mapzen/AWS Terrarium elevation tiles, MHTR TCP"
+    "sources": "OpenStreetMap, Mapzen/AWS Terrarium elevation tiles, MHTR TCP",
+    "sourceLinks": [
+      {
+        "label": "OpenStreetMap attribution",
+        "url": "https://www.openstreetmap.org/copyright"
+      },
+      {
+        "label": "AWS terrain tiles",
+        "url": "https://registry.opendata.aws/terrain-tiles/"
+      },
+      {
+        "label": "Updated Tiger Conservation Plan",
+        "url": "/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/"
+      }
+    ]
   },
   {
     "slug": "elevation-zones",
@@ -52,12 +127,26 @@
     "preview": "/assets/imgs/maps/mhtr-elevation-zones-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Elevation-zone GIS map of Mukundara Hills Tiger Reserve with DEM-derived bands, contours, waterways and core boundary",
+    "alt": "Elevation-zone GIS map of Mukundara Hills Tiger Reserve with DEM-derived bands, contours, waterways and indicative reserve reference outlines",
     "width": 2400,
     "height": 1600,
     "summary": "Classifies local elevation bands in metres, adds 50 m contours, and marks representative high-ridge and lower-valley points.",
     "useFor": "Use this when discussing high ridges, lower valleys, drainage floors and terrain-driven microhabitats with approximate DEM elevation values.",
-    "sources": "Mapzen/AWS Terrarium elevation tiles, OpenStreetMap, MHTR TCP"
+    "sources": "Mapzen/AWS Terrarium elevation tiles, OpenStreetMap, MHTR TCP",
+    "sourceLinks": [
+      {
+        "label": "AWS terrain tiles",
+        "url": "https://registry.opendata.aws/terrain-tiles/"
+      },
+      {
+        "label": "OpenStreetMap attribution",
+        "url": "https://www.openstreetmap.org/copyright"
+      },
+      {
+        "label": "Updated Tiger Conservation Plan",
+        "url": "/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/"
+      }
+    ]
   },
   {
     "slug": "land-cover-habitat",
@@ -70,8 +159,26 @@
     "alt": "ESA WorldCover land-cover map around Mukundara Hills Tiger Reserve showing tree cover, grassland, shrubland, cropland, built-up area and water",
     "width": 2400,
     "height": 1600,
-    "summary": "Uses ESA WorldCover 2021 to show broad tree cover, shrubland, grassland, cropland, built-up area, bare ground and water.",
-    "useFor": "Use this as a habitat base layer, then interpret fine habitat details with field notes and forest records.",
-    "sources": "ESA WorldCover 2021, OpenStreetMap, MHTR TCP"
+    "summary": "Uses ESA WorldCover 2021 v200 to show broad tree cover, shrubland, grassland, cropland, built-up area, bare ground and water. WorldCover ended with the 2021 reference year; this layer is therefore retained as a dated baseline, not described as current land cover.",
+    "useFor": "Use this as a 2021 habitat baseline, then interpret later change and fine habitat details with dated satellite products, field notes and forest records.",
+    "sources": "ESA WorldCover 2021 v200, OpenStreetMap, MHTR TCP",
+    "sourceLinks": [
+      {
+        "label": "ESA WorldCover data and licence",
+        "url": "https://esa-worldcover.org/en/data-access"
+      },
+      {
+        "label": "Annual LCFM successor notice",
+        "url": "https://esa-worldcover.org/en/contact"
+      },
+      {
+        "label": "OpenStreetMap attribution",
+        "url": "https://www.openstreetmap.org/copyright"
+      },
+      {
+        "label": "Updated Tiger Conservation Plan",
+        "url": "/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/"
+      }
+    ]
   }
 ]

@@ -7,7 +7,7 @@ pagination:
   alias: doc
 permalink: "/resources/documents/{{ doc.slug }}/"
 eleventyComputed:
-  title: "{{ doc.title }} | MHTR Archive"
+  title: "{{ doc.seoTitle or doc.title }} | MHTR Archive"
   description: "{{ doc.summary }}"
   keywords: "{{ doc.title }}, {{ doc.source }}, {{ doc.category }}, Mukundara Hills Tiger Reserve, MHTR resource archive"
   og_title: "{{ doc.title }}"
@@ -20,7 +20,7 @@ eleventyComputed:
 ---
 
 {% set archiveUrl = doc.localPath | archiveDocumentUrl %}
-{% set archiveAvailable = deployment.docsArchiveBaseUrl or deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal %}
+{% set archiveAvailable = not doc.sourceOnly and (deployment.docsArchiveBaseUrl or deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal) %}
 {% set archiveIsExternal = deployment.docsArchiveBaseUrl %}
 
 <article class="document-page">
@@ -50,7 +50,7 @@ eleventyComputed:
 {% elif archiveAvailable %}
       <p><strong>Archived locally:</strong> {{ doc.archivedAt }}</p>
 {% else %}
-      <p><strong>Archive status:</strong> Original-source link shown during Cloudflare staging; large local PDF pending R2/archive review.</p>
+      <p><strong>Access:</strong> Original publisher link. This source is indexed here without republishing the file.</p>
 {% endif %}
       <p><strong>File:</strong> {{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</p>
     </div>
@@ -79,12 +79,11 @@ eleventyComputed:
 {% else %}
   <section class="section source-panel" aria-label="Original document source">
     <div>
-      <p class="eyebrow">Large Document</p>
-      <h2>Use the original source while the archive copy is staged separately</h2>
+      <p class="eyebrow">Publisher-hosted Record</p>
+      <h2>Read the current copy from the original publisher</h2>
       <p>
-        This PDF is larger than Cloudflare Pages allows for a single static asset. For the staging deployment,
-        the page links readers to the original source while the local copy is reviewed for R2 hosting or a
-        source-only archive entry.
+        This catalogue page preserves searchable metadata and interpretation guidance while linking to the
+        issuing authority's copy. Confirm the publisher, date and document version when citing it.
       </p>
     </div>
     <div class="source-actions">

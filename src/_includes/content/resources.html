@@ -54,7 +54,7 @@
     <dl class="resource-hero-stats" aria-label="Archive summary">
       <div>
         <dt>{{ resourceDocuments.length }}</dt>
-        <dd>archived PDFs</dd>
+        <dd>document records</dd>
       </div>
       <div>
         <dt>{{ resourceLinks.length }}</dt>
@@ -112,17 +112,17 @@
     <p class="resource-result-count muted" data-resource-count aria-live="polite"></p>
   </div>
 
-  <section class="resource-section" data-resource-section aria-label="Archived PDF documents">
+  <section class="resource-section" data-resource-section aria-label="Document catalogue">
     <div class="resource-section-heading">
-      <h2>Archived documents</h2>
-      <p class="muted">PDF copies are stored locally; original links remain available for citation and version checks.</p>
+      <h2>Document catalogue</h2>
+      <p class="muted">Each entry retains the original publisher link; selected files also have a preservation copy in the MHTR archive.</p>
     </div>
 
     <div class="resource-list">
 {% for doc in resourceDocuments %}
       {% set docCategory = categoryKey(doc.category) | trim %}
       {% set archiveUrl = doc.localPath | archiveDocumentUrl %}
-      {% set archiveAvailable = deployment.docsArchiveBaseUrl or deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal %}
+      {% set archiveAvailable = not doc.sourceOnly and (deployment.docsArchiveBaseUrl or deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal) %}
       {% set archiveIsExternal = deployment.docsArchiveBaseUrl %}
       <article class="resource-item" data-resource-item data-resource-category="{{ docCategory }}">
         <div class="resource-item-head">
@@ -145,7 +145,7 @@
 {% elif archiveAvailable %}
         <p class="resource-archive-note">Stored locally: {{ doc.archivedAt }}</p>
 {% else %}
-        <p class="resource-archive-note">Linked to original source during Cloudflare staging; large local PDF pending R2/archive review.</p>
+        <p class="resource-archive-note">Publisher-hosted record; indexed here without republishing the file.</p>
 {% endif %}
         <div class="resource-actions">
           <a href="/resources/documents/{{ doc.slug }}/">View page</a>

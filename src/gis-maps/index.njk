@@ -1,43 +1,118 @@
 ---
 layout: base.njk
 activeSection: explore
-title: "GIS Maps of Mukundara Hills Tiger Reserve | MHTR"
-description: "High-resolution public GIS maps for Mukundara Hills Tiger Reserve: boundary context, terrain, hydrology, elevation and land-cover habitat."
-keywords: "MHTR GIS maps, Mukundara Hills map, Mukundara hydrology map, Mukundara terrain map, Mukundara land cover, Bhainsrodgarh MHTR core"
-og_title: "GIS Maps of Mukundara Hills Tiger Reserve"
-og_description: "Boundary, terrain, hydrology, elevation and land-cover maps for public landscape understanding."
-og_image: "https://mhtr.in/assets/imgs/maps/mhtr-terrain-relief-map-preview.jpg"
-og_image_alt: "Terrain relief GIS map of Mukundara Hills Tiger Reserve and the surrounding landscape."
-og_image_width: 1200
-og_image_height: 800
+title: "MHTR ESZ, Boundary and GIS Maps | Mukundara Hills"
+description: "Official MHTR eco-sensitive-zone outer-limit evidence plus public terrain, hydrology, elevation and dated 2021 land-cover maps for the Mukundara landscape."
+keywords: "MHTR GIS maps, Mukundara Hills map, MHTR eco-sensitive zone map, Mukundara ESZ KML, Mukundara hydrology map, Mukundara terrain map, Mukundara land cover, Bhainsrodgarh MHTR"
+og_title: "MHTR ESZ, Boundary and GIS Maps"
+og_description: "Official ESZ outer-limit evidence, indicative reserve context, terrain, hydrology, elevation and dated land-cover maps for public understanding."
+og_image: "https://mhtr.in/assets/imgs/maps/mhtr-esz-outer-limit-map.png"
+og_image_alt: "Official 2020 MHTR eco-sensitive-zone outer limit with indicative reserve reference outlines."
+og_image_width: 2400
+og_image_height: 1600
 schema_type: CollectionPage
+modifiedTime: "2026-08-13T00:00:00+05:30"
 ---
 
 <section class="page-hero maps-hero" aria-labelledby="maps-title">
   <p class="eyebrow">GIS Map Library</p>
   <h1 id="maps-title">Mukundara Hills Tiger Reserve maps for public landscape understanding.</h1>
   <p class="lede">
-    These maps are built from public GIS layers and official documents. They explain broad geography,
-    terrain, hydrology, elevation and habitat context without exposing sensitive wildlife locations.
+    These maps combine dated official records with public GIS reference layers. They explain the notified
+    eco-sensitive-zone outer limit, broad geography, terrain, hydrology, elevation and habitat context without
+    exposing sensitive wildlife locations.
   </p>
   <div class="hero-actions">
     <a class="button-link" href="#map-library">Open map library</a>
-    <a class="button-link button-link-secondary" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Bhainsrodgarh update source</a>
+    <a class="button-link button-link-secondary" href="#esz-evidence">Read the boundary evidence</a>
   </div>
 </section>
+
+{% set eszMapSchema = {
+  "name": "MHTR Eco-sensitive Zone Outer-Limit Context Map",
+  "description": "Interpretive map of the official outer-limit geometry supplied for the 2020 Mukundara Hills Tiger Reserve eco-sensitive zone, with public OpenStreetMap reserve outlines shown only as orientation references.",
+  "image": "/assets/imgs/maps/mhtr-esz-outer-limit-map.png",
+  "dateModified": "2026-08-13",
+  "spatialCoverage": "Mukundara Hills Tiger Reserve landscape, Rajasthan, India",
+  "citation": [
+    "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/mukundra-1.pdf",
+    "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/forest-devlopment/districtwise-forest-blocks-google-earth.html",
+    "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/ESZ/MHTR.kmz",
+    "https://www.openstreetmap.org/copyright"
+  ],
+  "downloadUrl": "/assets/imgs/maps/mhtr-esz-outer-limit-map.png",
+  "encodingFormat": "image/png"
+} %}
+<script type="application/ld+json">
+{% mapJsonLd site, page, eszMapSchema %}
+</script>
 
 <section class="section" aria-labelledby="map-note-heading">
   <div class="notice-panel">
     <div>
-      <p class="eyebrow">Important Update</p>
-      <h2 id="map-note-heading">Bhainsrodgarh is shown as an MHTR core addition</h2>
+      <p class="eyebrow">Boundary interpretation</p>
+      <h2 id="map-note-heading">Legal status and map geometry are documented separately</h2>
       <p>
-        The newer Tiger Conservation Plan says Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve
-        by order 4854336 dated 05.10.2023 and made part of the core tiger reserve. These maps reflect that
-        public planning context while still using OSM geometries for broad orientation.
+        The Rajasthan Forest Department's notification dated 5 October 2023 and the updated Tiger Conservation
+        Plan record Bhainsrodgarh Wildlife Sanctuary as part of the MHTR core. The reserve lines on these public
+        maps use OpenStreetMap geometry for orientation; they are not presented as cadastral or legal demarcation.
       </p>
     </div>
-    <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Read source note</a>
+    <a class="button-link" href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Protectedarea/Mukundra%20hills_0001_1.pdf">Open 2023 notification</a>
+  </div>
+</section>
+
+<section class="section" id="esz-evidence" aria-labelledby="esz-evidence-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Official ESZ evidence</p>
+    <h2 id="esz-evidence-heading">How to read the 2026 KMZ correctly</h2>
+    <p class="muted">
+      The supplied <strong>MHTR.kmz</strong> is byte-identical to the MHTR download in the Rajasthan Forest
+      Department register under “ESZ KML as on 01.06.2026.” Its polygon records the <em>outer limit</em> around
+      the reserve and eco-sensitive zone. It is not a standalone polygon for the ESZ band and must not replace
+      the reserve or core outline.
+    </p>
+  </div>
+
+  <div class="landscape-stat-grid" aria-label="Eco-sensitive-zone area interpretation">
+    <article class="landscape-stat-card card">
+      <span class="landscape-stat-value">248.70 km²</span>
+      <h3>Notified ESZ area</h3>
+      <p>Area stated in Gazette notification S.O. 4268(E), dated 25 November 2020.</p>
+    </article>
+    <article class="landscape-stat-card card">
+      <span class="landscape-stat-value">0–1.0 km</span>
+      <h3>Notified extent</h3>
+      <p>The ESZ width varies by direction and is zero where the notification records co-termination with the buffer.</p>
+    </article>
+    <article class="landscape-stat-card card">
+      <span class="landscape-stat-value">≈1,006.03 km²</span>
+      <h3>KML outer envelope</h3>
+      <p>Geodesic calculation of the supplied polygon after its inner ring. This includes the reserve interior and is not the ESZ area.</p>
+    </article>
+  </div>
+
+  <div class="source-panel">
+    <div>
+      <p class="eyebrow">Provenance record</p>
+      <h2>Official file, dated and verified</h2>
+      <dl class="home-facts">
+        <div><dt>Publisher</dt><dd>Rajasthan Forest Department</dd></div>
+        <div><dt>Portal date</dt><dd>ESZ KML as on 1 June 2026</dd></div>
+        <div><dt>Source filename</dt><dd>MHTR.kmz / MHTR-ESZ.kml</dd></div>
+        <div><dt>Geometry</dt><dd>3,546-point outer ring and one 61-point unlabeled inner ring</dd></div>
+        <div>
+          <dt>SHA-256</dt>
+          <dd><code>fe784add4d17d84f<wbr>7bf7191c8b401312<wbr>f20a74ed91dc3d5d<wbr>546fb3d265a828ea</code></dd>
+        </div>
+        <div><dt>Map treatment</dt><dd>Outer limit only; the inner ring is preserved without assigning an unsupported meaning</dd></div>
+      </dl>
+    </div>
+    <div class="source-actions">
+      <a class="button-link" href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/ESZ/MHTR.kmz">Download official KMZ</a>
+      <a class="button-link button-link-secondary" href="https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/forest-devlopment/districtwise-forest-blocks-google-earth.html">Verify in source register</a>
+      <a class="button-link button-link-light" href="https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/mukundra-1.pdf">Read 2020 Gazette</a>
+    </div>
   </div>
 </section>
 
@@ -76,6 +151,13 @@ schema_type: CollectionPage
         <p>{{ map.summary }}</p>
         <p><strong>Use this for:</strong> {{ map.useFor }}</p>
         <p class="muted"><strong>Sources:</strong> {{ map.sources }}</p>
+{% if map.sourceLinks %}
+        <p class="muted"><strong>Evidence:</strong>
+  {% for sourceLink in map.sourceLinks %}
+          <a href="{{ sourceLink.url }}">{{ sourceLink.label }}</a>{% if not loop.last %}; {% endif %}
+  {% endfor %}
+        </p>
+{% endif %}
       </div>
     </article>
 {% endfor %}
@@ -87,14 +169,16 @@ schema_type: CollectionPage
     <p class="eyebrow">Source and Safety Notes</p>
     <h2 id="gis-source-heading">Public maps, not sensitive field locations</h2>
     <p>
-      The map stack uses public data and official planning documents: MHTR TCP, OpenStreetMap,
-      ESA WorldCover, Mapzen/AWS Terrarium elevation tiles and geoBoundaries. The maps are for
-      public interpretation and should not be treated as legal survey demarcation.
+      The map stack uses the official MHTR ESZ outer-limit KML, Gazette and reserve notification records,
+      together with OpenStreetMap, ESA WorldCover 2021, Mapzen/AWS Terrarium elevation tiles and
+      geoBoundaries. Every raster is an interpretation aid; none should be treated as cadastral or legal
+      survey demarcation. The land-cover layer is explicitly a 2021 baseline, not a current land-cover claim.
     </p>
   </div>
   <div class="source-actions">
     <a class="button-link" href="/resources/documents/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition/">Updated TCP</a>
     <a class="button-link" href="/resources/documents/rajasthan-zmp-mhtr-2023/">Zonal Master Plan</a>
+    <a class="button-link" href="/resources/documents/moefcc-mukundara-notification-2020/">2020 ESZ Gazette</a>
     <a class="button-link button-link-secondary" href="/landscape/">Landscape guide</a>
   </div>
 </section>

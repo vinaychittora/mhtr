@@ -27,6 +27,17 @@ function extractAll(html, pattern) {
   return Array.from(html.matchAll(pattern), (match) => match[1]);
 }
 
+function* walkHtml(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const filePath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      yield* walkHtml(filePath);
+    } else if (entry.isFile() && entry.name.endsWith(".html")) {
+      yield filePath;
+    }
+  }
+}
+
 function htmlPathForUrl(url) {
   const parsed = new URL(url);
   if (parsed.origin !== siteUrl) {
@@ -74,6 +85,40 @@ const sitemap = read("_site/sitemap.xml");
 const urls = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
 if (urls.length === 0) {
   fail("Sitemap has no URLs.");
+}
+
+if (!sitemap.includes('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"')) {
+  fail("Sitemap is missing the Google image sitemap namespace.");
+}
+
+if (/<changefreq>|<priority>/.test(sitemap)) {
+  fail("Sitemap should not publish unsupported changefreq or priority hints.");
+}
+
+for (const block of sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+  const loc = extract(block[1], /<loc>([^<]+)<\/loc>/);
+  const lastmod = extract(block[1], /<lastmod>([^<]+)<\/lastmod>/);
+  if (lastmod) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(lastmod) || Number.isNaN(new Date(`${lastmod}T00:00:00Z`).getTime())) {
+      fail(`Invalid sitemap lastmod for ${loc || "unknown URL"}: ${lastmod}`);
+    }
+    if (new Date(`${lastmod}T23:59:59Z`).getTime() > Date.now() + 24 * 60 * 60 * 1000) {
+      fail(`Future sitemap lastmod for ${loc || "unknown URL"}: ${lastmod}`);
+    }
+  }
+
+  for (const imageUrl of extractAll(block[1], /<image:loc>([^<]+)<\/image:loc>/g)) {
+    if (!/^https:\/\//.test(imageUrl)) {
+      fail(`Sitemap image URL must be absolute HTTPS for ${loc || "unknown URL"}: ${imageUrl}`);
+      continue;
+    }
+    if (imageUrl.startsWith(`${siteUrl}/`)) {
+      const imagePath = path.join(outDir, new URL(imageUrl).pathname);
+      if (!fs.existsSync(imagePath)) {
+        fail(`Sitemap image does not exist for ${loc || "unknown URL"}: ${imageUrl}`);
+      }
+    }
+  }
 }
 
 const seen = new Set();
@@ -233,6 +278,34 @@ for (const url of urls) {
         fail(`Image source does not exist for ${url}: ${src}`);
       }
     }
+  }
+}
+
+for (const htmlPath of walkHtml(outDir)) {
+  const relativePath = path.relative(outDir, htmlPath).split(path.sep).join("/");
+  const html = fs.readFileSync(htmlPath, "utf8");
+  const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"\s*\/?>/)?.[1] || "";
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)"\s*\/?>/)?.[1] || "";
+
+  if (robotsMeta.includes("noindex")) {
+    if (canonical && seen.has(canonical)) {
+      fail(`Noindex page is present in sitemap: ${canonical}`);
+    }
+    continue;
+  }
+
+  if (!canonical) {
+    fail(`Indexable generated HTML is missing a canonical URL: ${relativePath}`);
+    continue;
+  }
+
+  if (!canonical.startsWith(`${siteUrl}/`)) {
+    fail(`Generated page has a non-site canonical URL: ${relativePath} -> ${canonical}`);
+    continue;
+  }
+
+  if (!seen.has(canonical)) {
+    fail(`Indexable generated page is missing from sitemap: ${canonical}`);
   }
 }
 
