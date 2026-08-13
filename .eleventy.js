@@ -332,6 +332,9 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/field-reports/*.pdf": "assets/docs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/resources/*.pdf": "assets/docs/resources" });
+  eleventyConfig.addPassthroughCopy({
+    "Data/source-materials/gis/mhtr-esz-outer-limit-2026-06-01.kmz": "assets/data/gis/mhtr-esz-outer-limit-2026-06-01.kmz",
+  });
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });

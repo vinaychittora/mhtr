@@ -2714,6 +2714,11 @@ body > footer a {
   gap: 14px;
 }
 
+.pressure-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
 @media (min-width: 921px) {
   .route-grid:has(> :nth-child(5):last-child),
   .info-grid:has(> :nth-child(5):last-child) {
@@ -3672,6 +3677,80 @@ body > footer a {
   border-left: 4px solid var(--rust);
 }
 
+.pressure-card > .route-kicker {
+  max-width: 100%;
+}
+
+.pressure-card .pressure-status {
+  color: var(--muted);
+}
+
+.evidence-status {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.025em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.mee-evidence-panel {
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  align-items: stretch;
+}
+
+.mee-report-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.68fr) minmax(180px, 1fr);
+  gap: 16px;
+  align-items: center;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.mee-report-card figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.mee-report-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(18, 61, 44, 0.14);
+}
+
+.mee-report-card figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.mee-report-card .source-actions {
+  align-content: center;
+  min-width: 0;
+}
+
+.mee-report-card .source-actions p {
+  margin: 0 0 6px;
+}
+
+.mee-report-card .button-link {
+  white-space: normal;
+}
+
+@media (max-width: 1120px) {
+  .pressure-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .ethics-panel {
   padding: 18px;
   background:
@@ -4295,6 +4374,10 @@ html.has-nav-drawer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .pressure-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .landscape-photo-story-wide {
     grid-column: 1 / -1;
     grid-row: auto;
@@ -4507,6 +4590,15 @@ html.has-nav-drawer {
   .route-grid.home-route-grid,
   .route-grid.home-route-grid:has(> :nth-child(5):last-child) {
     grid-template-columns: 1fr;
+  }
+
+  .mee-report-card {
+    grid-template-columns: 1fr;
+  }
+
+  .mee-report-card figure {
+    width: min(240px, 100%);
+    margin-inline: auto;
   }
 
   .landscape-photo-story-grid,
