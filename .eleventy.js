@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
   const deploymentTarget = process.env.MHTR_DEPLOY_TARGET || "default";
   const docsArchiveBaseUrl = (process.env.MHTR_DOCS_BASE_URL || "").replace(/\/$/, "");
+  const inatSnapshot = require("./src/_data/inatBiodiversity.json");
 
   eleventyConfig.addGlobalData("deployment", {
     target: deploymentTarget,
@@ -9,6 +10,23 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return new Date(dateObj).toISOString().slice(0, 10);
+  });
+
+  eleventyConfig.addFilter("sitemapDate", (value) => {
+    if (!value) return "";
+    const calendarDate = String(value).match(/^(\d{4}-\d{2}-\d{2})(?:T|$)/)?.[1];
+    if (calendarDate) return calendarDate;
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? "" : date.toISOString().slice(0, 10);
+  });
+
+  eleventyConfig.addFilter("absoluteUrl", (value, baseUrl = "https://mhtr.in") => {
+    if (!value) return "";
+    try {
+      return new URL(value, `${String(baseUrl).replace(/\/$/, "")}/`).href;
+    } catch {
+      return "";
+    }
   });
 
   eleventyConfig.addFilter("jsonLd", (value) => {
@@ -86,6 +104,8 @@ module.exports = function (eleventyConfig) {
         biodiversity: "Biodiversity",
         "field-reports": "Field Reports",
         "gis-maps": "GIS Maps",
+        "boundaries-and-notifications": "Boundary and Notifications",
+        conservation: "Conservation Evidence",
         landscape: "Landscape",
         "mandirgarh-homestay": "Mandirgarh Homestay Pilot",
         resources: "Resources",
@@ -191,11 +211,104 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
   });
 
+  eleventyConfig.addShortcode("datasetJsonLd", (site, page, dataset) => {
+    const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
+    const pageUrl = `${siteUrl}${page.url}`;
+    const payload = {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "@id": `${pageUrl}#dataset`,
+      name: dataset.name,
+      description: dataset.description,
+      url: pageUrl,
+      inLanguage: dataset.inLanguage || "en-IN",
+      creator: {
+        "@type": "Organization",
+        name: dataset.creator || site.publisherName || "MHTR.in",
+        url: dataset.creatorUrl || site.publisherUrl || siteUrl,
+      },
+      ...(dataset.license ? { license: dataset.license } : {}),
+      ...(dataset.datePublished ? { datePublished: dataset.datePublished } : {}),
+      ...(dataset.dateModified ? { dateModified: dataset.dateModified } : {}),
+      ...(dataset.temporalCoverage ? { temporalCoverage: dataset.temporalCoverage } : {}),
+      ...(dataset.spatialCoverage
+        ? {
+            spatialCoverage: {
+              "@type": "Place",
+              name: dataset.spatialCoverage,
+            },
+          }
+        : {}),
+      ...(Array.isArray(dataset.citation) && dataset.citation.length
+        ? { citation: dataset.citation }
+        : dataset.citation
+          ? { citation: dataset.citation }
+          : {}),
+      ...(Array.isArray(dataset.distribution) && dataset.distribution.length
+        ? {
+            distribution: dataset.distribution.map((item) => ({
+              "@type": "DataDownload",
+              name: item.name,
+              contentUrl: new URL(item.contentUrl, `${siteUrl}/`).href,
+              encodingFormat: item.encodingFormat,
+            })),
+          }
+        : {}),
+      isPartOf: { "@id": `${pageUrl}#webpage` },
+    };
+
+    return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
+  });
+
+  eleventyConfig.addShortcode("mapJsonLd", (site, page, map) => {
+    const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
+    const pageUrl = `${siteUrl}${page.url}`;
+    const payload = {
+      "@context": "https://schema.org",
+      "@type": "Map",
+      "@id": `${pageUrl}#map`,
+      name: map.name,
+      description: map.description,
+      url: pageUrl,
+      inLanguage: map.inLanguage || "en-IN",
+      ...(map.image ? { image: new URL(map.image, `${siteUrl}/`).href } : {}),
+      ...(map.dateModified ? { dateModified: map.dateModified } : {}),
+      ...(map.spatialCoverage
+        ? {
+            spatialCoverage: {
+              "@type": "Place",
+              name: map.spatialCoverage,
+            },
+          }
+        : {}),
+      ...(Array.isArray(map.citation) && map.citation.length
+        ? { citation: map.citation }
+        : map.citation
+          ? { citation: map.citation }
+          : {}),
+      ...(map.downloadUrl
+        ? {
+            associatedMedia: {
+              "@type": "MediaObject",
+              contentUrl: new URL(map.downloadUrl, `${siteUrl}/`).href,
+              encodingFormat: map.encodingFormat || "image/png",
+            },
+          }
+        : {}),
+      isPartOf: { "@id": `${pageUrl}#webpage` },
+    };
+
+    return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
+  });
+
   // Copy only web-ready assets, not OS/browser metadata sidecar files.
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/style.css": "assets/css/style.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/mandirgarh-proposal.css": "assets/css/mandirgarh-proposal.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/main.js": "assets/js/main.js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/resource-browser.js": "assets/js/resource-browser.js" });
+  eleventyConfig.addPassthroughCopy({
+    "src/_data/inatBiodiversity.json": inatSnapshot.dataset.distributionPath.replace(/^\//, ""),
+  });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/*.jpg": "assets/imgs" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/*.jpeg": "assets/imgs" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/*.png": "assets/imgs" });
@@ -219,6 +332,9 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/field-reports/*.pdf": "assets/docs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/docs/resources/*.pdf": "assets/docs/resources" });
+  eleventyConfig.addPassthroughCopy({
+    "Data/source-materials/gis/mhtr-esz-outer-limit-2026-06-01.kmz": "assets/data/gis/mhtr-esz-outer-limit-2026-06-01.kmz",
+  });
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });

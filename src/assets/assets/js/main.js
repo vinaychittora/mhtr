@@ -121,7 +121,7 @@
         <button type="button" data-map-fullscreen>Fullscreen</button>
       </div>
       <div class="map-viewer-stage" tabindex="0" aria-label="Scrollable map area">
-        <img class="map-viewer-image" src="" alt="">
+        <img class="map-viewer-image" alt="">
       </div>
     </section>
   `;
@@ -556,18 +556,23 @@
   });
 
   const searchEl = $("bioSearch");
+  const sourceEl = $("bioSource");
   const domainEl = $("bioDomain");
   const groupEl = $("bioGroup");
   const table = $("bioTable");
   const countEl = $("bioCount");
   const cardsEl = $("bioCards");
 
-  if (!searchEl || !domainEl || !groupEl || !table || !countEl || !cardsEl) return;
+  if (!searchEl || !sourceEl || !domainEl || !groupEl || !table || !countEl || !cardsEl) return;
 
   const inatApi = "https://api.inaturalist.org/v1";
   const inatProjectSlug = "biodiversity-of-mhtr";
   const inatProjectUrl = `https://www.inaturalist.org/projects/${inatProjectSlug}`;
   const inatCache = new Map();
+  const snapshotUrl = cardsEl.dataset.inatSnapshotUrl || "";
+  const snapshotDate = cardsEl.dataset.inatSnapshotDate || "";
+  const snapshotByTaxonId = new Map();
+  const snapshotByScientificName = new Map();
 
   const norm = (s) => (s || "").toLowerCase().trim();
   const clean = (s) => (s || "").replace(/\s+/g, " ").trim();
@@ -584,7 +589,15 @@
     const value = clean(s);
     return missingNameValues.has(norm(value)) ? "" : value;
   };
-  const sourceUrl = (url) => escapeHTML(url);
+  const sourceUrl = (url) => {
+    try {
+      const parsed = new URL(url, window.location.origin);
+      if (!/^https?:$/.test(parsed.protocol)) return "#";
+      return escapeHTML(parsed.href);
+    } catch {
+      return "#";
+    }
+  };
   const speciesAliases = {
     "acacia catechu": ["Catechu tree"],
     "axis axis": ["Chital deer"],
@@ -642,11 +655,15 @@
     "Epiphytes",
     "Parasites",
     "Pteridophytes",
+    "Plants",
     "Mammals",
     "Birds",
     "Reptiles",
     "Amphibians",
     "Fishes",
+    "Insects",
+    "Arachnids",
+    "Fungi",
   ];
 
   const sortGroups = (groups) =>
@@ -702,16 +719,18 @@
   };
 
   const getNameInfo = (item) => {
-    const sourceName = cleanName(item.common);
+    const sourceName = item.sourceTier === "reference" ? cleanName(item.common) : "";
+    const communityCommonName = item.sourceTier === "community" ? cleanName(item.common) : "";
     const noteCommonName = likelyCommonNameFromNotes(item.notes);
     const scientificName = cleanName(item.scientific);
-    const displayName = scientificName || sourceName || noteCommonName || "Unnamed record";
+    const displayName = scientificName || sourceName || communityCommonName || noteCommonName || "Unnamed record";
     const displayIsScientific = Boolean(scientificName && norm(displayName) === norm(scientificName));
     const showScientific = Boolean(scientificName && norm(scientificName) !== norm(displayName));
     const showNoteAsCommonName = Boolean(noteCommonName && norm(noteCommonName) !== norm(displayName));
     const noteText = noteCommonName && norm(noteCommonName) === norm(cleanName(item.notes)) ? "" : cleanName(item.notes);
 
     return {
+      communityCommonName,
       displayName,
       displayIsScientific,
       noteCommonName,
@@ -723,7 +742,7 @@
     };
   };
 
-  const rawSpecies = Array.from(table.querySelectorAll("tbody tr")).map((tr) => {
+  const referenceRawSpecies = Array.from(table.querySelectorAll("tbody tr")).map((tr) => {
     const tds = tr.querySelectorAll("td");
     const domain = clean(tds[0]?.textContent);
     const rawGroup = clean(tds[1]?.textContent);
@@ -735,6 +754,8 @@
     const notes = clean(tds[6]?.textContent);
 
     return {
+      sourceTier: "reference",
+      evidenceLabel: "Published reference",
       domain,
       group,
       common,
@@ -746,52 +767,136 @@
     };
   });
 
-  const speciesByKey = new Map();
+  let species = [];
+  let speciesById = new Map();
+  let groupsByDomain = {};
+  let communityLoaded = false;
+  let communityLoadError = "";
+  let communityLoadPromise = null;
 
-  for (const item of rawSpecies) {
-    const identity = norm(cleanName(item.scientific)) || norm([cleanName(item.common), item.family, cleanName(item.notes)].join("|"));
-    const key = [norm(item.domain), identity].join("|");
-    const existing = speciesByKey.get(key);
+  function rebuildSpecies(rawItems) {
+    const speciesByKey = new Map();
 
-    if (!existing) {
-      speciesByKey.set(key, { ...item });
-      continue;
+    for (const sourceItem of rawItems) {
+      const snapshotMatch = sourceItem.taxonId
+        ? snapshotByTaxonId.get(Number(sourceItem.taxonId))
+        : snapshotByScientificName.get(norm(sourceItem.scientific));
+      const item = {
+        ...sourceItem,
+        taxonId: Number(sourceItem.taxonId || snapshotMatch?.taxonId) || null,
+        projectObservationCount: Number(
+          sourceItem.projectObservationCount ?? snapshotMatch?.researchGradeObservationCount ?? 0,
+        ),
+        taxonRank: sourceItem.taxonRank || snapshotMatch?.rank || "",
+      };
+      const identity = item.taxonId
+        ? `taxon-${item.taxonId}`
+        : norm(cleanName(item.scientific)) || norm([cleanName(item.common), item.family, cleanName(item.notes)].join("|"));
+      const key = [item.sourceTier, norm(item.domain), identity].join("|");
+      const existing = speciesByKey.get(key);
+
+      if (!existing) {
+        speciesByKey.set(key, { ...item });
+        continue;
+      }
+
+      existing.group = preferredGroup(existing.group, item.group);
+      existing.common = existing.common || item.common;
+      existing.scientific = existing.scientific || item.scientific;
+      existing.family = existing.family || item.family;
+      existing.status = mergeText(existing.status, item.status);
+      existing.notes = mergeText(existing.notes, item.notes);
+      existing.hay = `${existing.hay} ${item.hay}`;
+      existing.projectObservationCount = Math.max(existing.projectObservationCount, item.projectObservationCount);
     }
 
-    existing.group = preferredGroup(existing.group, item.group);
-    existing.common = existing.common || item.common;
-    existing.scientific = existing.scientific || item.scientific;
-    existing.family = existing.family || item.family;
-    existing.status = mergeText(existing.status, item.status);
-    existing.notes = mergeText(existing.notes, item.notes);
-    existing.hay = `${existing.hay} ${item.hay}`;
+    species = Array.from(speciesByKey.values()).map((item, index) => {
+      const nameInfo = getNameInfo(item);
+      const aliases = aliasesFor(item);
+      return {
+        ...item,
+        ...nameInfo,
+        aliases,
+        key: `species-${index}`,
+        hay: norm(
+          `${item.hay} ${item.evidenceLabel} ${nameInfo.displayName} ${nameInfo.sourceName} ${nameInfo.communityCommonName} ${nameInfo.noteCommonName} ${nameInfo.scientificName} ${aliases.join(" ")}`,
+        ),
+      };
+    });
+    speciesById = new Map(species.map((item) => [item.key, item]));
+    groupsByDomain = species.reduce((acc, item) => {
+      if (!item.domain || !item.group) return acc;
+      if (!acc[item.domain]) acc[item.domain] = new Set();
+      acc[item.domain].add(item.group);
+      return acc;
+    }, {});
   }
 
-  const species = Array.from(speciesByKey.values()).map((item, index) => {
-    const nameInfo = getNameInfo(item);
-    const aliases = aliasesFor(item);
-    return {
-      ...item,
-      ...nameInfo,
-      aliases,
-      key: `species-${index}`,
-      hay: norm(`${item.hay} ${nameInfo.displayName} ${nameInfo.sourceName} ${nameInfo.noteCommonName} ${nameInfo.scientificName} ${aliases.join(" ")}`),
-    };
-  });
-  const speciesById = new Map(species.map((item) => [item.key, item]));
-  const groupsByDomain = species.reduce((acc, item) => {
-    if (!item.domain || !item.group) return acc;
-    if (!acc[item.domain]) acc[item.domain] = new Set();
-    acc[item.domain].add(item.group);
-    return acc;
-  }, {});
+  function validateSnapshot(data) {
+    if (
+      data?.schemaVersion !== 1 ||
+      data?.methodology?.qualityGrade !== "research" ||
+      data?.dataset?.asOfDate !== snapshotDate ||
+      !Array.isArray(data?.taxa)
+    ) {
+      throw new Error("The biodiversity snapshot schema or version is not valid.");
+    }
+    return data;
+  }
+
+  async function loadCommunitySnapshot() {
+    if (communityLoaded) return;
+    if (communityLoadPromise) return communityLoadPromise;
+
+    communityLoadPromise = (async () => {
+      const response = await fetch(snapshotUrl, { headers: { Accept: "application/json" } });
+      if (!response.ok) throw new Error(`Community snapshot request failed (${response.status}).`);
+      const data = validateSnapshot(await response.json());
+
+      for (const taxon of data.taxa) {
+        snapshotByTaxonId.set(Number(taxon.taxonId), taxon);
+        snapshotByScientificName.set(norm(taxon.scientificName), taxon);
+      }
+
+      const communityRawSpecies = data.taxa.map((taxon) => ({
+        sourceTier: "community",
+        evidenceLabel: "Community-observed · Research Grade",
+        taxonId: Number(taxon.taxonId),
+        taxonRank: taxon.rank,
+        domain: clean(taxon.domain),
+        group: clean(taxon.group),
+        common: clean(taxon.commonName),
+        scientific: clean(taxon.scientificName),
+        family: "",
+        status: "",
+        notes: "",
+        projectObservationCount: Number(taxon.researchGradeObservationCount),
+        hay: norm(`${taxon.domain} ${taxon.group} ${taxon.commonName} ${taxon.scientificName} Research Grade community observed`),
+      }));
+
+      rebuildSpecies([...referenceRawSpecies, ...communityRawSpecies]);
+      communityLoaded = true;
+      communityLoadError = "";
+    })().catch((error) => {
+      communityLoadError = error.message;
+      throw error;
+    });
+
+    return communityLoadPromise;
+  }
+
+  rebuildSpecies(referenceRawSpecies);
 
   function populateGroupOptions() {
+    const selectedSource = sourceEl.value;
     const selectedDomain = domainEl.value;
     const currentGroup = groupEl.value;
+    const sourceRecords = selectedSource
+      ? species.filter((item) => item.sourceTier === selectedSource)
+      : species;
     const availableGroups = selectedDomain
-      ? sortGroups(Array.from(groupsByDomain[selectedDomain] || []))
-      : sortGroups(Array.from(new Set(species.map((item) => item.group).filter(Boolean))));
+      ? sortGroups(Array.from(new Set(sourceRecords.filter((item) => item.domain === selectedDomain).map((item) => item.group).filter(Boolean))))
+      : sortGroups(Array.from(new Set(sourceRecords.map((item) => item.group).filter(Boolean))));
 
     groupEl.innerHTML = "";
 
@@ -825,6 +930,7 @@
       article.className = "bio-card";
 
       article.innerHTML = `
+        <p class="bio-card-evidence" data-evidence="${escapeHTML(item.sourceTier)}">${escapeHTML(item.evidenceLabel)}</p>
         <div class="bio-card-head">
           <div class="bio-card-name-block">
             <h3 class="bio-card-title${item.displayIsScientific ? " is-scientific" : ""}">${escapeHTML(item.displayName)}</h3>
@@ -832,10 +938,13 @@
           </div>
           <button class="bio-inat-button" type="button" data-inat-key="${escapeHTML(item.key)}" ${item.scientificName ? "" : "disabled"}>iNaturalist</button>
         </div>
+        ${item.communityCommonName && norm(item.communityCommonName) !== norm(item.displayName) ? `<p class="bio-card-meta"><strong>iNaturalist common name:</strong> ${escapeHTML(item.communityCommonName)}</p>` : ""}
         ${item.sourceName && item.displayIsScientific ? `<p class="bio-card-meta"><strong>Source name:</strong> ${escapeHTML(item.sourceName)}</p>` : ""}
         ${item.showNoteAsCommonName ? `<p class="bio-card-meta"><strong>Common note:</strong> ${escapeHTML(item.noteCommonName)}</p>` : ""}
         <p class="bio-card-meta"><strong>Category:</strong> ${escapeHTML(item.group)}${item.domain ? ` · <span>${escapeHTML(item.domain)}</span>` : ""}</p>
-        ${item.status ? `<p class="bio-card-meta"><strong>Status:</strong> ${escapeHTML(item.status)}</p>` : ""}
+        ${item.taxonRank && item.taxonRank !== "species" ? `<p class="bio-card-meta"><strong>Taxonomic rank:</strong> ${escapeHTML(item.taxonRank)}</p>` : ""}
+        ${item.sourceTier === "community" ? `<p class="bio-card-meta"><strong>Project evidence:</strong> ${formatNumber(item.projectObservationCount)} Research Grade observation${item.projectObservationCount === 1 ? "" : "s"} in the ${escapeHTML(snapshotDate)} snapshot</p>` : ""}
+        ${item.status ? `<p class="bio-card-meta"><strong>Source status code:</strong> ${escapeHTML(item.status)}</p>` : ""}
         ${item.family ? `<p class="bio-card-meta"><strong>Family:</strong> ${escapeHTML(item.family)}</p>` : ""}
         ${item.aliases.length ? `<p class="bio-card-aliases"><strong>Also searched as:</strong> ${escapeHTML(item.aliases.join(", "))}</p>` : ""}
         ${item.noteText ? `<p class="bio-card-notes">${escapeHTML(item.noteText)}</p>` : ""}
@@ -870,11 +979,10 @@
   let inatRequestId = 0;
 
   const formatNumber = (value) => Number(value || 0).toLocaleString("en-IN");
-  const formatDate = (value) => {
-    if (!value) return "Date not listed";
-    const parsed = new Date(`${value}T00:00:00`);
-    if (Number.isNaN(parsed.getTime())) return value;
-    return parsed.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  const reusablePhotoLicenses = {
+    cc0: { code: "cc0", label: "CC0 1.0", url: "https://creativecommons.org/publicdomain/zero/1.0/" },
+    "cc-by": { code: "cc-by", label: "CC BY 4.0", url: "https://creativecommons.org/licenses/by/4.0/" },
+    "cc-by-sa": { code: "cc-by-sa", label: "CC BY-SA 4.0", url: "https://creativecommons.org/licenses/by-sa/4.0/" },
   };
   const inatObservationUrl = (taxon) =>
     taxon?.id
@@ -897,13 +1005,12 @@
   function chooseTaxon(results, item) {
     const requested = norm(item.scientificName);
     if (!results?.length) return null;
-    if (!requested) return results[0];
+    if (!requested) return null;
 
     return (
       results.find((taxon) => norm(taxon.name) === requested) ||
       results.find((taxon) => norm(taxon.matched_term) === requested) ||
-      results.find((taxon) => taxon.rank === "species" && norm(taxon.name).startsWith(requested.split(" ")[0])) ||
-      results[0]
+      null
     );
   }
 
@@ -913,22 +1020,167 @@
     return response.json();
   }
 
-  async function fetchInatDetails(item) {
-    const cacheKey = item.scientificName || item.displayName;
-    if (inatCache.has(cacheKey)) return inatCache.get(cacheKey);
+  function photoAttributionName(photo) {
+    const suppliedName = cleanName(photo?.attribution_name);
+    if (suppliedName) return suppliedName;
 
-    const query = item.scientificName || item.displayName;
-    const taxaData = await fetchJSON(`${inatApi}/taxa?q=${encodeURIComponent(query)}&per_page=8&locale=en`);
-    const taxon = chooseTaxon(taxaData.results || [], item);
-    let observations = { total_results: 0, results: [] };
+    const attribution = cleanName(photo?.attribution);
+    if (/^no rights reserved$/i.test(attribution) && norm(photo?.license_code) === "cc0") {
+      return "Creator not supplied by iNaturalist";
+    }
+    if (!attribution) return "";
 
-    if (taxon?.id) {
-      observations = await fetchJSON(
-        `${inatApi}/observations?project_id=${inatProjectSlug}&taxon_id=${taxon.id}&per_page=3&order_by=observed_on&order=desc&photos=true&locale=en`
-      );
+    return cleanName(
+      attribution
+        .replace(/^\s*(?:\(c\)|©)\s*/i, "")
+        .replace(/,?\s*(?:some rights reserved|no rights reserved).*$/i, "")
+        .replace(/,?\s*uploaded by .*$/i, ""),
+    );
+  }
+
+  function normalizeReusablePhoto(photo, selection = {}) {
+    const photoId = Number(photo?.id);
+    const licence = reusablePhotoLicenses[norm(photo?.license_code)];
+    const attributionName = photoAttributionName(photo);
+    const squareUrl = cleanName(photo?.url || photo?.square_url);
+    const imageUrl = cleanName(photo?.medium_url) || squareUrl.replace(/\/square(?=\.[a-z0-9]+(?:\?|$))/i, "/medium");
+    const width = Number(photo?.original_dimensions?.width || 0);
+    const height = Number(photo?.original_dimensions?.height || 0);
+    const flags = Array.isArray(photo?.flags) ? photo.flags : [];
+    const moderatorActions = Array.isArray(photo?.moderator_actions) ? photo.moderator_actions : [];
+
+    if (
+      !Number.isInteger(photoId) ||
+      photoId <= 0 ||
+      !licence ||
+      !attributionName ||
+      !/^https:\/\//i.test(imageUrl) ||
+      photo?.hidden === true ||
+      flags.length ||
+      moderatorActions.length
+    ) {
+      return null;
     }
 
-    const details = { observations, taxon };
+    return {
+      attributionName,
+      imageUrl,
+      licenceCode: licence.code,
+      licenceLabel: licence.label,
+      licenceUrl: licence.url,
+      sourceUrl: `https://www.inaturalist.org/photos/${photoId}`,
+      width,
+      height,
+      selectionVotes: Number(selection.votes || 0),
+      selectionMinDimension: width && height ? Math.min(width, height) : 0,
+      selectionArea: width * height,
+      selectionAspectDistance: width && height ? Math.abs(Math.log(width / height)) : Number.POSITIVE_INFINITY,
+      selectionPhotoId: photoId,
+    };
+  }
+
+  function renderablePhotoMetadata(photo) {
+    if (!photo) return null;
+    return {
+      attributionName: photo.attributionName,
+      imageUrl: photo.imageUrl,
+      licenceCode: photo.licenceCode,
+      licenceLabel: photo.licenceLabel,
+      licenceUrl: photo.licenceUrl,
+      sourceUrl: photo.sourceUrl,
+      width: photo.width,
+      height: photo.height,
+    };
+  }
+
+  function chooseReusableObservationPhoto(observations, requestedTaxonId) {
+    const candidates = [];
+
+    for (const observation of observations || []) {
+      if (Number(observation?.taxon?.id) !== Number(requestedTaxonId)) continue;
+      const votes = Number(observation?.faves_count || observation?.cached_votes_total || 0);
+      for (const photo of observation?.photos || []) {
+        const candidate = normalizeReusablePhoto(photo, { votes });
+        if (candidate) candidates.push(candidate);
+      }
+    }
+
+    candidates.sort((a, b) =>
+      b.selectionVotes - a.selectionVotes ||
+      b.selectionMinDimension - a.selectionMinDimension ||
+      b.selectionArea - a.selectionArea ||
+      a.selectionAspectDistance - b.selectionAspectDistance ||
+      a.selectionPhotoId - b.selectionPhotoId,
+    );
+
+    const selected = candidates[0];
+    if (!selected) return null;
+
+    return renderablePhotoMetadata(selected);
+  }
+
+  async function fetchReusableObservationPhoto(taxonId) {
+    const params = new URLSearchParams({
+      taxon_id: String(Number(taxonId)),
+      quality_grade: "research",
+      photos: "true",
+      photo_license: "cc0,cc-by,cc-by-sa",
+      per_page: "10",
+      order_by: "votes",
+      order: "desc",
+      fields:
+        "taxon.id,photos.id,photos.url,photos.license_code,photos.attribution,photos.original_dimensions.width,photos.original_dimensions.height,faves_count",
+    });
+    const data = await fetchJSON(`https://api.inaturalist.org/v2/observations?${params}`);
+    return chooseReusableObservationPhoto(data.results, taxonId);
+  }
+
+  function normalizeTaxon(taxon) {
+    if (!taxon?.id || !taxon?.name) return null;
+    return {
+      id: Number(taxon.id),
+      name: cleanName(taxon.name),
+      preferredCommonName: cleanName(taxon.preferred_common_name),
+      observationsCount: Number(taxon.observations_count || 0),
+    };
+  }
+
+  async function fetchInatDetails(item) {
+    const cacheKey = item.taxonId ? `taxon-${item.taxonId}` : item.scientificName || item.displayName;
+    if (inatCache.has(cacheKey)) return inatCache.get(cacheKey);
+
+    let rawTaxon = null;
+    if (item.taxonId) {
+      const taxaData = await fetchJSON(`${inatApi}/taxa/${Number(item.taxonId)}?locale=en`);
+      rawTaxon = taxaData.results?.[0] || null;
+    } else {
+      const query = item.scientificName || item.displayName;
+      const taxaData = await fetchJSON(`${inatApi}/taxa?q=${encodeURIComponent(query)}&per_page=8&locale=en`);
+      rawTaxon = chooseTaxon(taxaData.results || [], item);
+    }
+
+    const taxon = normalizeTaxon(rawTaxon);
+    let photo = renderablePhotoMetadata(normalizeReusablePhoto(rawTaxon?.default_photo));
+    if (!photo && taxon?.id) {
+      try {
+        photo = await fetchReusableObservationPhoto(taxon.id);
+      } catch {
+        photo = null;
+      }
+    }
+
+    const snapshotTaxon = taxon?.id
+      ? snapshotByTaxonId.get(taxon.id)
+      : snapshotByScientificName.get(norm(item.scientificName));
+    const details = {
+      taxon,
+      photo,
+      projectObservationCount: snapshotTaxon
+        ? Number(snapshotTaxon.researchGradeObservationCount)
+        : communityLoaded
+          ? 0
+          : null,
+    };
     inatCache.set(cacheKey, details);
     return details;
   }
@@ -936,7 +1188,7 @@
   function renderInatLoading(item) {
     inatTitle.textContent = item.displayName;
     inatContent.innerHTML = `
-      <div class="inat-loading" role="status" aria-live="polite" aria-busy="true">
+      <div class="inat-loading" role="status" aria-live="polite">
         <div class="inat-loading-visual" aria-hidden="true">
           <span class="inat-spinner"></span>
           <span class="inat-skeleton-photo"></span>
@@ -944,7 +1196,7 @@
         <div class="inat-loading-copy">
           <p class="eyebrow">Fetching Live Data</p>
           <p><strong>${escapeHTML(item.scientificName || item.displayName)}</strong></p>
-          <p class="muted">Checking iNaturalist taxonomy, project observations, thumbnails, and public record counts.</p>
+          <p class="muted">Checking accepted iNaturalist taxonomy and reusable reference media. Project evidence counts come from the dated local snapshot.</p>
           <div class="inat-skeleton-lines" aria-hidden="true">
             <span></span>
             <span></span>
@@ -970,66 +1222,68 @@
 
   function renderInatDetails(item, details) {
     const taxon = details.taxon;
-    const observations = details.observations || { total_results: 0, results: [] };
 
     if (!taxon) {
       renderInatError(item);
       return;
     }
 
-    const preferredName = cleanName(taxon.preferred_common_name);
-    const title = preferredName || item.displayName;
-    const image = taxon.default_photo?.medium_url || taxon.default_photo?.square_url || "";
-    const attribution = taxon.default_photo?.attribution || "";
+    const modalTitle = item.displayName;
+    const preferredName = cleanName(taxon.preferredCommonName);
+    const acceptedScientificName = cleanName(taxon.name);
+    const imageName = preferredName || modalTitle;
+    const photo = details.photo;
+    const image = photo?.imageUrl || "";
     const taxonUrl = `https://www.inaturalist.org/taxa/${taxon.id}`;
     const observationUrl = inatObservationUrl(taxon);
-    const recentObservations = observations.results || [];
+    const projectObservationCount = details.projectObservationCount;
 
-    inatTitle.textContent = title;
+    // Keep the dialog's accessible name stable while live iNaturalist data loads.
+    // Common-name and taxonomy updates belong in the details, not in the heading.
+    inatTitle.textContent = modalTitle;
     inatContent.innerHTML = `
-      <div class="inat-detail-grid">
+      <div class="inat-detail-grid${image ? "" : " inat-detail-grid--no-photo"}">
         ${image ? `
           <figure class="inat-taxon-photo">
-            <img src="${sourceUrl(image)}" alt="${escapeHTML(title)} on iNaturalist" loading="lazy" decoding="async">
-            ${attribution ? `<figcaption>${escapeHTML(attribution)}</figcaption>` : ""}
+            <img
+              src="${sourceUrl(image)}"
+              alt="${escapeHTML(imageName)} identification reference on iNaturalist"
+              ${photo.width && photo.height ? `width="${photo.width}" height="${photo.height}"` : ""}
+              loading="lazy"
+              decoding="async">
+            <figcaption>
+              Global identification reference; not evidence of an MHTR record.<br>
+              Photograph: ${escapeHTML(photo.attributionName)}<br>
+              <a href="${sourceUrl(photo.licenceUrl)}" target="_blank" rel="license noopener">${escapeHTML(photo.licenceLabel)}</a>
+              ·
+              <a href="${sourceUrl(photo.sourceUrl)}" target="_blank" rel="noopener">Source photo on iNaturalist</a>
+            </figcaption>
           </figure>
         ` : ""}
         <div class="inat-summary">
-          <p class="bio-card-scientific"><em>${escapeHTML(taxon.name || item.scientificName)}</em></p>
-          ${item.sourceName && norm(item.sourceName) !== norm(title) ? `<p><strong>Source/local name:</strong> ${escapeHTML(item.sourceName)}</p>` : ""}
+          ${preferredName && norm(preferredName) !== norm(modalTitle) ? `<p><strong>iNaturalist common name:</strong> ${escapeHTML(preferredName)}</p>` : ""}
+          ${acceptedScientificName && norm(acceptedScientificName) !== norm(modalTitle) ? `<p class="bio-card-scientific"><strong>iNaturalist taxon:</strong> <em>${escapeHTML(acceptedScientificName)}</em></p>` : ""}
+          ${item.sourceName && norm(item.sourceName) !== norm(modalTitle) && norm(item.sourceName) !== norm(preferredName) ? `<p><strong>Source/local name:</strong> ${escapeHTML(item.sourceName)}</p>` : ""}
           <div class="inat-stat-row">
-            <span>${formatNumber(taxon.observations_count)} global iNaturalist observations</span>
-            <span>${formatNumber(observations.total_results)} in the MHTR project</span>
+            <span>${formatNumber(taxon.observationsCount)} global iNaturalist observations (live)</span>
+            ${projectObservationCount === null ? "" : `<span>${formatNumber(projectObservationCount)} Research Grade project observation${projectObservationCount === 1 ? "" : "s"} (${escapeHTML(snapshotDate)} snapshot)</span>`}
           </div>
-          <p class="muted">Live data from iNaturalist. This site does not display sensitive coordinates.</p>
+          <p class="muted">Project counts are records, not population or abundance estimates. The project covers its custom MHTR Kota place, including the reserve landscape and surrounding urban-rural areas.</p>
+          ${image ? "" : `<p class="muted">No taxon reference image carrying a permitted CC0, CC BY or CC BY-SA licence was available through the iNaturalist API.</p>`}
           <div class="inat-actions">
-            <a class="button-link" href="${sourceUrl(observationUrl)}" target="_blank" rel="noopener">Open MHTR observations</a>
+            <a class="button-link" href="${sourceUrl(observationUrl)}" target="_blank" rel="noopener">View source records on iNaturalist</a>
             <a class="button-link button-link-secondary" href="${sourceUrl(taxonUrl)}" target="_blank" rel="noopener">Open taxon page</a>
+            <a class="button-link button-link-secondary" href="${sourceUrl(snapshotUrl)}">Download snapshot</a>
           </div>
         </div>
       </div>
-      <section class="inat-recent" aria-label="Recent project observations">
-        <h3>Recent MHTR project observations</h3>
-        ${recentObservations.length ? `
-          <div class="inat-observation-list">
-            ${recentObservations.map((observation) => {
-              const photo = observation.photos?.[0]?.url || "";
-              const guess = observation.species_guess || observation.taxon?.preferred_common_name || taxon.name;
-              const url = observation.uri || `https://www.inaturalist.org/observations/${observation.id}`;
-              return `
-                <a class="inat-observation-card" href="${sourceUrl(url)}" target="_blank" rel="noopener">
-                  ${photo ? `<img src="${sourceUrl(photo)}" alt="${escapeHTML(guess)} observation thumbnail" loading="lazy" decoding="async">` : `<span class="inat-photo-fallback" aria-hidden="true"></span>`}
-                  <span>
-                    <strong>${escapeHTML(guess)}</strong>
-                    <small>${escapeHTML(formatDate(observation.observed_on))} · ${escapeHTML(observation.quality_grade || "grade not listed")}</small>
-                  </span>
-                </a>
-              `;
-            }).join("")}
-          </div>
-        ` : `
-          <p class="muted">No project observations matched this taxon yet. The taxon page may still have useful global reference photos and names.</p>
-        `}
+      <section class="inat-safeguards" aria-label="Evidence scope and privacy safeguards">
+        <h3>Evidence scope and safeguards</h3>
+        <p>
+          MHTR.in publishes only the aggregate Research Grade count for this taxon. Coordinates, observation dates,
+          observer names, observation identifiers and recent-record sequences are not reproduced here. Record-level
+          identifications and geoprivacy remain under iNaturalist’s controls at the source.
+        </p>
       </section>
     `;
   }
@@ -1042,6 +1296,7 @@
     setInatModal(true);
 
     try {
+      await loadCommunitySnapshot().catch(() => {});
       const details = await fetchInatDetails(item);
       if (requestId === inatRequestId && !inatModal.hidden) renderInatDetails(item, details);
     } catch (error) {
@@ -1069,22 +1324,48 @@
 
   function applyFilters() {
     const q = norm(searchEl.value);
+    const source = norm(sourceEl.value);
     const domain = norm(domainEl.value);
     const group = norm(groupEl.value);
 
-    const visible = species.filter((item) => {
+    if ((source === "community" || !source) && !communityLoaded) {
+      if (communityLoadError) {
+        countEl.textContent = "Community snapshot unavailable";
+        cardsEl.innerHTML = `<p class="muted">${escapeHTML(communityLoadError)}</p>`;
+      } else {
+        countEl.textContent = "Loading the dated community snapshot…";
+        cardsEl.innerHTML = '<p class="muted">Loading Research Grade taxon records from the local snapshot…</p>';
+      }
+      return;
+    }
+
+    const sourceRecords = species.filter((item) => !source || norm(item.sourceTier) === source);
+    const visible = sourceRecords.filter((item) => {
       const okDomain = !domain || norm(item.domain) === domain;
       const okGroup = !group || norm(item.group) === group;
       const okQuery = !q || item.hay.includes(q);
       return okDomain && okGroup && okQuery;
     });
 
-    countEl.textContent = `Showing ${visible.length} of ${species.length} unique records`;
+    const layerLabel = source === "reference"
+      ? "published-reference records"
+      : source === "community"
+        ? `community taxon entries (${snapshotDate} snapshot)`
+        : "records across both evidence layers";
+    countEl.textContent = `Showing ${visible.length} of ${sourceRecords.length} ${layerLabel}`;
     renderCards(visible);
   }
 
   searchEl.addEventListener("input", applyFilters);
   groupEl.addEventListener("change", applyFilters);
+  sourceEl.addEventListener("change", async () => {
+    if (sourceEl.value !== "reference" && !communityLoaded) {
+      applyFilters();
+      await loadCommunitySnapshot().catch(() => {});
+    }
+    populateGroupOptions();
+    applyFilters();
+  });
   domainEl.addEventListener("change", () => {
     populateGroupOptions();
     applyFilters();
@@ -1092,6 +1373,15 @@
 
   populateGroupOptions();
   const initialQuery = clean(new URLSearchParams(window.location.search).get("q"));
-  if (initialQuery) searchEl.value = initialQuery;
+  if (initialQuery) {
+    searchEl.value = initialQuery;
+    sourceEl.value = "";
+  }
   applyFilters();
+  loadCommunitySnapshot()
+    .then(() => {
+      populateGroupOptions();
+      applyFilters();
+    })
+    .catch(() => applyFilters());
 })();

@@ -11,5 +11,34 @@ og_image_alt: "Caracal recorded from the Mukundara landscape context."
 og_image_width: 1280
 og_image_height: 923
 schema_type: CollectionPage
+modifiedTime: "2026-08-13T00:00:00+05:30"
 ---
 {% include "content/biodiversity.html" %}
+
+{% set biodiversityDataset = {
+  "name": inatBiodiversity.dataset.name,
+  "description": inatBiodiversity.dataset.description,
+  "creator": inatBiodiversity.dataset.creator,
+  "creatorUrl": inatBiodiversity.dataset.creatorUrl,
+  "license": inatBiodiversity.dataset.license,
+  "datePublished": inatBiodiversity.dataset.datePublished,
+  "dateModified": inatBiodiversity.dataset.dateModified,
+  "temporalCoverage": inatBiodiversity.dataset.temporalCoverage,
+  "spatialCoverage": inatBiodiversity.dataset.spatialCoverage,
+  "citation": [
+    inatBiodiversity.project.url,
+    inatBiodiversity.methodology.sourceQueries[0],
+    inatBiodiversity.methodology.sourceQueries[1],
+    inatBiodiversity.methodology.references[1],
+    inatBiodiversity.methodology.references[2],
+    inatBiodiversity.methodology.references[3]
+  ],
+  "distribution": [{
+    "name": "Versioned Research Grade taxon snapshot (JSON)",
+    "contentUrl": inatBiodiversity.dataset.distributionPath,
+    "encodingFormat": "application/json"
+  }]
+} %}
+<script type="application/ld+json">
+{% datasetJsonLd site, page, biodiversityDataset %}
+</script>

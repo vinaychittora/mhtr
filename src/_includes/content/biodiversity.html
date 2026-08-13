@@ -30,6 +30,73 @@
       </figure>
     </section>
 
+    <section class="card bio-evidence-card" aria-labelledby="bioEvidenceTitle">
+      <p class="eyebrow">Evidence and scope</p>
+      <h2 id="bioEvidenceTitle">Two biodiversity evidence layers</h2>
+      <p>
+        The explorer keeps documentary references separate from community observations. A record in one layer is not
+        automatically treated as confirmation in the other, and neither layer is presented as a population estimate.
+      </p>
+
+      <div class="bio-evidence-grid">
+        <article>
+          <h3>Published reference</h3>
+          <p>
+            Species names transcribed from the archived Mukundara Tiger Conservation Plan and related annexures. Source
+            spellings and single-letter status codes are retained for traceability; the codes are not interpreted as a
+            current abundance assessment.
+          </p>
+          <a href="/resources/documents/wii-mukundara-tiger-conservation-plan-2020-2030/">Open the archived plan record</a>
+        </article>
+
+        <article>
+          <h3>Community-observed snapshot</h3>
+          <p>
+            {{ inatBiodiversity.summary.researchGradeObservations }} Research Grade observations grouped into
+            {{ inatBiodiversity.summary.taxonEntries }} taxon entries: {{ inatBiodiversity.summary.speciesEntries }}
+            species and {{ inatBiodiversity.summary.nonSpeciesEntries }} other taxonomic entries. Snapshot date:
+            <time datetime="{{ inatBiodiversity.dataset.asOfDate }}">{{ inatBiodiversity.dataset.asOfDate }}</time>.
+          </p>
+          <a href="{{ inatBiodiversity.dataset.distributionPath }}" download>Download the versioned JSON snapshot</a>
+        </article>
+
+        <article>
+          <h3>Groups newly represented</h3>
+          <p>
+            The community layer adds {{ inatBiodiversity.summary.countsByGroup.Insects }} insect,
+            {{ inatBiodiversity.summary.countsByGroup.Arachnids }} arachnid,
+            {{ inatBiodiversity.summary.countsByGroup.Fungi }} fungus and
+            {{ inatBiodiversity.summary.countsByGroup.Amphibians }} amphibian taxon entries, alongside plants, birds,
+            mammals and reptiles.
+          </p>
+          <a href="{{ sonu.inatProject }}" rel="noopener" target="_blank">Open the source iNaturalist project</a>
+        </article>
+      </div>
+
+      <div class="bio-method-note">
+        <p>
+          <strong>Geographic scope:</strong> the collection project uses the custom “MHTR Kota” place and describes its
+          coverage as the reserve landscape plus surrounding urban-rural areas of Kota. Community records therefore do
+          not, by themselves, establish occurrence inside the notified tiger-reserve boundary.
+        </p>
+        <p>
+          <strong>Interpretation:</strong> Research Grade is an iNaturalist data-quality category, not independent
+          verification by MHTR.in. Counts describe submitted observations and must not be read as abundance, density or
+          population size. See iNaturalist’s
+          <a href="https://help.inaturalist.org/en/support/solutions/articles/151000169936" rel="noopener" target="_blank">quality-grade explanation</a>.
+        </p>
+        <p>
+          <strong>Privacy and media:</strong> the published snapshot contains no coordinates, observation dates,
+          observer names, observation IDs or photographs. The modal does not reproduce recent-observation sequences.
+          Reference images appear only when iNaturalist marks them CC0, CC BY or CC BY-SA, with source and licence links.
+          See the platform’s
+          <a href="https://help.inaturalist.org/en/support/solutions/articles/151000169938-what-is-geoprivacy-what-does-it-mean-for-an-observation-to-be-obscured-" rel="noopener" target="_blank">geoprivacy guidance</a>
+          and
+          <a href="https://help.inaturalist.org/en/support/solutions/articles/151000173511-how-do-licenses-work-on-inaturalist-should-i-change-my-licenses-" rel="noopener" target="_blank">licensing guidance</a>.
+        </p>
+      </div>
+    </section>
+
     <section class="card bio-tool-card" aria-labelledby="bioExplorerTitle">
       <div class="bio-tool-head">
         <div>
@@ -86,11 +153,19 @@
         <input id="bioSearch" class="input bio-search" type="search" placeholder="Search species, scientific names, family, or notes…" autocomplete="off" />
 
         <div class="filter-row">
+        <label class="sr-only" for="bioSource">Evidence layer</label>
+        <select id="bioSource" class="input" aria-label="Filter by evidence layer">
+          <option value="reference">Published reference</option>
+          <option value="community">Community observations</option>
+          <option value="">All evidence layers</option>
+        </select>
+
         <label class="sr-only" for="bioDomain">Domain</label>
         <select id="bioDomain" class="input" aria-label="Filter by domain">
           <option value="">All</option>
           <option value="Flora">Flora</option>
           <option value="Fauna">Fauna</option>
+          <option value="Fungi">Fungi</option>
         </select>
 
         <label class="sr-only" for="bioGroup">Group</label>
@@ -113,6 +188,9 @@
           <option value="Reptiles">Reptiles</option>
           <option value="Amphibians">Amphibians</option>
           <option value="Fishes">Fishes</option>
+          <option value="Insects">Insects</option>
+          <option value="Arachnids">Arachnids</option>
+          <option value="Fungi">Fungi</option>
         </select>
 
 
@@ -120,7 +198,12 @@
         </div>
       </div>
 
-      <div id="bioCards" class="bio-cards" aria-live="polite"></div>
+      <div
+        id="bioCards"
+        class="bio-cards"
+        data-inat-snapshot-url="{{ inatBiodiversity.dataset.distributionPath }}"
+        data-inat-snapshot-date="{{ inatBiodiversity.dataset.asOfDate }}"
+        aria-live="polite"></div>
 
       <div class="table-wrap bio-source-table" tabindex="0" aria-label="Biodiversity source table">
         <table class="table" id="bioTable">
@@ -433,7 +516,7 @@
             <tr><td>Flora</td><td>Climbers</td><td>Kaladana</td><td><em>Ipomoea nil</em></td><td>Convolvulaceae</td><td>C</td><td></td></tr>
             <tr><td>Flora</td><td>Climbers</td><td>Kaladana</td><td><em>Ipomoea pes-tigridis</em></td><td>Convolvulaceae</td><td>C</td><td></td></tr>
             <tr><td>Flora</td><td>Climbers</td><td>Kaladana</td><td><em>Ipomoea sindica</em></td><td>Convolvulaceae</td><td>L</td><td></td></tr>
-            <tr><td>Flora</td><td>Climbers</td><td>Nani d
+            <tr><td>Flora</td><td>Climbers</td><td>Nani dodi</td><td><em>Leptadenia reticulata</em></td><td>Asclepiadaceae</td><td>R</td><td></td></tr>
             <tr><td>Flora</td><td>Climbers</td><td>Faug , Fag</td><td><em>Rivea hypocrateriformis</em></td><td>Convolvulaceae</td><td>C</td><td></td></tr>
             <tr><td>Flora</td><td>Climbers</td><td>Faug , Fag</td><td><em>Tinospora bracteata</em></td><td>Menispermaceae</td><td>C</td><td></td></tr>
             <tr><td>Flora</td><td>Climbers</td><td>Ratrani</td><td><em>Trichosanthes bracteata</em></td><td>Cucurbitaceae</td><td>C</td><td></td></tr>
@@ -602,7 +685,7 @@
             <tr><td>Fauna</td><td>Fishes</td><td>Chaman</td><td><em>Nandus nandus</em></td><td>Nandidae</td><td></td><td></td></tr>
             <tr><td>Fauna</td><td>Fishes</td><td>—</td><td><em>Trichogaster fasciata</em></td><td>Osphronemidae</td><td></td><td>Labyrinth fish</td></tr>
             <tr><td>Fauna</td><td>Fishes</td><td>Patharchita / Boda</td><td><em>Glossogobius giuris</em></td><td>Gobiidae</td><td></td><td>Bottom-dwelling goby</td></tr>
-            <tr><td>Fauna</td><td>Fishes</td><td>Baam</td><td><em>Mastacembelus armatus
+            <tr><td>Fauna</td><td>Fishes</td><td>Baam</td><td><em>Mastacembelus armatus</em></td><td>Mastacembelidae</td><td></td><td>Zig-zag eel</td></tr>
 
             <tr><td>Fauna</td><td>Reptiles & Amphibians</td><td>Toad</td><td><em>Bufo bufo</em></td><td>Bufonidae</td><td>WPA: Not Enlisted; IUCN: Least Concern</td><td></td></tr>
             <tr><td>Fauna</td><td>Reptiles & Amphibians</td><td>Garden Lizard</td><td><em>Calotes versicolor</em></td><td>Agamidae</td><td>WPA: Not Enlisted; IUCN: Not Evaluated</td><td></td></tr>
@@ -761,10 +844,13 @@
       </div>
 
       <details style="margin-top:14px;">
-        <summary>Source note</summary>
+        <summary>Reference-list transcription note</summary>
         <p class="muted">
-          This list is extracted from a publicly available Tiger Conservation Plan document for Mukundara Hills and related annexures.
-          Some spellings may reflect the source document’s formatting/OCR.
+          The published-reference layer is extracted from the archived Mukundara Tiger Conservation Plan and related
+          annexures. It is a documentary reference, not an assertion that every entry is a currently accepted taxonomic
+          name or a recently verified reserve record. Source spelling variants and status codes are preserved where
+          review is incomplete; duplicate scientific names are consolidated by the explorer. See the
+          <a href="/resources/documents/wii-mukundara-tiger-conservation-plan-2020-2030/">source record and archive notes</a>.
         </p>
       </details>
     </section>

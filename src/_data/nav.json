@@ -23,6 +23,8 @@
     "icon": "book",
     "children": [
       {"label": "Resource Archive", "href": "/resources/", "match": "/resources/", "icon": "book", "description": "Official documents, PDFs and source links"},
+      {"label": "Boundary & Notifications", "href": "/boundaries-and-notifications/", "match": "/boundaries-and-notifications/", "icon": "map", "description": "Notified core, buffer, ESZ and dated legal record"},
+      {"label": "Conservation Evidence", "href": "/conservation/", "match": "/conservation/", "icon": "leaf", "description": "Challenges, documented responses and public outcome tracking"},
       {"label": "About & Ethics", "href": "/about/", "match": "/about/", "icon": "info", "description": "Editorial approach and conservation-safe publishing"}
     ]
   },

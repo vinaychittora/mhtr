@@ -12,13 +12,18 @@
     "build:site": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\" && eleventy",
     "minify:css": "node scripts/minify-css.js",
     "build:search": "node -e \"require('fs').rmSync('_site/pagefind',{recursive:true,force:true})\" && pagefind --site _site --glob \"**/*.html\"",
+    "images:web": "node scripts/prepare-web-images.js",
+    "data:inat": "node scripts/update-inat-biodiversity.js",
     "protect:images": "node scripts/embed-image-rights.js",
+    "check:biodiversity": "node scripts/check-biodiversity.js",
     "check:seo": "node scripts/check-seo.js",
-    "check": "npm run build && npm run check:seo && npm audit --audit-level=moderate"
+    "check:links": "node scripts/check-links.js",
+    "check": "npm run build && npm run check:biodiversity && npm run check:seo && npm run check:links && npm audit --audit-level=moderate"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5",
     "clean-css": "^5.3.3",
-    "pagefind": "^1.5.2"
+    "pagefind": "^1.5.2",
+    "sharp": "^0.35.3"
   }
 }

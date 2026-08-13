@@ -2,10 +2,13 @@
 """Build public-facing GIS map images for Mukundara Hills Tiger Reserve.
 
 The script intentionally uses public, non-sensitive layers:
-- OpenStreetMap vectors for boundaries, water, roads and settlements.
-- ESA WorldCover WMS for 2021 land-cover context.
+- Rajasthan Forest Department's MHTR ESZ outer-limit KMZ (as on 01 June 2026).
+- OpenStreetMap vectors for indicative reserve outlines, water, roads and settlements.
+- ESA WorldCover 2021 v200 public AWS Cloud-Optimized GeoTIFF for land-cover context.
 - Mapzen/AWS Terrarium elevation tiles for relief and elevation rendering.
 - geoBoundaries for district context.
+
+Python dependencies: `python -m pip install -r scripts/requirements-gis.txt`.
 """
 
 from __future__ import annotations
@@ -17,8 +20,10 @@ import math
 import time
 import urllib.parse
 import urllib.request
+import zipfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from xml.etree import ElementTree
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -30,9 +35,33 @@ CACHE_DIR = DATA_DIR / "cache"
 OUT_DIR = ROOT / "src" / "assets" / "assets" / "imgs" / "maps"
 USER_AGENT = "mhtr.in GIS map builder; contact hello@caneandcamera.com"
 
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+OVERPASS_URLS = (
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+)
 TERRARIUM_URL = "https://elevation-tiles-prod.s3.amazonaws.com/terrarium/{z}/{x}/{y}.png"
-WORLDCOVER_WMS = "https://services.terrascope.be/wms/v2"
+WORLDCOVER_COG_TEMPLATE = (
+    "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/"
+    "ESA_WorldCover_10m_2021_v200_{tile}_Map.tif"
+)
+
+ESZ_KMZ_PATH = DATA_DIR / "mhtr-esz-outer-limit-2026-06-01.kmz"
+ESZ_KMZ_SHA256 = "fe784add4d17d84f7bf7191c8b401312f20a74ed91dc3d5d546fb3d265a828ea"
+ESZ_SOURCE_DATE = "2026-06-01"
+ESZ_SOURCE_PAGE = (
+    "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/"
+    "forest-devlopment/districtwise-forest-blocks-google-earth.html"
+)
+ESZ_SOURCE_KMZ = (
+    "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/"
+    "Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/"
+    "ESZ/MHTR.kmz"
+)
+ESZ_NOTIFICATION_URL = (
+    "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/"
+    "Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/mukundra-1.pdf"
+)
+ESZ_NOTIFIED_AREA_KM2 = 248.70
 
 FONT_REGULAR = "/System/Library/Fonts/Supplemental/Arial.ttf"
 FONT_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
@@ -106,6 +135,98 @@ def cached_json(name: str, url: str, retries: int = 3, timeout: int = 60) -> dic
     return obj
 
 
+def spherical_ring_area_km2(ring: list[tuple[float, float]]) -> float:
+    """Return an approximate geodesic area for a closed lon/lat ring."""
+    radius_km = 6371.0088
+    accumulator = 0.0
+    for (lon1, lat1), (lon2, lat2) in zip(ring, ring[1:]):
+        accumulator += math.radians(lon2 - lon1) * (
+            2 + math.sin(math.radians(lat1)) + math.sin(math.radians(lat2))
+        )
+    return abs(accumulator) * radius_km * radius_km / 2
+
+
+def load_official_esz_outer_limit() -> tuple[dict, dict]:
+    """Load and validate the official MHTR ESZ outer-limit geometry.
+
+    The Forest Department publishes this file in its column labelled
+    "ESZ KML as on 01.06.2026". Its polygon is the outer envelope enclosing
+    the reserve and notified ESZ, not a standalone 248.70 km² ESZ polygon.
+    """
+    if not ESZ_KMZ_PATH.exists():
+        raise RuntimeError(
+            f"Missing {ESZ_KMZ_PATH}. Import the official MHTR.kmz from {ESZ_SOURCE_KMZ}."
+        )
+
+    payload = ESZ_KMZ_PATH.read_bytes()
+    digest = hashlib.sha256(payload).hexdigest()
+    if digest != ESZ_KMZ_SHA256:
+        raise RuntimeError(
+            f"Unexpected ESZ KMZ SHA-256: {digest}; expected {ESZ_KMZ_SHA256}."
+        )
+
+    with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+        kml_names = [name for name in archive.namelist() if name.lower().endswith(".kml")]
+        if len(kml_names) != 1:
+            raise RuntimeError(f"Expected one KML document in {ESZ_KMZ_PATH}, found {len(kml_names)}.")
+        root = ElementTree.fromstring(archive.read(kml_names[0]))
+
+    namespace = {"kml": "http://www.opengis.net/kml/2.2"}
+    polygon = root.find(".//kml:Polygon", namespace)
+    if polygon is None:
+        raise RuntimeError(f"No Polygon geometry found in {ESZ_KMZ_PATH}.")
+
+    def parse_ring(path: str) -> list[tuple[float, float]]:
+        node = polygon.find(path, namespace)
+        if node is None or not (node.text or "").strip():
+            return []
+        coordinates = []
+        for token in node.text.split():
+            lon, lat, *_altitude = token.split(",")
+            coordinates.append((float(lon), float(lat)))
+        return coordinates
+
+    outer = parse_ring("kml:outerBoundaryIs/kml:LinearRing/kml:coordinates")
+    inner_nodes = polygon.findall("kml:innerBoundaryIs/kml:LinearRing/kml:coordinates", namespace)
+    inners: list[list[tuple[float, float]]] = []
+    for node in inner_nodes:
+        if not (node.text or "").strip():
+            continue
+        ring = []
+        for token in node.text.split():
+            lon, lat, *_altitude = token.split(",")
+            ring.append((float(lon), float(lat)))
+        inners.append(ring)
+
+    if len(outer) < 4:
+        raise RuntimeError(f"Invalid ESZ outer ring in {ESZ_KMZ_PATH}.")
+
+    approximate_area = spherical_ring_area_km2(outer) - sum(
+        spherical_ring_area_km2(ring) for ring in inners
+    )
+    feature = {
+        "type": "Feature",
+        "properties": {
+            "name": "MHTR 2020 ESZ outer limit",
+            "source": "Rajasthan Forest Department",
+            "source_date": ESZ_SOURCE_DATE,
+            "source_url": ESZ_SOURCE_KMZ,
+            "sha256": digest,
+            "interpretation": "Outer envelope enclosing the reserve and notified ESZ; not the ESZ band alone.",
+        },
+        "geometry": {"type": "Polygon", "coordinates": [outer, *inners]},
+    }
+    metadata = {
+        "sha256": digest,
+        "source_date": ESZ_SOURCE_DATE,
+        "outer_points": len(outer),
+        "inner_rings": len(inners),
+        "approximate_envelope_area_km2": approximate_area,
+        "notified_esz_area_km2": ESZ_NOTIFIED_AREA_KM2,
+    }
+    return feature, metadata
+
+
 def fetch_osm_polygon(relation_id: int, name: str) -> dict:
     url = f"https://polygons.openstreetmap.fr/get_geojson.py?id={relation_id}&params=0"
     geom = cached_json(name, url, retries=4, timeout=90)
@@ -113,8 +234,24 @@ def fetch_osm_polygon(relation_id: int, name: str) -> dict:
 
 
 def overpass_query(name: str, query: str) -> dict:
-    url = OVERPASS_URL + "?" + urllib.parse.urlencode({"data": query})
-    return cached_json(name, url, retries=4, timeout=120)
+    path = CACHE_DIR / name
+    if path.exists() and path.stat().st_size > 0:
+        return json.loads(path.read_text())
+
+    errors = []
+    for endpoint in OVERPASS_URLS:
+        url = endpoint + "?" + urllib.parse.urlencode({"data": query})
+        try:
+            data = request_bytes(url, retries=2, timeout=120)
+            text = data.decode("utf-8", errors="replace")
+            if text.lstrip().startswith("<"):
+                raise RuntimeError(f"Expected Overpass JSON, got HTML/XML: {text[:220]}")
+            obj = json.loads(text)
+            path.write_text(json.dumps(obj, indent=2))
+            return obj
+        except Exception as exc:  # pragma: no cover - depends on public endpoint availability
+            errors.append(f"{endpoint}: {exc}")
+    raise RuntimeError(f"All Overpass endpoints failed for {name}: {'; '.join(errors)}")
 
 
 def geo_boundaries_adm2() -> dict:
@@ -837,28 +974,61 @@ def draw_contour_labels(
 
 
 def fetch_worldcover_image(bbox: tuple[float, float, float, float], size: tuple[int, int]) -> Image.Image:
-    x1, y1, x2, y2 = bbox_to_mercator(bbox)
-    params = {
-        "SERVICE": "WMS",
-        "VERSION": "1.1.1",
-        "REQUEST": "GetMap",
-        "LAYERS": "WORLDCOVER_2021_MAP",
-        "STYLES": "worldcover.txt",
-        "SRS": "EPSG:3857",
-        "BBOX": f"{x1},{y1},{x2},{y2}",
-        "WIDTH": str(size[0]),
-        "HEIGHT": str(size[1]),
-        "FORMAT": "image/png",
-        "TRANSPARENT": "false",
-        "TIME": "2021-12-31",
+    """Read the 2021 v200 categorical layer from ESA's public AWS COG.
+
+    MHTR fits within the N24E075 3-degree WorldCover tile. Rasterio issues
+    HTTP range requests, so the 97 MB source tile is not downloaded in full.
+    """
+    key_data = json.dumps({"bbox": bbox, "size": size, "version": "2021-v200-cog"}, sort_keys=True).encode("utf-8")
+    cache_path = CACHE_DIR / ("worldcover-cog-" + hashlib.sha1(key_data).hexdigest()[:14] + ".png")
+    if cache_path.exists() and cache_path.stat().st_size > 0:
+        return Image.open(cache_path).convert("RGB")
+
+    try:
+        import rasterio
+        from rasterio.enums import Resampling
+        from rasterio.windows import from_bounds
+    except ImportError as exc:  # pragma: no cover - environment setup error
+        raise RuntimeError("WorldCover rendering requires Rasterio: python -m pip install rasterio") from exc
+
+    lon_min, lat_min, lon_max, lat_max = bbox
+    tile_lon = math.floor(lon_min / 3) * 3
+    tile_lat = math.floor(lat_min / 3) * 3
+    if lon_max > tile_lon + 3 or lat_max > tile_lat + 3:
+        raise RuntimeError("WorldCover bbox crosses a 3-degree tile; mosaic support is required.")
+
+    lat_token = f"{'N' if tile_lat >= 0 else 'S'}{abs(tile_lat):02d}"
+    lon_token = f"{'E' if tile_lon >= 0 else 'W'}{abs(tile_lon):03d}"
+    tile = lat_token + lon_token
+    url = WORLDCOVER_COG_TEMPLATE.format(tile=tile)
+    with rasterio.open(url) as dataset:
+        window = from_bounds(lon_min, lat_min, lon_max, lat_max, transform=dataset.transform)
+        classes = dataset.read(
+            1,
+            window=window,
+            out_shape=(size[1], size[0]),
+            resampling=Resampling.nearest,
+        )
+
+    palette = {
+        10: (0, 100, 0),
+        20: (255, 187, 34),
+        30: (255, 255, 76),
+        40: (240, 150, 255),
+        50: (250, 0, 0),
+        60: (180, 180, 180),
+        70: (240, 240, 240),
+        80: (0, 100, 200),
+        90: (0, 150, 160),
+        95: (0, 207, 117),
+        100: (250, 230, 160),
     }
-    key_data = json.dumps({"bbox": bbox, "size": size}, sort_keys=True).encode("utf-8")
-    key = "worldcover-" + hashlib.sha1(key_data).hexdigest()[:14] + ".png"
-    url = WORLDCOVER_WMS + "?" + urllib.parse.urlencode(params)
-    data = cached_bytes(key, url, retries=4, timeout=90)
-    if data.lstrip().startswith(b"<"):
-        raise RuntimeError(data.decode("utf-8", errors="replace")[:300])
-    return Image.open(io.BytesIO(data)).convert("RGB")
+    rgb = np.full((*classes.shape, 3), (247, 247, 238), dtype=np.uint8)
+    for class_id, color in palette.items():
+        rgb[classes == class_id] = color
+    image = Image.fromarray(rgb, "RGB")
+    image.save(cache_path, optimize=True)
+    return image
 
 
 def clipped_adm2_features(adm2: dict) -> list[dict]:
@@ -866,6 +1036,7 @@ def clipped_adm2_features(adm2: dict) -> list[dict]:
 
 
 def build_data_layers() -> dict:
+    esz_outer_limit, esz_metadata = load_official_esz_outer_limit()
     mhtr = fetch_osm_polygon(MHTR_RELATION_ID, "osm-mukundra-tiger-reserve.geojson")
     national_park = fetch_osm_polygon(MHTR_NP_RELATION_ID, "osm-mukundra-hills-national-park.geojson")
     bhains_query = f"""
@@ -880,6 +1051,7 @@ out tags geom;
     bhainsrodgarh["properties"]["tcp_status"] = "Added to MHTR core by order 4854336 dated 05.10.2023, per MHTR TCP."
     mhtr_units = [mhtr, bhainsrodgarh]
     mhtr_bbox = expand_bbox(combined_bounds(mhtr_units), 0.13, 0.12)
+    esz_bbox = expand_bbox(geometry_bounds(esz_outer_limit["geometry"]), 0.08, 0.07)
     water_bbox = expand_bbox(combined_bounds(mhtr_units), 0.22, 0.16)
     context_bbox = (74.65, 24.42, 76.55, 25.48)
 
@@ -938,6 +1110,9 @@ out tags center geom;
 """
 
     return {
+        "esz_outer_limit": esz_outer_limit,
+        "esz_metadata": esz_metadata,
+        "esz_bbox": esz_bbox,
         "mhtr": mhtr,
         "bhainsrodgarh": bhainsrodgarh,
         "mhtr_units": mhtr_units,
@@ -991,6 +1166,9 @@ def draw_pa_from_overpass(base: Image.Image, pa_osm: dict, transform: callable) 
 def finalize_map(img: Image.Image, path: Path) -> None:
     img = img.convert("RGB")
     img.save(path, quality=94, optimize=True)
+    preview_path = path.with_name(path.stem + "-preview.webp")
+    preview = img.resize((960, 640), Image.Resampling.LANCZOS)
+    preview.save(preview_path, format="WEBP", quality=82, method=6)
     print(path)
 
 
@@ -1026,12 +1204,107 @@ def footer_note(draw: ImageDraw.ImageDraw, text: str) -> None:
 def draw_mhtr_unit_labels(draw: ImageDraw.ImageDraw, layers: dict, transform: callable) -> None:
     center = polygon_centroid(layers["mhtr"]["geometry"])
     if center:
-        draw_text_halo(draw, transform(*center), "Mukundra Tiger Reserve", FONTS["label"], fill=(16, 82, 48), halo=(250, 250, 241), stroke=5)
+        draw_text_halo(draw, transform(*center), "MHTR (OSM reference)", FONTS["label"], fill=(16, 82, 48), halo=(250, 250, 241), stroke=5)
     bhains_center = polygon_centroid(layers["bhainsrodgarh"]["geometry"])
     if bhains_center:
         x, y = transform(*bhains_center)
-        draw_text_halo(draw, (x, y - 12), "Bhainsrodgarh WLS", FONTS["label_small"], fill=(16, 82, 48), halo=(250, 250, 241), stroke=4)
-        draw_text_halo(draw, (x, y + 12), "MHTR core addition", FONTS["tiny"], fill=(16, 82, 48), halo=(250, 250, 241), stroke=3)
+        draw_text_halo(draw, (x, y - 12), "Bhainsrodgarh WLS (OSM)", FONTS["label_small"], fill=(16, 82, 48), halo=(250, 250, 241), stroke=4)
+        draw_text_halo(draw, (x, y + 12), "Core status: 05 Oct 2023 order", FONTS["tiny"], fill=(16, 82, 48), halo=(250, 250, 241), stroke=3)
+
+
+def render_esz_outer_limit(layers: dict) -> Path:
+    print("Rendering official ESZ outer-limit map...", flush=True)
+    bbox = layers["esz_bbox"]
+    transform = make_transform(bbox)
+    metadata = layers["esz_metadata"]
+    img = Image.new("RGBA", (CANVAS_W, CANVAS_H), (238, 238, 225, 255))
+    draw = ImageDraw.Draw(img, "RGBA")
+    draw_panel_base(
+        draw,
+        "MHTR Eco-Sensitive Zone: Outer Limit",
+        "Official 2020 ESZ envelope geometry, Forest Department KML as on 01 June 2026",
+    )
+    draw.rectangle(
+        (MAP_RECT[0], MAP_RECT[1], MAP_RECT[0] + MAP_RECT[2], MAP_RECT[1] + MAP_RECT[3]),
+        fill=(247, 247, 238),
+    )
+    draw_graticule(draw, bbox, transform, step=0.1)
+
+    def geos(odraw, oimg):
+        draw_osm_water(odraw, layers["water"], transform, labels=False)
+        draw_roads_and_rail(odraw, layers["transport"], transform)
+        draw_feature_polygons(
+            oimg,
+            layers["mhtr_units"],
+            transform,
+            fill=(36, 107, 63, 30),
+            outline=(20, 90, 54, 235),
+            width=4,
+        )
+        draw_feature_polygons(
+            oimg,
+            [layers["esz_outer_limit"]],
+            transform,
+            fill=None,
+            outline=(176, 79, 39, 255),
+            width=7,
+        )
+        draw_places(odraw, layers["places"], transform, max_labels=14)
+
+    with_map_clip(img, geos)
+    draw_map_furniture(draw, bbox)
+
+    y = PANEL_RECT[1] + 34
+    y = panel_heading(draw, y, "Evidence Layers")
+    y = legend_item(
+        draw,
+        y,
+        (176, 79, 39, 255),
+        "Official ESZ outer limit",
+        "Line from the Rajasthan Forest Department KML labelled as on 01 Jun 2026.",
+        line=True,
+    )
+    y = legend_item(
+        draw,
+        y,
+        (20, 90, 54, 235),
+        "Indicative reserve references",
+        "OSM outlines used only to help read the envelope; not cadastral or legal demarcation.",
+        line=True,
+    )
+    y = panel_heading(draw, y + 16, "Area Interpretation")
+    y = draw_wrapped(
+        draw,
+        f"The Gazette notifies an ESZ of {ESZ_NOTIFIED_AREA_KM2:.2f} km², extending 0-1.0 km from the then-notified reserve boundary.",
+        (PANEL_RECT[0] + 32, y),
+        PANEL_RECT[2] - 64,
+        FONTS["body"],
+    )
+    y += 16
+    y = draw_wrapped(
+        draw,
+        f"This KML polygon encloses about {metadata['approximate_envelope_area_km2']:.2f} km² by geodesic calculation because it contains the reserve interior plus the ESZ. It is not a {metadata['approximate_envelope_area_km2']:.2f} km² ESZ.",
+        (PANEL_RECT[0] + 32, y),
+        PANEL_RECT[2] - 64,
+        FONTS["small"],
+        line_spacing=5,
+    )
+    y = panel_heading(draw, y + 24, "Geometry Note")
+    draw_wrapped(
+        draw,
+        "The source contains one outer ring and one unlabeled inner ring. Both are preserved; the inner ring is not assigned a meaning without an official attribute or legend.",
+        (PANEL_RECT[0] + 32, y),
+        PANEL_RECT[2] - 64,
+        FONTS["small"],
+        line_spacing=5,
+    )
+    footer_note(
+        draw,
+        "Sources: MoEFCC Gazette S.O. 4268(E), 25 Nov 2020; Rajasthan Forest Department MHTR ESZ KML as on 01 Jun 2026; OpenStreetMap contributors (ODbL). Public interpretation map, not a legal survey.",
+    )
+    path = OUT_DIR / "mhtr-esz-outer-limit-map.png"
+    finalize_map(img, path)
+    return path
 
 
 def render_boundary_context(layers: dict) -> Path:
@@ -1059,7 +1332,7 @@ def render_boundary_context(layers: dict) -> Path:
 
     y = PANEL_RECT[1] + 34
     y = panel_heading(draw, y, "Map Layers")
-    y = legend_item(draw, y, (36, 107, 63, 120), "MHTR core / public boundary", "Includes Bhainsrodgarh WLS as a 05 Oct 2023 core addition per the MHTR TCP; broad public orientation, not a legal survey.")
+    y = legend_item(draw, y, (36, 107, 63, 120), "Indicative MHTR reference outlines", "OSM geometry provides broad public orientation. Bhainsrodgarh's core status comes from the 05 Oct 2023 order/TCP; the line itself is not a legal survey.")
     y = legend_item(draw, y, (107, 151, 102, 90), "Other protected areas", "Nearby sanctuary and national-park context from OSM.")
     y = legend_item(draw, y, (35, 111, 163, 220), "Rivers and reservoirs", "Chambal-linked river and reservoir network from OSM.", line=True)
     y = legend_item(draw, y, (181, 92, 68, 230), "Major roads", "Trunk, primary, secondary and tertiary road context.", line=True)
@@ -1112,7 +1385,7 @@ def render_terrain(layers: dict) -> Path:
     ]:
         y = legend_item(draw, y, color, title)
     y = panel_heading(draw, y + 12, "Overlay")
-    y = legend_item(draw, y, (24, 73, 48, 255), "MHTR core boundary", "Includes Bhainsrodgarh WLS addition per TCP.", line=True)
+    y = legend_item(draw, y, (24, 73, 48, 255), "Indicative MHTR outlines", "OSM reference geometry; not a legal boundary.", line=True)
     y = legend_item(draw, y, (35, 111, 163, 220), "Waterways", line=True)
     footer_note(draw, "Sources: MHTR Tiger Conservation Plan for Bhainsrodgarh status; Mapzen/AWS Terrarium elevation tiles; OpenStreetMap contributors (ODbL). Built for MHTR.in.")
     path = OUT_DIR / "mhtr-terrain-relief-map.png"
@@ -1168,7 +1441,7 @@ def render_water(layers: dict) -> Path:
     y = panel_heading(draw, y, "Hydrology")
     y = legend_item(draw, y, (72, 143, 181, 168), "Reservoirs / water bodies", "Large water features and mapped reservoirs from OSM.")
     y = legend_item(draw, y, (35, 111, 163, 220), "Rivers, streams, canals", "Named and unnamed mapped drainage lines.", line=True)
-    y = legend_item(draw, y, (23, 84, 51, 245), "MHTR core boundary", "Includes Bhainsrodgarh WLS addition per TCP.", line=True)
+    y = legend_item(draw, y, (23, 84, 51, 245), "Indicative MHTR outlines", "OSM reference geometry; not a legal boundary.", line=True)
     y = panel_heading(draw, y + 24, "Key Names Shown")
     y = draw_wrapped(draw, "Chambal River, Rana Pratap Sagar, Gandhi Sagar, Kali Sindh, Ahu, Parvan and Chambal Right Branch Main Canal are labelled where public OSM geometry or broad reference placement allows.", (PANEL_RECT[0] + 32, y), PANEL_RECT[2] - 64, FONTS["small"], line_spacing=5)
     y = panel_heading(draw, y + 24, "Why It Matters")
@@ -1271,7 +1544,7 @@ def render_landcover(layers: dict) -> Path:
         y = legend_item(draw, y, color, title, note)
     y = panel_heading(draw, y + 6, "Interpretation")
     draw_wrapped(draw, "Treat this as a broad habitat base layer. Field surveys and forest working records are still needed for fine habitat labels such as invasive patches, riparian belts or grass restoration sites.", (PANEL_RECT[0] + 32, y), PANEL_RECT[2] - 64, FONTS["small"])
-    footer_note(draw, "Sources: MHTR Tiger Conservation Plan for Bhainsrodgarh status; ESA WorldCover 2021 via Terrascope WMS (CC BY 4.0); OpenStreetMap contributors (ODbL). Public habitat context only.")
+    footer_note(draw, "Sources: MHTR TCP for Bhainsrodgarh status; ESA WorldCover 2021 v200 public AWS COG (CC BY 4.0); OpenStreetMap contributors (ODbL). © ESA WorldCover project / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium.")
     path = OUT_DIR / "mhtr-land-cover-habitat-map.png"
     finalize_map(img, path)
     return path
@@ -1290,14 +1563,22 @@ def write_source_notes(paths: list[Path]) -> None:
     lines += [
         "",
         "Public source layers:",
-        "- OpenStreetMap contributors: protected-area boundaries, roads, rail, rivers, reservoirs and settlements. ODbL.",
-        "- ESA WorldCover 2021 through Terrascope WMS: broad land-cover classes. CC BY 4.0.",
+        f"- Rajasthan Forest Department MHTR ESZ KMZ, portal date {ESZ_SOURCE_DATE}: `{ESZ_KMZ_PATH.relative_to(ROOT)}`.",
+        f"  Source page: {ESZ_SOURCE_PAGE}",
+        f"  Official download: {ESZ_SOURCE_KMZ}",
+        f"  SHA-256: `{ESZ_KMZ_SHA256}`.",
+        f"  Interpretation: outer envelope enclosing the reserve and the {ESZ_NOTIFIED_AREA_KM2:.2f} km² notified ESZ; not the ESZ band alone.",
+        f"  Approximate geodesic area of the supplied polygon after its inner ring: {load_official_esz_outer_limit()[1]['approximate_envelope_area_km2']:.2f} km².",
+        f"- MoEFCC Gazette S.O. 4268(E), 25 Nov 2020: {ESZ_NOTIFICATION_URL}",
+        "- OpenStreetMap contributors: indicative protected-area outlines, roads, rail, rivers, reservoirs and settlements. ODbL.",
+        "- ESA WorldCover 2021 v200 public AWS COG: broad land-cover classes. CC BY 4.0.",
+        "  Attribution: © ESA WorldCover project / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium.",
         "- Mapzen/AWS Terrarium elevation tiles: DEM-derived shaded relief and elevation bands.",
         "- geoBoundaries India ADM2: district boundaries. ODbL.",
         "- MHTR Tiger Conservation Plan (`src/assets/docs/resources/mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition.pdf`): Bhainsrodgarh Sanctuary status as a 05 Oct 2023 core addition to MHTR.",
         "",
         "Editorial rule: these maps intentionally avoid exact wildlife observation, nest, den, roost, carcass or breeding-site locations.",
-        "Boundary note: OSM geometries are public orientation layers and should not be treated as official cadastral or legal survey demarcations.",
+        "Boundary note: neither the OSM reference outlines nor this interpretive raster should be treated as cadastral or legal survey demarcation.",
     ]
     (DATA_DIR / "README.md").write_text("\n".join(lines) + "\n")
 
@@ -1306,6 +1587,7 @@ def main() -> None:
     ensure_dirs()
     layers = build_data_layers()
     paths = [
+        render_esz_outer_limit(layers),
         render_boundary_context(layers),
         render_terrain(layers),
         render_water(layers),

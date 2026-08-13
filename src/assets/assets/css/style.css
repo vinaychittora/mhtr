@@ -2047,6 +2047,55 @@ body > footer a {
   font-size: 0.92rem;
 }
 
+.bio-evidence-card {
+  margin-bottom: 14px;
+  border-color: var(--line-strong);
+}
+
+.bio-evidence-card > h2 {
+  margin: 0 0 8px;
+}
+
+.bio-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.bio-evidence-grid article {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-alt);
+}
+
+.bio-evidence-grid h3 {
+  margin: 0 0 7px;
+  font-size: 1.06rem;
+}
+
+.bio-evidence-grid p {
+  margin: 0 0 10px;
+}
+
+.bio-method-note {
+  margin-top: 14px;
+  padding: 14px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: rgba(11, 63, 45, 0.055);
+}
+
+.bio-method-note p {
+  margin: 0 0 9px;
+}
+
+.bio-method-note p:last-child {
+  margin-bottom: 0;
+}
+
 .bio-tool-card {
   border-color: var(--line-strong);
   box-shadow: 0 12px 26px rgba(18, 61, 44, 0.14);
@@ -2210,6 +2259,27 @@ body > footer a {
   border-radius: var(--radius);
   padding: 14px;
   background: var(--surface-alt);
+}
+
+.bio-card-evidence {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 0 8px;
+  padding: 4px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.bio-card-evidence[data-evidence="community"] {
+  border-color: var(--line-strong);
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .bio-card-head {
@@ -2642,6 +2712,11 @@ body > footer a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 14px;
+}
+
+.pressure-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 @media (min-width: 921px) {
@@ -3602,6 +3677,80 @@ body > footer a {
   border-left: 4px solid var(--rust);
 }
 
+.pressure-card > .route-kicker {
+  max-width: 100%;
+}
+
+.pressure-card .pressure-status {
+  color: var(--muted);
+}
+
+.evidence-status {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.025em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.mee-evidence-panel {
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  align-items: stretch;
+}
+
+.mee-report-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.68fr) minmax(180px, 1fr);
+  gap: 16px;
+  align-items: center;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.mee-report-card figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.mee-report-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(18, 61, 44, 0.14);
+}
+
+.mee-report-card figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.mee-report-card .source-actions {
+  align-content: center;
+  min-width: 0;
+}
+
+.mee-report-card .source-actions p {
+  margin: 0 0 6px;
+}
+
+.mee-report-card .button-link {
+  white-space: normal;
+}
+
+@media (max-width: 1120px) {
+  .pressure-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .ethics-panel {
   padding: 18px;
   background:
@@ -3826,8 +3975,7 @@ html.has-nav-drawer {
 
 .inat-panel-head > div,
 .inat-summary,
-.inat-recent,
-.inat-observation-card span {
+.inat-safeguards {
   min-width: 0;
 }
 
@@ -3845,6 +3993,10 @@ html.has-nav-drawer {
   grid-template-columns: 240px minmax(0, 1fr);
   gap: 18px;
   align-items: start;
+}
+
+.inat-detail-grid--no-photo {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .inat-taxon-photo {
@@ -3895,49 +4047,19 @@ html.has-nav-drawer {
   margin-top: 12px;
 }
 
-.inat-recent {
+.inat-safeguards {
   margin-top: 22px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
-.inat-recent h3 {
+.inat-safeguards h3 {
+  margin-bottom: 8px;
   font-size: 1.04rem;
 }
 
-.inat-observation-list {
-  display: grid;
-  gap: 10px;
-}
-
-.inat-observation-card {
-  display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
-  gap: 11px;
-  align-items: center;
-  padding: 9px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-alt);
-  color: var(--ink);
-}
-
-.inat-observation-card:hover {
-  background: var(--accent-soft);
-  text-decoration: none;
-}
-
-.inat-observation-card img,
-.inat-photo-fallback {
-  width: 64px;
-  height: 64px;
-  border-radius: 6px;
-  object-fit: cover;
-  background: var(--khaki);
-}
-
-.inat-observation-card small {
-  display: block;
+.inat-safeguards p {
+  margin: 0;
   color: var(--muted);
 }
 
@@ -4252,6 +4374,10 @@ html.has-nav-drawer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .pressure-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .landscape-photo-story-wide {
     grid-column: 1 / -1;
     grid-row: auto;
@@ -4466,6 +4592,15 @@ html.has-nav-drawer {
     grid-template-columns: 1fr;
   }
 
+  .mee-report-card {
+    grid-template-columns: 1fr;
+  }
+
+  .mee-report-card figure {
+    width: min(240px, 100%);
+    margin-inline: auto;
+  }
+
   .landscape-photo-story-grid,
   .landscape-microhabitat-grid,
   .landscape-season-photo-grid {
@@ -4493,6 +4628,10 @@ html.has-nav-drawer {
   .bio-hero .landscape-photo-frame img {
     aspect-ratio: 16 / 9;
     max-height: 220px;
+  }
+
+  .bio-evidence-grid {
+    grid-template-columns: 1fr;
   }
 
   .bio-tool-head {
@@ -4821,16 +4960,6 @@ html.has-nav-drawer {
     text-align: center;
   }
 
-  .inat-observation-card {
-    grid-template-columns: 56px minmax(0, 1fr);
-  }
-
-  .inat-observation-card img,
-  .inat-photo-fallback {
-    width: 56px;
-    height: 56px;
-  }
-
   body > footer {
     padding: 0;
     margin-top: 0;
@@ -5100,10 +5229,10 @@ html.has-nav-drawer {
 .observation-links{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:clamp(28px,5vw,72px);align-items:end;margin-top:clamp(54px,8vw,92px);margin-bottom:clamp(54px,8vw,92px)}
 .observation-links__heading{max-width:620px}.observation-links__heading h2{margin:8px 0 14px;font-size:clamp(2rem,4vw,3.45rem);line-height:1.04;letter-spacing:-.03em}.observation-links__heading>p:last-child{color:var(--muted)}
 .observation-link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.observation-card{position:relative;display:flex;min-height:300px;flex-direction:column;justify-content:space-between;overflow:hidden;padding:22px;border-radius:20px;color:#fff;text-decoration:none;box-shadow:0 15px 35px rgba(20,49,34,.12);transition:transform .2s ease,box-shadow .2s ease}
-.observation-card:hover,.observation-card:focus-visible{color:#fff;transform:translateY(-4px);box-shadow:0 20px 45px rgba(20,49,34,.2)}
-.observation-card::after{position:absolute;right:-55px;bottom:-70px;width:190px;height:190px;border:1px solid rgba(255,255,255,.22);border-radius:50%;content:"";box-shadow:0 0 0 30px rgba(255,255,255,.045),0 0 0 60px rgba(255,255,255,.035)}
-.observation-card--ebird{background:linear-gradient(145deg,#175996,#0a355f)}.observation-card--inat{background:linear-gradient(145deg,#75a62a,#39741d)}
+.observation-links .observation-card{position:relative;display:flex;min-height:300px;flex-direction:column;justify-content:space-between;overflow:hidden;padding:22px;border-radius:20px;color:#fff;text-decoration:none;box-shadow:0 15px 35px rgba(20,49,34,.12);transition:transform .2s ease,box-shadow .2s ease}
+.observation-links .observation-card:hover,.observation-links .observation-card:focus-visible{color:#fff;transform:translateY(-4px);box-shadow:0 20px 45px rgba(20,49,34,.2)}
+.observation-links .observation-card::after{position:absolute;right:-55px;bottom:-70px;width:190px;height:190px;border:1px solid rgba(255,255,255,.22);border-radius:50%;content:"";box-shadow:0 0 0 30px rgba(255,255,255,.045),0 0 0 60px rgba(255,255,255,.035)}
+.observation-links .observation-card--ebird{background:linear-gradient(145deg,#175996,#0a355f)}.observation-links .observation-card--inat{background:linear-gradient(145deg,#75a62a,#39741d)}
 .observation-card__brand{position:relative;z-index:1;display:flex;align-items:center;gap:11px;font-size:1.35rem;letter-spacing:-.03em}.observation-card__brand>strong{color:#fff}
 .ebird-mark,.inat-mark{position:relative;display:block;width:43px;height:43px;flex:0 0 auto;border-radius:50%;background:#fff}
 .ebird-mark::before{position:absolute;top:12px;left:8px;width:27px;height:17px;border-top:5px solid #f3b51b;border-radius:50%;content:"";transform:rotate(-16deg)}.ebird-mark::after{position:absolute;top:17px;left:13px;width:20px;height:10px;border-top:4px solid #2d86c8;border-radius:50%;content:"";transform:rotate(-16deg)}
@@ -5124,7 +5253,7 @@ html.has-nav-drawer {
   .proposal-intro,.observation-links,.inquiry-layout{grid-template-columns:1fr}.proposal-facts{max-width:620px}.observation-links__heading{max-width:680px}.trail-grid{grid-template-columns:1fr 1fr}.trail-card:last-child{grid-column:1/-1}.wildlife-strip{grid-template-columns:1fr 1fr}.wildlife-strip__copy{grid-column:1/-1;grid-row:1}.wildlife-strip figure{min-height:320px}.wildlife-strip figure:nth-of-type(3){display:none}.inquiry-copy{position:static}
 }
 @media (max-width:700px){
-  .mandirgarh-hero{min-height:640px;border-radius:18px}.mandirgarh-hero__content{padding:22px}.mandirgarh-hero__content h1{font-size:clamp(2.6rem,13vw,4.2rem)}.mandirgarh-hero__topline{right:20px;left:20px;align-items:flex-start}.pilot-badge{max-width:160px}.language-switch--hero{width:auto}.language-switch--hero button{padding:8px 10px}.proposal-status__inner{align-items:flex-start;flex-direction:column;gap:3px}.proposal-facts{grid-template-columns:1fr;gap:10px}.proposal-facts>div{display:grid;min-height:112px;grid-template-columns:54px 1fr;grid-template-rows:auto auto auto;align-content:center;padding:14px 16px}.proposal-facts .fact-icon{grid-row:1/4;align-self:center}.proposal-facts em,.proposal-facts strong,.proposal-facts>div>span:last-child{grid-column:2;margin-left:0}.proposal-facts em{margin-top:0}.trail-grid,.observation-link-grid{grid-template-columns:1fr}.trail-card:last-child{grid-column:auto}.trail-card>img{height:240px}.observation-card{min-height:270px}.wildlife-strip{grid-template-columns:1fr}.wildlife-strip figure{min-height:330px}.wildlife-strip figure:nth-of-type(2){display:none}.stay-preview{grid-template-columns:1fr}.stay-preview>img{height:400px}.stay-preview>.card{margin:-55px 14px 0}.form-grid,.choice-grid{grid-template-columns:1fr}.proposal-closing{grid-template-columns:1fr}.proposal-closing>img{height:300px}
+  .mandirgarh-hero{min-height:640px;border-radius:18px}.mandirgarh-hero__content{padding:22px}.mandirgarh-hero__content h1{font-size:clamp(2.6rem,13vw,4.2rem)}.mandirgarh-hero__topline{right:20px;left:20px;align-items:flex-start}.pilot-badge{max-width:160px}.language-switch--hero{width:auto}.language-switch--hero button{padding:8px 10px}.proposal-status__inner{align-items:flex-start;flex-direction:column;gap:3px}.proposal-facts{grid-template-columns:1fr;gap:10px}.proposal-facts>div{display:grid;min-height:112px;grid-template-columns:54px 1fr;grid-template-rows:auto auto auto;align-content:center;padding:14px 16px}.proposal-facts .fact-icon{grid-row:1/4;align-self:center}.proposal-facts em,.proposal-facts strong,.proposal-facts>div>span:last-child{grid-column:2;margin-left:0}.proposal-facts em{margin-top:0}.trail-grid,.observation-link-grid{grid-template-columns:1fr}.trail-card:last-child{grid-column:auto}.trail-card>img{height:240px}.observation-links .observation-card{min-height:270px}.wildlife-strip{grid-template-columns:1fr}.wildlife-strip figure{min-height:330px}.wildlife-strip figure:nth-of-type(2){display:none}.stay-preview{grid-template-columns:1fr}.stay-preview>img{height:400px}.stay-preview>.card{margin:-55px 14px 0}.form-grid,.choice-grid{grid-template-columns:1fr}.proposal-closing{grid-template-columns:1fr}.proposal-closing>img{height:300px}
 }
 
 /* Mandirgarh photographic refinements */

@@ -3,14 +3,21 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 {%- for item in collections.all %}
 {%- if item.url and item.url != '/sitemap.xml' and item.url != '/robots.txt' and '/resources/documents/' not in item.url and 'noindex' not in (item.data.robots or '') %}
+{%- set sitemapModified = (item.data.modifiedTime or item.data.publishedTime) | sitemapDate %}
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
-    <lastmod>{{ item.date | htmlDateString }}</lastmod>
-    <changefreq>{% if item.url == "/" %}weekly{% elif item.url == "/resources/" or item.url == "/biodiversity/" or item.url == "/gis-maps/" %}weekly{% else %}monthly{% endif %}</changefreq>
-    <priority>{% if item.url == "/" %}1.0{% elif item.url == "/landscape/" or item.url == "/resources/" or item.url == "/biodiversity/" or item.url == "/gis-maps/" %}0.9{% else %}0.7{% endif %}</priority>
+{%- if sitemapModified %}
+    <lastmod>{{ sitemapModified }}</lastmod>
+{%- endif %}
+{%- if item.data.og_image %}
+    <image:image>
+      <image:loc>{{ item.data.og_image | absoluteUrl(site.url) }}</image:loc>
+      <image:title>{{ item.data.og_image_alt or item.data.title }}</image:title>
+    </image:image>
+{%- endif %}
   </url>
 {%- endif %}
 {%- endfor %}
@@ -18,8 +25,10 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ site.url }}/resources/documents/{{ doc.slug }}/</loc>
     <lastmod>{{ doc.archivedAt }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <image:image>
+      <image:loc>{{ site.url }}/assets/imgs/mhtr-resources.png</image:loc>
+      <image:title>{{ doc.title }}</image:title>
+    </image:image>
   </url>
 {%- endfor %}
 </urlset>
