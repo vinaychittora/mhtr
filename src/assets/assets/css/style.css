@@ -318,6 +318,8 @@ nav > ul {
   visibility: hidden;
   transform: translateY(-4px);
   pointer-events: none;
+  contain: layout style;
+  will-change: opacity, transform;
   transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
 }
 
@@ -4318,6 +4320,7 @@ html.has-nav-drawer {
     visibility: visible;
     transform: none;
     pointer-events: auto;
+    will-change: auto;
   }
 
   .has-dropdown.is-open .dropdown-menu {

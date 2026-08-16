@@ -299,37 +299,43 @@
 })();
 
 (() => {
-  const dropdowns = Array.from(document.querySelectorAll(".has-dropdown"));
+  const dropdowns = Array.from(document.querySelectorAll(".has-dropdown"), (item) => ({
+    item,
+    toggle: item.querySelector(".nav-toggle"),
+    trigger: item.querySelector(".nav-parent .nav-link"),
+    menu: item.querySelector(".dropdown-menu"),
+  })).filter(({ toggle, trigger, menu }) => toggle && trigger && menu);
 
   if (!dropdowns.length) return;
 
-  function setOpen(item, open) {
+  let openDropdown = dropdowns.find(({ item }) => item.classList.contains("is-open")) || null;
+
+  function setOpen(dropdown, open) {
+    const { item, toggle, trigger, menu } = dropdown;
+    if (item.classList.contains("is-open") === open) {
+      if (!open && openDropdown === dropdown) openDropdown = null;
+      return;
+    }
+
     item.classList.toggle("is-open", open);
-    item.querySelector(".nav-toggle")?.setAttribute("aria-expanded", String(open));
-    item.querySelector(".nav-parent .nav-link")?.setAttribute("aria-expanded", String(open));
-    item.querySelector(".dropdown-menu")?.setAttribute("aria-hidden", String(!open));
+    toggle.setAttribute("aria-expanded", String(open));
+    trigger.setAttribute("aria-expanded", String(open));
+    menu.setAttribute("aria-hidden", String(!open));
+    openDropdown = open ? dropdown : openDropdown === dropdown ? null : openDropdown;
   }
 
   function closeAll(except) {
-    for (const item of dropdowns) {
-      if (item === except) continue;
-      setOpen(item, false);
-    }
+    if (openDropdown && openDropdown !== except) setOpen(openDropdown, false);
   }
 
-  for (const item of dropdowns) {
-    const toggle = item.querySelector(".nav-toggle");
-    const trigger = item.querySelector(".nav-parent .nav-link");
-    if (!toggle || !trigger) continue;
-
-    setOpen(item, false);
-
+  for (const dropdown of dropdowns) {
+    const { item, toggle, trigger } = dropdown;
     function toggleItem(event) {
       event.preventDefault();
       event.stopPropagation();
       const isOpen = !item.classList.contains("is-open");
-      closeAll(item);
-      setOpen(item, isOpen);
+      closeAll(dropdown);
+      setOpen(dropdown, isOpen);
     }
 
     toggle.addEventListener("click", toggleItem);
