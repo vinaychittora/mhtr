@@ -5323,11 +5323,40 @@ html.has-nav-drawer {
   }
 }
 
-/* Small phones: the floating "Fund this portal" tab covers text at the right edge.
-   The footer support strip carries the same call to action. */
+/* Small phones: turn the vertical edge tab (which covered text) into a small pill in the
+   bottom-right corner, with the panel opening as a sheet above it. */
 @media (max-width: 620px) {
   .support-rail {
-    display: none;
+    top: auto;
+    right: calc(12px + env(safe-area-inset-right));
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    transform: none;
+  }
+
+  .support-rail-tab {
+    min-width: 0;
+    min-height: 36px;
+    padding: 8px 13px;
+    border: 1px solid rgba(255, 248, 232, 0.48);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    writing-mode: horizontal-tb;
+    box-shadow: 0 8px 22px rgba(18, 34, 22, 0.28);
+  }
+
+  .support-rail-tab span {
+    transform: none;
+  }
+
+  .support-rail-panel {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: calc(62px + env(safe-area-inset-bottom));
+    left: 12px;
+    width: auto;
+    transform: none;
   }
 }
 
