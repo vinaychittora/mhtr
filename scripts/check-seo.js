@@ -55,7 +55,7 @@ function htmlPathForUrl(url) {
 
 const redirects = read("src/_redirects");
 const builtRedirects = readIfExists("_site/_redirects");
-// Cloudflare Pages format (no Netlify-style "!" force marker); the older "301!" form is still accepted.
+// Cloudflare Pages redirect format; the older "301!" form is still accepted.
 const requiredRedirects = [
   "http://mhtr.in/* https://mhtr.in/:splat 301",
   "http://www.mhtr.in/* https://mhtr.in/:splat 301",
