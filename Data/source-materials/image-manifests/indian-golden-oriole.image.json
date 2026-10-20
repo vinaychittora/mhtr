@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T10:31:43.034Z",
+  "source": {
+    "fileName": "DSCF7076.jpg",
+    "width": 4009,
+    "height": 2673,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Indian Golden Oriole",
+    "alt": "Bright yellow Indian Golden Oriole perched on a branch in green forest",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-08-06",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "indian-golden-oriole-480.avif",
+      "width": 480,
+      "height": 320,
+      "format": "avif",
+      "bytes": 11620
+    },
+    {
+      "file": "indian-golden-oriole-480.webp",
+      "width": 480,
+      "height": 320,
+      "format": "webp",
+      "bytes": 17010
+    },
+    {
+      "file": "indian-golden-oriole-480.jpg",
+      "width": 480,
+      "height": 320,
+      "format": "jpeg",
+      "bytes": 22514
+    },
+    {
+      "file": "indian-golden-oriole-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 22613
+    },
+    {
+      "file": "indian-golden-oriole-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 33586
+    },
+    {
+      "file": "indian-golden-oriole-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 47575
+    },
+    {
+      "file": "indian-golden-oriole-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 40595
+    },
+    {
+      "file": "indian-golden-oriole-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 65850
+    },
+    {
+      "file": "indian-golden-oriole-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 90773
+    },
+    {
+      "file": "indian-golden-oriole-1600.avif",
+      "width": 1600,
+      "height": 1067,
+      "format": "avif",
+      "bytes": 72937
+    },
+    {
+      "file": "indian-golden-oriole-1600.webp",
+      "width": 1600,
+      "height": 1067,
+      "format": "webp",
+      "bytes": 141472
+    },
+    {
+      "file": "indian-golden-oriole-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "format": "jpeg",
+      "bytes": 164730
+    },
+    {
+      "file": "indian-golden-oriole-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 81180
+    }
+  ]
+}

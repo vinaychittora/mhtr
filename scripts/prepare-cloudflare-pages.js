@@ -34,7 +34,7 @@ if (fs.existsSync(redirectsFile)) {
   const normalizedRedirects = redirects.replace(/\s(30[1278]|303)!($|\s)/g, " $1$2");
   if (normalizedRedirects !== redirects) {
     fs.writeFileSync(redirectsFile, normalizedRedirects);
-    console.log("Normalized Netlify force markers in Cloudflare Pages redirects.");
+    console.log("Removed force markers (301!) from Cloudflare Pages redirects.");
   }
 }
 

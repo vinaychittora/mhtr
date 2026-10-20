@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T09:52:59.993Z",
+  "source": {
+    "fileName": "DSCF9374.jpg",
+    "width": 3763,
+    "height": 2509,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Monsoon flowering",
+    "alt": "Clusters of white puff-like flowers and fresh compound leaves on a dry-forest tree in the monsoon",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-08-07",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "monsoon-tree-flowering-480.avif",
+      "width": 480,
+      "height": 320,
+      "format": "avif",
+      "bytes": 22861
+    },
+    {
+      "file": "monsoon-tree-flowering-480.webp",
+      "width": 480,
+      "height": 320,
+      "format": "webp",
+      "bytes": 35296
+    },
+    {
+      "file": "monsoon-tree-flowering-480.jpg",
+      "width": 480,
+      "height": 320,
+      "format": "jpeg",
+      "bytes": 38338
+    },
+    {
+      "file": "monsoon-tree-flowering-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 49412
+    },
+    {
+      "file": "monsoon-tree-flowering-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 77598
+    },
+    {
+      "file": "monsoon-tree-flowering-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 87886
+    },
+    {
+      "file": "monsoon-tree-flowering-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 87008
+    },
+    {
+      "file": "monsoon-tree-flowering-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 136124
+    },
+    {
+      "file": "monsoon-tree-flowering-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 164942
+    },
+    {
+      "file": "monsoon-tree-flowering-1600.avif",
+      "width": 1600,
+      "height": 1067,
+      "format": "avif",
+      "bytes": 134411
+    },
+    {
+      "file": "monsoon-tree-flowering-1600.webp",
+      "width": 1600,
+      "height": 1067,
+      "format": "webp",
+      "bytes": 210074
+    },
+    {
+      "file": "monsoon-tree-flowering-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "format": "jpeg",
+      "bytes": 264188
+    },
+    {
+      "file": "monsoon-tree-flowering-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 143026
+    }
+  ]
+}

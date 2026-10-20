@@ -55,18 +55,20 @@ function htmlPathForUrl(url) {
 
 const redirects = read("src/_redirects");
 const builtRedirects = readIfExists("_site/_redirects");
+// Cloudflare Pages redirect format; the older "301!" form is still accepted.
 const requiredRedirects = [
-  "http://mhtr.in/* https://mhtr.in/:splat 301!",
-  "http://www.mhtr.in/* https://mhtr.in/:splat 301!",
-  "https://www.mhtr.in/* https://mhtr.in/:splat 301!",
+  "http://mhtr.in/* https://mhtr.in/:splat 301",
+  "http://www.mhtr.in/* https://mhtr.in/:splat 301",
+  "https://www.mhtr.in/* https://mhtr.in/:splat 301",
 ];
 
+const hasRule = (text, rule) => text.split(/\r?\n/).some((line) => line.trim() === rule || line.trim() === `${rule}!`);
+
 for (const rule of requiredRedirects) {
-  if (!redirects.includes(rule)) {
+  if (!hasRule(redirects, rule)) {
     fail(`Missing redirect rule: ${rule}`);
   }
-  const cloudflareRule = rule.replace(/\s(30[1278]|303)!($|\s)/, " $1$2");
-  if (!builtRedirects.includes(rule) && !builtRedirects.includes(cloudflareRule)) {
+  if (!hasRule(builtRedirects, rule)) {
     fail(`Built _site/_redirects is missing rule: ${rule}`);
   }
 }
