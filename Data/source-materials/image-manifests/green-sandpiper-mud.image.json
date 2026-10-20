@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T10:30:41.122Z",
+  "source": {
+    "fileName": "DSCF8859.jpg",
+    "width": 2351,
+    "height": 1567,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Green Sandpiper",
+    "alt": "Green Sandpiper probing shallow muddy water",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-07-12",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "green-sandpiper-mud-480.avif",
+      "width": 480,
+      "height": 320,
+      "format": "avif",
+      "bytes": 18256
+    },
+    {
+      "file": "green-sandpiper-mud-480.webp",
+      "width": 480,
+      "height": 320,
+      "format": "webp",
+      "bytes": 28618
+    },
+    {
+      "file": "green-sandpiper-mud-480.jpg",
+      "width": 480,
+      "height": 320,
+      "format": "jpeg",
+      "bytes": 31480
+    },
+    {
+      "file": "green-sandpiper-mud-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 39337
+    },
+    {
+      "file": "green-sandpiper-mud-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 61930
+    },
+    {
+      "file": "green-sandpiper-mud-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 73325
+    },
+    {
+      "file": "green-sandpiper-mud-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 71861
+    },
+    {
+      "file": "green-sandpiper-mud-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 116256
+    },
+    {
+      "file": "green-sandpiper-mud-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 141483
+    },
+    {
+      "file": "green-sandpiper-mud-1600.avif",
+      "width": 1600,
+      "height": 1066,
+      "format": "avif",
+      "bytes": 111702
+    },
+    {
+      "file": "green-sandpiper-mud-1600.webp",
+      "width": 1600,
+      "height": 1066,
+      "format": "webp",
+      "bytes": 190106
+    },
+    {
+      "file": "green-sandpiper-mud-1600.jpg",
+      "width": 1600,
+      "height": 1066,
+      "format": "jpeg",
+      "bytes": 233686
+    },
+    {
+      "file": "green-sandpiper-mud-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 130332
+    }
+  ]
+}

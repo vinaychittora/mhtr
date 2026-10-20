@@ -5377,3 +5377,36 @@ html.has-nav-drawer {
     display: none;
   }
 }
+
+/* Card grids: one image ratio and equal-height cards so rows line up without gaps. */
+.landscape-cover-grid {
+  align-items: stretch;
+}
+
+.landscape-cover-grid .landscape-cover-card img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+
+.landscape-cover-grid .landscape-cover-card picture {
+  display: block;
+}
+
+.landscape-cover-grid .landscape-cover-card img {
+  object-position: var(--photo-pos, center);
+}
+
+/* Six-item info grids: 3 + 3 instead of 4 + 2 on wide screens. */
+@media (min-width: 921px) {
+  .info-grid:has(> :nth-child(6):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Four-item grids on mid widths: 2 + 2 instead of 3 + 1. */
+@media (min-width: 521px) and (max-width: 1199px) {
+  .info-grid:has(> :nth-child(4):last-child),
+  .glossary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

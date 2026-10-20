@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T10:32:10.085Z",
+  "source": {
+    "fileName": "DSCF4650.jpg",
+    "width": 3202,
+    "height": 2135,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Red Avadavat",
+    "alt": "Male Red Avadavat with white-spotted red plumage on a thin branch",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-09-01",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "red-avadavat-480.avif",
+      "width": 480,
+      "height": 320,
+      "format": "avif",
+      "bytes": 8607
+    },
+    {
+      "file": "red-avadavat-480.webp",
+      "width": 480,
+      "height": 320,
+      "format": "webp",
+      "bytes": 12234
+    },
+    {
+      "file": "red-avadavat-480.jpg",
+      "width": 480,
+      "height": 320,
+      "format": "jpeg",
+      "bytes": 16915
+    },
+    {
+      "file": "red-avadavat-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 16940
+    },
+    {
+      "file": "red-avadavat-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 24604
+    },
+    {
+      "file": "red-avadavat-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 36009
+    },
+    {
+      "file": "red-avadavat-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 29672
+    },
+    {
+      "file": "red-avadavat-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 44540
+    },
+    {
+      "file": "red-avadavat-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 64669
+    },
+    {
+      "file": "red-avadavat-1600.avif",
+      "width": 1600,
+      "height": 1067,
+      "format": "avif",
+      "bytes": 44677
+    },
+    {
+      "file": "red-avadavat-1600.webp",
+      "width": 1600,
+      "height": 1067,
+      "format": "webp",
+      "bytes": 68294
+    },
+    {
+      "file": "red-avadavat-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "format": "jpeg",
+      "bytes": 100343
+    },
+    {
+      "file": "red-avadavat-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 67780
+    }
+  ]
+}

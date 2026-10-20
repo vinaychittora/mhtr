@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T10:31:03.700Z",
+  "source": {
+    "fileName": "DSCF8737.jpg",
+    "width": 5573,
+    "height": 3715,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Indian Stone-curlew",
+    "alt": "Indian Stone-curlew standing in dry golden grass",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-10-13",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "indian-stone-curlew-480.avif",
+      "width": 480,
+      "height": 320,
+      "format": "avif",
+      "bytes": 12272
+    },
+    {
+      "file": "indian-stone-curlew-480.webp",
+      "width": 480,
+      "height": 320,
+      "format": "webp",
+      "bytes": 17194
+    },
+    {
+      "file": "indian-stone-curlew-480.jpg",
+      "width": 480,
+      "height": 320,
+      "format": "jpeg",
+      "bytes": 21487
+    },
+    {
+      "file": "indian-stone-curlew-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 27089
+    },
+    {
+      "file": "indian-stone-curlew-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 37890
+    },
+    {
+      "file": "indian-stone-curlew-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 49860
+    },
+    {
+      "file": "indian-stone-curlew-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 49574
+    },
+    {
+      "file": "indian-stone-curlew-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 69400
+    },
+    {
+      "file": "indian-stone-curlew-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 95519
+    },
+    {
+      "file": "indian-stone-curlew-1600.avif",
+      "width": 1600,
+      "height": 1066,
+      "format": "avif",
+      "bytes": 75014
+    },
+    {
+      "file": "indian-stone-curlew-1600.webp",
+      "width": 1600,
+      "height": 1066,
+      "format": "webp",
+      "bytes": 103554
+    },
+    {
+      "file": "indian-stone-curlew-1600.jpg",
+      "width": 1600,
+      "height": 1066,
+      "format": "jpeg",
+      "bytes": 150751
+    },
+    {
+      "file": "indian-stone-curlew-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 73089
+    }
+  ]
+}

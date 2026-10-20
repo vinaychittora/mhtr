@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T10:32:20.006Z",
+  "source": {
+    "fileName": "DSCF6649.jpg",
+    "width": 2048,
+    "height": 1365,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Crested Bunting",
+    "alt": "Male Crested Bunting with black crest and chestnut wings standing on a rock",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-09-06",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "crested-bunting-480.avif",
+      "width": 480,
+      "height": 320,
+      "format": "avif",
+      "bytes": 9824
+    },
+    {
+      "file": "crested-bunting-480.webp",
+      "width": 480,
+      "height": 320,
+      "format": "webp",
+      "bytes": 12478
+    },
+    {
+      "file": "crested-bunting-480.jpg",
+      "width": 480,
+      "height": 320,
+      "format": "jpeg",
+      "bytes": 17221
+    },
+    {
+      "file": "crested-bunting-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 22620
+    },
+    {
+      "file": "crested-bunting-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 30122
+    },
+    {
+      "file": "crested-bunting-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 40853
+    },
+    {
+      "file": "crested-bunting-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 42358
+    },
+    {
+      "file": "crested-bunting-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 57744
+    },
+    {
+      "file": "crested-bunting-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 81516
+    },
+    {
+      "file": "crested-bunting-1600.avif",
+      "width": 1600,
+      "height": 1066,
+      "format": "avif",
+      "bytes": 68198
+    },
+    {
+      "file": "crested-bunting-1600.webp",
+      "width": 1600,
+      "height": 1066,
+      "format": "webp",
+      "bytes": 98644
+    },
+    {
+      "file": "crested-bunting-1600.jpg",
+      "width": 1600,
+      "height": 1066,
+      "format": "jpeg",
+      "bytes": 142486
+    },
+    {
+      "file": "crested-bunting-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 58859
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T10:29:19.577Z",
+  "source": {
+    "fileName": "DSCF4700.jpg",
+    "width": 3138,
+    "height": 3923,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Crested Serpent Eagle",
+    "alt": "Crested Serpent Eagle with raised crest perched among leaves against a pale sky",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-10-11",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "crested-serpent-eagle-480.avif",
+      "width": 480,
+      "height": 600,
+      "format": "avif",
+      "bytes": 34717
+    },
+    {
+      "file": "crested-serpent-eagle-480.webp",
+      "width": 480,
+      "height": 600,
+      "format": "webp",
+      "bytes": 52844
+    },
+    {
+      "file": "crested-serpent-eagle-480.jpg",
+      "width": 480,
+      "height": 600,
+      "format": "jpeg",
+      "bytes": 61169
+    },
+    {
+      "file": "crested-serpent-eagle-800.avif",
+      "width": 800,
+      "height": 1000,
+      "format": "avif",
+      "bytes": 77296
+    },
+    {
+      "file": "crested-serpent-eagle-800.webp",
+      "width": 800,
+      "height": 1000,
+      "format": "webp",
+      "bytes": 118140
+    },
+    {
+      "file": "crested-serpent-eagle-800.jpg",
+      "width": 800,
+      "height": 1000,
+      "format": "jpeg",
+      "bytes": 141086
+    },
+    {
+      "file": "crested-serpent-eagle-1200.avif",
+      "width": 1200,
+      "height": 1500,
+      "format": "avif",
+      "bytes": 162701
+    },
+    {
+      "file": "crested-serpent-eagle-1200.webp",
+      "width": 1200,
+      "height": 1500,
+      "format": "webp",
+      "bytes": 248314
+    },
+    {
+      "file": "crested-serpent-eagle-1200.jpg",
+      "width": 1200,
+      "height": 1500,
+      "format": "jpeg",
+      "bytes": 283950
+    },
+    {
+      "file": "crested-serpent-eagle-1600.avif",
+      "width": 1600,
+      "height": 2000,
+      "format": "avif",
+      "bytes": 292008
+    },
+    {
+      "file": "crested-serpent-eagle-1600.webp",
+      "width": 1600,
+      "height": 2000,
+      "format": "webp",
+      "bytes": 459752
+    },
+    {
+      "file": "crested-serpent-eagle-1600.jpg",
+      "width": 1600,
+      "height": 2000,
+      "format": "jpeg",
+      "bytes": 484542
+    },
+    {
+      "file": "crested-serpent-eagle-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 155552
+    }
+  ]
+}

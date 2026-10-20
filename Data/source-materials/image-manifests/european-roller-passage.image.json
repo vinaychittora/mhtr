@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T10:31:56.398Z",
+  "source": {
+    "fileName": "DSCF4950.jpg",
+    "width": 3936,
+    "height": 2624,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "European Roller",
+    "alt": "European Roller perched on top of a leafy shrub against a pale sky",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-09-01",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "european-roller-passage-480.avif",
+      "width": 480,
+      "height": 320,
+      "format": "avif",
+      "bytes": 7149
+    },
+    {
+      "file": "european-roller-passage-480.webp",
+      "width": 480,
+      "height": 320,
+      "format": "webp",
+      "bytes": 9816
+    },
+    {
+      "file": "european-roller-passage-480.jpg",
+      "width": 480,
+      "height": 320,
+      "format": "jpeg",
+      "bytes": 12880
+    },
+    {
+      "file": "european-roller-passage-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 14786
+    },
+    {
+      "file": "european-roller-passage-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 21034
+    },
+    {
+      "file": "european-roller-passage-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 28864
+    },
+    {
+      "file": "european-roller-passage-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 26075
+    },
+    {
+      "file": "european-roller-passage-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 36920
+    },
+    {
+      "file": "european-roller-passage-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 53239
+    },
+    {
+      "file": "european-roller-passage-1600.avif",
+      "width": 1600,
+      "height": 1067,
+      "format": "avif",
+      "bytes": 40879
+    },
+    {
+      "file": "european-roller-passage-1600.webp",
+      "width": 1600,
+      "height": 1067,
+      "format": "webp",
+      "bytes": 58574
+    },
+    {
+      "file": "european-roller-passage-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "format": "jpeg",
+      "bytes": 87124
+    },
+    {
+      "file": "european-roller-passage-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 58169
+    }
+  ]
+}
