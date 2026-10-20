@@ -19,12 +19,12 @@ Use this only when the site needs authenticated features later, such as letting 
 - URL: `https://mhtr.in`
 - Redirect URI for production: `https://mhtr.in/inaturalist/callback/`
 - Redirect URI for local testing, if iNaturalist allows it on your application: `http://localhost:8080/inaturalist/callback/`
-- Confidential: leave unchecked for a browser-only/static Netlify site and use PKCE.
+- Confidential: leave unchecked for a browser-only static site (Cloudflare Pages) and use PKCE.
 - Description: `Mukundara Hills Tiger Reserve biodiversity reference site using iNaturalist project data for public species context.`
 
-If we later add authenticated features through Netlify Functions or another backend that can store secrets securely, then a confidential app can make sense.
+If we later add authenticated features through Cloudflare Pages Functions or another backend that can store secrets securely, then a confidential app can make sense.
 
-After saving, keep the generated client ID. Do not put the client secret in frontend code, Git, Netlify public environment variables, or screenshots. For the current public-read integration, neither value is needed.
+After saving, keep the generated client ID. Do not put the client secret in frontend code, Git, Cloudflare Pages public environment variables, or screenshots. For the current public-read integration, neither value is needed.
 
 ## Useful Public Endpoints
 
