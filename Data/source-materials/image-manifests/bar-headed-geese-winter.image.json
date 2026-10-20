@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T09:56:47.111Z",
+  "source": {
+    "fileName": "DSCN1473.JPG.jpeg",
+    "width": 1440,
+    "height": 1080,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Bar-headed Geese in winter",
+    "alt": "Bar-headed Geese grazing at a winter wetland edge",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-02-01",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "bar-headed-geese-winter-480.avif",
+      "width": 480,
+      "height": 360,
+      "format": "avif",
+      "bytes": 12747
+    },
+    {
+      "file": "bar-headed-geese-winter-480.webp",
+      "width": 480,
+      "height": 360,
+      "format": "webp",
+      "bytes": 17368
+    },
+    {
+      "file": "bar-headed-geese-winter-480.jpg",
+      "width": 480,
+      "height": 360,
+      "format": "jpeg",
+      "bytes": 22991
+    },
+    {
+      "file": "bar-headed-geese-winter-800.avif",
+      "width": 800,
+      "height": 600,
+      "format": "avif",
+      "bytes": 25611
+    },
+    {
+      "file": "bar-headed-geese-winter-800.webp",
+      "width": 800,
+      "height": 600,
+      "format": "webp",
+      "bytes": 34448
+    },
+    {
+      "file": "bar-headed-geese-winter-800.jpg",
+      "width": 800,
+      "height": 600,
+      "format": "jpeg",
+      "bytes": 50006
+    },
+    {
+      "file": "bar-headed-geese-winter-1200.avif",
+      "width": 1200,
+      "height": 900,
+      "format": "avif",
+      "bytes": 42578
+    },
+    {
+      "file": "bar-headed-geese-winter-1200.webp",
+      "width": 1200,
+      "height": 900,
+      "format": "webp",
+      "bytes": 58718
+    },
+    {
+      "file": "bar-headed-geese-winter-1200.jpg",
+      "width": 1200,
+      "height": 900,
+      "format": "jpeg",
+      "bytes": 92380
+    },
+    {
+      "file": "bar-headed-geese-winter-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 81982
+    }
+  ]
+}

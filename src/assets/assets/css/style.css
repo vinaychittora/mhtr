@@ -5306,3 +5306,45 @@ html.has-nav-drawer {
 @media (max-width:700px){
   .mandirgarh-hero__topline{top:16px;right:16px;left:16px;align-items:center;gap:8px}.pilot-badge{max-width:none;white-space:nowrap}.pilot-badge[data-language-panel="en"],.pilot-badge[data-language-panel="hi"]{font-size:0}.pilot-badge[data-language-panel="en"]::after{font-size:.7rem;content:"Beta preview"}.pilot-badge[data-language-panel="hi"]::after{font-size:.7rem;content:"बीटा पूर्वावलोकन"}.mandirgarh-hero__image{object-position:center center;transform:translateX(5%);-webkit-mask-image:linear-gradient(0deg,#000 0%,#000 75%,rgba(0,0,0,.7) 90%,transparent 100%);mask-image:linear-gradient(0deg,#000 0%,#000 75%,rgba(0,0,0,.7) 90%,transparent 100%)}.mandirgarh-hero__shade{background:linear-gradient(0deg,rgba(27,15,5,.94) 0%,rgba(27,15,5,.72) 56%,rgba(27,15,5,.06) 100%)}.mandirgarh-hero__content h1{font-size:clamp(2.45rem,12vw,3.7rem)}.landscape-divider__caption span{align-items:start;flex-direction:column;gap:5px}.nature-details{grid-template-columns:repeat(2,1fr)}.nature-detail{height:300px;border-radius:70px 70px 14px 14px}.nature-detail:nth-of-type(even){transform:none}.species-gallery{grid-template-columns:1fr;grid-auto-rows:auto}.wildlife-strip figure.species-card,.wildlife-strip figure.species-card--small,.wildlife-strip figure.species-card--portrait,.wildlife-strip figure.species-card:nth-child(n+6){grid-column:auto;grid-row:auto;height:300px;min-height:0}.stay-preview>img{object-position:32% center}
 }
+
+/* Mobile drawer: keep the closed drawer out of the focus order and drop its shadow
+   so it does not show as a grey band on the right edge. */
+@media (max-width: 980px) {
+  #primary-menu {
+    visibility: hidden;
+    box-shadow: none;
+    transition: transform 180ms ease, visibility 0s linear 180ms;
+  }
+
+  .site-header.is-menu-open #primary-menu {
+    visibility: visible;
+    box-shadow: -22px 0 60px rgba(0, 0, 0, 0.34);
+    transition: transform 180ms ease, visibility 0s;
+  }
+}
+
+/* Small phones: the floating "Fund this portal" tab covers text at the right edge.
+   The footer support strip carries the same call to action. */
+@media (max-width: 620px) {
+  .support-rail {
+    display: none;
+  }
+}
+
+/* Month-by-month seasons table */
+.seasons-table th[scope="row"] {
+  white-space: nowrap;
+}
+
+.seasons-table td {
+  min-width: 160px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Narrow desktops: drop top-level nav icons so six menu items fit before the drawer breakpoint. */
+@media (min-width: 981px) and (max-width: 1199px) {
+  #primary-menu .nav-link > .ui-icon {
+    display: none;
+  }
+}

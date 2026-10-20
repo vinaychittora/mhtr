@@ -1,4 +1,4 @@
-[ 
+[
   {"label": "Home", "href": "/", "match": "/", "icon": "home"},
   {
     "label": "Explore",
@@ -7,11 +7,12 @@
     "section": "explore",
     "icon": "mountain",
     "children": [
-      {"label": "Landscape", "href": "/landscape/", "match": "/landscape/", "icon": "mountain", "description": "Terrain, habitat, corridors and pressure context"},
+      {"label": "Landscape", "href": "/landscape/", "match": "/landscape/", "icon": "mountain", "description": "Terrain, habitat, water and pressure context"},
+      {"label": "Rivers, Corridors & Heritage", "href": "/landscape/rivers-and-heritage/", "match": "/landscape/rivers-and-heritage/", "icon": "map", "description": "Chambal, Kalisindh, Ahu, Amjhar, Abheda, habitat links and forts"},
+      {"label": "Seasons, Month by Month", "href": "/landscape/seasons/", "match": "/landscape/seasons/", "icon": "leaf", "description": "What changes in the habitat through the year"},
       {"label": "Illustrated Overview", "href": "/landscape/illustrated-overview/", "match": "/landscape/illustrated-overview/", "icon": "map", "description": "Artist-made visual guide to the Mukundara landscape"},
       {"label": "GIS Maps", "href": "/gis-maps/", "match": "/gis-maps/", "icon": "map", "description": "Boundary, hydrology, terrain, elevation and land cover"},
-      {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf", "description": "Species lists and citizen-science context"},
-      {"label": "Mandirgarh Homestay Pilot", "href": "/mandirgarh-homestay/", "match": "/mandirgarh-homestay/", "icon": "home", "description": "Bilingual community homestay, nature and heritage proposal"}
+      {"label": "Biodiversity", "href": "/biodiversity/", "match": "/biodiversity/", "icon": "leaf", "description": "Species lists and citizen-science context"}
     ]
   },
   {"label": "Field Reports", "href": "/field-reports/", "match": "/field-reports/", "section": "field-reports", "collection": "fieldReports", "icon": "note"},
@@ -25,7 +26,18 @@
       {"label": "Resource Archive", "href": "/resources/", "match": "/resources/", "icon": "book", "description": "Official documents, PDFs and source links"},
       {"label": "Boundary & Notifications", "href": "/boundaries-and-notifications/", "match": "/boundaries-and-notifications/", "icon": "map", "description": "Notified core, buffer, ESZ and dated legal record"},
       {"label": "Conservation Evidence", "href": "/conservation/", "match": "/conservation/", "icon": "leaf", "description": "Challenges, documented responses and public outcome tracking"},
+      {"label": "Glossary", "href": "/glossary/", "match": "/glossary/", "icon": "book", "description": "Plain-language meanings of legal, ecological and local terms"},
       {"label": "About & Ethics", "href": "/about/", "match": "/about/", "icon": "info", "description": "Editorial approach and conservation-safe publishing"}
+    ]
+  },
+  {
+    "label": "Projects",
+    "href": "/mandirgarh-homestay/",
+    "match": "/mandirgarh-homestay/",
+    "section": "projects",
+    "icon": "home",
+    "children": [
+      {"label": "Proposal: Mandirgarh Community Nature Stay", "href": "/mandirgarh-homestay/", "match": "/mandirgarh-homestay/", "icon": "home", "description": "The site author's own consultation-stage proposal. Not open for booking."}
     ]
   },
   {"label": "Search", "href": "/search/", "match": "/search/", "section": "search", "icon": "search"}

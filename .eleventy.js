@@ -176,6 +176,17 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/</g, "\\u003c");
   });
 
+  // Responsive photo prepared by `npm run images:web` (WebP 480/800/1200[/1600] + 1200px JPEG fallback).
+  eleventyConfig.addShortcode("photo", (slug, alt, ratio = "3/2", sizes = "(max-width: 760px) calc(100vw - 30px), 760px", loading = "lazy") => {
+    const fs = require("fs");
+    const base = `/assets/imgs/landscape/${slug}`;
+    const widths = [480, 800, 1200, 1600].filter((w) => fs.existsSync(`src/assets/assets/imgs/landscape/${slug}-${w}.webp`));
+    const [rw, rh] = String(ratio).split("/").map(Number);
+    const height = Math.round((1200 * rh) / rw);
+    const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+    return `<picture><source type="image/webp" srcset="${widths.map((w) => `${base}-${w}.webp ${w}w`).join(", ")}" sizes="${sizes}"><img src="${base}-1200.jpg" alt="${esc(alt)}" width="1200" height="${height}" loading="${loading}" decoding="async"></picture>`;
+  });
+
   eleventyConfig.addShortcode("documentJsonLd", (site, page, doc, archiveAvailable, archiveUrl) => {
     const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
     const payload = {
@@ -338,9 +349,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
-  eleventyConfig.addPassthroughCopy({ "mandirgarh-trails-map.html": "mandirgarh-trails-map.html" });
-  // The public interactive map is an indicative planning aid. Downloadable route
-  // files and other sensitive working data remain outside the published build.
+  // Mandirgarh trail maps, site points and route tracks are working data for the
+  // proposal. They live in Data/source-materials/mandirgarh-plan/ and are never
+  // copied into the published build.
 
   return {
     dir: {

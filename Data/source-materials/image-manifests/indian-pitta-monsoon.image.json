@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T09:52:35.120Z",
+  "source": {
+    "fileName": "DSCF8107.jpg",
+    "width": 4713,
+    "height": 3142,
+    "metadataRemoved": [
+      "GPS",
+      "camera",
+      "device",
+      "software",
+      "embedded-thumbnail"
+    ]
+  },
+  "publishing": {
+    "title": "Indian Pitta in the monsoon understorey",
+    "alt": "Indian Pitta perched on a low branch in green monsoon forest",
+    "credit": "Vinay Chittora",
+    "license": "All rights reserved",
+    "source": "Original photograph, Mukundara landscape, Rajasthan",
+    "capturedAt": "2026-08-07",
+    "sensitiveLocationReviewed": true
+  },
+  "derivatives": [
+    {
+      "file": "indian-pitta-monsoon-480.avif",
+      "width": 480,
+      "height": 319,
+      "format": "avif",
+      "bytes": 15110
+    },
+    {
+      "file": "indian-pitta-monsoon-480.webp",
+      "width": 480,
+      "height": 319,
+      "format": "webp",
+      "bytes": 20438
+    },
+    {
+      "file": "indian-pitta-monsoon-480.jpg",
+      "width": 480,
+      "height": 319,
+      "format": "jpeg",
+      "bytes": 25426
+    },
+    {
+      "file": "indian-pitta-monsoon-800.avif",
+      "width": 800,
+      "height": 533,
+      "format": "avif",
+      "bytes": 31449
+    },
+    {
+      "file": "indian-pitta-monsoon-800.webp",
+      "width": 800,
+      "height": 533,
+      "format": "webp",
+      "bytes": 42964
+    },
+    {
+      "file": "indian-pitta-monsoon-800.jpg",
+      "width": 800,
+      "height": 533,
+      "format": "jpeg",
+      "bytes": 56643
+    },
+    {
+      "file": "indian-pitta-monsoon-1200.avif",
+      "width": 1200,
+      "height": 800,
+      "format": "avif",
+      "bytes": 56307
+    },
+    {
+      "file": "indian-pitta-monsoon-1200.webp",
+      "width": 1200,
+      "height": 800,
+      "format": "webp",
+      "bytes": 80468
+    },
+    {
+      "file": "indian-pitta-monsoon-1200.jpg",
+      "width": 1200,
+      "height": 800,
+      "format": "jpeg",
+      "bytes": 107979
+    },
+    {
+      "file": "indian-pitta-monsoon-1600.avif",
+      "width": 1600,
+      "height": 1067,
+      "format": "avif",
+      "bytes": 88855
+    },
+    {
+      "file": "indian-pitta-monsoon-1600.webp",
+      "width": 1600,
+      "height": 1067,
+      "format": "webp",
+      "bytes": 137700
+    },
+    {
+      "file": "indian-pitta-monsoon-1600.jpg",
+      "width": 1600,
+      "height": 1067,
+      "format": "jpeg",
+      "bytes": 178627
+    },
+    {
+      "file": "indian-pitta-monsoon-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "format": "jpeg",
+      "purpose": "social-preview",
+      "bytes": 92539
+    }
+  ]
+}
