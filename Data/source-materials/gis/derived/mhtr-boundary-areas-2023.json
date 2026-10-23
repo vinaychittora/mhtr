@@ -1,0 +1,197 @@
+{
+  "stats": {
+    "build_date": "2026-10-23",
+    "outer_boundary_km2": 960.75,
+    "outer_parts": 4,
+    "outer_with_esz_km2": 1514.62,
+    "outer_with_esz_parts": 2,
+    "outer_with_esz_holes": [
+      3.51
+    ],
+    "outer_holes": 13,
+    "outer_hole_list": [
+      {
+        "area_km2": 13.3,
+        "lon": 75.5028,
+        "lat": 24.9299
+      },
+      {
+        "area_km2": 6.21,
+        "lon": 75.4882,
+        "lat": 24.9726
+      },
+      {
+        "area_km2": 3.75,
+        "lon": 75.5302,
+        "lat": 24.8756
+      },
+      {
+        "area_km2": 2.51,
+        "lon": 75.5512,
+        "lat": 24.8315
+      },
+      {
+        "area_km2": 2.22,
+        "lon": 75.5094,
+        "lat": 24.8542
+      },
+      {
+        "area_km2": 1.13,
+        "lon": 75.5021,
+        "lat": 24.8395
+      },
+      {
+        "area_km2": 0.92,
+        "lon": 75.5533,
+        "lat": 24.9084
+      },
+      {
+        "area_km2": 0.86,
+        "lon": 75.5364,
+        "lat": 24.8486
+      },
+      {
+        "area_km2": 0.74,
+        "lon": 75.4919,
+        "lat": 24.7928
+      },
+      {
+        "area_km2": 0.34,
+        "lon": 75.8007,
+        "lat": 24.9018
+      },
+      {
+        "area_km2": 0.28,
+        "lon": 75.5111,
+        "lat": 24.8279
+      },
+      {
+        "area_km2": 0.06,
+        "lon": 75.6728,
+        "lat": 25.0735
+      },
+      {
+        "area_km2": 0.05,
+        "lon": 75.6332,
+        "lat": 25.0341
+      }
+    ],
+    "reserve_file_km2": 744.98,
+    "unit_files_in_reserve_file_holes_km2": 6.73,
+    "unit_files_outside_reserve_file_km2": 2.64,
+    "buffer_blocks_2023_drawn_km2": 1.84,
+    "not_mapped_notified_km2": 179.96,
+    "notified": {
+      "reserve_2023": 1135.787,
+      "core_2023": 690.71,
+      "buffer_2023": 445.08,
+      "reserve_2013": 759.99,
+      "core_2013": 417.17,
+      "buffer_2013": 342.82,
+      "core_added_2023_forest_blocks": 193.09,
+      "core_added_2023_villages": 80.45,
+      "buffer_added_2023": 102.25,
+      "buffer_added_2023_whole_blocks": 2.7392,
+      "esz_2020": 248.7,
+      "esz_bhainsrorgarh_2021": 304.7
+    }
+  },
+  "layers": [
+    {
+      "layer": "outer-boundary",
+      "name": "Reserve outer boundary (2023 extent, as far as public files draw it)",
+      "measured_area_km2_wgs84": 960.75,
+      "notified_area_km2": 1135.787,
+      "difference_km2": -175.04,
+      "reliability": "Official files joined; about 180 km\u00b2 of the notified reserve has no outline of its own in any public file and, apart from any village land inside the Bhainsrorgarh sanctuary file, is not included."
+    },
+    {
+      "layer": "outer-boundary-with-esz",
+      "name": "Reserve and eco-sensitive zones, outer boundary",
+      "measured_area_km2_wgs84": 1514.62,
+      "notified_area_km2": null,
+      "difference_km2": null,
+      "reliability": "Official files joined. Covers the reserve outline above plus both notified eco-sensitive zones, which also take in all nine enclaves inside the Bhainsrorgarh sanctuary file and part of the unmapped 2023 buffer. Going by the Kota block file, at least about 8 km\u00b2 of the 2023 Akelgarh addition and small parts of Sakatpura and Karondi fall outside; the National Chambal piece and part of the 2023 core villages (the OpenStreetMap point for Kolpura is about 0.5 km outside) may too. The 3.5 km\u00b2 hole around Jawara Khurd is drawn by the ESZ file, but the Gazette lists Jawara Khurd as an ESZ village."
+    },
+    {
+      "layer": "core-2013-approx",
+      "name": "Core 2013 (approximate)",
+      "measured_area_km2_wgs84": 425.39,
+      "notified_area_km2": 417.17,
+      "difference_km2": 8.22,
+      "reliability": "Approximate. No official file draws the core. This layer counts about 18 km\u00b2 of Jawahar Sagar and Darrah buffer blocks as core and misses the 7.75 km\u00b2 National Chambal core part. It also includes 6.7 km\u00b2 of village holes that the reserve file leaves open (nearly all Girdharpura, which the Tiger Conservation Plan lists as a core village) and 2.6 km\u00b2 around Borabas that only the Jawahar Sagar file draws."
+    },
+    {
+      "layer": "buffer-2013-approx",
+      "name": "Buffer 2013 (approximate)",
+      "measured_area_km2_wgs84": 328.97,
+      "notified_area_km2": 342.82,
+      "difference_km2": -13.85,
+      "reliability": "Approximate, with the same misassignment as the core layer in reverse."
+    },
+    {
+      "layer": "core-added-2023",
+      "name": "Core added 2023: Bhainsrorgarh WLS forest blocks",
+      "measured_area_km2_wgs84": 205.47,
+      "notified_area_km2": 193.09,
+      "difference_km2": 12.38,
+      "reliability": "Official sanctuary file (2018). The notification adds 12 forest blocks (193.09 km\u00b2); the file draws the whole sanctuary, so the two differ. Sanctuary area is 201.4 km\u00b2 in the file's attribute but 275.45 km\u00b2 in the 2021 ESZ notification."
+    },
+    {
+      "layer": "buffer-added-2023-mapped",
+      "name": "Buffer added 2023: whole blocks a public file draws, outside the 2013 files",
+      "measured_area_km2_wgs84": 0.92,
+      "notified_area_km2": 102.25,
+      "difference_km2": -101.33,
+      "reliability": "Only the three blocks the notification adds whole (Barkheda, Rawtha, Borabas-B; 2.74 km\u00b2 notified), which the Kota file draws at 1.84 km\u00b2. Rawtha and Borabas-B lie almost wholly inside the 2013 files, so this layer is the other 0.92 km\u00b2, nearly all Barkheda. The file draws Borabas-B at 0.50 km\u00b2 against 1.38 km\u00b2 notified. Part-blocks, compartments, the Bundi additions and the National Chambal piece have no outline of their own in any public file."
+    },
+    {
+      "layer": "esz-2020",
+      "name": "Eco-sensitive zone around MHTR (2020)",
+      "measured_area_km2_wgs84": 254.18,
+      "notified_area_km2": 248.7,
+      "difference_km2": 5.48,
+      "reliability": "Official ESZ file minus the reserve, park and sanctuary files. Notified as 0\u20131 km, but near Rawatbhata it reaches about 5.4 km from the reserve file, up to the edge of Bhainsrorgarh Wildlife Sanctuary (Annexure-I gives that stretch zero width 'due to Bhainsroadgarh Sanctuary on the other side'). Drawn around the 2013 reserve; it crosses forest blocks partly added to the buffer in 2023, and no file shows whether the added parts fall inside it. The Girdharpura village hole in the reserve file is counted as reserve, not ESZ."
+    },
+    {
+      "layer": "esz-bhainsrorgarh-2021",
+      "name": "Eco-sensitive zone around Bhainsrorgarh WLS (2021)",
+      "measured_area_km2_wgs84": 300.33,
+      "notified_area_km2": 304.7,
+      "difference_km2": -4.37,
+      "reliability": "Official ESZ file minus the sanctuary and reserve files. Within 1.5% of the notified 304.70 km\u00b2. The notification gives a width of 0\u20139.6 km, zero to the north and north-east where Jawahar Sagar and the national park adjoin. The file's BUFF_DIST attribute (3000) does not describe the drawn band."
+    },
+    {
+      "layer": "unit-np",
+      "name": "Mukundara Hills National Park (constituent unit)",
+      "measured_area_km2_wgs84": 203.26,
+      "notified_area_km2": 199.55,
+      "difference_km2": 3.71,
+      "reliability": "Official sanctuary or park file (2018). Outline only; it does not show core or buffer. Notified area is the file's own NOTIFY_ARE attribute."
+    },
+    {
+      "layer": "unit-darrah",
+      "name": "Darrah Wildlife Sanctuary (constituent unit)",
+      "measured_area_km2_wgs84": 220.27,
+      "notified_area_km2": 225.44,
+      "difference_km2": -5.17,
+      "reliability": "Official sanctuary or park file (2018). Outline only; it does not show core or buffer. Notified area is the file's own NOTIFY_ARE attribute."
+    },
+    {
+      "layer": "unit-jawahar-sagar",
+      "name": "Jawahar Sagar Wildlife Sanctuary (constituent unit)",
+      "measured_area_km2_wgs84": 196.46,
+      "notified_area_km2": 193.1,
+      "difference_km2": 3.36,
+      "reliability": "Official sanctuary or park file (2018). Outline only; it does not show core or buffer. Notified area is the file's own NOTIFY_ARE attribute."
+    },
+    {
+      "layer": "unit-bhainsrorgarh-wls",
+      "name": "Bhainsrorgarh Wildlife Sanctuary (constituent unit)",
+      "measured_area_km2_wgs84": 206.01,
+      "notified_area_km2": 201.4,
+      "difference_km2": 4.61,
+      "reliability": "Official sanctuary or park file (2018). Outline only; it does not show core or buffer. Notified area is the file's own NOTIFY_ARE attribute."
+    }
+  ]
+}
