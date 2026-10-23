@@ -80,7 +80,7 @@
     "unit_files_in_reserve_file_holes_km2": 6.73,
     "unit_files_outside_reserve_file_km2": 2.64,
     "buffer_blocks_2023_drawn_km2": 1.84,
-    "not_mapped_notified_km2": 180.86,
+    "not_mapped_notified_km2": 179.96,
     "notified": {
       "reserve_2023": 1135.787,
       "core_2023": 690.71,
@@ -91,6 +91,7 @@
       "core_added_2023_forest_blocks": 193.09,
       "core_added_2023_villages": 80.45,
       "buffer_added_2023": 102.25,
+      "buffer_added_2023_whole_blocks": 2.7392,
       "esz_2020": 248.7,
       "esz_bhainsrorgarh_2021": 304.7
     }
@@ -102,7 +103,7 @@
       "measured_area_km2_wgs84": 960.75,
       "notified_area_km2": 1135.787,
       "difference_km2": -175.04,
-      "reliability": "Official files joined; about 181 km\u00b2 of the notified reserve has no public map and is not included."
+      "reliability": "Official files joined; about 180 km\u00b2 of the notified reserve has no public map and is not included."
     },
     {
       "layer": "outer-boundary-with-esz",

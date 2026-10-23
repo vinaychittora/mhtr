@@ -66,6 +66,8 @@ NOTIFIED = {
     "core_added_2023_forest_blocks": 193.09,
     "core_added_2023_villages": 80.45,
     "buffer_added_2023": 102.25,
+    # Barkheda 90.76 ha, Rawtha 45.35 ha and Borabas-B 137.81 ha: the 2023 buffer blocks added whole, which a map file draws.
+    "buffer_added_2023_whole_blocks": 2.7392,
     "esz_2020": 248.70,
     "esz_bhainsrorgarh_2021": 304.70,
 }
@@ -255,7 +257,7 @@ def build(sources: dict) -> tuple[dict, list[dict]]:
     # Each ESZ band is its file minus every reserve file, so no land counts as both reserve and ESZ.
     esz_2020 = clean(g["esz_2020_envelope"].difference(reserve_files))
     esz_2021 = clean(g["esz_bhainsrorgarh_2021"].difference(reserve_files))
-    not_mapped = NOTIFIED["core_added_2023_villages"] + NOTIFIED["buffer_added_2023"] - blocks_drawn
+    not_mapped = NOTIFIED["core_added_2023_villages"] + NOTIFIED["buffer_added_2023"] - (NOTIFIED["buffer_added_2023_whole_blocks"] if buffer_blocks_2023 is not None else 0)
 
     layers = [
         {

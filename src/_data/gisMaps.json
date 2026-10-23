@@ -11,7 +11,7 @@
     "width": 2400,
     "height": 1600,
     "summary": "One view of every legal layer the Forest Department's public map files can draw: the 2013 core and buffer (approximate, because no file separates them), the Bhainsrorgarh sanctuary added to the core in 2023, the one small 2023 buffer block a file draws outside the 2013 files (Barkheda; the Kota file's other two whole blocks lie inside the 2013 files), and both eco-sensitive zones. The legend gives each layer's measured area against its notified area.",
-    "useFor": "Use this as the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 181 km² of the notified 2023 reserve cannot be drawn from any public file.",
+    "useFor": "Use this as the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 180 km² of the notified 2023 reserve cannot be drawn from any public file.",
     "sources": "Rajasthan Forest Department map files (2018 sanctuary and park files, reserve file, 2026 ESZ files); notifications of 9 Apr 2013 and 5 Oct 2023; MoEFCC S.O. 4268(E) (2020) and S.O. 3683(E) (2021); OpenStreetMap via Overture Maps for rivers, roads and towns",
     "sourceLinks": [
       {
