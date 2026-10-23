@@ -10,8 +10,8 @@
     "alt": "MHTR core, buffer and eco-sensitive zones (2020 MHTR and 2021 Bhainsrorgarh) drawn from Rajasthan Forest Department map files",
     "width": 2400,
     "height": 1600,
-    "summary": "One view of every legal layer the Forest Department's public map files can draw: the 2013 core and buffer (approximate, because no file separates them), the Bhainsrorgarh sanctuary added to the core in 2023, the three small 2023 buffer blocks that can be drawn, and both eco-sensitive zones. The legend gives each layer's measured area against its notified area.",
-    "useFor": "Use this as the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 182 km² of the notified 2023 reserve cannot be drawn from any public file.",
+    "summary": "One view of every legal layer the Forest Department's public map files can draw: the 2013 core and buffer (approximate, because no file separates them), the Bhainsrorgarh sanctuary added to the core in 2023, the one small 2023 buffer block a file draws outside the 2013 files (Barkheda; the Kota file's other two whole blocks lie inside the 2013 files), and both eco-sensitive zones. The legend gives each layer's measured area against its notified area.",
+    "useFor": "Use this as the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 181 km² of the notified 2023 reserve cannot be drawn from any public file.",
     "sources": "Rajasthan Forest Department map files (2018 sanctuary and park files, reserve file, 2026 ESZ files); notifications of 9 Apr 2013 and 5 Oct 2023; MoEFCC S.O. 4268(E) (2020) and S.O. 3683(E) (2021); OpenStreetMap via Overture Maps for rivers, roads and towns",
     "sourceLinks": [
       {
@@ -51,7 +51,7 @@
     "alt": "Map of the parts of the 2023 MHTR reserve no public file draws: core villages as points, partly added forest blocks, and gaps between files",
     "width": 2400,
     "height": 1600,
-    "summary": "Shows what the public files leave out. The 21 revenue villages added to the core in 2023 have no boundaries in any public file; 18 are marked by their OpenStreetMap village points. Six forest blocks were added to the buffer only in part, by area or compartment, so only the whole blocks can be outlined. The map also marks a 6.2 km² pocket inside the reserve that no file draws, and land the 2020 ESZ and the 2023 buffer both claim.",
+    "summary": "Shows what the public files leave out. The 21 revenue villages added to the core in 2023 have no boundaries in any public file; 18 are marked by their OpenStreetMap village points. Six forest blocks were added to the buffer only in part, by area or compartment, so only the whole blocks can be outlined. The map also marks where the ESZ bands cross those blocks, so some land may be both ESZ and 2023 buffer, and a 6.2 km² area around Daulatpura that the reserve files close round but none includes; the 2020 ESZ file covers most of it.",
     "useFor": "Use this before quoting an area or making an overlay, and when asking the Forest Department for the 2023 schedules as maps.",
     "sources": "Rajasthan Forest Department map files, including the Kota (2018) and Bundi (2023) forest-block files; notification of 5 Oct 2023; OpenStreetMap via Overture Maps for village points",
     "sourceLinks": [
@@ -80,7 +80,7 @@
     "alt": "Map of the 2020 MHTR and 2021 Bhainsrorgarh eco-sensitive zones around the reserve, with the hole in the official ESZ file outlined",
     "width": 2400,
     "height": 1600,
-    "summary": "Two notifications set eco-sensitive zones here. The 2020 MHTR ESZ (248.70 km² notified) was drawn around the 2013 reserve; the Forest Department's file for it is an outer envelope of reserve plus zone (1,003.91 km² on the WGS84 ellipsoid), so the band shown is the envelope minus the reserve file. The 2021 Bhainsrorgarh ESZ (304.70 km² notified, 300.35 km² drawn) surrounds the sanctuary that became core in 2023.",
+    "summary": "Two notifications set eco-sensitive zones here. The 2020 MHTR ESZ (248.70 km² notified) was drawn around the 2013 reserve; the Forest Department's file for it is an outer envelope of reserve plus zone (1,003.91 km² on the WGS84 ellipsoid), so the band shown is the envelope minus the reserve, park and sanctuary files. The 2021 Bhainsrorgarh ESZ (304.70 km² notified, 300.33 km² drawn) surrounds the sanctuary that became core in 2023.",
     "useFor": "Use this to see where ESZ rules apply, and why the envelope area must not be quoted as the ESZ area.",
     "sources": "MoEFCC S.O. 4268(E), 25 Nov 2020, and S.O. 3683(E), 10 Sep 2021; Forest Department ESZ files MHTR.kmz and BHAINSROAD ESZ.kmz, as on 1 Jun 2026; OpenStreetMap via Overture Maps",
     "sourceLinks": [

@@ -4,7 +4,7 @@
   "classes": {
     "Tree cover": {
       "reserve": 0.1655,
-      "esz_outside_reserve": 0.0368
+      "esz_outside_reserve": 0.0369
     },
     "Shrubland": {
       "reserve": 0.2131,

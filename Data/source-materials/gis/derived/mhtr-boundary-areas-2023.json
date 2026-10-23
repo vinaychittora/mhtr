@@ -77,8 +77,10 @@
       }
     ],
     "reserve_file_km2": 744.98,
-    "unit_edges_outside_reserve_file_km2": 9.37,
-    "not_mapped_notified_km2": 181.78,
+    "unit_files_in_reserve_file_holes_km2": 6.73,
+    "unit_files_outside_reserve_file_km2": 2.64,
+    "buffer_blocks_2023_drawn_km2": 1.84,
+    "not_mapped_notified_km2": 180.86,
     "notified": {
       "reserve_2023": 1135.787,
       "core_2023": 690.71,
@@ -100,7 +102,7 @@
       "measured_area_km2_wgs84": 960.75,
       "notified_area_km2": 1135.787,
       "difference_km2": -175.04,
-      "reliability": "Official files joined; about 182 km\u00b2 of the notified reserve has no public map and is not included."
+      "reliability": "Official files joined; about 181 km\u00b2 of the notified reserve has no public map and is not included."
     },
     {
       "layer": "outer-boundary-with-esz",
@@ -108,15 +110,15 @@
       "measured_area_km2_wgs84": 1514.62,
       "notified_area_km2": null,
       "difference_km2": null,
-      "reliability": "Official files joined. Covers the reserve outline above plus both notified eco-sensitive zones, which also take in most of the village enclaves inside Bhainsrorgarh and part of the unmapped 2023 buffer. Some 2023 additions near Kota and in Bundi may still fall outside."
+      "reliability": "Official files joined. Covers the reserve outline above plus both notified eco-sensitive zones, which also take in all nine village enclaves inside the Bhainsrorgarh sanctuary file and part of the unmapped 2023 buffer. Some 2023 buffer additions near Kota and in Bundi, and part of the 2023 core villages (the OpenStreetMap point for Kolpura is about 0.5 km outside), may still fall outside."
     },
     {
       "layer": "core-2013-approx",
       "name": "Core 2013 (approximate)",
-      "measured_area_km2_wgs84": 416.02,
+      "measured_area_km2_wgs84": 425.39,
       "notified_area_km2": 417.17,
-      "difference_km2": -1.15,
-      "reliability": "Approximate. No official file draws the core. This layer counts about 18 km\u00b2 of Jawahar Sagar and Darrah buffer blocks as core and misses the 7.75 km\u00b2 National Chambal core part."
+      "difference_km2": 8.22,
+      "reliability": "Approximate. No official file draws the core. This layer counts about 18 km\u00b2 of Jawahar Sagar and Darrah buffer blocks as core and misses the 7.75 km\u00b2 National Chambal core part. It also includes 6.7 km\u00b2 of village holes that the reserve file leaves open (nearly all Girdharpura, which the Tiger Conservation Plan lists as a core village) and 2.6 km\u00b2 around Borabas that only the Jawahar Sagar file draws."
     },
     {
       "layer": "buffer-2013-approx",
@@ -136,27 +138,27 @@
     },
     {
       "layer": "buffer-added-2023-mapped",
-      "name": "Buffer added 2023: whole blocks a public file draws",
+      "name": "Buffer added 2023: whole blocks a public file draws, outside the 2013 files",
       "measured_area_km2_wgs84": 0.92,
       "notified_area_km2": 102.25,
       "difference_km2": -101.33,
-      "reliability": "Only the three blocks the notification adds whole (Barkheda, Rawtha, Borabas-B; 2.74 km\u00b2 notified), and most of that already lies inside the reserve file. The file draws Borabas-B at 0.50 km\u00b2 against 1.38 km\u00b2 notified. Part-blocks, compartments, the Bundi additions and the National Chambal piece have no public map."
+      "reliability": "Only the three blocks the notification adds whole (Barkheda, Rawtha, Borabas-B; 2.74 km\u00b2 notified), which the Kota file draws at 1.84 km\u00b2. Rawtha and Borabas-B lie almost wholly inside the 2013 files, so this layer is the other 0.92 km\u00b2, nearly all Barkheda. The file draws Borabas-B at 0.50 km\u00b2 against 1.38 km\u00b2 notified. Part-blocks, compartments, the Bundi additions and the National Chambal piece have no public map."
     },
     {
       "layer": "esz-2020",
       "name": "Eco-sensitive zone around MHTR (2020)",
-      "measured_area_km2_wgs84": 261.93,
+      "measured_area_km2_wgs84": 254.18,
       "notified_area_km2": 248.7,
-      "difference_km2": 13.23,
-      "reliability": "Official ESZ file minus the reserve file. Notified as 0\u20131 km but up to about 4.7 km wide in places. Drawn around the 2013 reserve; part of it is now 2023 buffer."
+      "difference_km2": 5.48,
+      "reliability": "Official ESZ file minus the reserve, park and sanctuary files. Notified as 0\u20131 km but about 5.4 km wide near Rawatbhata. Drawn around the 2013 reserve; it crosses forest blocks partly added to the buffer in 2023, and no file shows whether the added parts fall inside it. The Girdharpura village hole in the reserve file is counted as reserve, not ESZ."
     },
     {
       "layer": "esz-bhainsrorgarh-2021",
       "name": "Eco-sensitive zone around Bhainsrorgarh WLS (2021)",
-      "measured_area_km2_wgs84": 300.35,
+      "measured_area_km2_wgs84": 300.33,
       "notified_area_km2": 304.7,
-      "difference_km2": -4.35,
-      "reliability": "Official ESZ file minus the sanctuary file. Within 1.5% of the notified 304.70 km\u00b2. The notification gives a width of 0\u20139.6 km, zero to the north and north-east where Jawahar Sagar and the national park adjoin. The file's BUFF_DIST attribute (3000) does not describe the drawn band."
+      "difference_km2": -4.37,
+      "reliability": "Official ESZ file minus the sanctuary and reserve files. Within 1.5% of the notified 304.70 km\u00b2. The notification gives a width of 0\u20139.6 km, zero to the north and north-east where Jawahar Sagar and the national park adjoin. The file's BUFF_DIST attribute (3000) does not describe the drawn band."
     },
     {
       "layer": "unit-np",

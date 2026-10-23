@@ -21,6 +21,7 @@ import hashlib
 import io
 import json
 import math
+import sys
 import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -147,6 +148,11 @@ def area_km2(geom) -> float:
     return abs(GEOD.geometry_area_perimeter(geom)[0]) / 1e6 if not geom.is_empty else 0.0
 
 
+def block_name(props: dict) -> str:
+    """The notification's name for a partly added block ("Sakatpura", not the file's "SAKATPUR")."""
+    return props["notified_part"].split(" compartment")[0]
+
+
 def load_layers() -> dict:
     zones, _ = read_features(ZONES_PATH)
     by_id = {p["layer"]: (p, g) for p, g in zones if p["layer"] != "context-partial-block"}
@@ -164,7 +170,8 @@ def load_layers() -> dict:
     reserve = geom("outer-boundary")
     landscape = geom("outer-boundary-with-esz")
     units = {key: geom(f"unit-{key}") for key in ("np", "darrah", "jawahar-sagar", "bhainsrorgarh-wls")}
-    # Holes of the reserve outline that no official file draws are gaps between two files.
+    # Holes of the reserve outline that no park or sanctuary file draws: land the reserve files close round but none
+    # includes (at this build only the area around Daulatpura, which the 2020 ESZ file covers).
     unit_holes = [Polygon(r) for g in units.values() for p in polygons_of(g) for r in p.interiors]
     file_gaps = [
         Polygon(r) for p in polygons_of(reserve) for r in p.interiors
@@ -175,6 +182,9 @@ def load_layers() -> dict:
         name = props.get("name")
         if name in CORE_VILLAGES_2023 and box(*CORE_VILLAGE_BBOX).contains(point):
             core_villages.append((CORE_VILLAGES_2023[name], point))
+    outside = [name for name, point in core_villages if not landscape.contains(point)]
+    if outside:
+        print(f"note: 2023 core village points outside the reserve-and-ESZ outline: {', '.join(outside)}", file=sys.stderr)
 
     return {
         "zones": by_id,
@@ -600,17 +610,31 @@ def hillshade(elevation: np.ndarray, view: View, azimuth: float = 315, altitude:
 
 
 TERRAIN_STOPS = [(150, (58, 102, 80)), (220, (111, 139, 84)), (300, (188, 165, 98)), (380, (178, 122, 88)), (470, (137, 91, 86)), (560, (232, 224, 205))]
-ELEVATION_STOPS = [(150, (40, 92, 112)), (220, (78, 130, 94)), (300, (157, 158, 93)), (380, (202, 151, 87)), (470, (172, 104, 82)), (520, (205, 158, 119)), (600, (237, 222, 196))]
+TERRAIN_STOP_NAMES = {150: "valleys", 220: "low hills", 300: "plateau slopes", 380: "higher ridges", 470: "high ridges", 560: "highest relief"}
+# Elevation-zone bands: (upper limit in metres, colour, legend title, note). Each band is one flat colour.
+ELEVATION_BANDS = [
+    (220, (40, 92, 112), "< 220 m", "Valleys and water-linked lowlands."),
+    (300, (78, 130, 94), "220–300 m", "Lower slopes and valley edges."),
+    (380, (157, 158, 93), "300–380 m", "Mid slopes and plateau."),
+    (470, (202, 151, 87), "380–470 m", "Upper slopes and ridge shoulders."),
+    (520, (172, 104, 82), "470–520 m", "High ridges."),
+    (math.inf, (237, 222, 196), "> 520 m", "Highest relief in this window."),
+]
 
 
-def colorize_elevation(elevation: np.ndarray, shaded: np.ndarray, stops) -> Image.Image:
-    norm = np.clip(elevation, stops[0][0], stops[-1][0])
+def colorize_elevation(elevation: np.ndarray, shaded: np.ndarray, stops=None, bands=None) -> Image.Image:
+    """Tint a DEM with a continuous ramp (`stops`) or flat bands (`bands`, as in ELEVATION_BANDS), then shade it."""
     rgb = np.zeros((*elevation.shape, 3), dtype=np.float32)
-    for (lo, c0), (hi, c1) in zip(stops[:-1], stops[1:]):
-        mask = (norm >= lo) & (norm <= hi)
-        t = np.clip((norm - lo) / max(hi - lo, 1e-6), 0, 1)
-        for i in range(3):
-            rgb[:, :, i] = np.where(mask, c0[i] + (c1[i] - c0[i]) * t, rgb[:, :, i])
+    if bands is not None:
+        index = np.digitize(elevation, [upper for upper, *_ in bands[:-1]])
+        rgb[:] = np.array([color for _, color, *_ in bands], dtype=np.float32)[index]
+    else:
+        norm = np.clip(elevation, stops[0][0], stops[-1][0])
+        for (lo, c0), (hi, c1) in zip(stops[:-1], stops[1:]):
+            mask = (norm >= lo) & (norm <= hi)
+            t = np.clip((norm - lo) / max(hi - lo, 1e-6), 0, 1)
+            for i in range(3):
+                rgb[:, :, i] = np.where(mask, c0[i] + (c1[i] - c0[i]) * t, rgb[:, :, i])
     shade = 0.6 + shaded[:, :, None] * 0.55
     return Image.fromarray(np.clip(rgb * shade, 0, 255).astype(np.uint8), "RGB")
 
@@ -797,12 +821,14 @@ def on_panel(color) -> tuple[int, int, int]:
     return tuple(int(round(c * a + b * (1 - a))) for c, b in zip(color[:3], PANEL_BG))
 
 
-def legend_item(draw, y: int, color, title: str, note: str | None = None, kind: str = "box", img: Image.Image | None = None, line_width: int = 6) -> int:
+def legend_item(draw, y: int, color, title: str, note: str | None = None, kind: str = "box", img: Image.Image | None = None, line_width: int = 6, bg=None) -> int:
     x = PANEL_RECT[0] + 32
     if kind == "hatch":
         color = (on_panel(color[0]), on_panel(color[1]))
     else:
         color = on_panel(color)
+    if bg is not None:
+        draw.rounded_rectangle((x, y, x + 42, y + 24), radius=3, fill=on_panel(bg), outline=(110, 117, 107))
     if kind == "line":
         draw.line((x, y + 12, x + 42, y + 12), fill=color, width=line_width)
     elif kind == "dash":
@@ -895,10 +921,10 @@ def render_legal_zones(layers: dict) -> Path:
     y = legend_item(draw, y, CORE, "Core, 2013 (approx.)", f"{km2(a['core-2013-approx']['measured_area_km2_wgs84'])} km² drawn vs 417.17 notified. The NP, Darrah and Jawahar Sagar files; about 26 km² is misassigned between core and buffer.")
     y = legend_item(draw, y, (CORE + (255,), (255, 255, 255, 200)), "Core added, 2023", f"Bhainsrorgarh WLS file: {km2(a['core-added-2023']['measured_area_km2_wgs84'])} km² vs 193.09 km² of notified forest blocks.", kind="hatch", img=img)
     y = legend_item(draw, y, BUFFER, "Buffer, 2013 (approx.)", f"{km2(a['buffer-2013-approx']['measured_area_km2_wgs84'])} km² vs 342.82 notified. Reserve file minus core.")
-    y = legend_item(draw, y, (BUFFER + (255,), (255, 255, 255, 220)), "Buffer added, 2023", f"Only {km2(a['buffer-added-2023-mapped']['measured_area_km2_wgs84'])} km² of 102.25 notified can be drawn: three small Kota blocks.", kind="hatch", img=img)
+    y = legend_item(draw, y, (BUFFER + (255,), (255, 255, 255, 220)), "Buffer added, 2023", f"The Kota file draws three whole blocks, {km2(layers['stats']['buffer_blocks_2023_drawn_km2'])} km² of 102.25 notified. Only the {km2(a['buffer-added-2023-mapped']['measured_area_km2_wgs84'])} km² outside the 2013 files is hatched, nearly all Barkheda.", kind="hatch", img=img)
     y = legend_item(draw, y, (ESZ + (70,), ESZ + (200,)), "Eco-sensitive zones", f"2020 MHTR ESZ {km2(a['esz-2020']['measured_area_km2_wgs84'])} km² (notified 248.70); 2021 Bhainsrorgarh ESZ {km2(a['esz-bhainsrorgarh-2021']['measured_area_km2_wgs84'])} km² (notified 304.70).", kind="hatch", img=img)
     y = legend_item(draw, y, RESERVE_LINE, "Reserve outline", f"{km2(layers['stats']['outer_boundary_km2'])} km² drawn of 1,135.79 notified.", kind="line")
-    y = legend_item(draw, y, (110, 120, 110), "Park and sanctuary edges", kind="dash")
+    y = legend_item(draw, y, (255, 255, 240), "Park and sanctuary edges", kind="dash", bg=CORE)
     y = panel_heading(draw, y + 6, "Not On Any Public Map")
     y = panel_text(
         draw,
@@ -922,13 +948,14 @@ def render_data_gaps(layers: dict) -> Path:
         "Parts of the 2023 reserve that no public map file draws, and where the files disagree",
     )
     draw_graticule(draw, view, step=0.1)
-    overlap = layers["esz_2020"].intersection(unary_union([g for p, g in layers["partial_blocks"] if p["block"] == "BAR KALAJI KISHOR SAGAR"]))
+    # Only the whole blocks are drawn, so ESZ land inside them may or may not be the notified buffer part.
+    esz_in_blocks = unary_union([layers["esz_2020"], layers["esz_2021"]]).intersection(blocks)
 
     def geos(odraw, oimg):
         fill_geom(oimg, layers["landscape"], ESZ + (45,), view)
         fill_geom(oimg, layers["reserve"], (CORE[0], CORE[1], CORE[2], 70), view)
         draw_water(odraw, layers, view, streams=False)
-        hatch_geom(oimg, overlap, GAP + (210,), view, spacing=10, width=2)
+        hatch_geom(oimg, esz_in_blocks, GAP + (210,), view, spacing=10, width=2)
         for gap in layers["file_gaps"]:
             fill_geom(oimg, gap, GAP + (110,), view)
         for props, geom in layers["partial_blocks"]:
@@ -943,13 +970,15 @@ def render_data_gaps(layers: dict) -> Path:
         for name, point in layers["core_villages"]:
             x, y = view(point.x, point.y)
             left = -26 - odraw.textlength(name, font=FONTS["tiny"])
-            labels.add((x + 13, y), name, FONTS["tiny"], fill=(120, 24, 42), anchor="lm", stroke=3, offsets=((0, 0), (0, -16), (0, 16), (left, 0), (left, -16), (left, 16)))
+            offsets = [(dx, dy) for dy in (0, -16, 16, -30, 30) for dx in (0, left)]
+            if not labels.add((x + 13, y), name, FONTS["tiny"], fill=(120, 24, 42), anchor="lm", stroke=3, offsets=offsets):
+                print(f"warning: no room to label {name} on the data-gaps map", file=sys.stderr)
         for props, geom in layers["partial_blocks"]:
             pt = geom.representative_point()
-            labels.add(view(pt.x, pt.y), f"{props['block'].replace(' BLOCK', '').title()}: {props['notified_part_km2']:g} km² in reserve", FONTS["label_small"], fill=(120, 24, 42))
+            labels.add(view(pt.x, pt.y), f"{block_name(props)}: {props['notified_part_km2']:g} km² added", FONTS["label_small"], fill=(120, 24, 42))
         for gap in layers["file_gaps"]:
             pt = gap.representative_point()
-            labels.add(view(pt.x, pt.y), f"In no file: {area_km2(gap):.1f} km²", FONTS["label_small"], fill=(120, 24, 42), offsets=((0, 0), (0, -30), (0, 30)))
+            labels.add(view(pt.x, pt.y), f"Enclosed, not reserve: {area_km2(gap):.1f} km²", FONTS["label_small"], fill=(120, 24, 42), offsets=((0, 0), (0, -30), (0, 30)))
         draw_places(odraw, labels, layers, view, max_labels=8)
 
     with_map_clip(img, geos)
@@ -959,8 +988,8 @@ def render_data_gaps(layers: dict) -> Path:
     y = panel_heading(draw, y, "What Is Missing")
     y = legend_item(draw, y, GAP, "2023 core villages", f"21 revenue villages (80.45 km²) added to the core, to become critical habitat after voluntary relocation. Dots mark the {len(layers['core_villages'])} matched by name to OSM place points; they are not boundaries.", kind="dot")
     y = legend_item(draw, y, GAP, "Blocks added in part", f"2023 buffer parts of these Kota and Bundi blocks ({sum(p['notified_part_km2'] for p, _ in layers['partial_blocks']):.1f} km²) are listed by area or compartment; only whole blocks can be outlined.", kind="dash")
-    y = legend_item(draw, y, (GAP + (40,), GAP + (255,)), "In two layers at once", "Part of the Bardkalan Kishor Sagar block is both 2020 ESZ and, since 2023, buffer.", kind="hatch", img=img)
-    y = legend_item(draw, y, GAP + (140,), "Between two files", "Land enclosed by the reserve files but drawn in none of them.")
+    y = legend_item(draw, y, (GAP + (40,), GAP + (255,)), "ESZ inside those blocks", f"About {area_km2(esz_in_blocks):.0f} km² of these blocks is ESZ. No file shows whether the added parts lie there, so some land may be both ESZ and buffer.", kind="hatch", img=img)
+    y = legend_item(draw, y, GAP + (140,), "Enclosed, not reserve", "Around Daulatpura: the reserve and Bhainsrorgarh files close round it, but none includes it. The 2020 ESZ file covers most of it.")
     y = panel_heading(draw, y + 4, "Not Drawable At All")
     y = panel_text(draw, y, "National Chambal buffer piece (23.85 km²) and Ambarani-A (3.54 km²): no public file reaches them. No official file splits core from buffer.")
     y = legend_item(draw, y, RESERVE_LINE, "Reserve outline", kind="line")
@@ -1000,11 +1029,11 @@ def render_esz(layers: dict) -> Path:
     draw_map_furniture(draw, view)
     y = PANEL_RECT[1] + 30
     y = panel_heading(draw, y, "Two Notifications")
-    y = legend_item(draw, y, ESZ + (150,), "MHTR ESZ, 2020", f"S.O. 4268(E), 25 Nov 2020: 248.70 km² notified, {km2(a['esz-2020']['measured_area_km2_wgs84'])} km² drawn. Stated as 0–1 km wide, but up to about 4.7 km in the Gazette's own points.")
+    y = legend_item(draw, y, ESZ + (150,), "MHTR ESZ, 2020", f"S.O. 4268(E), 25 Nov 2020: 248.70 km² notified, {km2(a['esz-2020']['measured_area_km2_wgs84'])} km² drawn. Stated as 0–1 km wide, but about 5.4 km wide near Rawatbhata.")
     y = legend_item(draw, y, (214, 104, 40, 150), "Bhainsrorgarh ESZ, 2021", f"S.O. 3683(E), 10 Sep 2021: 304.70 km² notified, {km2(a['esz-bhainsrorgarh-2021']['measured_area_km2_wgs84'])} km² drawn; 0–9.6 km, zero to the north and north-east.")
     y = legend_item(draw, y, RESERVE_LINE, "Reserve outline (2023 extent)", kind="line")
     y = panel_heading(draw, y + 6, "Reading The Files")
-    y = panel_text(draw, y, "The MHTR ESZ file is an outer envelope (reserve plus zone, 1,003.91 km²); the band is the envelope minus the reserve file. The 2020 ESZ was drawn around the 2013 reserve, so part of it is now 2023 buffer.")
+    y = panel_text(draw, y, "The MHTR ESZ file is an outer envelope (reserve plus zone, 1,003.91 km²); the band is the envelope minus the reserve, park and sanctuary files. The 2020 ESZ was drawn around the 2013 reserve and crosses forest blocks partly added to the buffer in 2023; no file shows whether the added parts fall inside it.")
     y = panel_text(draw, y, "The 3.5 km² hole near Jaora Khurd, outlined in red, is in the official ESZ file itself.")
     footer_note(
         draw,
@@ -1079,9 +1108,10 @@ def render_terrain(layers: dict) -> Path:
     y = panel_heading(draw, y, "Terrain Reading")
     y = panel_text(draw, y, "Long ridges and valleys run north-west to south-east. They shape access, water retention, visibility and habitat edges.", "body")
     y = panel_heading(draw, y + 8, "Elevation Tint")
-    y = panel_text(draw, y, f"Inside the reserve and ESZ outline the DEM runs from about {stats['min']} m to {stats['max']} m above sea level (median {stats['p50']} m). Light from the north-west.")
-    for color, title in [((58, 102, 80), "< 220 m: valleys"), ((111, 139, 84), "220–300 m: low hills"), ((188, 165, 98), "300–380 m: plateau slopes"), ((178, 122, 88), "380–470 m: higher ridges"), ((232, 224, 205), "> 470 m: highest relief")]:
-        y = legend_item(draw, y, color, title)
+    y = panel_text(draw, y, f"Inside the reserve and ESZ outline the DEM runs from about {stats['min']} m to {stats['max']} m above sea level (median {stats['p50']} m). Light from the north-west. Colours blend between the heights below.")
+    for i, (height, color) in enumerate(TERRAIN_STOPS):
+        when = f"{height} m or less" if i == 0 else f"{height} m and above" if i == len(TERRAIN_STOPS) - 1 else f"{height} m"
+        y = legend_item(draw, y, color, f"{when}: {TERRAIN_STOP_NAMES[height]}")
     y = legend_item(draw, y, RESERVE_LINE, "Reserve outline", kind="line")
     y = legend_item(draw, y, ESZ, "Reserve + ESZ outline", kind="dash")
     footer_note(draw, f"Sources: Mapzen Terrain Tiles on AWS (Terrarium; built from SRTM, GMTED2010, ETOPO1 and other sources; zoom 12, artefacts median-filtered); {FD_CREDIT}; {OSM_CREDIT.format(release=layers['release'])}. Elevation is DEM-derived, not survey. {NOT_LEGAL}")
@@ -1126,7 +1156,7 @@ def render_elevation(layers: dict) -> Path:
     img, draw = new_canvas("MHTR Elevation Zones And Contours", "DEM-derived elevation bands for ridges, slopes and valley floors")
     elevation = terrain_array(view, zoom=12)
     shaded = hillshade(elevation, view, azimuth=315, altitude=44)
-    img.paste(colorize_elevation(elevation, shaded, ELEVATION_STOPS).resize((MAP_RECT[2], MAP_RECT[3]), Image.Resampling.LANCZOS), (MAP_RECT[0], MAP_RECT[1]))
+    img.paste(colorize_elevation(elevation, shaded, bands=ELEVATION_BANDS).resize((MAP_RECT[2], MAP_RECT[3]), Image.Resampling.LANCZOS), (MAP_RECT[0], MAP_RECT[1]))
     elev_px = resample_to_map(elevation)
     stats = dem_summary(elev_px[landscape_inside_mask(layers, view)])
     contours = contour_segments(elev_px, list(range(200, 601, 50)))
@@ -1152,14 +1182,7 @@ def render_elevation(layers: dict) -> Path:
     y = PANEL_RECT[1] + 30
     y = panel_heading(draw, y, "Elevation Bands")
     y = panel_text(draw, y, f"Metres above sea level from DEM tiles. Inside the reserve and ESZ outline: about {stats['min']}–{stats['max']} m, median {stats['p50']} m.")
-    for color, title, note in [
-        ((40, 92, 112), "< 220 m", "Valleys and water-linked lowlands."),
-        ((78, 130, 94), "220–300 m", "Lower slopes and valley edges."),
-        ((157, 158, 93), "300–380 m", "Mid slopes and plateau."),
-        ((202, 151, 87), "380–470 m", "Upper slopes and ridge shoulders."),
-        ((172, 104, 82), "470–520 m", "High ridges."),
-        ((237, 222, 196), "> 520 m", "Highest relief in this window."),
-    ]:
+    for _, color, title, note in ELEVATION_BANDS:
         y = legend_item(draw, y, color, title, note)
     y = legend_item(draw, y, (84, 62, 50, 160), "50 m contours", "Bold lines every 100 m.", kind="line", line_width=2)
     footer_note(draw, f"Sources: Mapzen Terrain Tiles on AWS (Terrarium; built from SRTM, GMTED2010, ETOPO1 and other sources; zoom 12, artefacts median-filtered); {FD_CREDIT}; {OSM_CREDIT.format(release=layers['release'])}. Elevation is DEM-derived, not survey. {NOT_LEGAL}")
@@ -1216,6 +1239,9 @@ def render_landcover(layers: dict) -> Path:
 
 def write_source_notes(paths: list[Path], layers: dict) -> None:
     sources = json.loads(SOURCES_PATH.read_text())
+    esz = unary_union([layers["esz_2020"], layers["esz_2021"]])
+    crossings = sorted(((block_name(p), area_km2(esz.intersection(g))) for p, g in layers["partial_blocks"]), key=lambda c: -c[1])
+    esz_in_blocks = ", ".join(f"{name} about {area:.0f} km²" for name, area in crossings if area >= 1)
     lines = [
         "# MHTR GIS sources and outputs",
         "",
@@ -1249,8 +1275,13 @@ def write_source_notes(paths: list[Path], layers: dict) -> None:
         f"- About {stats['not_mapped_notified_km2']:.0f} km² of the notified reserve has no public geometry: 21 revenue villages added to the core in 2023 (80.45 km²), "
         "the 2023 buffer parts of Bardkalan Kishor Sagar, Akelgarh and Sakatpura (Kota) and of Karondi, Rampuriya, Dhaneshwar and Ambarani-A (Bundi), and the National Chambal buffer piece (23.85 km²).",
         "- No official file splits core from buffer. The 2013 split here is approximate and misassigns about 26 km².",
+        f"- The park and sanctuary files fill {stats['unit_files_in_reserve_file_holes_km2']:.1f} km² of holes in the reserve file, counted as core "
+        f"(nearly all Girdharpura, which the Tiger Conservation Plan lists as a core village), and add {stats['unit_files_outside_reserve_file_km2']:.1f} km² around Borabas that only the Jawahar Sagar file draws.",
+        "- A 6.2 km² area around Daulatpura is enclosed by the reserve and Bhainsrorgarh files but included in neither; the 2020 ESZ file covers most of it.",
         "- The reserve file still draws the 2013 reserve, although the server copy is dated 24 Feb 2025.",
-        "- The 2020 ESZ is stated as 0–1 km but reaches about 4.7 km; it was drawn around the 2013 reserve and overlaps the 2023 buffer at Bardkalan Kishor Sagar.",
+        "- The 2020 ESZ is stated as 0–1 km but reaches about 5.4 km beyond the reserve file near Rawatbhata (5.7 km beyond the Gazette's own Table A reserve coordinates); it was drawn around the 2013 reserve.",
+        f"- The ESZ bands cover parts of the forest blocks partly added to the buffer in 2023 ({esz_in_blocks}). "
+        "No public file shows where the added parts lie, so how much land is both ESZ and buffer is unknown.",
         "- The Bhainsrorgarh sanctuary area is 201.4 km² in the file attribute and 275.45 km² in the 2021 ESZ notification.",
         "",
         "## Reference layers (`reference/`)",

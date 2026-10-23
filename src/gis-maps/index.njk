@@ -111,8 +111,8 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
           <td>
             One outline: the reserve as far as public files draw it, plus the 2020 MHTR eco-sensitive zone and the
             2021 Bhainsrorgarh eco-sensitive zone. Made for an iNaturalist place or project boundary. It has
-            {{ stats.outer_with_esz_parts }} parts (the main outline and a 0.9 sq km Kota block) and one 3.5 sq km hole that the
-            official ESZ file itself draws.
+            {{ stats.outer_with_esz_parts }} parts (the main outline and a 0.9 sq km Kota block) and one 3.51 sq km hole that the
+            official ESZ file itself draws (3.53 sq km in that file; the reserve file covers 0.01 sq km of its edge).
           </td>
           <td>{{ stats.outer_with_esz_km2 | km2 }} sq km</td>
           <td>
@@ -124,8 +124,10 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
           <th scope="row">Reserve outer boundary</th>
           <td>
             The reserve only: the Mukundara Hills National Park, Darrah, Jawahar Sagar and Bhainsrorgarh files joined
-            with the reserve file and the three 2023 buffer blocks a file draws. Village enclaves in the Bhainsrorgarh
-            file stay as holes ({{ stats.outer_holes }} in all).
+            with the reserve file and the three 2023 buffer blocks a file draws. It has {{ stats.outer_holes }} holes: nine
+            village enclaves that the Bhainsrorgarh file draws (25.71 sq km; OpenStreetMap points for ten of the 2023 core
+            villages fall inside them), three small holes in the reserve file (0.34, 0.06 and 0.05 sq km), and 6.21 sq km
+            around Daulatpura that no reserve file includes and the 2020 ESZ file covers.
           </td>
           <td>{{ stats.outer_boundary_km2 | km2 }} sq km drawn of 1,135.79 notified</td>
           <td>
@@ -160,9 +162,11 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
   </div>
   <p class="source-note">
     <strong>For iNaturalist:</strong> because it includes both eco-sensitive zones, the reserve-and-ESZ outline also
-    covers the village enclaves inside Bhainsrorgarh and the slivers between files, so observations at the reserve's
-    edge are not lost. Some 2023 buffer additions near Kota and in Bundi have no public map and may still fall
-    outside it. Treat it as the reserve and its regulated surroundings, not as the legal reserve.
+    covers all nine village enclaves inside the Bhainsrorgarh sanctuary file and the gaps between files, so
+    observations at the reserve's edge are not lost. Land that no public file draws may still fall outside it: some
+    2023 buffer additions near Kota and in Bundi, and part of the revenue villages added to the core in 2023 (the
+    OpenStreetMap point for Kolpura is about 0.5 km outside; it marks the village, not its boundary). Treat it as the
+    reserve and its regulated surroundings, not as the legal reserve.
   </p>
 
   <h3>Measured against notified</h3>
@@ -194,8 +198,8 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
     <li>Each Forest Department file is stored with its SHA-256 checksum; the build stops if a file changes.</li>
     <li>The reserve outline joins the four park and sanctuary files, the reserve file and the 2023 whole-block buffer additions. Slivers under 0.01 sq km where two files' edges miss each other are filled.</li>
     <li>The reserve-and-ESZ outline adds both ESZ files. Holes the official files draw are kept; gaps under 0.5 sq km between files are filled.</li>
-    <li>The 2020 ESZ band is the MHTR ESZ file minus the reserve file; the 2021 band is the Bhainsrorgarh ESZ file minus the sanctuary file.</li>
-    <li>No official file separates core from buffer. The 2013 core is approximated by the national park, Darrah and Jawahar Sagar files, and the buffer by the rest of the reserve file.</li>
+    <li>Each ESZ band is its ESZ file minus the reserve, park and sanctuary files, so no land is counted as both reserve and ESZ.</li>
+    <li>No official file separates core from buffer. The 2013 core is approximated by the national park, Darrah and Jawahar Sagar files, used whole, and the buffer by the rest of the reserve file. Used whole, these files fill {{ stats.unit_files_in_reserve_file_holes_km2 | km2 }} sq km of holes in the reserve file (nearly all the village of Girdharpura, which the Tiger Conservation Plan lists as a core village) and add {{ stats.unit_files_outside_reserve_file_km2 | km2 }} sq km around Borabas that only the Jawahar Sagar file draws.</li>
     <li>The scripts are <code>scripts/build-boundary-layers.py</code> and <code>scripts/build-gis-maps.py</code> in this site's repository; <code>Data/source-materials/gis/README.md</code> lists every input.</li>
   </ul>
 
@@ -257,7 +261,7 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
     <article class="landscape-stat-card card">
       <span class="landscape-stat-value">0–1.0 km</span>
       <h3>Width stated in the Gazette</h3>
-      <p>Zero where the reserve meets the buffer. In a few sectors the Gazette's own coordinates and map, and the file, put the outer limit well over 1 km out, up to about 4.7 km.</p>
+      <p>Zero where the reserve meets the buffer. In a few sectors the Gazette's own coordinates and map, and the file, put the outer limit well over 1 km out: near Rawatbhata, about 5.4 km beyond the reserve file and 5.7 km beyond the Gazette's own reserve coordinates.</p>
     </article>
     <article class="landscape-stat-card card">
       <span class="landscape-stat-value">1,003.91 km²</span>

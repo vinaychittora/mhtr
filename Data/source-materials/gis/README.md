@@ -32,10 +32,13 @@ Downloaded 2026-10-23. The build stops if a file's SHA-256 changes.
 
 ## Known gaps
 
-- About 182 km² of the notified reserve has no public geometry: 21 revenue villages added to the core in 2023 (80.45 km²), the 2023 buffer parts of Bardkalan Kishor Sagar, Akelgarh and Sakatpura (Kota) and of Karondi, Rampuriya, Dhaneshwar and Ambarani-A (Bundi), and the National Chambal buffer piece (23.85 km²).
+- About 181 km² of the notified reserve has no public geometry: 21 revenue villages added to the core in 2023 (80.45 km²), the 2023 buffer parts of Bardkalan Kishor Sagar, Akelgarh and Sakatpura (Kota) and of Karondi, Rampuriya, Dhaneshwar and Ambarani-A (Bundi), and the National Chambal buffer piece (23.85 km²).
 - No official file splits core from buffer. The 2013 split here is approximate and misassigns about 26 km².
+- The park and sanctuary files fill 6.7 km² of holes in the reserve file, counted as core (nearly all Girdharpura, which the Tiger Conservation Plan lists as a core village), and add 2.6 km² around Borabas that only the Jawahar Sagar file draws.
+- A 6.2 km² area around Daulatpura is enclosed by the reserve and Bhainsrorgarh files but included in neither; the 2020 ESZ file covers most of it.
 - The reserve file still draws the 2013 reserve, although the server copy is dated 24 Feb 2025.
-- The 2020 ESZ is stated as 0–1 km but reaches about 4.7 km; it was drawn around the 2013 reserve and overlaps the 2023 buffer at Bardkalan Kishor Sagar.
+- The 2020 ESZ is stated as 0–1 km but reaches about 5.4 km beyond the reserve file near Rawatbhata (5.7 km beyond the Gazette's own Table A reserve coordinates); it was drawn around the 2013 reserve.
+- The ESZ bands cover parts of the forest blocks partly added to the buffer in 2023 (Bardkalan Kishor Sagar about 29 km², Akelgarh about 11 km², Karondi about 8 km², Sakatpura about 4 km², Dhaneshwar about 2 km², Rampuriya about 1 km²). No public file shows where the added parts lie, so how much land is both ESZ and buffer is unknown.
 - The Bhainsrorgarh sanctuary area is 201.4 km² in the file attribute and 275.45 km² in the 2021 ESZ notification.
 
 ## Reference layers (`reference/`)
