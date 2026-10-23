@@ -1,0 +1,38 @@
+{
+  "source": "ESA WorldCover 2021 v200",
+  "method": "Map-grid pixels inside each outline, weighted by Mercator pixel area (cos\u00b2 latitude).",
+  "classes": {
+    "Tree cover": {
+      "reserve": 0.1655,
+      "esz_outside_reserve": 0.0368
+    },
+    "Shrubland": {
+      "reserve": 0.2131,
+      "esz_outside_reserve": 0.0573
+    },
+    "Grassland": {
+      "reserve": 0.533,
+      "esz_outside_reserve": 0.3141
+    },
+    "Cropland": {
+      "reserve": 0.0714,
+      "esz_outside_reserve": 0.2448
+    },
+    "Built-up": {
+      "reserve": 0.0016,
+      "esz_outside_reserve": 0.0098
+    },
+    "Bare / sparse": {
+      "reserve": 0.0021,
+      "esz_outside_reserve": 0.0066
+    },
+    "Permanent water": {
+      "reserve": 0.0133,
+      "esz_outside_reserve": 0.3304
+    },
+    "Herbaceous wetland": {
+      "reserve": 0.0,
+      "esz_outside_reserve": 0.0
+    }
+  }
+}

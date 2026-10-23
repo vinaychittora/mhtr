@@ -1,0 +1,128 @@
+{
+  "description": "Rajasthan Forest Department map files used by scripts/build-boundary-layers.py. Paths are relative to Data/source-materials/gis/. Each file is byte-identical to the copy served at source_url on the download date; the build stops if a SHA-256 does not match.",
+  "register_page": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/forest-devlopment/districtwise-forest-blocks-google-earth.html",
+  "register_note": "The register's protected-area table is headed 'Last Updated kml as on 31.07.2018' and its ESZ column 'ESZ KML as on 01.06.2026'. The Forest Department describes these files as for management use, not legal purposes.",
+  "downloaded": "2026-10-23",
+  "files": {
+    "reserve_2013_file": {
+      "file": "official/mukundara-tiger-reserve-2025-02-24.kmz",
+      "sha256": "ec3c6d02c14a9cdab5fed57f0f760a33b57f5e343ad4029f86a48eafd13dec99",
+      "title": "Forest Department file 'Mukundara Tiger Reserve.kmz' (Tiger Reserve boundary)",
+      "register_date": "31.07.2018",
+      "last_modified": "2025-02-24",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/tigerreserve/Mukundara%20Tiger%20Reserve.kmz",
+      "instrument": "F.3(8)Forest/2012, 9 Apr 2013",
+      "note": "File attributes: NOTIFY_ARE 759.99, DIGITIZED 744.85. Draws the 2013 reserve only, although the server copy is dated 24 Feb 2025."
+    },
+    "np": {
+      "file": "official/mukundara-hills-national-park-2018-08-07.kmz",
+      "sha256": "a23ca5b24f00e702221dc7c6177ced91ab4840a7223ca943be5e643a113b3287",
+      "title": "Forest Department file 'Mukundara Hills National Park.kmz'",
+      "register_date": "31.07.2018",
+      "last_modified": "2018-08-07",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/update/wildlife/Mukundara%20Hills%20National%20Park.kmz",
+      "instrument": "Mukundara Hills National Park notification"
+    },
+    "darrah": {
+      "file": "official/darrah-wildlife-sanctuary-2018-08-07.kmz",
+      "sha256": "cf25d680f872a3d8ffed6394a0406eec9b41972cc9efd07ef18449889f5c1bdd",
+      "title": "Forest Department file 'Darrah Wildlife Sanctuary.kmz'",
+      "register_date": "31.07.2018",
+      "last_modified": "2018-08-07",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/update/wildlife/Darrah%20Wildlife%20Sanctuary.kmz",
+      "instrument": "Darrah Sanctuary order F 39(2) Forest/55, 7 Nov 1955"
+    },
+    "jawahar_sagar": {
+      "file": "official/jawahar-sagar-wildlife-sanctuary-2018-08-07.kmz",
+      "sha256": "ab6e078d52aac4a53a48177f9c02b199625ceeb4d15885699ef582ecd90827b5",
+      "title": "Forest Department file 'Jawahar Sagar Wildlife Sanctuary.kmz'",
+      "register_date": "31.07.2018",
+      "last_modified": "2018-08-07",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/update/wildlife/Jawahar%20Sagar%20Wildlife%20Sanctuary.kmz",
+      "instrument": "Jawahar Sagar Sanctuary notification (1975)"
+    },
+    "bhainsrorgarh_wls": {
+      "file": "official/bhainsrorgarh-wildlife-sanctuary-2018-08-07.kmz",
+      "sha256": "b670cf40824541c66ef02d5aa887f4ad287ed019d350c55e700a251722c1dd35",
+      "title": "Forest Department file 'Bhensrodgarh Wildlife Sanctuary.kmz'",
+      "register_date": "31.07.2018",
+      "last_modified": "2018-08-07",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/update/wildlife/Bhensrodgarh%20Wildlife%20Sanctuary.kmz",
+      "instrument": "Bhainsrorgarh Wildlife Sanctuary notification; added to MHTR core by F.3(22)Forest/2023, 5 Oct 2023"
+    },
+    "esz_2020_envelope": {
+      "file": "mhtr-esz-outer-limit-2026-06-01.kmz",
+      "sha256": "fe784add4d17d84f7bf7191c8b401312f20a74ed91dc3d5d546fb3d265a828ea",
+      "title": "Forest Department file 'MHTR.kmz' (ESZ outer limit)",
+      "register_date": "01.06.2026",
+      "last_modified": "2026-06-01",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/ESZ/MHTR.kmz",
+      "instrument": "MoEFCC S.O. 4268(E), 25 Nov 2020",
+      "note": "Outer envelope of the reserve plus its eco-sensitive zone, not the ESZ band alone."
+    },
+    "esz_bhainsrorgarh_2021": {
+      "file": "official/bhainsrorgarh-esz-2026-06-01.kmz",
+      "sha256": "6e11e297b0c15c7adcc1acc548d5a60a34d58cc34b27d51bd4f752afceaab567",
+      "title": "Forest Department file 'BHAINSROAD ESZ.kmz'",
+      "register_date": "01.06.2026",
+      "last_modified": "2026-06-01",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/ESZ/BHAINSROAD%20ESZ.kmz",
+      "instrument": "MoEFCC S.O. 3683(E), 10 Sep 2021",
+      "note": "Sanctuary plus a variable-width band. Its BUFF_DIST attribute (3000) does not describe the drawn band."
+    },
+    "kota_buffer_blocks_2023": {
+      "file": "official/kota-forest-blocks-2018-08-07.kmz",
+      "sha256": "f27d048338dc656c9bc0181f5c11caea3ac4bd851832a187b32975e3e5b43f0a",
+      "title": "Forest Department file 'KOTA.kmz' (Kota district forest blocks)",
+      "register_date": "31.07.2018",
+      "last_modified": "2018-08-07",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/update/kota/KOTA.kmz",
+      "instrument": "F.3(22)Forest/2023, 5 Oct 2023 (buffer additions)",
+      "select_attr": {
+        "field": "BLOCK",
+        "values": [
+          "BARKHERA",
+          "RAWTHA",
+          "BORBAS-B"
+        ]
+      },
+      "note": "Only the three 2023 buffer blocks added whole: Barkheda 90.76 ha, Rawtha 45.35 ha, Borabas-B 137.81 ha. The file draws Borabas-B at 49.85 ha against its notified 137.81 ha."
+    },
+    "kota_blocks_2023_partial": {
+      "file": "official/kota-forest-blocks-2018-08-07.kmz",
+      "sha256": "f27d048338dc656c9bc0181f5c11caea3ac4bd851832a187b32975e3e5b43f0a",
+      "title": "Forest Department file 'KOTA.kmz' (Kota district forest blocks)",
+      "register_date": "31.07.2018",
+      "last_modified": "2018-08-07",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/Districtwise%20Forest%20Blocks%20a%20Google%20Earth/update/kota/KOTA.kmz",
+      "instrument": "F.3(22)Forest/2023, 5 Oct 2023 (buffer additions)",
+      "select_attr": {
+        "field": "BLOCK",
+        "values": [
+          "BAR KALAJI KISHOR SAGAR",
+          "AKHELGARH BLOCK",
+          "SAKATPUR"
+        ]
+      },
+      "note": "Whole blocks that contain 2023 buffer additions made by part: Bardkalan Kishor Sagar 30.67 km², Akelgarh 27.84 km², Sakatpura compartments 17, 20 and 21 (4.10 km²). The notified parts are not drawn in any public file."
+    },
+    "bundi_blocks_2023_partial": {
+      "file": "official/bundi-forest-blocks-2023-04-10.kmz",
+      "sha256": "62d5285152ab42ddfe0880b75db855d3000c408301f372acf03eb8a7e64112b7",
+      "title": "Forest Department file 'BUNDI.kmz' (Bundi district forest blocks)",
+      "register_date": "10.04.2023",
+      "last_modified": "2023-04-10",
+      "source_url": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Forest%20Development/UpdateKML/ccfkota/BUNDI.kmz",
+      "instrument": "F.3(22)Forest/2023, 5 Oct 2023 (buffer additions)",
+      "select_attr": {
+        "field": "BLOCK",
+        "values": [
+          "KARONDI",
+          "RAMPURIYA",
+          "DHANESHWAR"
+        ]
+      },
+      "note": "Whole blocks that contain 2023 buffer compartments: Karondi compartments 10–20 (8.57 km²), Rampuriya compartment 9 (0.27 km²), Dhaneshwar compartment 11 (0.68 km²). Ambarani-A (3.54 km², unclassed) is not in the file."
+    }
+  }
+}

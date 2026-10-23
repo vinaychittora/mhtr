@@ -3035,6 +3035,10 @@ body > footer a {
   gap: 12px;
 }
 
+.landscape-stat-grid + .grid-2 {
+  margin-top: 12px;
+}
+
 .landscape-stat-card {
   display: grid;
   align-content: start;

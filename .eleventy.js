@@ -2,11 +2,16 @@ module.exports = function (eleventyConfig) {
   const deploymentTarget = process.env.MHTR_DEPLOY_TARGET || "default";
   const docsArchiveBaseUrl = (process.env.MHTR_DOCS_BASE_URL || "").replace(/\/$/, "");
   const inatSnapshot = require("./src/_data/inatBiodiversity.json");
+  // Measured-vs-notified areas, written by scripts/build-boundary-layers.py.
+  const boundaryAreas = require("./Data/source-materials/gis/derived/mhtr-boundary-areas-2023.json");
+  const gisSources = require("./Data/source-materials/gis/official/sources.json");
 
   eleventyConfig.addGlobalData("deployment", {
     target: deploymentTarget,
     docsArchiveBaseUrl,
   });
+  eleventyConfig.addGlobalData("boundaryAreas", boundaryAreas);
+  eleventyConfig.addGlobalData("gisSources", gisSources);
 
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return new Date(dateObj).toISOString().slice(0, 10);
@@ -27,6 +32,11 @@ module.exports = function (eleventyConfig) {
     } catch {
       return "";
     }
+  });
+
+  eleventyConfig.addFilter("km2", (value) => {
+    if (value === null || value === undefined || value === "") return "—";
+    return Number(value).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   });
 
   eleventyConfig.addFilter("jsonLd", (value) => {
@@ -346,6 +356,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "Data/source-materials/gis/mhtr-esz-outer-limit-2026-06-01.kmz": "assets/data/gis/mhtr-esz-outer-limit-2026-06-01.kmz",
   });
+  // Boundary layers built by scripts/build-boundary-layers.py, and local copies of the
+  // Forest Department files they are built from (district block files stay in the repo only).
+  eleventyConfig.addPassthroughCopy({ "Data/source-materials/gis/derived/*.{kml,geojson,csv,json}": "assets/data/gis" });
+  eleventyConfig.addPassthroughCopy({
+    "Data/source-materials/gis/official/{mukundara,darrah,jawahar,bhainsrorgarh}-*.kmz": "assets/data/gis/official",
+  });
+  eleventyConfig.addPassthroughCopy({ "Data/source-materials/gis/official/sources.json": "assets/data/gis/official/sources.json" });
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
