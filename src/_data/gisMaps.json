@@ -10,8 +10,8 @@
     "alt": "MHTR core, buffer and eco-sensitive zones (2020 MHTR and 2021 Bhainsrorgarh) drawn from Rajasthan Forest Department map files",
     "width": 2400,
     "height": 1600,
-    "summary": "One view of every legal layer the Forest Department's public map files can draw: the 2013 core and buffer (approximate, because no file separates them), the Bhainsrorgarh sanctuary added to the core in 2023, the one small 2023 buffer block a file draws outside the 2013 files (Barkheda; the Kota file's other two whole blocks lie inside the 2013 files), and both eco-sensitive zones. The legend gives each layer's measured area against its notified area.",
-    "useFor": "Use this as the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 180 km² of the notified 2023 reserve cannot be drawn from any public file.",
+    "summary": "One view of every legal layer the Forest Department's public map files can draw: the 2013 core and buffer (approximate, because no file separates them), the Bhainsrorgarh sanctuary added to the core in 2023, the one small 2023 buffer block a file draws outside the 2013 files (Barkheda; the Kota file's other two whole blocks lie almost wholly inside the 2013 files), and both eco-sensitive zones. The legend gives each layer's measured area against its notified area.",
+    "useFor": "Use this as the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 180 km² of the notified 2023 reserve has no outline of its own in any public file.",
     "sources": "Rajasthan Forest Department map files (2018 sanctuary and park files, reserve file, 2026 ESZ files); notifications of 9 Apr 2013 and 5 Oct 2023; MoEFCC S.O. 4268(E) (2020) and S.O. 3683(E) (2021); OpenStreetMap via Overture Maps for rivers, roads and towns",
     "sourceLinks": [
       {
@@ -51,7 +51,7 @@
     "alt": "Map of the parts of the 2023 MHTR reserve no public file draws: core villages as points, partly added forest blocks, and gaps between files",
     "width": 2400,
     "height": 1600,
-    "summary": "Shows what the public files leave out. The 21 revenue villages added to the core in 2023 have no boundaries in any public file; 18 are marked by their OpenStreetMap village points. Six forest blocks were added to the buffer only in part, by area or compartment, so only the whole blocks can be outlined. The map also marks where the ESZ bands cross those blocks, so some land may be both ESZ and 2023 buffer, and a 6.2 km² area around Daulatpura that the reserve files close round but none includes; the 2020 ESZ file covers most of it.",
+    "summary": "Shows what the public files leave out. The 21 revenue villages added to the core in 2023 have no outlines of their own in any public file (the Bhainsrorgarh sanctuary file leaves nine unnamed enclaves); 18 are marked by their OpenStreetMap village points. Five forest blocks were added to the buffer by compartment or by an area smaller than the block the district file draws, so only the whole blocks can be outlined. A sixth, Akelgarh, is listed without a part mark; 7.75 km² of it has been core since 2013, and the Kota file draws the rest at about 32 km² against 27.84 km² notified. The map also marks where the ESZ bands cross those blocks, so some land may be both ESZ and 2023 buffer, and a 6.2 km² area around Daulatpura that the reserve files close round but none includes; the 2020 ESZ file covers 6.1 km² of it.",
     "useFor": "Use this before quoting an area or making an overlay, and when asking the Forest Department for the 2023 schedules as maps.",
     "sources": "Rajasthan Forest Department map files, including the Kota (2018) and Bundi (2023) forest-block files; notification of 5 Oct 2023; OpenStreetMap via Overture Maps for village points",
     "sourceLinks": [

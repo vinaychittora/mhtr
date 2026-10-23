@@ -266,7 +266,7 @@ def build(sources: dict) -> tuple[dict, list[dict]]:
             "zone": "reserve",
             "geometry": outer,
             "notified_km2": NOTIFIED["reserve_2023"],
-            "reliability": f"Official files joined; about {not_mapped:.0f} km² of the notified reserve has no public map and is not included.",
+            "reliability": f"Official files joined; about {not_mapped:.0f} km² of the notified reserve has no outline of its own in any public file and, apart from any village land inside the Bhainsrorgarh sanctuary file, is not included.",
             "method": "Union of the Forest Department's reserve file (2013 extent), its national park and sanctuary files, the Bhainsrorgarh WLS file and the whole 2023 buffer blocks drawn in the Kota district file. Holes under 0.01 km² that only appear where two files' edges miss each other are filled.",
             "instrument": f"{INSTRUMENT_2013}; {INSTRUMENT_2023}",
             "sources": ["reserve_2013_file", "np", "darrah", "jawahar_sagar", "bhainsrorgarh_wls"] + (["kota_buffer_blocks_2023"] if buffer_blocks_2023 is not None else []),
@@ -277,7 +277,7 @@ def build(sources: dict) -> tuple[dict, list[dict]]:
             "zone": "landscape",
             "geometry": outer_with_esz,
             "notified_km2": None,
-            "reliability": "Official files joined. Covers the reserve outline above plus both notified eco-sensitive zones, which also take in all nine village enclaves inside the Bhainsrorgarh sanctuary file and part of the unmapped 2023 buffer. Some 2023 buffer additions near Kota and in Bundi, and part of the 2023 core villages (the OpenStreetMap point for Kolpura is about 0.5 km outside), may still fall outside.",
+            "reliability": "Official files joined. Covers the reserve outline above plus both notified eco-sensitive zones, which also take in all nine enclaves inside the Bhainsrorgarh sanctuary file and part of the unmapped 2023 buffer. Going by the Kota block file, at least about 8 km² of the 2023 Akelgarh addition and small parts of Sakatpura and Karondi fall outside; the National Chambal piece and part of the 2023 core villages (the OpenStreetMap point for Kolpura is about 0.5 km outside) may too. The 3.5 km² hole around Jawara Khurd is drawn by the ESZ file, but the Gazette lists Jawara Khurd as an ESZ village.",
             "method": "Reserve outer boundary joined with the MHTR ESZ outer-limit file and the Bhainsrorgarh ESZ file. Holes the official files draw are kept (the 3.5 km² exclusion in the MHTR ESZ file); gaps under 0.5 km² where two files' edges miss each other are filled.",
             "instrument": f"{INSTRUMENT_2013}; {INSTRUMENT_2023}; {INSTRUMENT_ESZ_2020}; {INSTRUMENT_ESZ_2021}",
             "sources": ["reserve_2013_file", "np", "darrah", "jawahar_sagar", "bhainsrorgarh_wls", "esz_2020_envelope", "esz_bhainsrorgarh_2021"] + (["kota_buffer_blocks_2023"] if buffer_blocks_2023 is not None else []),
@@ -332,7 +332,7 @@ def build(sources: dict) -> tuple[dict, list[dict]]:
                 f"the Kota file draws at {blocks_drawn:.2f} km². Rawtha and Borabas-B lie almost wholly inside the 2013 files, "
                 f"so this layer is the other {area_km2(buffer_added):.2f} km², nearly all Barkheda. The file draws Borabas-B at "
                 "0.50 km² against 1.38 km² notified. Part-blocks, compartments, the Bundi additions and the National Chambal "
-                "piece have no public map."
+                "piece have no outline of their own in any public file."
             ),
             "method": "Matching blocks from the Kota district forest-block file, minus land already in the reserve, national park or sanctuary files.",
             "instrument": INSTRUMENT_2023,
@@ -345,8 +345,9 @@ def build(sources: dict) -> tuple[dict, list[dict]]:
             "geometry": esz_2020,
             "notified_km2": NOTIFIED["esz_2020"],
             "reliability": (
-                "Official ESZ file minus the reserve, park and sanctuary files. Notified as 0–1 km but about 5.4 km wide near "
-                "Rawatbhata. Drawn around the 2013 reserve; it crosses forest blocks partly added to the buffer in 2023, and no "
+                "Official ESZ file minus the reserve, park and sanctuary files. Notified as 0–1 km, but near Rawatbhata it "
+                "reaches about 5.4 km from the reserve file, up to the edge of Bhainsrorgarh Wildlife Sanctuary (Annexure-I "
+                "gives that stretch zero width 'due to Bhainsroadgarh Sanctuary on the other side'). Drawn around the 2013 reserve; it crosses forest blocks partly added to the buffer in 2023, and no "
                 "file shows whether the added parts fall inside it. The Girdharpura village hole in the reserve file is counted "
                 "as reserve, not ESZ."
             ),
@@ -471,20 +472,22 @@ def write_outputs(stats: dict, layers: list[dict], sources: dict) -> None:
     # 1. Single-polygon outlines, for iNaturalist and other places that need one boundary.
     by_id = {l["id"]: l for l in layers}
     reserve_gaps = (
-        "Not included because no public file draws them: the 2023 buffer part-blocks and compartments "
-        "in Kota and Bundi, the National Chambal buffer piece, and 21 revenue villages near Rawatbhata "
-        f"(about {stats['not_mapped_notified_km2']:.0f} km² of the notified 1,135.79 km²). The village enclaves "
+        "Not included because no public file outlines them: the 2023 buffer part-blocks and compartments "
+        "in Kota and Bundi (the district files draw only whole blocks), Ambarani-A, the National Chambal buffer piece, "
+        "and 21 revenue villages near Rawatbhata "
+        f"(about {stats['not_mapped_notified_km2']:.0f} km² of the notified 1,135.79 km²). The nine enclaves "
         "inside the Bhainsrorgarh sanctuary file are left open, as that file draws them; OpenStreetMap points for ten "
-        "of the 21 villages fall inside them. A 6.2 km² area around Daulatpura that no reserve file includes is also "
-        "left open (the 2020 ESZ file covers most of it)."
+        "of the 21 villages fall inside them, and a few others fall inside the sanctuary outline itself. A 6.2 km² area around Daulatpura that no reserve file includes is also "
+        "left open (the 2020 ESZ file covers 6.1 km² of it)."
     )
     esz_gaps = (
-        "The eco-sensitive zones take in all nine village enclaves in the Bhainsrorgarh sanctuary file, most of the "
-        "2023 core villages and part of the unmapped 2023 buffer. Land with no public map may still fall partly "
-        "outside: the 2023 buffer compartments near Kota (Akelgarh, Sakatpura), the National Chambal piece, the Bundi "
-        "compartments and at least one 2023 core village (the OpenStreetMap point for Kolpura, 75.4421 E 24.8663 N, "
+        "The eco-sensitive zones take in all nine enclaves in the Bhainsrorgarh sanctuary file, most of the "
+        "2023 core villages and part of the unmapped 2023 buffer. Some land still falls outside: going by the Kota "
+        "block file, at least about 8 km² of the 2023 Akelgarh addition and small parts of Sakatpura and Karondi. The "
+        "National Chambal piece, Ambarani-A and at least one 2023 core village may too (the OpenStreetMap point for Kolpura, 75.4421 E 24.8663 N, "
         "lies about 0.5 km outside this outline). The 2020 ESZ was drawn around the 2013 reserve and crosses forest "
-        "blocks partly added to the buffer in 2023."
+        "blocks partly added to the buffer in 2023. The 3.5 km² hole around Jawara Khurd is drawn by the ESZ file, but "
+        "the Gazette's village list names Jawara Khurd as an ESZ village."
     )
     outlines = (
         (

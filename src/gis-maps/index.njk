@@ -76,8 +76,9 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
         Every reserve and zone line on these maps is taken from a Rajasthan Forest Department map file listed
         below, not from OpenStreetMap. The Department's register says these files are for management use, are
         not final and are not for legal purposes; the legal boundary is the notification schedules. About
-        {{ stats.not_mapped_notified_km2 | round }} sq km of the 1,135.787 sq km notified in 2023 has no public map
-        file at all, so no outline here, or anywhere public, shows the whole reserve.
+        {{ stats.not_mapped_notified_km2 | round }} sq km of the 1,135.787 sq km notified in 2023 has no outline of its
+        own in any public map file (about 72 sq km of it lies in forest blocks that the district files draw only
+        whole), so no outline here, or anywhere public, shows the whole reserve.
       </p>
     </div>
     <a class="button-link" href="/boundaries-and-notifications/#mapping-gaps">See what is missing</a>
@@ -111,8 +112,10 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
           <td>
             One outline: the reserve as far as public files draw it, plus the 2020 MHTR eco-sensitive zone and the
             2021 Bhainsrorgarh eco-sensitive zone. Made for an iNaturalist place or project boundary. It has
-            {{ stats.outer_with_esz_parts }} parts (the main outline and a 0.9 sq km Kota block) and one 3.51 sq km hole that the
-            official ESZ file itself draws (3.53 sq km in that file; the reserve file covers 0.01 sq km of its edge).
+            {{ stats.outer_with_esz_parts }} parts (the main outline and a 0.9 sq km Kota block) and one 3.51 sq km hole around Jawara
+            (Jaora) Khurd that the official ESZ file itself draws (3.53 sq km in that file; the reserve file covers
+            0.01 sq km of its edge). The Gazette's village list names Jawara Khurd as an ESZ village, so this hole is
+            unresolved.
           </td>
           <td>{{ stats.outer_with_esz_km2 | km2 }} sq km</td>
           <td>
@@ -125,9 +128,10 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
           <td>
             The reserve only: the Mukundara Hills National Park, Darrah, Jawahar Sagar and Bhainsrorgarh files joined
             with the reserve file and the three 2023 buffer blocks a file draws. It has {{ stats.outer_holes }} holes: nine
-            village enclaves that the Bhainsrorgarh file draws (25.71 sq km; OpenStreetMap points for ten of the 2023 core
-            villages fall inside them), three small holes in the reserve file (0.34, 0.06 and 0.05 sq km), and 6.21 sq km
-            around Daulatpura that no reserve file includes and the 2020 ESZ file covers.
+            enclaves that the Bhainsrorgarh file draws (25.71 sq km; seven contain OpenStreetMap village or hamlet points,
+            including those for ten of the 2023 core villages), three small holes in the reserve file (0.34, 0.06 and
+            0.05 sq km), and 6.21 sq km around Daulatpura that no reserve file includes; the 2020 ESZ file covers 6.1 sq km
+            of it.
           </td>
           <td>{{ stats.outer_boundary_km2 | km2 }} sq km drawn of 1,135.79 notified</td>
           <td>
@@ -162,11 +166,12 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
   </div>
   <p class="source-note">
     <strong>For iNaturalist:</strong> because it includes both eco-sensitive zones, the reserve-and-ESZ outline also
-    covers all nine village enclaves inside the Bhainsrorgarh sanctuary file and the gaps between files, so
-    observations at the reserve's edge are not lost. Land that no public file draws may still fall outside it: some
-    2023 buffer additions near Kota and in Bundi, and part of the revenue villages added to the core in 2023 (the
-    OpenStreetMap point for Kolpura is about 0.5 km outside; it marks the village, not its boundary). Treat it as the
-    reserve and its regulated surroundings, not as the legal reserve.
+    covers all nine enclaves inside the Bhainsrorgarh sanctuary file and the gaps between files, so observations at
+    the reserve's edge are not lost. Some land still falls outside it. Going by the Kota block file, at least about
+    8 sq km of the 27.84 sq km added from Akelgarh must lie outside, because only 19.9 sq km of that block as drawn is
+    inside, and so must small parts of Sakatpura and Karondi. The National Chambal piece and part of the revenue
+    villages added to the core in 2023 may too (the OpenStreetMap point for Kolpura is about 0.5 km outside; it marks
+    the village, not its boundary). Treat it as the reserve and its regulated surroundings, not as the legal reserve.
   </p>
 
   <h3>Measured against notified</h3>
@@ -176,7 +181,7 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
         <tr>
           <th scope="col">Layer</th>
           <th scope="col">Drawn (sq km)</th>
-          <th scope="col">Notified (sq km)</th>
+          <th scope="col">Notified, or our sum of notified rows (sq km)</th>
           <th scope="col">How far to trust it</th>
         </tr>
       </thead>
@@ -198,7 +203,7 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
     <li>Each Forest Department file is stored with its SHA-256 checksum; the build stops if a file changes.</li>
     <li>The reserve outline joins the four park and sanctuary files, the reserve file and the 2023 whole-block buffer additions. Slivers under 0.01 sq km where two files' edges miss each other are filled.</li>
     <li>The reserve-and-ESZ outline adds both ESZ files. Holes the official files draw are kept; gaps under 0.5 sq km between files are filled.</li>
-    <li>Each ESZ band is its ESZ file minus the reserve, park and sanctuary files, so no land is counted as both reserve and ESZ.</li>
+    <li>Each ESZ band is its ESZ file minus the reserve, park and sanctuary files, so no land is counted as both reserve and ESZ apart from a 0.02 sq km sliver of the Rawtha block.</li>
     <li>No official file separates core from buffer. The 2013 core is approximated by the national park, Darrah and Jawahar Sagar files, used whole, and the buffer by the rest of the reserve file. Used whole, these files fill {{ stats.unit_files_in_reserve_file_holes_km2 | km2 }} sq km of holes in the reserve file (nearly all the village of Girdharpura, which the Tiger Conservation Plan lists as a core village) and add {{ stats.unit_files_outside_reserve_file_km2 | km2 }} sq km around Borabas that only the Jawahar Sagar file draws.</li>
     <li>The scripts are <code>scripts/build-boundary-layers.py</code> and <code>scripts/build-gis-maps.py</code> in this site's repository; <code>Data/source-materials/gis/README.md</code> lists every input.</li>
   </ul>
@@ -261,7 +266,7 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
     <article class="landscape-stat-card card">
       <span class="landscape-stat-value">0–1.0 km</span>
       <h3>Width stated in the Gazette</h3>
-      <p>Zero where the reserve meets the buffer. In a few sectors the Gazette's own coordinates and map, and the file, put the outer limit well over 1 km out: near Rawatbhata, about 5.4 km beyond the reserve file and 5.7 km beyond the Gazette's own reserve coordinates.</p>
+      <p>Zero, the Gazette says, where the zone co-terminates with the reserve's buffer or meets Bhainsrorgarh Sanctuary. By our measurement, the Gazette's own coordinates and map, and the file, put the outer limit well over 1 km out in a few sectors: near Rawatbhata, about 5.4 km beyond the reserve file and 5.7 km beyond the Gazette's own reserve coordinates. There the outer limit is the edge of Bhainsrorgarh Wildlife Sanctuary, so the zone fills all the land between the reserve and the sanctuary, on a stretch Annexure-I gives zero width "due to Bhainsroadgarh Sanctuary on the other side".</p>
     </article>
     <article class="landscape-stat-card card">
       <span class="landscape-stat-value">1,003.91 km²</span>
@@ -285,7 +290,7 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
         <div><dt>Publisher</dt><dd>Rajasthan Forest Department</dd></div>
         <div><dt>Register date</dt><dd>ESZ KML as on 1 June 2026</dd></div>
         <div><dt>Source filename</dt><dd>MHTR.kmz / MHTR-ESZ.kml</dd></div>
-        <div><dt>Geometry</dt><dd>A 3,546-point outer ring and a 61-point inner ring. The inner ring is a 3.53 km² enclave north-east of Rawatbhata that is in neither the reserve nor the ESZ; the Gazette's own map (Annexure-IIB) draws the same loop but does not name it.</dd></div>
+        <div><dt>Geometry</dt><dd>A 3,546-point outer ring and a 61-point inner ring. The inner ring is a 3.53 km² enclave north-east of Rawatbhata, around Jawara (Jaora) Khurd, that this file leaves out of the ESZ and no reserve file includes. The Gazette's map (Annexure-IIB, p. 37) draws the same loop, but its village list (Annexure-IV, S.No. 52, p. 45) names Jawara Khurd as an ESZ village, at a point inside the loop. Several listed village points, Rawatbhata's among them, plot just outside the zone, so the list may mean only part of the village is in it.</dd></div>
         <div>
           <dt>SHA-256</dt>
           <dd><code>fe784add4d17d84f<wbr>7bf7191c8b401312<wbr>f20a74ed91dc3d5d<wbr>546fb3d265a828ea</code></dd>

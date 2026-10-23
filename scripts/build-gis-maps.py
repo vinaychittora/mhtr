@@ -925,12 +925,12 @@ def render_legal_zones(layers: dict) -> Path:
     y = legend_item(draw, y, (ESZ + (70,), ESZ + (200,)), "Eco-sensitive zones", f"2020 MHTR ESZ {km2(a['esz-2020']['measured_area_km2_wgs84'])} km² (notified 248.70); 2021 Bhainsrorgarh ESZ {km2(a['esz-bhainsrorgarh-2021']['measured_area_km2_wgs84'])} km² (notified 304.70).", kind="hatch", img=img)
     y = legend_item(draw, y, RESERVE_LINE, "Reserve outline", f"{km2(layers['stats']['outer_boundary_km2'])} km² drawn of 1,135.79 notified.", kind="line")
     y = legend_item(draw, y, (255, 255, 240), "Park and sanctuary edges", kind="dash", bg=CORE)
-    y = panel_heading(draw, y + 6, "Not On Any Public Map")
+    y = panel_heading(draw, y + 6, "Not Outlined In Any Public File")
     y = panel_text(
         draw,
         y,
         f"About {layers['stats']['not_mapped_notified_km2']:.0f} km² of the notified reserve: 21 revenue villages added to the core in 2023 "
-        "and most 2023 buffer additions near Kota and in Bundi. See the data-gaps map.",
+        "and most 2023 buffer additions near Kota and in Bundi, which the district files draw only as whole blocks. See the data-gaps map.",
     )
     footer_note(
         draw,
@@ -945,7 +945,7 @@ def render_data_gaps(layers: dict) -> Path:
     view = View(expand_bbox(unary_union([layers["landscape"], blocks]).bounds, 0.04, 0.03))
     img, draw = new_canvas(
         "Where Public MHTR Maps Fall Short",
-        "Parts of the 2023 reserve that no public map file draws, and where the files disagree",
+        "Parts of the 2023 reserve with no outline of their own in public map files, and where the files disagree",
     )
     draw_graticule(draw, view, step=0.1)
     # Only the whole blocks are drawn, so ESZ land inside them may or may not be the notified buffer part.
@@ -967,18 +967,23 @@ def render_data_gaps(layers: dict) -> Path:
             x, y = view(point.x, point.y)
             odraw.ellipse((x - 6, y - 6, x + 6, y + 6), fill=GAP + (255,), outline=(255, 255, 246), width=2)
             labels.reserve((x - 7, y - 7, x + 7, y + 7))
-        for name, point in layers["core_villages"]:
+        # East to west, so a label that runs right never covers the dot of a village to its east.
+        for name, point in sorted(layers["core_villages"], key=lambda v: -v[1].x):
             x, y = view(point.x, point.y)
             left = -26 - odraw.textlength(name, font=FONTS["tiny"])
-            offsets = [(dx, dy) for dy in (0, -16, 16, -30, 30) for dx in (0, left)]
-            if not labels.add((x + 13, y), name, FONTS["tiny"], fill=(120, 24, 42), anchor="lm", stroke=3, offsets=offsets):
+            style = dict(fill=(120, 24, 42), stroke=3)
+            # Beside the dot, then centred above or below it, then a little higher or lower beside it.
+            placed = (labels.add((x + 13, y), name, FONTS["tiny"], anchor="lm", offsets=[(0, 0), (left, 0)], **style)
+                      or labels.add((x, y), name, FONTS["tiny"], anchor="mm", offsets=[(0, -19), (0, 19)], **style)
+                      or labels.add((x + 13, y), name, FONTS["tiny"], anchor="lm", offsets=[(dx, dy) for dy in (-16, 16, -30, 30) for dx in (0, left)], **style))
+            if not placed:
                 print(f"warning: no room to label {name} on the data-gaps map", file=sys.stderr)
         for props, geom in layers["partial_blocks"]:
             pt = geom.representative_point()
             labels.add(view(pt.x, pt.y), f"{block_name(props)}: {props['notified_part_km2']:g} km² added", FONTS["label_small"], fill=(120, 24, 42))
         for gap in layers["file_gaps"]:
             pt = gap.representative_point()
-            labels.add(view(pt.x, pt.y), f"Enclosed, not reserve: {area_km2(gap):.1f} km²", FONTS["label_small"], fill=(120, 24, 42), offsets=((0, 0), (0, -30), (0, 30)))
+            labels.add(view(pt.x, pt.y), f"Enclosed, in no reserve file: {area_km2(gap):.1f} km²", FONTS["label_small"], fill=(120, 24, 42), offsets=((0, 0), (0, -30), (0, 30)))
         draw_places(odraw, labels, layers, view, max_labels=8)
 
     with_map_clip(img, geos)
@@ -986,10 +991,11 @@ def render_data_gaps(layers: dict) -> Path:
 
     y = PANEL_RECT[1] + 30
     y = panel_heading(draw, y, "What Is Missing")
-    y = legend_item(draw, y, GAP, "2023 core villages", f"21 revenue villages (80.45 km²) added to the core, to become critical habitat after voluntary relocation. Dots mark the {len(layers['core_villages'])} matched by name to OSM place points; they are not boundaries.", kind="dot")
-    y = legend_item(draw, y, GAP, "Blocks added in part", f"2023 buffer parts of these Kota and Bundi blocks ({sum(p['notified_part_km2'] for p, _ in layers['partial_blocks']):.1f} km²) are listed by area or compartment; only whole blocks can be outlined.", kind="dash")
+    y = legend_item(draw, y, GAP, "2023 core villages", f"21 revenue villages (80.45 km²) added to the core, to become critical habitat after voluntary relocation or acquisition of rights. Dots mark the {len(layers['core_villages'])} matched by name to OSM place points; they are not boundaries.", kind="dot")
+    y = legend_item(draw, y, GAP, "Blocks added in part", f"2023 buffer parts of these Kota and Bundi blocks ({sum(p['notified_part_km2'] for p, _ in layers['partial_blocks']):.1f} km²) are listed by area or compartment; only whole blocks can be outlined. Akelgarh has no part mark; 7.75 km² of it was already core.", kind="dash")
     y = legend_item(draw, y, (GAP + (40,), GAP + (255,)), "ESZ inside those blocks", f"About {area_km2(esz_in_blocks):.0f} km² of these blocks is ESZ. No file shows whether the added parts lie there, so some land may be both ESZ and buffer.", kind="hatch", img=img)
-    y = legend_item(draw, y, GAP + (140,), "Enclosed, not reserve", "Around Daulatpura: the reserve and Bhainsrorgarh files close round it, but none includes it. The 2020 ESZ file covers most of it.")
+    y = legend_item(draw, y, GAP + (140,), "Enclosed, in no reserve file", "Around Daulatpura: the reserve and Bhainsrorgarh files close round it, but none includes it. The 2020 ESZ file covers 6.1 km² of it.")
+    y = legend_item(draw, y, ESZ + (45,), "Bhainsrorgarh file enclaves", "Nine holes (25.7 km²) the sanctuary file leaves open, outside the reserve outline and inside the 2021 ESZ; most hold villages.")
     y = panel_heading(draw, y + 4, "Not Drawable At All")
     y = panel_text(draw, y, "National Chambal buffer piece (23.85 km²) and Ambarani-A (3.54 km²): no public file reaches them. No official file splits core from buffer.")
     y = legend_item(draw, y, RESERVE_LINE, "Reserve outline", kind="line")
@@ -1029,12 +1035,12 @@ def render_esz(layers: dict) -> Path:
     draw_map_furniture(draw, view)
     y = PANEL_RECT[1] + 30
     y = panel_heading(draw, y, "Two Notifications")
-    y = legend_item(draw, y, ESZ + (150,), "MHTR ESZ, 2020", f"S.O. 4268(E), 25 Nov 2020: 248.70 km² notified, {km2(a['esz-2020']['measured_area_km2_wgs84'])} km² drawn. Stated as 0–1 km wide, but about 5.4 km wide near Rawatbhata.")
+    y = legend_item(draw, y, ESZ + (150,), "MHTR ESZ, 2020", f"S.O. 4268(E), 25 Nov 2020: 248.70 km² notified, {km2(a['esz-2020']['measured_area_km2_wgs84'])} km² drawn. Stated as 0–1 km wide, but near Rawatbhata it reaches about 5.4 km from the reserve file, up to the Bhainsrorgarh sanctuary edge.")
     y = legend_item(draw, y, (214, 104, 40, 150), "Bhainsrorgarh ESZ, 2021", f"S.O. 3683(E), 10 Sep 2021: 304.70 km² notified, {km2(a['esz-bhainsrorgarh-2021']['measured_area_km2_wgs84'])} km² drawn; 0–9.6 km, zero to the north and north-east.")
     y = legend_item(draw, y, RESERVE_LINE, "Reserve outline (2023 extent)", kind="line")
     y = panel_heading(draw, y + 6, "Reading The Files")
     y = panel_text(draw, y, "The MHTR ESZ file is an outer envelope (reserve plus zone, 1,003.91 km²); the band is the envelope minus the reserve, park and sanctuary files. The 2020 ESZ was drawn around the 2013 reserve and crosses forest blocks partly added to the buffer in 2023; no file shows whether the added parts fall inside it.")
-    y = panel_text(draw, y, "The 3.5 km² hole near Jaora Khurd, outlined in red, is in the official ESZ file itself.")
+    y = panel_text(draw, y, "The 3.5 km² hole around Jawara (Jaora) Khurd, outlined in red, is in the official ESZ file itself; the Gazette lists Jawara Khurd as an ESZ village.")
     footer_note(
         draw,
         f"Sources: MoEFCC S.O. 4268(E) (25 Nov 2020) and S.O. 3683(E) (10 Sep 2021); Forest Department ESZ files MHTR.kmz and BHAINSROAD ESZ.kmz (as on 1 Jun 2026); "
@@ -1241,7 +1247,7 @@ def write_source_notes(paths: list[Path], layers: dict) -> None:
     sources = json.loads(SOURCES_PATH.read_text())
     esz = unary_union([layers["esz_2020"], layers["esz_2021"]])
     crossings = sorted(((block_name(p), area_km2(esz.intersection(g))) for p, g in layers["partial_blocks"]), key=lambda c: -c[1])
-    esz_in_blocks = ", ".join(f"{name} about {area:.0f} km²" for name, area in crossings if area >= 1)
+    esz_in_blocks = ", ".join(f"{name} about {area:.0f} km²" if area >= 5 else f"{name} about {area:.1f} km²" for name, area in crossings if area >= 1)
     lines = [
         "# MHTR GIS sources and outputs",
         "",
@@ -1272,14 +1278,16 @@ def write_source_notes(paths: list[Path], layers: dict) -> None:
         "",
         "## Known gaps",
         "",
-        f"- About {stats['not_mapped_notified_km2']:.0f} km² of the notified reserve has no public geometry: 21 revenue villages added to the core in 2023 (80.45 km²), "
-        "the 2023 buffer parts of Bardkalan Kishor Sagar, Akelgarh and Sakatpura (Kota) and of Karondi, Rampuriya, Dhaneshwar and Ambarani-A (Bundi), and the National Chambal buffer piece (23.85 km²).",
+        f"- About {stats['not_mapped_notified_km2']:.0f} km² of the notified reserve has no outline of its own in any public file: 21 revenue villages added to the core in 2023 (80.45 km²; the Bhainsrorgarh sanctuary file leaves nine unnamed enclaves), "
+        "the 2023 buffer parts of Bardkalan Kishor Sagar and Sakatpura (Kota) and of Karondi, Rampuriya and Dhaneshwar (Bundi), which the district files draw only as whole blocks, "
+        "Akelgarh (27.84 km², listed without a part mark; 7.75 km² of the block was core in 2013 and the Kota file draws the rest at about 32 km²), Ambarani-A (Bundi, 3.54 km²) and the National Chambal buffer piece (23.85 km²).",
         "- No official file splits core from buffer. The 2013 split here is approximate and misassigns about 26 km².",
         f"- The park and sanctuary files fill {stats['unit_files_in_reserve_file_holes_km2']:.1f} km² of holes in the reserve file, counted as core "
         f"(nearly all Girdharpura, which the Tiger Conservation Plan lists as a core village), and add {stats['unit_files_outside_reserve_file_km2']:.1f} km² around Borabas that only the Jawahar Sagar file draws.",
-        "- A 6.2 km² area around Daulatpura is enclosed by the reserve and Bhainsrorgarh files but included in neither; the 2020 ESZ file covers most of it.",
+        "- A 6.2 km² area around Daulatpura is enclosed by the reserve and Bhainsrorgarh files but included in neither; the 2020 ESZ file covers 6.1 km² of it.",
         "- The reserve file still draws the 2013 reserve, although the server copy is dated 24 Feb 2025.",
-        "- The 2020 ESZ is stated as 0–1 km but reaches about 5.4 km beyond the reserve file near Rawatbhata (5.7 km beyond the Gazette's own Table A reserve coordinates); it was drawn around the 2013 reserve.",
+        "- The 2020 ESZ is stated as 0–1 km but reaches about 5.4 km beyond the reserve file near Rawatbhata (5.7 km beyond the Gazette's own Table A reserve coordinates). There its outer limit is the edge of the Bhainsrorgarh sanctuary file, on a stretch Annexure-I gives zero width 'due to Bhainsroadgarh Sanctuary on the other side'. It was drawn around the 2013 reserve.",
+        "- The MHTR ESZ file leaves a 3.53 km² hole around Jawara (Jaora) Khurd, which the Gazette's map also draws, but the Gazette's village list (Annexure-IV, S.No. 52) names Jawara Khurd as an ESZ village.",
         f"- The ESZ bands cover parts of the forest blocks partly added to the buffer in 2023 ({esz_in_blocks}). "
         "No public file shows where the added parts lie, so how much land is both ESZ and buffer is unknown.",
         "- The Bhainsrorgarh sanctuary area is 201.4 km² in the file attribute and 275.45 km² in the 2021 ESZ notification.",

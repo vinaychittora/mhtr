@@ -32,13 +32,14 @@ Downloaded 2026-10-23. The build stops if a file's SHA-256 changes.
 
 ## Known gaps
 
-- About 180 km² of the notified reserve has no public geometry: 21 revenue villages added to the core in 2023 (80.45 km²), the 2023 buffer parts of Bardkalan Kishor Sagar, Akelgarh and Sakatpura (Kota) and of Karondi, Rampuriya, Dhaneshwar and Ambarani-A (Bundi), and the National Chambal buffer piece (23.85 km²).
+- About 180 km² of the notified reserve has no outline of its own in any public file: 21 revenue villages added to the core in 2023 (80.45 km²; the Bhainsrorgarh sanctuary file leaves nine unnamed enclaves), the 2023 buffer parts of Bardkalan Kishor Sagar and Sakatpura (Kota) and of Karondi, Rampuriya and Dhaneshwar (Bundi), which the district files draw only as whole blocks, Akelgarh (27.84 km², listed without a part mark; 7.75 km² of the block was core in 2013 and the Kota file draws the rest at about 32 km²), Ambarani-A (Bundi, 3.54 km²) and the National Chambal buffer piece (23.85 km²).
 - No official file splits core from buffer. The 2013 split here is approximate and misassigns about 26 km².
 - The park and sanctuary files fill 6.7 km² of holes in the reserve file, counted as core (nearly all Girdharpura, which the Tiger Conservation Plan lists as a core village), and add 2.6 km² around Borabas that only the Jawahar Sagar file draws.
-- A 6.2 km² area around Daulatpura is enclosed by the reserve and Bhainsrorgarh files but included in neither; the 2020 ESZ file covers most of it.
+- A 6.2 km² area around Daulatpura is enclosed by the reserve and Bhainsrorgarh files but included in neither; the 2020 ESZ file covers 6.1 km² of it.
 - The reserve file still draws the 2013 reserve, although the server copy is dated 24 Feb 2025.
-- The 2020 ESZ is stated as 0–1 km but reaches about 5.4 km beyond the reserve file near Rawatbhata (5.7 km beyond the Gazette's own Table A reserve coordinates); it was drawn around the 2013 reserve.
-- The ESZ bands cover parts of the forest blocks partly added to the buffer in 2023 (Bardkalan Kishor Sagar about 29 km², Akelgarh about 11 km², Karondi about 8 km², Sakatpura about 4 km², Dhaneshwar about 2 km², Rampuriya about 1 km²). No public file shows where the added parts lie, so how much land is both ESZ and buffer is unknown.
+- The 2020 ESZ is stated as 0–1 km but reaches about 5.4 km beyond the reserve file near Rawatbhata (5.7 km beyond the Gazette's own Table A reserve coordinates). There its outer limit is the edge of the Bhainsrorgarh sanctuary file, on a stretch Annexure-I gives zero width 'due to Bhainsroadgarh Sanctuary on the other side'. It was drawn around the 2013 reserve.
+- The MHTR ESZ file leaves a 3.53 km² hole around Jawara (Jaora) Khurd, which the Gazette's map also draws, but the Gazette's village list (Annexure-IV, S.No. 52) names Jawara Khurd as an ESZ village.
+- The ESZ bands cover parts of the forest blocks partly added to the buffer in 2023 (Bardkalan Kishor Sagar about 29 km², Akelgarh about 11 km², Karondi about 8 km², Sakatpura about 3.5 km², Dhaneshwar about 2.2 km², Rampuriya about 1.3 km²). No public file shows where the added parts lie, so how much land is both ESZ and buffer is unknown.
 - The Bhainsrorgarh sanctuary area is 201.4 km² in the file attribute and 275.45 km² in the 2021 ESZ notification.
 
 ## Reference layers (`reference/`)
