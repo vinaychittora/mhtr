@@ -40,6 +40,42 @@
   });
 })();
 
+// Responsive tables: label every cell with its column header, then stack rows as cards
+// on phones (every table) and on tablets (tables with five or more columns). The
+// stylesheet prints td[data-label]::before and styles .is-stacked.
+(() => {
+  const tables = [];
+  for (const table of document.querySelectorAll("table.table")) {
+    const headers = Array.from(table.querySelectorAll("thead th"), (th) => th.textContent.trim());
+    if (!headers.length) continue;
+    for (const row of table.querySelectorAll("tbody tr")) {
+      let column = 0;
+      for (const cell of row.children) {
+        const span = Number(cell.getAttribute("colspan")) || 1;
+        if (cell.tagName === "TD" && !cell.dataset.label) {
+          cell.dataset.label = span > 1 ? headers.slice(column, column + span).join(" / ") : headers[column] || "";
+        }
+        column += span;
+      }
+    }
+    tables.push({ table, wrap: table.closest(".table-wrap"), wide: headers.length >= 5 });
+  }
+  if (!tables.length) return;
+
+  const phone = window.matchMedia("(max-width: 620px)");
+  const tablet = window.matchMedia("(max-width: 980px)");
+  function apply() {
+    for (const { table, wrap, wide } of tables) {
+      const stacked = phone.matches || (wide && tablet.matches);
+      table.classList.toggle("is-stacked", stacked);
+      wrap?.classList.toggle("is-stacked", stacked);
+    }
+  }
+  apply();
+  phone.addEventListener("change", apply);
+  tablet.addEventListener("change", apply);
+})();
+
 (() => {
   const rail = document.querySelector("[data-support-rail]");
   if (!rail) return;
