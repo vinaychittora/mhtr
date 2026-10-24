@@ -4782,9 +4782,17 @@ html.has-nav-drawer {
     width: 100%;
   }
 
-  .bio-help-panel {
-    left: 0;
-    right: auto;
+  .bio-help-panel,
+  .bio-help-panel-wide {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    left: 12px;
+    width: auto;
+    max-height: 70vh;
+    overflow: auto;
+    box-shadow: var(--shadow-lift);
   }
 
   .bio-community-link {
