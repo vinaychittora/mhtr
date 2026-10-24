@@ -32,3 +32,21 @@ http://mukundarahills.com/* https://mhtr.in/:splat 301
 http://www.mukundarahills.com/* https://mhtr.in/:splat 301
 https://mukundarahills.com/* https://mhtr.in/:splat 301
 https://www.mukundarahills.com/* https://mhtr.in/:splat 301
+
+# GIS map images renamed to descriptive file names (October 2026)
+/assets/imgs/maps/mhtr-legal-zones-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map.png 301
+/assets/imgs/maps/mhtr-data-gaps-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-data-gaps-map.png 301
+/assets/imgs/maps/mhtr-esz-outer-limit-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-esz-outer-limit-map.png 301
+/assets/imgs/maps/mhtr-boundary-context-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-boundary-context-map.png 301
+/assets/imgs/maps/mhtr-terrain-relief-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-terrain-relief-map.png 301
+/assets/imgs/maps/mhtr-water-systems-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-water-systems-map.png 301
+/assets/imgs/maps/mhtr-elevation-zones-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-elevation-zones-map.png 301
+/assets/imgs/maps/mhtr-land-cover-habitat-map.png /assets/imgs/maps/mukundara-hills-tiger-reserve-land-cover-habitat-map.png 301
+/assets/imgs/maps/mhtr-legal-zones-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map-preview.webp 301
+/assets/imgs/maps/mhtr-data-gaps-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-data-gaps-map-preview.webp 301
+/assets/imgs/maps/mhtr-esz-outer-limit-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-esz-outer-limit-map-preview.webp 301
+/assets/imgs/maps/mhtr-boundary-context-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-boundary-context-map-preview.webp 301
+/assets/imgs/maps/mhtr-terrain-relief-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-terrain-relief-map-preview.webp 301
+/assets/imgs/maps/mhtr-water-systems-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-water-systems-map-preview.webp 301
+/assets/imgs/maps/mhtr-elevation-zones-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-elevation-zones-map-preview.webp 301
+/assets/imgs/maps/mhtr-land-cover-habitat-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-land-cover-habitat-map-preview.webp 301

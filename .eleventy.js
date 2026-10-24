@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
     target: deploymentTarget,
     docsArchiveBaseUrl,
   });
+  const authors = require("./src/_data/authors.json");
   eleventyConfig.addGlobalData("boundaryAreas", boundaryAreas);
   eleventyConfig.addGlobalData("gisSources", gisSources);
 
@@ -48,9 +49,32 @@ module.exports = function (eleventyConfig) {
     return docsArchiveBaseUrl ? `${docsArchiveBaseUrl}${localPath.startsWith("/") ? localPath : `/${localPath}`}` : localPath;
   });
 
+  // Person nodes for the people who make the site, referenced by @id from WebSite, pages and images.
+  const personId = (siteUrl, key) => `${siteUrl}/about/#${key}`;
+  const personNode = (siteUrl, key) => {
+    const person = authors[key];
+    if (!person) return null;
+    return {
+      "@type": "Person",
+      "@id": personId(siteUrl, key),
+      name: person.name,
+      ...(person.role ? { jobTitle: person.role } : {}),
+      ...(person.bio ? { description: person.bio } : {}),
+      ...(person.url ? { url: person.url } : {}),
+      ...(Array.isArray(person.sameAs) && person.sameAs.length ? { sameAs: person.sameAs } : {}),
+      worksFor: { "@id": `${siteUrl}#publisher` },
+    };
+  };
+  const authorRef = (siteUrl, name) => {
+    const key = Object.keys(authors).find((k) => authors[k].name === name);
+    return key ? { "@id": personId(siteUrl, key) } : { "@type": "Person", name };
+  };
+
   eleventyConfig.addShortcode("seoJsonLd", (payload) => {
     const site = payload.site || {};
     const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
+    const creatorKeys = Array.isArray(site.creators) ? site.creators : [];
+    const creatorNodes = creatorKeys.map((key) => personNode(siteUrl, key)).filter(Boolean);
     const canonical = payload.pageCanonical || `${siteUrl}${payload.pageUrl || "/"}`;
     const pageType = payload.pageSchemaType || "WebPage";
     const language = payload.pageLang || site.locale || "en-IN";
@@ -84,7 +108,9 @@ module.exports = function (eleventyConfig) {
           height: 512,
         },
         ...(site.contactEmail ? { email: site.contactEmail } : {}),
+        ...(creatorNodes.length ? { founder: { "@id": creatorNodes[0]["@id"] }, member: creatorNodes.map((node) => ({ "@id": node["@id"] })) } : {}),
       },
+      ...creatorNodes,
       {
         "@type": "WebSite",
         "@id": `${siteUrl}#website`,
@@ -98,6 +124,7 @@ module.exports = function (eleventyConfig) {
         description: site.description,
         inLanguage: language,
         publisher: { "@id": `${siteUrl}#publisher` },
+        ...(creatorNodes.length ? { author: creatorNodes.map((node) => ({ "@id": node["@id"] })), creator: creatorNodes.map((node) => ({ "@id": node["@id"] })) } : {}),
         potentialAction: {
           "@type": "SearchAction",
           target: `${siteUrl}/search/?q={search_term_string}`,
@@ -170,11 +197,13 @@ module.exports = function (eleventyConfig) {
       ...(keywords.length ? { keywords } : {}),
       ...(payload.author
         ? {
-            author: {
-              "@type": "Person",
-              name: payload.author,
-              ...(payload.authorUrl ? { url: payload.authorUrl } : {}),
-            },
+            author: authors[Object.keys(authors).find((k) => authors[k].name === payload.author)]
+              ? authorRef(siteUrl, payload.author)
+              : {
+                  "@type": "Person",
+                  name: payload.author,
+                  ...(payload.authorUrl ? { url: payload.authorUrl } : {}),
+                },
           }
         : {}),
       ...(payload.publishedTime ? { datePublished: payload.publishedTime } : {}),
@@ -232,7 +261,7 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
   });
 
-  eleventyConfig.addShortcode("datasetJsonLd", (site, page, dataset) => {
+  eleventyConfig.addShortcode("datasetJsonLd", (site, page, dataset, person) => {
     const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
     const pageUrl = `${siteUrl}${page.url}`;
     const payload = {
@@ -243,11 +272,14 @@ module.exports = function (eleventyConfig) {
       description: dataset.description,
       url: pageUrl,
       inLanguage: dataset.inLanguage || "en-IN",
-      creator: {
-        "@type": "Organization",
-        name: dataset.creator || site.publisherName || "MHTR.in",
-        url: dataset.creatorUrl || site.publisherUrl || siteUrl,
-      },
+      creator: person
+        ? { "@type": "Person", name: person.name, url: person.url, sameAs: person.sameAs }
+        : {
+            "@type": "Organization",
+            name: dataset.creator || site.publisherName || "MHTR.in",
+            url: dataset.creatorUrl || site.publisherUrl || siteUrl,
+          },
+      publisher: { "@type": "Organization", name: site.publisherName || "MHTR.in", url: site.publisherUrl || siteUrl },
       ...(dataset.license ? { license: dataset.license } : {}),
       ...(dataset.datePublished ? { datePublished: dataset.datePublished } : {}),
       ...(dataset.dateModified ? { dateModified: dataset.dateModified } : {}),
@@ -319,6 +351,54 @@ module.exports = function (eleventyConfig) {
       isPartOf: { "@id": `${pageUrl}#webpage` },
     };
 
+    return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
+  });
+
+  // One ImageObject per GIS map, with the creator, credit and licence fields that image search reads.
+  eleventyConfig.addShortcode("mapGalleryJsonLd", (site, page, maps, person) => {
+    const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
+    const pageUrl = `${siteUrl}${page.url}`;
+    const creator = { "@type": "Person", name: person.name, url: person.url, ...(person.sameAs ? { sameAs: person.sameAs } : {}) };
+    const items = (maps || []).map((map, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": ["ImageObject", "Map"],
+        "@id": `${pageUrl}#${map.slug}`,
+        name: map.title,
+        headline: map.title,
+        description: map.summary,
+        caption: map.alt,
+        contentUrl: `${siteUrl}${map.image}`,
+        url: `${pageUrl}#${map.slug}`,
+        thumbnailUrl: `${siteUrl}${map.preview || map.image}`,
+        encodingFormat: "image/png",
+        width: map.width,
+        height: map.height,
+        inLanguage: "en-IN",
+        creator,
+        author: creator,
+        copyrightHolder: creator,
+        copyrightNotice: `© ${person.name} / MHTR.in`,
+        creditText: `Map: ${person.name}, mhtr.in`,
+        acquireLicensePage: `${pageUrl}#gis-source-heading`,
+        license: `${pageUrl}#gis-source-heading`,
+        publisher: { "@id": `${siteUrl}#publisher` },
+        ...(map.dateModified ? { dateModified: map.dateModified } : {}),
+        ...(map.sources ? { citation: map.sources } : {}),
+        spatialCoverage: { "@type": "Place", name: "Mukundara Hills Tiger Reserve, Rajasthan, India" },
+        representativeOfPage: index === 0,
+        isPartOf: { "@id": `${pageUrl}#webpage` },
+      },
+    }));
+    const payload = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${pageUrl}#maps`,
+      name: "Mukundara Hills Tiger Reserve GIS maps",
+      numberOfItems: items.length,
+      itemListElement: items,
+    };
     return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
   });
 

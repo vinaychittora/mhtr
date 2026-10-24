@@ -1,9 +1,25 @@
 {
+  "vinayChittora": {
+    "name": "Vinay Chittora",
+    "role": "Founder, editor and cartographer",
+    "bio": "Founder and editor of MHTR.in. Builds the site, the GIS maps and boundary files, the document archive and most of the field reports and photographs.",
+    "url": "https://www.caneandcamera.com/",
+    "sameAs": [
+      "https://www.caneandcamera.com/",
+      "https://github.com/vinaychittora",
+      "https://search.macaulaylibrary.org/catalog?searchField=user&userId=USER1136410"
+    ]
+  },
   "sonuKumar": {
     "name": "Sonu Kumar",
     "role": "Naturalist and ecology student",
     "bio": "Naturalist and student of ecology working on plant diversity, bird observations, and biodiversity documentation in and around the Mukundara landscape.",
     "inatProject": "https://www.inaturalist.org/projects/biodiversity-of-mhtr",
-    "inatProfile": "https://www.inaturalist.org/people/sonukumar055"
+    "inatProfile": "https://www.inaturalist.org/people/sonukumar055",
+    "url": "https://www.inaturalist.org/people/sonukumar055",
+    "sameAs": [
+      "https://www.inaturalist.org/people/sonukumar055",
+      "https://www.inaturalist.org/projects/biodiversity-of-mhtr"
+    ]
   }
 }
