@@ -1,40 +1,66 @@
 ---
 layout: base.njk
 activeSection: explore
-title: "MHTR Boundary KML, Zones and GIS Maps | Mukundara Hills"
-description: "Reserve and eco-sensitive-zone boundary files built from Rajasthan Forest Department map files, a zones overview, a map of what the public files leave out, and terrain, water, elevation and 2021 land-cover maps."
-keywords: "MHTR GIS maps, Mukundara Hills map, MHTR KML, Mukundara boundary KML, MHTR iNaturalist boundary, MHTR core buffer map, MHTR eco-sensitive zone map, Bhainsrorgarh ESZ, Mukundara terrain map, Mukundara land cover"
-og_title: "MHTR Boundary Files, Zones and GIS Maps"
-og_description: "One reserve-plus-ESZ outline for iNaturalist, the legal zones as far as the Forest Department's files draw them, and an honest map of what they leave out."
-og_image: "https://mhtr.in/assets/imgs/maps/mhtr-legal-zones-map.png"
-og_image_alt: "Mukundara Hills Tiger Reserve core, buffer and eco-sensitive zones drawn from Rajasthan Forest Department map files."
+title: "MHTR GIS Maps, Boundary KML and Zones | Mukundara Hills Tiger Reserve"
+description: "Eight GIS maps of Mukundara Hills Tiger Reserve built from Rajasthan Forest Department files: zones, eco-sensitive zones, data gaps, terrain, water, elevation and land cover, with boundary KML downloads."
+keywords: "MHTR GIS maps, Mukundara Hills Tiger Reserve map, Mukundara map, MHTR KML, Mukundara boundary KML, MHTR iNaturalist boundary, MHTR core buffer map, MHTR eco-sensitive zone map, Bhainsrorgarh ESZ map, Mukundara terrain map, Mukundara land cover map, Vinay Chittora maps"
+og_title: "MHTR GIS Maps and Boundary Files | Mukundara Hills Tiger Reserve"
+og_description: "Maps of Mukundara Hills Tiger Reserve drawn from the Forest Department's own files, with the gaps shown, plus one reserve-and-ESZ outline for iNaturalist. Cartography by Vinay Chittora."
+og_image: "https://mhtr.in/assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map.png"
+og_image_alt: "Mukundara Hills Tiger Reserve core, buffer and eco-sensitive zones drawn from Rajasthan Forest Department map files. Map by Vinay Chittora."
 og_image_width: 2400
 og_image_height: 1600
 schema_type: CollectionPage
-modifiedTime: "2026-10-23T00:00:00+05:30"
+author: Vinay Chittora
+authorUrl: https://www.caneandcamera.com/
+publishedTime: "2026-10-23T00:00:00+05:30"
+modifiedTime: "2026-10-24T00:00:00+05:30"
+sitemap_images: gisMaps
 ---
 
 {% set stats = boundaryAreas.stats %}
+{% set cartographer = authors.vinayChittora %}
+
 <section class="page-hero maps-hero" aria-labelledby="maps-title">
   <p class="eyebrow">GIS Map Library</p>
-  <h1 id="maps-title">Mukundara Hills Tiger Reserve boundary files and maps.</h1>
+  <h1 id="maps-title">Mukundara Hills Tiger Reserve on the map, as the official files draw it.</h1>
   <p class="lede">
-    The reserve and zone lines here come from the Rajasthan Forest Department's own map files, joined and
-    measured, with every gap stated. The other maps add terrain, water, elevation and habitat context without
-    exposing sensitive wildlife locations.
+    Eight maps built from the Rajasthan Forest Department's own boundary files, joined and measured, with every
+    gap stated. Four show the legal lines: zones, eco-sensitive zones, what the files leave out, and the wider
+    landscape. Four add terrain, water, elevation and land cover without exposing sensitive wildlife locations.
   </p>
   <div class="hero-actions">
-    <a class="button-link" href="#boundary-files">Download boundary files</a>
-    <a class="button-link button-link-secondary" href="#map-library">Open map library</a>
-    <a class="button-link button-link-light" href="/boundaries-and-notifications/#mapping-gaps">What the maps leave out</a>
+    <a class="button-link" href="#map-library">Browse the maps</a>
+    <a class="button-link button-link-secondary" href="#boundary-files">Download boundary files</a>
+    <a class="button-link button-link-light" href="#discrepancies">What we observed</a>
   </div>
+  <dl class="maps-stat-strip" aria-label="Key figures behind the maps">
+    <div><dt>Notified in 2023</dt><dd>1,135.79 <span>sq km</span></dd></div>
+    <div><dt>Drawn by public files</dt><dd>{{ stats.outer_boundary_km2 | km2 }} <span>sq km</span></dd></div>
+    <div><dt>Reserve plus both ESZs</dt><dd>{{ stats.outer_with_esz_km2 | km2 }} <span>sq km</span></dd></div>
+    <div><dt>No outline of its own</dt><dd>about {{ stats.not_mapped_notified_km2 | round }} <span>sq km</span></dd></div>
+  </dl>
+  <p class="maps-byline">
+    Cartography and GIS analysis by <a href="{{ cartographer.url }}" rel="author">{{ cartographer.name }}</a> for MHTR.in.
+    Built {{ stats.build_date }}; maps refreshed 24 October 2026. Every image carries a credit watermark and
+    embedded authorship, and may be shared with credit and a link to this page.
+  </p>
 </section>
+
+<nav class="maps-subnav" aria-label="On this page">
+  <a href="#map-library">Maps</a>
+  <a href="#boundary-files">Boundary files</a>
+  <a href="#boundary-method">Method</a>
+  <a href="#official-files">Source files</a>
+  <a href="#discrepancies">Discrepancies</a>
+  <a href="#gis-source-heading">Notes</a>
+</nav>
 
 {% set zonesMapSchema = {
   "name": "MHTR Core, Buffer and Eco-sensitive Zones Map",
   "description": "Mukundara Hills Tiger Reserve zones as far as the Rajasthan Forest Department's public map files draw them: approximate 2013 core and buffer, the Bhainsrorgarh core added in 2023, the 2020 MHTR eco-sensitive zone and the 2021 Bhainsrorgarh eco-sensitive zone.",
-  "image": "/assets/imgs/maps/mhtr-legal-zones-map.png",
-  "dateModified": "2026-10-23",
+  "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map.png",
+  "dateModified": "2026-10-24",
   "spatialCoverage": "Mukundara Hills Tiger Reserve landscape, Rajasthan, India",
   "citation": [
     gisSources.register_page,
@@ -42,11 +68,15 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
     "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/bhainsorgarh-1.pdf",
     "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Protectedarea/Mukundra%20hills_0001_1.pdf"
   ],
-  "downloadUrl": "/assets/imgs/maps/mhtr-legal-zones-map.png",
+  "downloadUrl": "/assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map.png",
   "encodingFormat": "image/png"
 } %}
 <script type="application/ld+json">
 {% mapJsonLd site, page, zonesMapSchema %}
+</script>
+
+<script type="application/ld+json">
+{% mapGalleryJsonLd site, page, gisMaps, cartographer %}
 </script>
 
 {% set boundaryDataset = {
@@ -64,35 +94,90 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
   ]
 } %}
 <script type="application/ld+json">
-{% datasetJsonLd site, page, boundaryDataset %}
+{% datasetJsonLd site, page, boundaryDataset, cartographer %}
 </script>
 
-<section class="section" aria-labelledby="map-note-heading">
-  <div class="notice-panel">
-    <div>
-      <p class="eyebrow">Where the lines come from</p>
-      <h2 id="map-note-heading">Forest Department files, joined and measured, with the gaps shown</h2>
-      <p>
-        Every reserve and zone line on these maps is taken from a Rajasthan Forest Department map file listed
-        below, not from OpenStreetMap. The Department's register says these files are for management use, are
-        not final and are not for legal purposes; the legal boundary is the notification schedules. About
-        {{ stats.not_mapped_notified_km2 | round }} sq km of the 1,135.787 sq km notified in 2023 has no outline of its
-        own in any public map file (about 72 sq km of it lies in forest blocks that the district files draw only
-        whole), so no outline here, or anywhere public, shows the whole reserve.
-      </p>
-    </div>
-    <a class="button-link" href="/boundaries-and-notifications/#mapping-gaps">See what is missing</a>
+<section class="section" id="map-library" aria-labelledby="map-library-heading">
+  <div class="section-heading">
+    <p class="eyebrow">The Maps</p>
+    <h2 id="map-library-heading">Eight maps, one set of lines</h2>
+    <p class="muted">
+      Every map draws the same reserve outline and reserve-plus-ESZ outline from the Forest Department files.
+      Select a map to open the full-size zoom viewer, or download the PNG. The first four are about the legal lines;
+      the rest put the reserve in its landscape.
+    </p>
   </div>
+
+{% set groups = [
+  { "key": "boundary", "eyebrow": "Boundary and legal zones", "title": "Where the lines are, and where the files stop", "note": "Core, buffer and eco-sensitive zones as the public files draw them, what they leave out, and the reserve in its region." },
+  { "key": "landscape", "eyebrow": "Landscape context", "title": "Terrain, water, elevation and land cover", "note": "Open data (SRTM-derived relief, OpenStreetMap water and ESA WorldCover 2021) clipped to the same outlines, for habitat and planning context." }
+] %}
+{% for group in groups %}
+  <div class="gis-map-group" id="maps-{{ group.key }}">
+    <div class="gis-map-group-heading">
+      <p class="eyebrow">{{ group.eyebrow }}</p>
+      <h3>{{ group.title }}</h3>
+      <p class="muted">{{ group.note }}</p>
+    </div>
+    <div class="gis-map-grid">
+  {% for map in gisMaps %}{% if map.group == group.key %}
+      <article class="gis-map-card" id="{{ map.slug }}">
+        <div class="gis-map-media">
+          <button
+            class="map-zoom-trigger"
+            type="button"
+            data-map-viewer
+            data-map-title="{{ map.title }}"
+            data-map-src="{{ map.image }}"
+            data-map-alt="{{ map.alt }}">
+            <img
+              src="{{ map.preview or map.image }}"
+              alt="{{ map.alt }}"
+              width="{{ map.previewWidth or map.width }}"
+              height="{{ map.previewHeight or map.height }}"
+              loading="{% if loop.first and group.key == 'boundary' %}eager{% else %}lazy{% endif %}"
+              decoding="async">
+            <span>Open zoom view</span>
+          </button>
+        </div>
+        <div class="gis-map-card-body">
+          <p class="eyebrow gis-map-kicker">{{ map.shortTitle }}</p>
+          <h4>{{ map.title }}</h4>
+          <p class="gis-map-use"><strong>Use it for:</strong> {{ map.useFor }}</p>
+          <p class="gis-map-summary">{{ map.short or map.summary }}</p>
+  {% if map.sourceLinks %}
+          <div class="gis-map-evidence" aria-label="Evidence for {{ map.title }}">
+            <span class="gis-map-evidence-label">Evidence</span>
+    {% for sourceLink in map.sourceLinks %}
+            <a class="gis-map-pill" href="{{ sourceLink.url }}">{{ sourceLink.label }}</a>
+    {% endfor %}
+          </div>
+  {% endif %}
+          <details class="gis-map-sources">
+            <summary>What it shows in full, and the sources used</summary>
+            <p>{{ map.summary }}</p>
+            <p><strong>Sources:</strong> {{ map.sources }}.</p>
+          </details>
+          <div class="gis-map-card-foot">
+            <span class="gis-map-credit">Map: {{ map.creator }} · {{ map.width }}×{{ map.height }} px</span>
+            <a class="gis-map-download" href="{{ map.image }}" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+  {% endif %}{% endfor %}
+    </div>
+  </div>
+{% endfor %}
 </section>
 
 <section class="section" id="boundary-files" aria-labelledby="boundary-files-heading">
   <div class="section-heading">
-    <p class="eyebrow">Downloads</p>
+    <p class="eyebrow">Boundary files</p>
     <h2 id="boundary-files-heading">One outline for iNaturalist, and the layers behind it</h2>
     <p class="muted">
-      Built on {{ stats.build_date }} by joining the Forest Department files listed further down. Areas are
-      measured on the WGS84 ellipsoid. Each file carries its sources, method and known gaps in its own
-      description.
+      Built on {{ stats.build_date }} by joining the Forest Department files listed under
+      <a href="#official-files">source files</a>. Areas are measured on the WGS84 ellipsoid. Each file carries
+      its sources, method and known gaps in its own description.
     </p>
   </div>
 
@@ -154,7 +239,7 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
         </tr>
         <tr>
           <th scope="row">Measured and notified areas</th>
-          <td>The table below, with a note on how far each layer can be trusted.</td>
+          <td>The table under <a href="#boundary-method">method</a>, with a note on how far each layer can be trusted.</td>
           <td>—</td>
           <td>
             <a href="/assets/data/gis/mhtr-boundary-areas-2023.csv" download>CSV</a> ·
@@ -173,6 +258,42 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
     villages added to the core in 2023 may too (the OpenStreetMap point for Kolpura is about 0.5 km outside; it marks
     the village, not its boundary). Treat it as the reserve and its regulated surroundings, not as the legal reserve.
   </p>
+</section>
+
+<section class="section" id="boundary-method" aria-labelledby="boundary-method-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Method</p>
+    <h2 id="boundary-method-heading">How the lines were built, and how far each one can be trusted</h2>
+    <p class="muted">
+      Every reserve and zone line on these maps is taken from a Rajasthan Forest Department map file, not from
+      OpenStreetMap. The Department's register says these files are for management use, are not final and are not
+      for legal purposes; the legal boundary is the notification schedules. About
+      {{ stats.not_mapped_notified_km2 | round }} sq km of the 1,135.787 sq km notified in 2023 has no outline of its
+      own in any public map file (about 72 sq km of it lies in forest blocks that the district files draw only
+      whole), so no outline here, or anywhere public, shows the whole reserve.
+    </p>
+  </div>
+
+  <div class="method-grid">
+    <ol class="method-steps">
+      <li><strong>Fixed inputs.</strong> Each Forest Department file is stored with its SHA-256 checksum; the build stops if a file changes.</li>
+      <li><strong>Reserve outline.</strong> The four park and sanctuary files, the reserve file and the 2023 whole-block buffer additions are joined. Slivers under 0.01 sq km where two files' edges miss each other are filled.</li>
+      <li><strong>Reserve-and-ESZ outline.</strong> Both ESZ files are added. Holes the official files draw are kept; gaps under 0.5 sq km between files are filled.</li>
+      <li><strong>ESZ bands.</strong> Each band is its ESZ file minus the reserve, park and sanctuary files, so no land is counted as both reserve and ESZ apart from a 0.02 sq km sliver of the Rawtha block.</li>
+      <li><strong>Core and buffer, approximately.</strong> No official file separates core from buffer. The 2013 core is approximated by the national park, Darrah and Jawahar Sagar files, used whole, and the buffer by the rest of the reserve file. Used whole, these files fill {{ stats.unit_files_in_reserve_file_holes_km2 | km2 }} sq km of holes in the reserve file (nearly all the village of Girdharpura, which the Tiger Conservation Plan lists as a core village) and add {{ stats.unit_files_outside_reserve_file_km2 | km2 }} sq km around Borabas that only the Jawahar Sagar file draws.</li>
+      <li><strong>Drawing.</strong> Maps use one Web Mercator scale on both axes, so shapes keep their proportions; areas are measured on the WGS84 ellipsoid. Rivers, roads, places and districts come from one fixed OpenStreetMap snapshot (Overture Maps release 2026-10-21.0).</li>
+      <li><strong>Reproducible.</strong> The scripts are <code>scripts/build-boundary-layers.py</code> and <code>scripts/build-gis-maps.py</code> in this site's <a href="https://github.com/vinaychittora/mhtr">open repository</a>; <code>Data/source-materials/gis/README.md</code> lists every input. The credit watermark and embedded authorship are written by the same script.</li>
+    </ol>
+    <aside class="method-aside card">
+      <p class="eyebrow">Read the areas with care</p>
+      <p>
+        "Drawn" is what the public files add up to. "Notified" is the figure a notification prints, or our sum of its
+        hectare rows where it prints none; those sums are marked "by our sum" wherever they appear. A gap between the
+        two is a limit of the files, not a finding about the reserve.
+      </p>
+      <a class="button-link button-link-secondary" href="/boundaries-and-notifications/">Notified areas, dated</a>
+    </aside>
+  </div>
 
   <h3>Measured against notified</h3>
   <div class="table-wrap">
@@ -197,19 +318,14 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
       </tbody>
     </table>
   </div>
+</section>
 
-  <h3 id="boundary-method">How the files were built</h3>
-  <ul class="check-list">
-    <li>Each Forest Department file is stored with its SHA-256 checksum; the build stops if a file changes.</li>
-    <li>The reserve outline joins the four park and sanctuary files, the reserve file and the 2023 whole-block buffer additions. Slivers under 0.01 sq km where two files' edges miss each other are filled.</li>
-    <li>The reserve-and-ESZ outline adds both ESZ files. Holes the official files draw are kept; gaps under 0.5 sq km between files are filled.</li>
-    <li>Each ESZ band is its ESZ file minus the reserve, park and sanctuary files, so no land is counted as both reserve and ESZ apart from a 0.02 sq km sliver of the Rawtha block.</li>
-    <li>No official file separates core from buffer. The 2013 core is approximated by the national park, Darrah and Jawahar Sagar files, used whole, and the buffer by the rest of the reserve file. Used whole, these files fill {{ stats.unit_files_in_reserve_file_holes_km2 | km2 }} sq km of holes in the reserve file (nearly all the village of Girdharpura, which the Tiger Conservation Plan lists as a core village) and add {{ stats.unit_files_outside_reserve_file_km2 | km2 }} sq km around Borabas that only the Jawahar Sagar file draws.</li>
-    <li>The scripts are <code>scripts/build-boundary-layers.py</code> and <code>scripts/build-gis-maps.py</code> in this site's repository; <code>Data/source-materials/gis/README.md</code> lists every input.</li>
-  </ul>
-
-  <h3 id="official-files">Forest Department source files</h3>
-  <p class="muted">{{ gisSources.register_note }}</p>
+<section class="section" id="official-files" aria-labelledby="official-files-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Data and sources</p>
+    <h2 id="official-files-heading">The Forest Department files every line comes from</h2>
+    <p class="muted">{{ gisSources.register_note }}</p>
+  </div>
   <div class="table-wrap">
     <table class="table">
       <thead>
@@ -243,58 +359,24 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
     <a href="/assets/data/gis/official/sources.json">sources.json</a>. Verify any file against the
     <a href="{{ gisSources.register_page }}">Department's register</a>.
   </p>
-</section>
 
-<section class="section" id="esz-evidence" aria-labelledby="esz-evidence-heading">
-  <div class="section-heading">
-    <p class="eyebrow">ESZ file evidence</p>
-    <h2 id="esz-evidence-heading">How to read the MHTR ESZ file</h2>
-    <p class="muted">
-      The register's <strong>MHTR.kmz</strong>, listed under “ESZ KML as on 01.06.2026,” records the
-      <em>outer limit</em> around the 2013 reserve and its eco-sensitive zone. It is not a polygon of the ESZ band
-      alone and must not replace the reserve or core outline. The Bhainsrorgarh ESZ has its own file,
-      <strong>BHAINSROAD ESZ.kmz</strong>, which draws the sanctuary plus its band.
-    </p>
-  </div>
-
-  <div class="landscape-stat-grid" aria-label="Eco-sensitive-zone area interpretation">
-    <article class="landscape-stat-card card">
-      <span class="landscape-stat-value">248.70 km²</span>
-      <h3>Notified ESZ area</h3>
-      <p>Area stated in Gazette notification S.O. 4268(E), dated 25 November 2020.</p>
-    </article>
-    <article class="landscape-stat-card card">
-      <span class="landscape-stat-value">0–1.0 km</span>
-      <h3>Width stated in the Gazette</h3>
-      <p>Zero, the Gazette says, where the zone co-terminates with the reserve's buffer or meets Bhainsrorgarh Sanctuary. By our measurement, the Gazette's own coordinates and map, and the file, put the outer limit well over 1 km out in a few sectors: near Rawatbhata, about 5.4 km beyond the reserve file and 5.7 km beyond the Gazette's own reserve coordinates. There the outer limit is the edge of Bhainsrorgarh Wildlife Sanctuary, so the zone fills all the land between the reserve and the sanctuary, on a stretch Annexure-I gives zero width "due to Bhainsroadgarh Sanctuary on the other side".</p>
-    </article>
-    <article class="landscape-stat-card card">
-      <span class="landscape-stat-value">1,003.91 km²</span>
-      <h3>File's outer envelope</h3>
-      <p>Measured on the WGS84 ellipsoid after subtracting the inner ring. It includes the 2013 reserve interior and is not the ESZ area.</p>
-    </article>
-  </div>
-  <p class="source-note">
-    <strong>Why about 1,004 km²?</strong> The ESZ was notified in 2020 around the <em>2013</em> reserve, so the outer
-    envelope is roughly the 2013 reserve (759.99 sq km) plus the ESZ band (248.70 sq km), about 1,009 sq km before
-    digitising differences. It does <strong>not</strong> show the 2023 extent of 1,135.787 sq km; the Bhainsrorgarh
-    core added on 5 October 2023 lies outside it and has its own 2021 ESZ.
-    See <a href="/boundaries-and-notifications/">Boundary &amp; notifications</a> for the legal areas.
-  </p>
-
-  <div class="source-panel">
+  <div class="source-panel" id="esz-evidence">
     <div>
-      <p class="eyebrow">Provenance record</p>
-      <h2>Forest Department file, dated and checked</h2>
+      <p class="eyebrow">Reading the ESZ file</p>
+      <h3>MHTR.kmz is an outer envelope, not the eco-sensitive zone</h3>
+      <p>
+        The register's <strong>MHTR.kmz</strong>, listed under “ESZ KML as on 01.06.2026,” records the
+        <em>outer limit</em> around the 2013 reserve and its eco-sensitive zone. Its 1,003.91 sq km (WGS84, after
+        subtracting the inner ring) is roughly the 2013 reserve (759.99 sq km) plus the notified ESZ (248.70 sq km),
+        so it must not be quoted as the ESZ area, and it does not show the 2023 extent: the Bhainsrorgarh core added
+        on 5 October 2023 lies outside it and has its own 2021 ESZ file, <strong>BHAINSROAD ESZ.kmz</strong>.
+      </p>
       <dl class="home-facts">
         <div><dt>Publisher</dt><dd>Rajasthan Forest Department</dd></div>
         <div><dt>Register date</dt><dd>ESZ KML as on 1 June 2026</dd></div>
         <div><dt>Source filename</dt><dd>MHTR.kmz / MHTR-ESZ.kml</dd></div>
-        <div><dt>Geometry</dt><dd>A 3,546-point outer ring and a 61-point inner ring. The inner ring is a 3.53 km² enclave north-east of Rawatbhata, around Jawara (Jaora) Khurd, that this file leaves out of the ESZ and no reserve file includes. The Gazette's map (Annexure-IIB, p. 37) draws the same loop, but its village list (Annexure-IV, S.No. 52, p. 45) names Jawara Khurd as an ESZ village, at a point inside the loop. Several listed village points, Rawatbhata's among them, plot just outside the zone, so the list may mean only part of the village is in it.</dd></div>
-        <div>
-          <dt>SHA-256</dt>
-          <dd><code>fe784add4d17d84f<wbr>7bf7191c8b401312<wbr>f20a74ed91dc3d5d<wbr>546fb3d265a828ea</code></dd>
-        </div>
+        <div><dt>Geometry</dt><dd>A 3,546-point outer ring and a 61-point inner ring. The inner ring is a 3.53 sq km enclave north-east of Rawatbhata, around Jawara (Jaora) Khurd, that this file leaves out of the ESZ and no reserve file includes. The Gazette's map (Annexure-IIB, p. 37) draws the same loop, but its village list (Annexure-IV, S.No. 52, p. 45) names Jawara Khurd as an ESZ village, at a point inside the loop.</dd></div>
+        <div><dt>SHA-256</dt><dd><code>fe784add4d17d84f<wbr>7bf7191c8b401312<wbr>f20a74ed91dc3d5d<wbr>546fb3d265a828ea</code></dd></div>
         <div><dt>Use limits</dt><dd>The Department's register marks its map files for management use, not final and not for legal purposes.</dd></div>
       </dl>
     </div>
@@ -306,51 +388,61 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
   </div>
 </section>
 
-<section class="section" id="map-library" aria-labelledby="map-library-heading">
+<section class="section" id="discrepancies" aria-labelledby="discrepancies-heading">
   <div class="section-heading">
-    <p class="eyebrow">High-resolution Maps</p>
-    <h2 id="map-library-heading">Open any map in the zoom viewer</h2>
+    <p class="eyebrow">What we observed</p>
+    <h2 id="discrepancies-heading">Where the official files and notifications do not agree</h2>
     <p class="muted">
-      Select a map to open a full-screen viewer. Use the zoom buttons, drag the map, or scroll with a trackpad
-      to inspect details. Every map draws the same reserve outline and reserve-plus-ESZ outline.
+      These came up while joining the files. They are open questions for the Forest Department, not errors we have
+      corrected: the maps keep what the files draw and say so. The full list, with sources, is on the
+      <a href="/boundaries-and-notifications/#mapping-gaps">boundary page</a>.
     </p>
   </div>
-
-  <div class="gis-map-grid">
-{% for map in gisMaps %}
-    <article class="gis-map-card" id="{{ map.slug }}">
-      <button
-        class="map-zoom-trigger"
-        type="button"
-        data-map-viewer
-        data-map-title="{{ map.title }}"
-        data-map-src="{{ map.image }}"
-        data-map-alt="{{ map.alt }}">
-        <img
-          src="{{ map.preview or map.image }}"
-          alt="{{ map.alt }}"
-          width="{{ map.previewWidth or map.width }}"
-          height="{{ map.previewHeight or map.height }}"
-          loading="{% if loop.first %}eager{% else %}lazy{% endif %}"
-          decoding="async">
-        <span>Open zoom view</span>
-      </button>
-      <div class="gis-map-card-body">
-        <p class="eyebrow">{{ map.shortTitle }}</p>
-        <h3>{{ map.title }}</h3>
-        <p>{{ map.summary }}</p>
-        <p><strong>Use this for:</strong> {{ map.useFor }}</p>
-        <p class="muted"><strong>Sources:</strong> {{ map.sources }}</p>
-{% if map.sourceLinks %}
-        <p class="muted"><strong>Evidence:</strong>
-  {% for sourceLink in map.sourceLinks %}
-          <a href="{{ sourceLink.url }}">{{ sourceLink.label }}</a>{% if not loop.last %}; {% endif %}
-  {% endfor %}
-        </p>
-{% endif %}
-      </div>
+  <div class="discrepancy-grid">
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">about {{ stats.not_mapped_notified_km2 | round }} sq km</span>
+      <h3>Part of the 2023 reserve has no outline of its own</h3>
+      <p>The 21 revenue villages added to the core, the buffer parts of five forest blocks added by compartment or part, Akelgarh, Ambarani-A and the National Chambal piece have no outline of their own in any public file. Shown on the <a href="#data-gaps">data-gaps map</a>.</p>
     </article>
-{% endfor %}
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">501 ha</span>
+      <h3>The village rows do not add to the printed total</h3>
+      <p>The 24 Rawatbhata village rows of the 5 October 2023 order add to 8,695.28 ha; the order prints 8,194.28 ha. The core sub-total is 690.71 sq km by the printed totals and 695.72 by the rows.</p>
+    </article>
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">about 26 sq km</span>
+      <h3>No file separates core from buffer</h3>
+      <p>The 2013 split on the zones map uses the park and sanctuary files whole, which counts parts of Jawahar Sagar and Darrah as core and misses the National Chambal core part; the result is approximate.</p>
+    </article>
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">about 5.4 km</span>
+      <h3>The 2020 ESZ is wider than its stated 0–1 km near Rawatbhata</h3>
+      <p>There its outer limit is the edge of the Bhainsrorgarh sanctuary file (5.7 km from the Gazette's own reserve coordinates), on a stretch Annexure-I gives zero width "due to Bhainsroadgarh Sanctuary on the other side". The band also crosses forest blocks partly added to the 2023 buffer, so some land may be both ESZ and buffer.</p>
+    </article>
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">3.51 sq km</span>
+      <h3>Jawara Khurd: a hole the Gazette's own list contradicts</h3>
+      <p>Neither ESZ file covers the enclave around Jawara (Jaora) Khurd, and the Gazette's map draws the same loop, yet its village list names Jawara Khurd as an ESZ village. The outline keeps the hole until the Department settles it.</p>
+    </article>
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">27.84 vs about 32 sq km</span>
+      <h3>Akelgarh is listed without a part mark</h3>
+      <p>The 2023 order adds Akelgarh to the buffer at 27.84 sq km with no part mark; 7.75 sq km of the block has been core since 2013, and the Kota file draws the rest at about 32 sq km. At least about 8 sq km of the addition falls outside the reserve-and-ESZ outline.</p>
+    </article>
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">6.2 sq km</span>
+      <h3>Daulatpura: enclosed by the files, included by none</h3>
+      <p>The reserve and Bhainsrorgarh files close round an area near Daulatpura that neither includes; the 2020 ESZ file covers 6.1 sq km of it. The reserve file itself still draws the 2013 reserve although the server copy is dated 24 February 2025.</p>
+    </article>
+    <article class="discrepancy-card">
+      <span class="discrepancy-figure">201.4 / 205.47 / 275.45</span>
+      <h3>Three areas for one sanctuary</h3>
+      <p>The Bhainsrorgarh sanctuary is 201.4 sq km in its file attribute, 205.47 sq km as the file draws it, 193.09 sq km as the 2023 order's forest blocks add up (by our sum) and 275.45 sq km in the 2021 ESZ notification.</p>
+    </article>
+  </div>
+  <div class="inline-actions">
+    <a class="button-link" href="/boundaries-and-notifications/#mapping-gaps">Full list with sources</a>
+    <a class="button-link button-link-secondary" href="/resources/documents/rajasthan-mhtr-amending-notification-2023/">Read the 2023 order</a>
   </div>
 </section>
 
@@ -364,6 +456,11 @@ modifiedTime: "2026-10-23T00:00:00+05:30"
       relief from Mapzen Terrain Tiles on AWS (built from SRTM, GMTED2010, ETOPO1 and other sources), and land cover from
       ESA WorldCover 2021 (CC BY 4.0). None of it is a cadastral or legal survey. The land-cover map is a 2021 baseline,
       not current land cover, and no map shows nests, dens, roosts or other sensitive wildlife locations.
+    </p>
+    <p>
+      Maps and analysis © {{ cartographer.name }} for MHTR.in. Share them with the credit "Map: {{ cartographer.name }}, mhtr.in"
+      and a link to this page; write to <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a> for other uses
+      or to report an error.
     </p>
   </div>
   <div class="source-actions">

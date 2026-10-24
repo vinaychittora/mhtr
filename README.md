@@ -123,7 +123,7 @@ When replacing a primary page image, update the matching `og_image` front matter
 
 - Home: `/assets/imgs/mhtr-landscape-1.jpg`
 - Landscape: `/assets/imgs/landscape/landscape-ancient-trees.jpg`
-- GIS Maps: `/assets/imgs/maps/mhtr-terrain-relief-map-preview.jpg`
+- GIS Maps: `/assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map.png`
 - Biodiversity: `/assets/imgs/mhtr-caracal.jpg`
 - Field Reports: `/assets/imgs/field-reports/banyan-header-1600.jpg`
 - Resources: `/assets/imgs/mhtr-resources.png`

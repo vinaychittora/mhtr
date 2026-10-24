@@ -29,6 +29,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageFont
+from PIL.PngImagePlugin import PngInfo
 from pyproj import Geod
 from scipy.ndimage import median_filter
 from shapely.geometry import LineString, MultiLineString, MultiPolygon, Point, Polygon, box, shape
@@ -43,6 +44,10 @@ SOURCES_PATH = DATA_DIR / "official" / "sources.json"
 ZONES_PATH = DERIVED_DIR / "mhtr-legal-zones-2023.geojson"
 AREAS_PATH = DERIVED_DIR / "mhtr-boundary-areas-2023.json"
 OUT_DIR = ROOT / "src" / "assets" / "assets" / "imgs" / "maps"
+ROUTE_THUMB_DIR = ROOT / "src" / "assets" / "assets" / "imgs" / "home" / "routes"
+# Public file names are descriptive so that image search can read them; the stem also carries the
+# reserve's name. Changing a name busts the week-long image cache set in src/_headers.
+FILE_STEM = "mukundara-hills-tiger-reserve-{slug}-map"
 FONT_DIR = Path(__file__).resolve().parent / "fonts"
 USER_AGENT = "mhtr.in GIS map builder; contact hello@caneandcamera.com"
 
@@ -77,6 +82,10 @@ PANEL_BG = (247, 247, 238)
 OSM_CREDIT = "OpenStreetMap contributors (ODbL), via Overture Maps release {release}"
 FD_CREDIT = "Rajasthan Forest Department map files (checksums in Data/source-materials/gis/official/sources.json)"
 NOT_LEGAL = "Not a legal or cadastral boundary: the reserve is defined by the notification schedules."
+CARTOGRAPHER = "Vinay Chittora"
+SITE_URL = "https://mhtr.in"
+CREDIT_LINE = f"Cartography: {CARTOGRAPHER} · mhtr.in"
+LICENCE_NOTE = f"© {CARTOGRAPHER} / MHTR.in. Share with credit and a link to {SITE_URL}/gis-maps/; no reuse without permission."
 
 # Places that 5 Oct 2023 notification adds to the core as revenue land (A23 pp. 2-3), matched to
 # OpenStreetMap place names near Rawatbhata. Locations are approximate village points, not boundaries.
@@ -760,7 +769,13 @@ def draw_wrapped(draw, text: str, xy, width: int, fnt, fill=(55, 63, 59), line_s
     return y
 
 
+# Title, subtitle and footer of the map being drawn, so finalize_map can write them into the file's metadata.
+CURRENT_MAP: dict[str, str] = {}
+
+
 def new_canvas(title: str, subtitle: str) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+    CURRENT_MAP.clear()
+    CURRENT_MAP.update(title=title, subtitle=subtitle, footer="")
     img = Image.new("RGBA", (CANVAS_W, CANVAS_H), PAPER)
     draw = ImageDraw.Draw(img, "RGBA")
     draw.text((80, 60), title, font=FONTS["title"], fill=INK)
@@ -857,16 +872,110 @@ def panel_text(draw, y: int, text: str, fnt_key: str = "small") -> int:
 
 
 def footer_note(draw, text: str) -> None:
+    CURRENT_MAP["footer"] = text
     draw_wrapped(draw, text, (80, CANVAS_H - 86), CANVAS_W - 160, FONTS["small"], fill=MUTED, line_spacing=4)
 
 
+def draw_credit_line(draw: ImageDraw.ImageDraw) -> None:
+    """Right-aligned author credit in the title band, so every export says who made it."""
+    draw.text((CANVAS_W - 80, 74), CREDIT_LINE, font=FONTS["body"], fill=(78, 88, 82), anchor="rm")
+    draw.text((CANVAS_W - 80, 106), f"Built {time.strftime('%Y-%m-%d')} · {SITE_URL}/gis-maps/", font=FONTS["small"], fill=MUTED, anchor="rm")
+
+
+def watermark(img: Image.Image) -> Image.Image:
+    """One small, semi-transparent credit tag in the lower-right corner of the map frame.
+
+    Drawn on a separate RGBA layer and alpha-composited, because ImageDraw does not blend alpha when
+    it draws straight onto an RGBA canvas. Deliberately unobtrusive: the data is public, the tag only
+    says who did the work. The fuller credit sits in the title band and in the file's metadata.
+    """
+    layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    x, y, w, h = MAP_RECT
+    tag_font = FONTS["label_small"]
+    text = f"Map: {CARTOGRAPHER} · mhtr.in"
+    tw = int(tag_font.getlength(text))
+    tx1, ty1 = x + w - 16, y + h - 16
+    ldraw = ImageDraw.Draw(layer)
+    ldraw.rounded_rectangle((tx1 - tw - 22, ty1 - 34, tx1, ty1), radius=5, fill=(250, 250, 241, 150))
+    ldraw.text((tx1 - 11, ty1 - 17), text, font=tag_font, fill=(24, 42, 35, 200), anchor="rm")
+    return Image.alpha_composite(img, layer)
+
+
+def png_metadata(title: str, description: str, sources: str) -> PngInfo:
+    """Embed authorship in the PNG itself, so the credit travels with the file."""
+    info = PngInfo()
+    info.add_text("Title", title)
+    info.add_text("Author", CARTOGRAPHER)
+    info.add_text("Creator", f"{CARTOGRAPHER} for MHTR.in")
+    info.add_text("Description", description)
+    info.add_text("Source", sources)
+    info.add_text("Copyright", LICENCE_NOTE)
+    info.add_text("Software", "scripts/build-gis-maps.py (MHTR.in)")
+    info.add_itxt("XML:com.adobe.xmp", xmp_packet(title, description), lang="", tkey="")
+    return info
+
+
+def xmp_packet(title: str, description: str) -> str:
+    def esc(value: str) -> str:
+        return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+    return f"""<?xpacket begin="\ufeff" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="MHTR.in map builder">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about=""
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+      xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/"
+      xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/"
+      xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
+      xmp:CreatorTool="scripts/build-gis-maps.py (MHTR.in)"
+      xmp:CreateDate="{time.strftime('%Y-%m-%d')}"
+      photoshop:Credit="{esc(CARTOGRAPHER)} / MHTR.in"
+      photoshop:Source="Rajasthan Forest Department map files; OpenStreetMap contributors via Overture Maps"
+      xmpRights:Marked="True"
+      xmpRights:WebStatement="{SITE_URL}/gis-maps/">
+      <dc:title><rdf:Alt><rdf:li xml:lang="x-default">{esc(title)}</rdf:li></rdf:Alt></dc:title>
+      <dc:description><rdf:Alt><rdf:li xml:lang="x-default">{esc(description)}</rdf:li></rdf:Alt></dc:description>
+      <dc:creator><rdf:Seq><rdf:li>{esc(CARTOGRAPHER)}</rdf:li></rdf:Seq></dc:creator>
+      <dc:rights><rdf:Alt><rdf:li xml:lang="x-default">{esc(LICENCE_NOTE)}</rdf:li></rdf:Alt></dc:rights>
+      <xmpRights:UsageTerms><rdf:Alt><rdf:li xml:lang="x-default">{esc(LICENCE_NOTE)}</rdf:li></rdf:Alt></xmpRights:UsageTerms>
+      <Iptc4xmpCore:CreatorContactInfo rdf:parseType="Resource">
+        <Iptc4xmpCore:CiUrlWork>{SITE_URL}</Iptc4xmpCore:CiUrlWork>
+      </Iptc4xmpCore:CreatorContactInfo>
+    </rdf:Description>
+  </rdf:RDF>
+</x:xmpmeta>
+<?xpacket end="w"?>"""
+
+
 def finalize_map(img: Image.Image, slug: str) -> Path:
-    path = OUT_DIR / f"mhtr-{slug}-map.png"
-    rgb = img.convert("RGB")
-    rgb.save(path, optimize=True)
-    rgb.resize((960, 640), Image.Resampling.LANCZOS).save(path.with_name(path.stem + "-preview.webp"), format="WEBP", quality=82, method=6)
+    title = CURRENT_MAP.get("title", "MHTR map")
+    description = CURRENT_MAP.get("subtitle", "")
+    sources = CURRENT_MAP.get("footer", "")
+    path = OUT_DIR / f"{FILE_STEM.format(slug=slug)}.png"
+    draw_credit_line(ImageDraw.Draw(img, "RGBA"))
+    rgb = watermark(img).convert("RGB")
+    rgb.save(path, optimize=True, pnginfo=png_metadata(title, description, sources))
+    preview = rgb.resize((960, 640), Image.Resampling.LANCZOS)
+    preview.save(path.with_name(path.stem + "-preview.webp"), format="WEBP", quality=82, method=6, xmp=xmp_packet(title, description).encode("utf-8"))
     print(path.relative_to(ROOT), flush=True)
     return path
+
+
+def write_route_thumbnail(source: Path) -> None:
+    """The home page's GIS library card shows the flagship zones map at the card sizes."""
+    ROUTE_THUMB_DIR.mkdir(parents=True, exist_ok=True)
+    img = Image.open(source).convert("RGB")
+    x, y, w, h = MAP_RECT
+    # Crop to the map frame so the small card shows the reserve, not the margins and panel.
+    crop = img.crop((x, y, x + w, y + h))
+    target = (crop.width, int(crop.width * 2 / 3))
+    top = max(0, (crop.height - target[1]) // 2)
+    crop = crop.crop((0, top, target[0], top + target[1]))
+    base = ROUTE_THUMB_DIR / "gis-map-library"
+    crop.resize((960, 640), Image.Resampling.LANCZOS).save(base.with_suffix(".jpg"), quality=84, optimize=True, progressive=True)
+    for width in (420, 760):
+        crop.resize((width, int(width * 2 / 3)), Image.Resampling.LANCZOS).save(ROUTE_THUMB_DIR / f"gis-map-library-{width}.webp", format="WEBP", quality=80, method=6)
 
 
 def km2(value) -> str:
@@ -1323,6 +1432,7 @@ def main() -> None:
         render_elevation(layers),
         render_landcover(layers),
     ]
+    write_route_thumbnail(paths[0])
     write_source_notes(paths, layers)
 
 

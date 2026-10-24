@@ -12,7 +12,15 @@ eleventyExcludeFromCollections: true
 {%- if sitemapModified %}
     <lastmod>{{ sitemapModified }}</lastmod>
 {%- endif %}
-{%- if item.data.og_image %}
+{%- if item.data.sitemap_images == 'gisMaps' %}
+{%- for map in gisMaps %}
+    <image:image>
+      <image:loc>{{ site.url }}{{ map.image }}</image:loc>
+      <image:title>{{ map.title }}</image:title>
+      <image:caption>{{ map.alt }}. Map by {{ map.creator }}, mhtr.in.</image:caption>
+    </image:image>
+{%- endfor %}
+{%- elif item.data.og_image %}
     <image:image>
       <image:loc>{{ item.data.og_image | absoluteUrl(site.url) }}</image:loc>
       <image:title>{{ item.data.og_image_alt or item.data.title }}</image:title>

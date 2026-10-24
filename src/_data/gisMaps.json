@@ -3,15 +3,15 @@
     "slug": "legal-zones",
     "title": "Core, Buffer and Eco-sensitive Zones",
     "shortTitle": "Zones overview",
-    "image": "/assets/imgs/maps/mhtr-legal-zones-map.png",
-    "preview": "/assets/imgs/maps/mhtr-legal-zones-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "MHTR core, buffer and eco-sensitive zones (2020 MHTR and 2021 Bhainsrorgarh) drawn from Rajasthan Forest Department map files",
+    "alt": "Mukundara Hills Tiger Reserve map of core, buffer and eco-sensitive zones (2020 MHTR, 2021 Bhainsrorgarh) drawn from Rajasthan Forest Department files",
     "width": 2400,
     "height": 1600,
     "summary": "One view of every legal layer the Forest Department's public map files can draw: the 2013 core and buffer (approximate, because no file separates them), the Bhainsrorgarh sanctuary added to the core in 2023, the one small 2023 buffer block a file draws outside the 2013 files (Barkheda; the Kota file's other two whole blocks lie almost wholly inside the 2013 files), and both eco-sensitive zones. The legend gives each layer's measured area against its notified area.",
-    "useFor": "Use this as the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 180 km² of the notified 2023 reserve has no outline of its own in any public file.",
+    "useFor": "As the overall picture of how the reserve's zones fit together. Read the data-gaps map next: about 180 km² of the notified 2023 reserve has no outline of its own in any public file.",
     "sources": "Rajasthan Forest Department map files (2018 sanctuary and park files, reserve file, 2026 ESZ files); notifications of 9 Apr 2013 and 5 Oct 2023; MoEFCC S.O. 4268(E) (2020) and S.O. 3683(E) (2021); OpenStreetMap via Overture Maps for rivers, roads and towns",
     "sourceLinks": [
       {
@@ -38,21 +38,25 @@
         "label": "Download the zones KML",
         "url": "/assets/data/gis/mhtr-legal-zones-2023.kml"
       }
-    ]
+    ],
+    "group": "boundary",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "Every legal layer the public files can draw in one view: approximate 2013 core and buffer, the Bhainsrorgarh core added in 2023, the one 2023 buffer block drawn outside the 2013 files, and both eco-sensitive zones, each with measured area against notified."
   },
   {
     "slug": "data-gaps",
     "title": "Where Public MHTR Maps Fall Short",
     "shortTitle": "Data gaps",
-    "image": "/assets/imgs/maps/mhtr-data-gaps-map.png",
-    "preview": "/assets/imgs/maps/mhtr-data-gaps-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-data-gaps-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-data-gaps-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Map of the parts of the 2023 MHTR reserve no public file draws: core villages as points, partly added forest blocks, and gaps between files",
+    "alt": "Mukundara Hills Tiger Reserve data-gaps map: 2023 core villages as points, partly added forest blocks and gaps between Forest Department files",
     "width": 2400,
     "height": 1600,
     "summary": "Shows what the public files leave out. The 21 revenue villages added to the core in 2023 have no outlines of their own in any public file (the Bhainsrorgarh sanctuary file leaves nine unnamed enclaves); 18 are marked by their OpenStreetMap village points. Five forest blocks were added to the buffer by compartment or by an area smaller than the block the district file draws, so only the whole blocks can be outlined. A sixth, Akelgarh, is listed without a part mark; 7.75 km² of it has been core since 2013, and the Kota file draws the rest at about 32 km² against 27.84 km² notified. The map also marks where the ESZ bands cross those blocks, so some land may be both ESZ and 2023 buffer, and a 6.2 km² area around Daulatpura that the reserve files close round but none includes; the 2020 ESZ file covers 6.1 km² of it.",
-    "useFor": "Use this before quoting an area or making an overlay, and when asking the Forest Department for the 2023 schedules as maps.",
+    "useFor": "Before quoting an area or making an overlay, and when asking the Forest Department for the 2023 schedules as maps.",
     "sources": "Rajasthan Forest Department map files, including the Kota (2018) and Bundi (2023) forest-block files; notification of 5 Oct 2023; OpenStreetMap via Overture Maps for village points",
     "sourceLinks": [
       {
@@ -67,21 +71,25 @@
         "label": "List of gaps",
         "url": "/boundaries-and-notifications/#mapping-gaps"
       }
-    ]
+    ],
+    "group": "boundary",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "What the public files leave out: the 21 core villages of 2023 as points, the forest blocks added only in part, Akelgarh, the Daulatpura gap, and where the ESZ bands cross blocks that may now also be buffer."
   },
   {
     "slug": "esz-outer-limit",
     "title": "Eco-sensitive Zones of 2020 and 2021",
     "shortTitle": "ESZ",
-    "image": "/assets/imgs/maps/mhtr-esz-outer-limit-map.png",
-    "preview": "/assets/imgs/maps/mhtr-esz-outer-limit-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-esz-outer-limit-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-esz-outer-limit-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Map of the 2020 MHTR and 2021 Bhainsrorgarh eco-sensitive zones around the reserve, with the hole in the official ESZ file outlined",
+    "alt": "Mukundara Hills Tiger Reserve eco-sensitive zone map: the 2020 MHTR ESZ and 2021 Bhainsrorgarh ESZ bands, with the hole in the official ESZ file",
     "width": 2400,
     "height": 1600,
     "summary": "Two notifications set eco-sensitive zones here. The 2020 MHTR ESZ (248.70 km² notified) was drawn around the 2013 reserve; the Forest Department's file for it is an outer envelope of reserve plus zone (1,003.91 km² on the WGS84 ellipsoid), so the band shown is the envelope minus the reserve, park and sanctuary files. The 2021 Bhainsrorgarh ESZ (304.70 km² notified, 300.33 km² drawn) surrounds the sanctuary that became core in 2023.",
-    "useFor": "Use this to see where ESZ rules apply, and why the envelope area must not be quoted as the ESZ area.",
+    "useFor": "To see where ESZ rules apply, and why the envelope area must not be quoted as the ESZ area.",
     "sources": "MoEFCC S.O. 4268(E), 25 Nov 2020, and S.O. 3683(E), 10 Sep 2021; Forest Department ESZ files MHTR.kmz and BHAINSROAD ESZ.kmz, as on 1 Jun 2026; OpenStreetMap via Overture Maps",
     "sourceLinks": [
       {
@@ -100,21 +108,25 @@
         "label": "Local copy of MHTR.kmz",
         "url": "/assets/data/gis/mhtr-esz-outer-limit-2026-06-01.kmz"
       }
-    ]
+    ],
+    "group": "boundary",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "The 2020 MHTR ESZ (248.70 km² notified) and the 2021 Bhainsrorgarh ESZ (304.70 km² notified) as bands, cut from the Forest Department's envelope files so the reserve interior is not counted as ESZ."
   },
   {
     "slug": "boundary-context",
     "title": "Reserve and Landscape Context",
     "shortTitle": "Context",
-    "image": "/assets/imgs/maps/mhtr-boundary-context-map.png",
-    "preview": "/assets/imgs/maps/mhtr-boundary-context-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-boundary-context-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-boundary-context-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Orientation map of MHTR and its eco-sensitive zones with districts, other protected areas, rivers, main roads, railways and towns",
+    "alt": "Mukundara Hills Tiger Reserve landscape map with the 2023 reserve outline, eco-sensitive zones, districts, other protected areas, rivers, roads and towns",
     "width": 2400,
     "height": 1600,
     "summary": "Places the reserve, drawn from Forest Department files, among the districts, neighbouring sanctuaries, rivers, main roads and towns of the Chambal landscape. Neighbouring protected areas are OpenStreetMap outlines and are indicative only.",
-    "useFor": "Use this first when explaining where MHTR sits in the wider Kota, Bundi, Chittorgarh and Jhalawar landscape.",
+    "useFor": "First, when explaining where MHTR sits in the wider Kota, Bundi, Chittorgarh and Jhalawar landscape.",
     "sources": "Rajasthan Forest Department map files; OpenStreetMap via Overture Maps for districts, other protected areas, rivers, roads and places",
     "sourceLinks": [
       {
@@ -133,21 +145,25 @@
         "label": "Overture Maps attribution",
         "url": "https://docs.overturemaps.org/attribution/"
       }
-    ]
+    ],
+    "group": "boundary",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "The reserve and both eco-sensitive zones among the districts, neighbouring sanctuaries, rivers, main roads, railways and towns of the Chambal landscape. Other protected areas are OpenStreetMap outlines, indicative only."
   },
   {
     "slug": "terrain-relief",
     "title": "Terrain and Ridge Relief",
     "shortTitle": "Terrain",
-    "image": "/assets/imgs/maps/mhtr-terrain-relief-map.png",
-    "preview": "/assets/imgs/maps/mhtr-terrain-relief-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-terrain-relief-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-terrain-relief-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Shaded relief of MHTR showing north-west to south-east ridges and valleys, rivers, the reserve and reserve-plus-ESZ outlines",
+    "alt": "Mukundara Hills Tiger Reserve shaded-relief terrain map showing north-west to south-east ridges and valleys inside the reserve and ESZ outlines",
     "width": 2400,
     "height": 1600,
     "summary": "DEM-derived shaded relief with elevation tints shows the long ridges and valleys that run north-west to south-east. Highest and lowest points are marked inside the reserve-plus-ESZ outline.",
-    "useFor": "Use this to explain why slopes, valleys and long ridges shape habitat, visibility, patrol access and movement.",
+    "useFor": "To explain why slopes, valleys and long ridges shape habitat, visibility, patrol access and movement.",
     "sources": "Mapzen Terrain Tiles on AWS (built from SRTM, GMTED2010, ETOPO1 and other sources); Rajasthan Forest Department map files; OpenStreetMap via Overture Maps",
     "sourceLinks": [
       {
@@ -166,21 +182,25 @@
         "label": "OpenStreetMap attribution",
         "url": "https://www.openstreetmap.org/copyright"
       }
-    ]
+    ],
+    "group": "landscape",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "Shaded relief with elevation tints shows the long ridges and valleys running north-west to south-east; highest and lowest points are marked inside the reserve-plus-ESZ outline."
   },
   {
     "slug": "water-systems",
     "title": "Water Systems and Hydrology",
     "shortTitle": "Water",
-    "image": "/assets/imgs/maps/mhtr-water-systems-map.png",
-    "preview": "/assets/imgs/maps/mhtr-water-systems-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-water-systems-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-water-systems-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Hydrology map of the Mukundara landscape: rivers, reservoirs, canals, main roads, towns and the reserve outlines",
+    "alt": "Mukundara Hills Tiger Reserve water systems map: Chambal, Kali Sindh, reservoirs, canals and drainage around the 2023 reserve outline",
     "width": 2400,
     "height": 1600,
     "summary": "Rivers, reservoirs, canals and drainage around the reserve over light shaded relief, with the main water bodies labelled on the feature they name.",
-    "useFor": "Use this for dry-season water, wetland value, riparian corridors and water-linked movement.",
+    "useFor": "For dry-season water, wetland value, riparian corridors and water-linked movement.",
     "sources": "OpenStreetMap via Overture Maps; Mapzen Terrain Tiles on AWS (built from SRTM, GMTED2010, ETOPO1 and other sources); Rajasthan Forest Department map files",
     "sourceLinks": [
       {
@@ -199,21 +219,25 @@
         "label": "Forest Department map register",
         "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/forest-devlopment/districtwise-forest-blocks-google-earth.html"
       }
-    ]
+    ],
+    "group": "landscape",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "Rivers, reservoirs, canals and drainage around the reserve over light shaded relief, with the main water bodies labelled on the feature they name."
   },
   {
     "slug": "elevation-zones",
     "title": "Elevation Zones and Contours",
     "shortTitle": "Elevation",
-    "image": "/assets/imgs/maps/mhtr-elevation-zones-map.png",
-    "preview": "/assets/imgs/maps/mhtr-elevation-zones-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-elevation-zones-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-elevation-zones-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "Elevation bands and 50 m contours for MHTR with rivers and the reserve and reserve-plus-ESZ outlines",
+    "alt": "Mukundara Hills Tiger Reserve elevation map with DEM-derived height bands and 50 m contours inside the reserve and eco-sensitive zone outlines",
     "width": 2400,
     "height": 1600,
     "summary": "Elevation bands in metres, 50 m contours (bold every 100 m) and the highest and lowest points inside the reserve-plus-ESZ outline.",
-    "useFor": "Use this when discussing ridges, lower valleys, drainage floors and terrain-driven microhabitats, with approximate DEM elevations.",
+    "useFor": "When discussing ridges, lower valleys, drainage floors and terrain-driven microhabitats, with approximate DEM elevations.",
     "sources": "Mapzen Terrain Tiles on AWS (built from SRTM, GMTED2010, ETOPO1 and other sources); Rajasthan Forest Department map files; OpenStreetMap via Overture Maps",
     "sourceLinks": [
       {
@@ -232,21 +256,25 @@
         "label": "OpenStreetMap attribution",
         "url": "https://www.openstreetmap.org/copyright"
       }
-    ]
+    ],
+    "group": "landscape",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "Elevation bands in metres, 50 m contours (bold every 100 m) and the highest and lowest points inside the reserve-plus-ESZ outline."
   },
   {
     "slug": "land-cover-habitat",
     "title": "Land Cover and Habitat Context",
     "shortTitle": "Land cover",
-    "image": "/assets/imgs/maps/mhtr-land-cover-habitat-map.png",
-    "preview": "/assets/imgs/maps/mhtr-land-cover-habitat-map-preview.webp",
+    "image": "/assets/imgs/maps/mukundara-hills-tiger-reserve-land-cover-habitat-map.png",
+    "preview": "/assets/imgs/maps/mukundara-hills-tiger-reserve-land-cover-habitat-map-preview.webp",
     "previewWidth": 960,
     "previewHeight": 640,
-    "alt": "ESA WorldCover 2021 land cover around MHTR with the reserve outlines and class shares inside the reserve and ESZ",
+    "alt": "Mukundara Hills Tiger Reserve land-cover map from ESA WorldCover 2021 classes in and around the reserve and eco-sensitive zone outlines",
     "width": 2400,
     "height": 1600,
     "summary": "ESA WorldCover 2021 v200 classes with the share of each class inside the reserve and inside the eco-sensitive zones. WorldCover ended with the 2021 reference year, so this is a dated baseline, not current land cover.",
-    "useFor": "Use this as a 2021 habitat baseline, then check later change and finer habitat detail with dated imagery, field notes and forest records.",
+    "useFor": "As a 2021 habitat baseline, then check later change and finer habitat detail with dated imagery, field notes and forest records.",
     "sources": "ESA WorldCover 2021 v200 (CC BY 4.0); Rajasthan Forest Department map files",
     "sourceLinks": [
       {
@@ -261,6 +289,10 @@
         "label": "Forest Department map register",
         "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/forest-devlopment/districtwise-forest-blocks-google-earth.html"
       }
-    ]
+    ],
+    "group": "landscape",
+    "creator": "Vinay Chittora",
+    "dateModified": "2026-10-24",
+    "short": "ESA WorldCover 2021 classes with the share of each class inside the reserve and inside the ESZ band, as a dated habitat baseline."
   }
 ]

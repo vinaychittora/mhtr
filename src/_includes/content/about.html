@@ -44,6 +44,36 @@
   </aside>
 </section>
 
+<section class="section" id="who-makes-this" aria-labelledby="people-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Who Makes This</p>
+    <h2 id="people-heading">Two people, no organisation behind it</h2>
+    <p class="muted">
+      MHTR.in is researched, written, mapped, photographed and built by hand. Nothing here is syndicated; every
+      page is checked against the documents it cites.
+    </p>
+  </div>
+  <div class="grid-2 about-people">
+{% for key in ['vinayChittora', 'sonuKumar'] %}{% set person = authors[key] %}
+    <article class="card about-person" id="{{ key }}">
+      <p class="eyebrow">{{ person.role }}</p>
+      <h3>{{ person.name }}</h3>
+      <p>{{ person.bio }}</p>
+      <p class="muted">
+  {% if key == 'vinayChittora' %}
+        Cartography and GIS analysis, including the <a href="/gis-maps/">boundary files and maps</a>, the
+        <a href="/resources/">document archive</a>, <a href="/field-reports/">field reports</a>, site design and code.
+        Also publishes as <a href="{{ person.url }}" rel="noopener" target="_blank">Cane &amp; Camera</a>.
+  {% else %}
+        Plant and bird records, the <a href="/biodiversity/">biodiversity lists</a> and the
+        <a href="{{ person.inatProject }}" rel="noopener" target="_blank">Biodiversity of MHTR</a> iNaturalist project.
+  {% endif %}
+      </p>
+    </article>
+{% endfor %}
+  </div>
+</section>
+
 <section class="section" aria-labelledby="principles-heading">
   <div class="section-heading">
     <p class="eyebrow">Editorial Principles</p>

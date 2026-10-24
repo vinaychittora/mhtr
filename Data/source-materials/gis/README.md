@@ -50,14 +50,14 @@ Downloaded 2026-10-23. The build stops if a file's SHA-256 changes.
 
 ## Map images
 
-- `src/assets/assets/imgs/maps/mhtr-legal-zones-map.png`
-- `src/assets/assets/imgs/maps/mhtr-data-gaps-map.png`
-- `src/assets/assets/imgs/maps/mhtr-esz-outer-limit-map.png`
-- `src/assets/assets/imgs/maps/mhtr-boundary-context-map.png`
-- `src/assets/assets/imgs/maps/mhtr-terrain-relief-map.png`
-- `src/assets/assets/imgs/maps/mhtr-water-systems-map.png`
-- `src/assets/assets/imgs/maps/mhtr-elevation-zones-map.png`
-- `src/assets/assets/imgs/maps/mhtr-land-cover-habitat-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-legal-zones-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-data-gaps-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-esz-outer-limit-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-boundary-context-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-terrain-relief-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-water-systems-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-elevation-zones-map.png`
+- `src/assets/assets/imgs/maps/mukundara-hills-tiger-reserve-land-cover-habitat-map.png`
 
 Editorial rule: the maps avoid exact wildlife observation, nest, den, roost, carcass or breeding-site locations.
 Boundary note: Not a legal or cadastral boundary: the reserve is defined by the notification schedules. The Forest Department marks its files as for management use, not legal purposes.
