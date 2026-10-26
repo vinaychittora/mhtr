@@ -127,7 +127,7 @@
       <article class="resource-item" data-resource-item data-resource-category="{{ docCategory }}">
         <div class="resource-item-head">
           <span class="resource-category-badge">{{ resourceIcon(docCategory) }}<span>{{ doc.category }}</span></span>
-          <span class="resource-format">PDF</span>
+          <span class="resource-format">{% if doc.sourceOnly %}Link{% else %}PDF{% endif %}</span>
         </div>
         <h3 class="resource-title">
           <a href="/resources/documents/{{ doc.slug }}/">{{ doc.title }}</a>
@@ -136,14 +136,21 @@
         <dl class="resource-meta-list">
           <div><dt>Type</dt><dd>{{ doc.type }}</dd></div>
           <div><dt>Source</dt><dd>{{ doc.source }}</dd></div>
+{% if doc.fileSize %}
           <div><dt>File</dt><dd>{{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</dd></div>
+{% endif %}
           <div><dt>Issued</dt><dd>{{ doc.issued }}</dd></div>
+{% if reuseBases[doc.reuseBasis] %}
+          <div><dt>Reuse</dt><dd>{{ reuseBases[doc.reuseBasis].label }}</dd></div>
+{% endif %}
         </dl>
         <p class="resource-use"><strong>Best for:</strong> {{ doc.useFor }}</p>
 {% if archiveAvailable and archiveIsExternal %}
         <p class="resource-archive-note">Stored in the MHTR document archive; original source retained for citation.</p>
 {% elif archiveAvailable %}
         <p class="resource-archive-note">Stored locally: {{ doc.archivedAt }}</p>
+{% elif doc.archivePending %}
+        <p class="resource-archive-note">Archive copy being added; open the original link for now.</p>
 {% else %}
         <p class="resource-archive-note">Publisher-hosted record; indexed here without republishing the file.</p>
 {% endif %}
@@ -186,6 +193,25 @@
   </section>
 
   <p class="resource-empty" data-resource-empty hidden>No resources match that search and filter.</p>
+</section>
+
+<section class="section resource-archive-policy" aria-labelledby="archive-policy-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Archive Policy</p>
+    <h2 id="archive-policy-heading">What we keep copies of, and why</h2>
+  </div>
+  <p>
+    Official links move and files disappear, so MHTR.in keeps a copy of a document only where reuse is clearly
+    allowed: Gazette notifications, which section 52(1)(q) of the Copyright Act, 1957 lets anyone reproduce;
+    publications of the Rajasthan Forest Department, NTCA, the Wildlife Institute of India and the CAG, whose
+    website policies allow free reproduction with prominent acknowledgement; and papers under an open
+    Creative Commons licence. Each document page states its reuse basis and credits the issuing body or authors.
+  </p>
+  <p>
+    Papers and reports without an open licence are listed with a link to the publisher and are not hosted.
+    Copies are unaltered and kept for reference; always cite the original. If you hold rights in a file here and
+    want it changed or removed, <a href="mailto:{{ site.contactEmail }}">write to us</a> and we will act promptly.
+  </p>
 </section>
 
 <section class="section resource-guidance" aria-labelledby="resource-guide-heading">

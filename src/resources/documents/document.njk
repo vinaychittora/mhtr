@@ -22,6 +22,7 @@ eleventyComputed:
 {% set archiveUrl = doc.localPath | archiveDocumentUrl %}
 {% set archiveAvailable = not doc.sourceOnly and (deployment.docsArchiveBaseUrl or deployment.target != "cloudflare-pages" or not doc.cloudflarePagesOmitLocal) %}
 {% set archiveIsExternal = deployment.docsArchiveBaseUrl %}
+{% set basis = reuseBases[doc.reuseBasis] %}
 
 <article class="document-page">
   <header class="page-hero document-hero">
@@ -49,10 +50,20 @@ eleventyComputed:
       <p><strong>Archive status:</strong> Stored in the MHTR document archive; original source retained for citation.</p>
 {% elif archiveAvailable %}
       <p><strong>Archived locally:</strong> {{ doc.archivedAt }}</p>
+{% elif doc.archivePending %}
+      <p><strong>Access:</strong> Original source link. An archive copy is being added.</p>
 {% else %}
       <p><strong>Access:</strong> Original publisher link. This source is indexed here without republishing the file.</p>
 {% endif %}
+{% if doc.fileSize %}
       <p><strong>File:</strong> {{ doc.fileSize }}{% if doc.pages %} / {{ doc.pages }} pages{% endif %}</p>
+{% endif %}
+{% if basis %}
+      <p><strong>Reuse basis:</strong> {{ basis.statement }}{% if basis.url %} <a href="{{ basis.url }}" target="_blank" rel="noopener noreferrer">{% if doc.reuseBasis.startsWith("cc") %}Licence{% else %}Policy{% endif %}</a>{% endif %}</p>
+{% endif %}
+{% if doc.credit %}
+      <p><strong>Credit:</strong> {{ doc.credit }}</p>
+{% endif %}
     </div>
 
     <div class="aside-box">
@@ -85,6 +96,11 @@ eleventyComputed:
         This catalogue page preserves searchable metadata and interpretation guidance while linking to the
         issuing authority's copy. Confirm the publisher, date and document version when citing it.
       </p>
+{% if doc.reuseBasis == "link-only" %}
+      <p class="muted">
+        MHTR.in hosts copies only where the publisher's terms or an open licence allow it. This one is not hosted.
+      </p>
+{% endif %}
     </div>
     <div class="source-actions">
       <a class="button-link" href="{{ doc.sourceUrl }}" target="_blank" rel="noopener noreferrer">Open original source</a>
@@ -93,6 +109,6 @@ eleventyComputed:
 {% endif %}
 
   <script type="application/ld+json">
-  {% documentJsonLd site, page, doc, archiveAvailable, archiveUrl %}
+  {% documentJsonLd site, page, doc, archiveAvailable, archiveUrl, basis %}
   </script>
 </article>

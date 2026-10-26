@@ -8,6 +8,30 @@
     "note": "Live portal page; details can change without notice."
   },
   {
+    "title": "Wildlife Population Estimation, year-wise - Rajasthan Forest Department",
+    "type": "Official data series",
+    "source": "Rajasthan Forest Department",
+    "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/wildlife/public-information/wildlife-animal-census.html",
+    "useFor": "Yearly waterhole count reports from 2001 onwards, by protected area and forest division.",
+    "note": "Recent years (2026) cover protected areas and forests outside the tiger reserves, so MHTR itself may not be counted; check each year’s note."
+  },
+  {
+    "title": "Notified Eco-sensitive Zones of Rajasthan - Rajasthan Forest Department",
+    "type": "Official register",
+    "source": "Rajasthan Forest Department",
+    "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/aboutus/departmental-wings/wildlife/eco-sensitive-zone--esz-/notified-esz-of-rajasthan.html",
+    "useFor": "Current list of final ESZ notifications with S.O. numbers, including MHTR (2020), Bhainsrorgarh (2021) and Shergarh (2025).",
+    "note": "Check here for amendments before relying on an archived notification."
+  },
+  {
+    "title": "NTCA reports and publications",
+    "type": "Official report index",
+    "source": "National Tiger Conservation Authority",
+    "url": "https://ntca.gov.in/reports",
+    "useFor": "All tiger status and MEE cycles, NTCA annual reports, Tiger Conservation Plan guidelines and protocols.",
+    "note": "Reports relevant to MHTR are archived individually in the catalogue above."
+  },
+  {
     "title": "Online Safari/Zoo Ticket Booking - Rajasthan Forest Department",
     "type": "Official public-access links",
     "source": "Rajasthan Forest Department",
@@ -46,6 +70,14 @@
     "url": "https://www.inaturalist.org/projects/biodiversity-of-mhtr",
     "useFor": "Recent community observations, live species context, and public field documentation.",
     "note": "This complements the curated list on the biodiversity page."
+  },
+  {
+    "title": "Jawahar Sagar Sanctuary - Important Bird Area factsheet",
+    "type": "Conservation database",
+    "source": "BirdLife International DataZone",
+    "url": "https://datazone.birdlife.org/site/factsheet/jawahar-sagar-sanctuary-iba-india",
+    "useFor": "Important Bird Area status, trigger species and site description for the Chambal gorge sanctuary in the core.",
+    "note": "BirdLife content; read and cite at the source."
   },
   {
     "title": "First photographic evidence of the fishing cat from Mukundara Hills Tiger Reserve",

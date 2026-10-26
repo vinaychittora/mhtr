@@ -1,0 +1,57 @@
+{
+  "gazette": {
+    "label": "Gazette notification",
+    "statement": "Published in an Official Gazette. Reproducing Gazette matter is permitted under section 52(1)(q)(i) of the Copyright Act, 1957.",
+    "url": ""
+  },
+  "fd-policy": {
+    "label": "Rajasthan Forest Department policy",
+    "statement": "Reproduced under the Rajasthan Forest Department's website copyright policy, which allows free reproduction with prominent acknowledgement of the source.",
+    "url": "https://forest.rajasthan.gov.in/content/raj/forest/en/footerimplinks/copyright-policy.html"
+  },
+  "rajasthan-gov-policy": {
+    "label": "Government of Rajasthan publication",
+    "statement": "Published by a Government of Rajasthan department on its official portal; reproduced unaltered with acknowledgement of the issuing department.",
+    "url": ""
+  },
+  "ntca-policy": {
+    "label": "NTCA policy",
+    "statement": "Reproduced under the National Tiger Conservation Authority's website copyright policy, which allows free reproduction with prominent acknowledgement of the source.",
+    "url": "https://ntca.gov.in/p/website-policy"
+  },
+  "wii-policy": {
+    "label": "WII policy",
+    "statement": "Reproduced under the Wildlife Institute of India's website copyright policy, which allows free reproduction with prominent acknowledgement of the source.",
+    "url": "https://wii.gov.in/copyright-policy"
+  },
+  "cag-policy": {
+    "label": "CAG policy",
+    "statement": "Audit report laid before the Legislature. The CAG's audit offices allow their material to be reproduced free of charge if reproduced accurately.",
+    "url": "https://cag.gov.in/ag/mumbai-i/en/page-ag-mumbai-i-copyright"
+  },
+  "lok-sabha-policy": {
+    "label": "Lok Sabha Secretariat policy",
+    "statement": "Parliamentary record reproduced for non-commercial research and review with attribution, as the Lok Sabha Secretariat's copyright policy allows.",
+    "url": "https://eparlib.nic.in/help/copyright-policy.jsp"
+  },
+  "public-record": {
+    "label": "Public statutory record",
+    "statement": "Document filed by a public authority and published on a Government of India clearance portal; reproduced unaltered for reference.",
+    "url": ""
+  },
+  "cc-by": {
+    "label": "Creative Commons Attribution",
+    "statement": "Open access under a Creative Commons Attribution (CC BY) licence; copyright stays with the authors.",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "cc-ijcmas": {
+    "label": "Creative Commons (CC BY or CC BY-NC)",
+    "statement": "Open access; the journal publishes under CC BY or CC BY-NC. Copied here for non-commercial use with credit.",
+    "url": "https://ijcmas.com/ccl.php"
+  },
+  "link-only": {
+    "label": "Link only",
+    "statement": "Not hosted here: the publisher has not released this under an open licence. Read it at the original link.",
+    "url": ""
+  }
+}
