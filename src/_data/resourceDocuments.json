@@ -14,7 +14,9 @@
     "archivedAt": "2026-05-21",
     "summary": "A concise official profile of Mukundara Hills Tiger Reserve in the national tiger conservation context.",
     "useFor": "Use as a quick orientation before reading full planning, legal, and compliance documents.",
-    "researchNote": "Good for high-level reserve facts, but do not treat it as a substitute for notifications, plans, or sanction records."
+    "researchNote": "Good for high-level reserve facts, but do not treat it as a substitute for notifications, plans, or sanction records.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority, Mukundara Hills Tiger Reserve brief note."
   },
   {
     "slug": "moefcc-mukundara-notification-2020",
@@ -31,7 +33,111 @@
     "archivedAt": "2026-05-21",
     "summary": "Official Gazette notification related to the Mukundara Hills Tiger Reserve eco-sensitive zone context.",
     "useFor": "Use for legal basis, notified details, regulated activity context, and compliance interpretation.",
-    "researchNote": "This is a primary legal source. Cite the Gazette notification rather than a secondary summary when making legal or policy claims."
+    "researchNote": "This is a primary legal source. Cite the Gazette notification rather than a secondary summary when making legal or policy claims.",
+    "reuseBasis": "gazette",
+    "credit": "Ministry of Environment, Forest and Climate Change, Government of India. Gazette of India, S.O. 4268(E), 25 November 2020."
+  },
+  {
+    "slug": "rajasthan-mukundara-hills-national-park-notification-2012",
+    "title": "Mukundara Hills National Park Notification, 2012",
+    "category": "Legal and notification records",
+    "type": "Rajasthan Gazette Extraordinary notification (scan)",
+    "source": "Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/rajasthan-wild-life/pdf/activities/PA%20Notifications/Mukundara%20Hills%20National%20Park.pdf",
+    "issued": "9 Jan 2012 (S.O. 156); Gazette 11 Jan 2012",
+    "summary": "S.O. 156 of 9 January 2012 declaring Mukundara Hills National Park, after a 2006 notice of intention and rights settlement in 2009 and 2011.",
+    "useFor": "Use for the legal date and basis of the national park: notice of intention 3 March 2006, rights settled in Chittorgarh (6 Aug 2009) and Kota (19 Aug 2011), final declaration under section 35(4) of the Wild Life (Protection) Act.",
+    "researchNote": "The Forest Department page lists the file number as F11(56)Van/2011/Part; the scan prints F.11(56)Van/2001 Part. Quote the number as printed and give the 9 January 2012 date.",
+    "reuseBasis": "gazette",
+    "credit": "Government of Rajasthan, Forest Department. Notification S.O. 156, 9 January 2012. Rajasthan Gazette Extraordinary, Part 4(C)(II), 11 January 2012.",
+    "localPath": "/assets/docs/resources/rajasthan-mukundara-hills-national-park-notification-2012.pdf",
+    "fileName": "rajasthan-mukundara-hills-national-park-notification-2012.pdf",
+    "sourceOnly": false,
+    "fileSize": "921 KB",
+    "pages": 3,
+    "archivedAt": "2026-10-26"
+  },
+  {
+    "slug": "rajasthan-darrah-sanctuary-notification-1955",
+    "title": "Darrah Reserved Area Notification, 1955",
+    "category": "Legal and notification records",
+    "type": "State notification (scan)",
+    "source": "Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/rajasthan-wild-life/pdf/activities/PA%20Notifications/Darrah%20Sanctuary.pdf",
+    "issued": "7 Nov 1955",
+    "summary": "Forest Department notification of 7 November 1955 declaring Darrah, with Jaisamand, Sawai Madhopur, Sariska and Dholpur, a reserved area where hunting was banned.",
+    "useFor": "Use for the history and legal origin of Darrah, the forest block most visitors know as Mukundara.",
+    "researchNote": "Issued under section 5 of the Rajasthan Wild Animals and Birds Protection Act, 1951. The Forest Department web page gives the date as 01.11.1955; the Gazette notice is dated 7 November 1955.",
+    "reuseBasis": "gazette",
+    "credit": "Government of Rajasthan, Forest Department. Miscellaneous No. F.39(2)For./55, 7 November 1955, Rajasthan Raj-Patra.",
+    "localPath": "/assets/docs/resources/rajasthan-darrah-sanctuary-notification-1955.pdf",
+    "fileName": "rajasthan-darrah-sanctuary-notification-1955.pdf",
+    "sourceOnly": false,
+    "fileSize": "1.2 MB",
+    "pages": 2,
+    "archivedAt": "2026-10-26",
+    "seoTitle": "Darrah Wildlife Sanctuary Notification, 1955"
+  },
+  {
+    "slug": "rajasthan-jawahar-sagar-sanctuary-notification-1975",
+    "title": "Jawahar Sagar Wildlife Sanctuary Notification, 1975",
+    "category": "Legal and notification records",
+    "type": "State notification (scan)",
+    "source": "Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/rajasthan-wild-life/pdf/activities/PA%20Notifications/Jahwarsagar%20sanctuary.pdf",
+    "issued": "9 Oct 1975",
+    "summary": "S.O. 526 declaring the Kota Dam (Jawahar Sagar) reservoir on the Chambal and its surrounding forests a wildlife sanctuary to protect gharial and mugger, with boundary description.",
+    "useFor": "Use for the legal origin of the Chambal gorge sanctuary between Kota and Rawatbhata.",
+    "researchNote": "Issued under section 18 of the Wild Life (Protection) Act, 1972 by the Revenue (Group-VIII) Department. The Forest Department page prints the date as 09.10.19 followed by 75.",
+    "reuseBasis": "gazette",
+    "credit": "Government of Rajasthan, Revenue (Group-VIII) Department. Notification S.O. 526, 9 October 1975, No. F.3(5)(13)Rev/8/73, Rajasthan Raj-Patra.",
+    "localPath": "/assets/docs/resources/rajasthan-jawahar-sagar-sanctuary-notification-1975.pdf",
+    "fileName": "rajasthan-jawahar-sagar-sanctuary-notification-1975.pdf",
+    "sourceOnly": false,
+    "fileSize": "461 KB",
+    "pages": 1,
+    "archivedAt": "2026-10-26"
+  },
+  {
+    "slug": "rajasthan-national-chambal-sanctuary-notification-1979",
+    "title": "National Chambal (Gharial) Sanctuary Notifications, 1979 and 1983",
+    "category": "Legal and notification records",
+    "type": "State notifications (scan)",
+    "source": "Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/rajasthan-wild-life/pdf/activities/PA%20Notifications/National%20Chambal%20Sanctuary.pdf",
+    "issued": "Dec 1979; Gazette notification 3 Sep 1983",
+    "summary": "The 1979 order declaring the National Gharial Sanctuary on the Chambal below Jawahar Sagar dam, and the 3 September 1983 Gazette notification of the sanctuary.",
+    "useFor": "Use for the legal basis of the Chambal river stretch in the reserve core and its gharial protection.",
+    "researchNote": "Both use file No. F.11(12)Rev/8/78. The 1979 order describes a 100 m strip on each bank; the 1983 Gazette text describes a 1,000 m strip. The day of the 1979 order is handwritten and hard to read; the Forest Department page gives 07.12.1979.",
+    "reuseBasis": "gazette",
+    "credit": "Government of Rajasthan, Revenue Department. Notification No. F.11(12)Rev/8/78 (1979) and Rajasthan Raj-Patra notification of 3 September 1983.",
+    "localPath": "/assets/docs/resources/rajasthan-national-chambal-sanctuary-notification-1979.pdf",
+    "fileName": "rajasthan-national-chambal-sanctuary-notification-1979.pdf",
+    "sourceOnly": false,
+    "fileSize": "1.3 MB",
+    "pages": 2,
+    "archivedAt": "2026-10-26",
+    "seoTitle": "National Chambal Sanctuary Notifications, Rajasthan, 1979 and 1983"
+  },
+  {
+    "slug": "rajasthan-bhainsrorgarh-sanctuary-notification-1983",
+    "title": "Bhainsrorgarh Wildlife Sanctuary Notification, 1983",
+    "category": "Legal and notification records",
+    "type": "State notification (scan)",
+    "source": "Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/rajasthan-wild-life/pdf/activities/PA%20Notifications/Baisorgarh%20Sanctuary.pdf",
+    "issued": "5 Feb 1983; Gazette 17 Feb 1983",
+    "summary": "Original notification of Bhainsrorgarh Sanctuary in Chittorgarh district, whose forests were added to the tiger reserve core in October 2023.",
+    "useFor": "Use with the 5 October 2023 amending notification to trace where the newer part of the core comes from.",
+    "researchNote": "Spelt Bhainsrodgarh, Bhensrodgarh and Baisorgarh in different official files; all refer to the same sanctuary.",
+    "reuseBasis": "gazette",
+    "credit": "Government of Rajasthan. Notification No. F.11(44)Rev/8/81, 5 February 1983, Rajasthan Raj-Patra, 17 February 1983.",
+    "localPath": "/assets/docs/resources/rajasthan-bhainsrorgarh-sanctuary-notification-1983.pdf",
+    "fileName": "rajasthan-bhainsrorgarh-sanctuary-notification-1983.pdf",
+    "sourceOnly": false,
+    "fileSize": "271 KB",
+    "pages": 1,
+    "archivedAt": "2026-10-26"
   },
   {
     "slug": "wii-mukundara-tiger-conservation-plan-2020-2030",
@@ -49,7 +155,9 @@
     "archivedAt": "2026-05-21",
     "summary": "Earlier archived long-form planning document for reserve management, protection, habitat, prey, tourism, eco-development, and monitoring priorities.",
     "useFor": "Use for management background. For the current legal area (1,135.787 sq km since 5 October 2023) use the 2023 amending notification.",
-    "researchNote": "Useful for management questions, but it predates the 5 October 2023 notification that added Bhainsrodgarh-area forests to the core."
+    "researchNote": "Useful for management questions, but it predates the 5 October 2023 notification that added Bhainsrodgarh-area forests to the core.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Rajasthan Forest Department, Tiger Conservation Plan of Mukundara Hills Tiger Reserve, 2020-21 to 2029-30 (copy from the WII MEE-TR portal)."
   },
   {
     "slug": "mhtr-tiger-conservation-plan-bhainsrodgarh-core-addition",
@@ -67,7 +175,9 @@
     "archivedAt": "2026-05-26",
     "summary": "Newer official TCP archive that states Bhainsrodgarh Sanctuary was added to Mukandra Hills Tiger Reserve by order 4854336 dated 05.10.2023 and made part of the core tiger reserve.",
     "useFor": "Use for the current Bhainsrodgarh core-addition context, updated management framing, corridor notes, protection infrastructure and long-form planning details.",
-    "researchNote": "This is the key source for the Bhainsrodgarh update. It is large; open in a dedicated tab when reading maps, annexures or tables."
+    "researchNote": "This is the key source for the Bhainsrodgarh update. It is large; open in a dedicated tab when reading maps, annexures or tables.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Rajasthan Forest Department, Tiger Conservation Plan of Mukundara Hills Tiger Reserve (updated copy)."
   },
   {
     "slug": "ntca-mhtr-apo-2019-20",
@@ -84,7 +194,29 @@
     "archivedAt": "2026-05-21",
     "summary": "Operational and financial planning record for Mukundara Hills Tiger Reserve for the 2019-20 cycle.",
     "useFor": "Use for budget heads, approved actions, implementation priorities, and annual management intent.",
-    "researchNote": "Compare APO line items with field outcomes and later sanction documents to understand continuity or gaps."
+    "researchNote": "Compare APO line items with field outcomes and later sanction documents to understand continuity or gaps.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority, APO sanction for Mukundara Hills Tiger Reserve, 2019-20."
+  },
+  {
+    "slug": "ntca-mukundra-apo-sanction-2022-23",
+    "title": "NTCA APO Sanction - Mukundra Tiger Reserve 2022-23",
+    "category": "Planning and management",
+    "type": "Funding sanction document",
+    "source": "National Tiger Conservation Authority (NTCA)",
+    "sourceUrl": "https://ntca.gov.in/assets/uploads/APO/sanction_orders/2022/Mukundra_Rajasthan_APO_22-23.pdf",
+    "issued": "12 Dec 2022",
+    "summary": "NTCA approval of the 2022-23 Annual Plan of Operation for MHTR: APO cost Rs 615.30 lakh, central share Rs 350.19 lakh, with release held back against an unspent balance.",
+    "useFor": "Use to fill the gap between the 2019-20 APO and the 2024-25 and 2025-26 sanctions.",
+    "researchNote": "Approval does not prove expenditure or completion; check utilisation certificates and later sanctions.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority, F. No. 4-1(43)/2022-PT, 12 December 2022.",
+    "localPath": "/assets/docs/resources/ntca-mukundra-apo-sanction-2022-23.pdf",
+    "fileName": "ntca-mukundra-apo-sanction-2022-23.pdf",
+    "sourceOnly": false,
+    "fileSize": "2.1 MB",
+    "pages": 39,
+    "archivedAt": "2026-10-26"
   },
   {
     "slug": "ntca-rajasthan-sanction-2024",
@@ -101,7 +233,9 @@
     "archivedAt": "2026-05-21",
     "summary": "Recent NTCA sanction document for tiger reserve work in Rajasthan, useful for tracking funded priorities and current-cycle conservation support.",
     "useFor": "Use to understand sanctioned priorities, funding direction, and current-cycle management support.",
-    "researchNote": "Read alongside reserve-specific APOs and implementation reports; sanction does not by itself prove field completion."
+    "researchNote": "Read alongside reserve-specific APOs and implementation reports; sanction does not by itself prove field completion.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority, sanction order for Rajasthan tiger reserves, 2024-25 (first instalment)."
   },
   {
     "slug": "ntca-mee-tiger-reserves-technical-manual-2022",
@@ -118,7 +252,58 @@
     "archivedAt": "2026-05-26",
     "summary": "NTCA technical manual explaining the Management Effectiveness Evaluation framework used for tiger reserves in India.",
     "useFor": "Use for understanding MEE terminology, evaluation criteria, management-effectiveness context and how tiger reserves are assessed.",
-    "researchNote": "This is not MHTR-specific, but it helps readers understand official management evaluation language used across tiger reserves."
+    "researchNote": "This is not MHTR-specific, but it helps readers understand official management evaluation language used across tiger reserves.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority, MEE Technical Manual, 2022."
+  },
+  {
+    "slug": "ntca-mee-tiger-reserves-2018",
+    "title": "Management Effectiveness Evaluation of Tiger Reserves in India, 2018 (4th cycle)",
+    "category": "Planning and management",
+    "type": "National evaluation report",
+    "source": "National Tiger Conservation Authority and Wildlife Institute of India",
+    "sourceUrl": "https://ntca.gov.in/assets/uploads/Reports/MEE/MEE_Tiger_Reserves_India_2018.pdf",
+    "issued": "2019",
+    "summary": "The fourth national MEE cycle, with the reserve-wise score and evaluators’ notes for Mukundara Hills before tigers were brought back.",
+    "useFor": "Use to compare MHTR’s 2018 assessment with the 2022 cycle.",
+    "researchNote": "Scores are not strictly comparable across cycles because the framework changed; compare the evaluators’ notes as well as the numbers. The file is over 100 MB, so it is linked rather than hosted.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority and Wildlife Institute of India, Fourth cycle of MEE of Tiger Reserves in India, 2018.",
+    "sourceOnly": true
+  },
+  {
+    "slug": "wii-cheetah-introduction-sites-assessment-2021",
+    "title": "Assessment of Cheetah Introduction Sites and Proposed Actions (Technical Note)",
+    "category": "Planning and management",
+    "type": "Technical assessment",
+    "source": "Wildlife Institute of India with Rajasthan and Madhya Pradesh Forest Departments",
+    "sourceUrl": "https://v1.wii.gov.in/images//images/documents/publications/cheetah_introduction_technical_report_2021.pdf",
+    "issued": "2021",
+    "summary": "Field assessment of candidate cheetah sites, including a survey of Mukundara on 22-23 November 2020: the 80 sq km enclosure, prey densities and the conclusion that the reserve was not then ready.",
+    "useFor": "Use for 2020 prey density figures, the enclosure, and the management actions WII listed for MHTR.",
+    "researchNote": "A short rapid survey; treat the prey densities as indicative. Reserve area is the pre-2023 figure of 759 sq km.",
+    "reuseBasis": "wii-policy",
+    "credit": "Jhala, Y.V., Bipin, C.M., Jhala, H.Y., Yadav, S.R. and Chauhan, J.S. (2021). Assessment of cheetah introduction sites and proposed actions: technical note. Wildlife Institute of India, Forest Department of Rajasthan and Forest Department of Madhya Pradesh.",
+    "localPath": "/assets/docs/resources/wii-cheetah-introduction-sites-assessment-2021.pdf",
+    "fileName": "wii-cheetah-introduction-sites-assessment-2021.pdf",
+    "sourceOnly": true,
+    "archivePending": true
+  },
+  {
+    "slug": "ntca-wii-tiger-reintroduction-field-learnings-2026",
+    "title": "Reintroduction and Population Recovery of Tigers in India: Field Experiences and Key Learnings",
+    "category": "Planning and management",
+    "type": "National case-study report",
+    "source": "NTCA and Wildlife Institute of India",
+    "sourceUrl": "https://ntca.gov.in/wp-content/uploads/2026/06/Tiger-Reintroduction-Field-Learnings-Case-Studies-Final-June.pdf",
+    "issued": "2026",
+    "summary": "Case studies of tiger reintroductions, including Mukundara: translocation from Ranthambhore from 2018, an 82 sq km enclosure, mortality setbacks and 7 tigers present.",
+    "useFor": "Use for the official account of the reintroduction and what NTCA and WII say limits recovery here.",
+    "researchNote": "The report is marked all rights reserved, so it is linked, not hosted.",
+    "reuseBasis": "link-only",
+    "credit": "NTCA-WII (2026). Reintroduction and Population Recovery of Tigers in India: Field Experiences and Key Learnings. National Tiger Conservation Authority and Wildlife Institute of India.",
+    "sourceOnly": true,
+    "seoTitle": "Tiger Reintroduction in India: NTCA-WII Field Learnings 2026"
   },
   {
     "slug": "rajasthan-zmp-mhtr-2023",
@@ -135,7 +320,9 @@
     "archivedAt": "2026-05-21",
     "summary": "Zonal planning document for the eco-sensitive zone context around Mukundara Hills Tiger Reserve.",
     "useFor": "Use for zoning logic, permissible activity interpretation, land-use compatibility, and planning controls.",
-    "researchNote": "Important for development-pressure analysis around the reserve; pair with legal notifications and local planning records."
+    "researchNote": "Important for development-pressure analysis around the reserve; pair with legal notifications and local planning records.",
+    "reuseBasis": "rajasthan-gov-policy",
+    "credit": "Source: Department of Environment and Climate Change, Government of Rajasthan, Zonal Master Plan for the MHTR eco-sensitive zone, 7 December 2023."
   },
   {
     "slug": "rajasthan-notified-esz-v-tr",
@@ -152,7 +339,29 @@
     "archivedAt": "2026-05-21",
     "summary": "A compact Rajasthan Forest Department PDF covering ESZ and tiger reserve reference tables, including Mukundara.",
     "useFor": "Use for quick ESZ and reserve-area reference across Rajasthan tiger reserves.",
-    "researchNote": "Useful as a compact table source, but cite full notifications and ZMP documents for detailed compliance work."
+    "researchNote": "Useful as a compact table source, but cite full notifications and ZMP documents for detailed compliance work.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Rajasthan Forest Department, notified eco-sensitive zones table."
+  },
+  {
+    "slug": "moefcc-bhainsrorgarh-esz-notification-2021",
+    "title": "Bhainsrorgarh Wildlife Sanctuary Eco-sensitive Zone Notification, 2021",
+    "category": "ESZ and compliance",
+    "type": "Gazette of India notification",
+    "source": "Ministry of Environment, Forest and Climate Change",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/Notified-ESZ-of-Rajasthan/bhainsorgarh-1.pdf",
+    "issued": "10 Sep 2021 (S.O. 3683(E)); Gazette 13 Sep 2021",
+    "summary": "Final notification of the eco-sensitive zone around Bhainsrorgarh Sanctuary, the second ESZ in the reserve’s outer boundary.",
+    "useFor": "Use with the 2020 MHTR ESZ notification for rules on activities around the Bhainsrorgarh part of the core.",
+    "researchNote": "The ESZ was drawn around the sanctuary before it joined the tiger reserve in 2023; see the boundaries page for where the two ESZs meet.",
+    "reuseBasis": "gazette",
+    "credit": "Ministry of Environment, Forest and Climate Change, Government of India. S.O. 3683(E), 10 September 2021. Gazette of India Extraordinary, Part II, Section 3(ii), No. 3371, 13 September 2021.",
+    "localPath": "/assets/docs/resources/moefcc-bhainsrorgarh-esz-notification-2021.pdf",
+    "fileName": "moefcc-bhainsrorgarh-esz-notification-2021.pdf",
+    "sourceOnly": false,
+    "fileSize": "3.1 MB",
+    "pages": 56,
+    "archivedAt": "2026-10-26"
   },
   {
     "slug": "environment-clearance-wildlife-2019",
@@ -169,7 +378,9 @@
     "archivedAt": "2026-05-21",
     "summary": "Wildlife conservation / clearance file for a highway section in the wider Mukundara-Darrah landscape context.",
     "useFor": "Use for mitigation commitments, project conditions, and wildlife-clearance context around infrastructure proposals.",
-    "researchNote": "The conditions and mitigation sections are critical; they define obligations after approval."
+    "researchNote": "The conditions and mitigation sections are critical; they define obligations after approval.",
+    "reuseBasis": "public-record",
+    "credit": "Submitted by the National Highways Authority of India; published on the Government of India environment clearance portal, 14 November 2019."
   },
   {
     "slug": "rajasthan-reptiles-amphibians-mhtr-field-guide",
@@ -186,7 +397,29 @@
     "archivedAt": "2026-05-21",
     "summary": "A field guide-style reference focused on reptiles and amphibians recorded in Mukundara Hills Tiger Reserve.",
     "useFor": "Use for non-mammal baseline context, field identification support, and biodiversity education.",
-    "researchNote": "A useful counterweight to tiger-only narratives; verify taxonomy against current sources when needed."
+    "researchNote": "A useful counterweight to tiger-only narratives; verify taxonomy against current sources when needed.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Wildlife Institute of India and Rajasthan Forest Department (Mukundara Hills Tiger Reserve), Amphibians and Reptiles of MHTR."
+  },
+  {
+    "slug": "wii-rajasthan-mhtr-preliminary-bird-guide-2025",
+    "title": "A Preliminary Bird Guide of Mukandra Hills Tiger Reserve",
+    "category": "Biodiversity references",
+    "type": "Field guide",
+    "source": "Wildlife Institute of India and Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Preliminary-Birds-guide-/A%20preliminary%20birds%20guide%20of%20MHTR0.pdf",
+    "issued": "2025",
+    "summary": "Illustrated guide to 219 bird species recorded in the reserve, with protection schedule, IUCN status, guild, migratory status and habitat for each.",
+    "useFor": "Use for species identification, an official bird checklist, and the Chambal gorge Indian vulture colony context.",
+    "researchNote": "A preliminary guide, so absence from it does not mean a species is absent. Check names against current taxonomy before reuse.",
+    "reuseBasis": "wii-policy",
+    "credit": "Sai, A. and Das, A. (2025). A Preliminary Bird Guide of Mukandra Hills Tiger Reserve. Wildlife Institute of India, Dehradun, and Mukandra Hills Tiger Reserve, Rajasthan Forest Department.",
+    "localPath": "/assets/docs/resources/wii-rajasthan-mhtr-preliminary-bird-guide-2025.pdf",
+    "fileName": "wii-rajasthan-mhtr-preliminary-bird-guide-2025.pdf",
+    "sourceOnly": false,
+    "fileSize": "3.2 MB",
+    "pages": 70,
+    "archivedAt": "2026-10-26"
   },
   {
     "slug": "ijcmas-dharmendra-kumar-2020",
@@ -203,7 +436,9 @@
     "archivedAt": "2026-05-21",
     "summary": "Research article on plant diversity characterization in Mukundara Hills Tiger Reserve.",
     "useFor": "Use for sampling design, plant diversity records, and habitat interpretation.",
-    "researchNote": "Review methods and sampling effort before using headline diversity claims."
+    "researchNote": "Review methods and sampling effort before using headline diversity claims.",
+    "reuseBasis": "cc-ijcmas",
+    "credit": "Dharmendra Kumar et al. (2020). Phytodiversity Characterization of Mukundara Hills Tiger Reserve. International Journal of Current Microbiology and Applied Sciences 9(7). Open access, Creative Commons licence."
   },
   {
     "slug": "researchgate-kota-barrage-jawahar-sagar-wildlife-status",
@@ -220,7 +455,9 @@
     "archivedAt": "2026-05-21",
     "summary": "A WII rapid assessment report on aquatic wildlife and river habitat quality along the Chambal River stretch between Kota Barrage and Jawahar Sagar Dam.",
     "useFor": "Use for Chambal river-valley context, otter signs, crocodile and turtle records, waterbirds, raptors, fish diversity, and development-impact interpretation around the wider Mukundara landscape.",
-    "researchNote": "This report can contain sensitive field locations. Use it for ecological context and citation, but avoid republishing precise nest, roost, or wildlife-use coordinates."
+    "researchNote": "This report can contain sensitive field locations. Use it for ecological context and citation, but avoid republishing precise nest, roost, or wildlife-use coordinates.",
+    "reuseBasis": "wii-policy",
+    "credit": "Johnson, J.A., George, A., Sharma, M., Kavin, D., Suresh, S., Gopi, G.V. and Hussain, S.A. (2021). Status of wildlife between Kota barrage and Jawahar Sagar Dam, Rajasthan. Wildlife Institute of India, Dehradun."
   },
   {
     "slug": "jwls-caracal-comeback-mukundara-2025",
@@ -237,7 +474,9 @@
     "archivedAt": "2026-05-29",
     "summary": "Open-access natural history note documenting the first photographic record of caracal from Ramgarh Visdhari and Mukundara Hills Tiger Reserves.",
     "useFor": "Use for caracal distribution, rare small-cat conservation context, camera-trap monitoring value and semi-arid western Indian landscape interpretation.",
-    "researchNote": "The article includes camera-trap maps and record context. Cite the finding without republishing precise wildlife-use locations."
+    "researchNote": "The article includes camera-trap maps and record context. Cite the finding without republishing precise wildlife-use locations.",
+    "reuseBasis": "cc-by",
+    "credit": "Thakar, R. et al. (2025). Caracal’s Comeback: first photographic record of caracal in the Ramgarh Visdhari and Mukundara Hills Tiger Reserve, India. Journal of Wildlife Science 2(3): 100-103. doi:10.63033/JWLS.IFNA7720. CC BY 4.0."
   },
   {
     "slug": "vulture-news-cinereous-vulture-mukundara-2016",
@@ -246,15 +485,14 @@
     "type": "Species record / short communication",
     "source": "Vulture News",
     "sourceUrl": "https://doi.org/10.4314/vulnew.v71i1.4",
-    "localPath": "/assets/docs/resources/vulture-news-cinereous-vulture-mukundara-2016.pdf",
-    "fileName": "vulture-news-cinereous-vulture-mukundara-2016.pdf",
-    "fileSize": "353 KB",
     "pages": 6,
     "issued": "2016",
-    "archivedAt": "2026-05-29",
     "summary": "Short communication reporting a Cinereous Vulture sighting from Mukundara Hills Tiger Reserve during a February-March 2015 prey-status study.",
     "useFor": "Use for vulture occurrence, scavenger records, raptor context, and evidence that MHTR supports more than tiger-focused conservation values.",
-    "researchNote": "The article includes field context and a precise observation locality. Cite the record, but avoid amplifying sensitive location detail unnecessarily."
+    "researchNote": "The article includes field context and a precise observation locality. Cite the record, but avoid amplifying sensitive location detail unnecessarily.",
+    "reuseBasis": "link-only",
+    "credit": "Vulture News 71 (2016). doi:10.4314/vulnew.v71i1.4.",
+    "sourceOnly": true
   },
   {
     "slug": "flora-fauna-sloth-bear-occupancy-mhtr-2015",
@@ -263,15 +501,14 @@
     "type": "Research paper",
     "source": "Flora and Fauna",
     "sourceUrl": "https://floraandfona.org.in/Uploaded%20Pdf/212/203-208.pdf",
-    "localPath": "/assets/docs/resources/flora-fauna-sloth-bear-occupancy-mhtr-2015.pdf",
-    "fileName": "flora-fauna-sloth-bear-occupancy-mhtr-2015.pdf",
-    "fileSize": "194 KB",
     "pages": 6,
     "issued": "2015",
-    "archivedAt": "2026-05-29",
     "summary": "Study of sloth bear occupancy, signs, den records and habitat use in Mukundara Hills Tiger Reserve, with mixed forest and water-adjacent habitats highlighted.",
     "useFor": "Use for sloth bear distribution, habitat preference, sign-survey context and human-use pressure around MHTR.",
-    "researchNote": "The paper discusses bear signs and den habitat. Use the ecological findings carefully and avoid turning site-specific records into visitor guidance."
+    "researchNote": "The paper discusses bear signs and den habitat. Use the ecological findings carefully and avoid turning site-specific records into visitor guidance.",
+    "reuseBasis": "link-only",
+    "credit": "Sultana, F., Khan, S. and Nabi, G. (2015). Occupancy and habitat use of sloth bear in Mukundara Hills Tiger Reserve. Flora and Fauna 21(2): 203-208.",
+    "sourceOnly": true
   },
   {
     "slug": "ijrar-sloth-bear-diet-mukundra-2022",
@@ -280,15 +517,14 @@
     "type": "Research paper",
     "source": "International Journal of Research and Analytical Reviews",
     "sourceUrl": "https://ijrar.org/papers/IJRAR22C1155.pdf",
-    "localPath": "/assets/docs/resources/ijrar-sloth-bear-diet-mukundra-2022.pdf",
-    "fileName": "ijrar-sloth-bear-diet-mukundra-2022.pdf",
-    "fileSize": "736 KB",
     "pages": 7,
     "issued": "2022",
-    "archivedAt": "2026-05-29",
     "summary": "Research article on sloth bear food availability and scat-based diet composition in Darrah Wildlife Sanctuary, part of the Mukundara Hills Tiger Reserve landscape.",
     "useFor": "Use for sloth bear feeding ecology, seasonal food context, plant-food references and insect-heavy diet interpretation.",
-    "researchNote": "Treat the percentages as study-specific results from sampled scats, not as a complete diet profile for every season or part of the reserve."
+    "researchNote": "Treat the percentages as study-specific results from sampled scats, not as a complete diet profile for every season or part of the reserve.",
+    "reuseBasis": "link-only",
+    "credit": "Khan, S. and Sultana, F. (2022). Food availability and dietary composition of sloth bear in Mukundra Hills Tiger Reserve. International Journal of Research and Analytical Reviews 9(3).",
+    "sourceOnly": true
   },
   {
     "slug": "ijpab-leopard-diet-mukandara-2013",
@@ -297,15 +533,14 @@
     "type": "Research paper",
     "source": "International Journal of Pure and Applied Bioscience",
     "sourceUrl": "https://www.ijpab.com/form/2013%20Volume%201%2C%20issue%206/IJPAB-2013-1-6-72-76.pdf",
-    "localPath": "/assets/docs/resources/ijpab-leopard-diet-mukandara-2013.pdf",
-    "fileName": "ijpab-leopard-diet-mukandara-2013.pdf",
-    "fileSize": "1.3 MB",
     "pages": 5,
     "issued": "2013",
-    "archivedAt": "2026-05-29",
     "summary": "Scat-analysis study of leopard diet in Mukandara Hills National Park, recording prey items such as Hanuman langur, jackal, nilgai, fox, wild boar and domestic dog.",
     "useFor": "Use for leopard prey context, historical carnivore ecology and comparing prey-base notes with later MHTR management documents.",
-    "researchNote": "The paper uses an older protected-area name and a small scat sample. Cross-check with newer monitoring data before making broad prey-base claims."
+    "researchNote": "The paper uses an older protected-area name and a small scat sample. Cross-check with newer monitoring data before making broad prey-base claims.",
+    "reuseBasis": "link-only",
+    "credit": "Meena, H.M., Lal, G., Kumar, S. and Nama, K.S. (2013). Dietary composition of leopard in Mukandara Hills National Park. International Journal of Pure and Applied Bioscience 1(6): 72-76.",
+    "sourceOnly": true
   },
   {
     "slug": "wii-vibrant-ganga-kali-sindh-river",
@@ -322,7 +557,9 @@
     "archivedAt": "2026-05-29",
     "summary": "A river-basin brief for the Kali Sindh, including land-cover, river-system and biodiversity context for the basin that passes through Darrah Wildlife Sanctuary in MHTR.",
     "useFor": "Use for Kali Sindh basin context, riverine biodiversity, fishing cat and otter habitat references, and wider Chambal-linked landscape interpretation.",
-    "researchNote": "This is a concise brochure, not a full technical report. Pair it with detailed river, wetland and protected-area studies for analysis."
+    "researchNote": "This is a concise brochure, not a full technical report. Pair it with detailed river, wetland and protected-area studies for analysis.",
+    "reuseBasis": "wii-policy",
+    "credit": "Source: Wildlife Institute of India and National Mission for Clean Ganga, Kali Sindh river brochure (copy from the Ganga Knowledge Portal)."
   },
   {
     "slug": "ijemmasss-mukundra-wildlife-corridors-2023",
@@ -331,15 +568,65 @@
     "type": "Research paper",
     "source": "International Journal of Education, Modern Management, Applied Science & Social Science",
     "sourceUrl": "https://www.inspirajournals.com/uploads/Issues/2093398423.pdf",
-    "localPath": "/assets/docs/resources/ijemmasss-mukundra-wildlife-corridors-2023.pdf",
-    "fileName": "ijemmasss-mukundra-wildlife-corridors-2023.pdf",
-    "fileSize": "1.9 MB",
     "pages": 16,
     "issued": "2023",
-    "archivedAt": "2026-05-26",
     "summary": "Research paper focused on wildlife-corridor significance for Mukundra Hills Tiger Reserve and wider biodiversity conservation.",
     "useFor": "Use as a secondary corridor-context source, especially when discussing connectivity, gene flow, landscape permeability and conservation planning.",
-    "researchNote": "Treat as a research reference rather than a legal or management notification. Cross-check corridor claims against official plans and GIS sources."
+    "researchNote": "Treat as a research reference rather than a legal or management notification. Cross-check corridor claims against official plans and GIS sources.",
+    "reuseBasis": "link-only",
+    "credit": "Bairwa, M.K., Kalia, S., Gardner, J. and Saraswat, A. (2023). Wildlife corridors of Mukundra Hills Tiger Reserve. IJEMMASSS 5(2-III): 92-107.",
+    "sourceOnly": true
+  },
+  {
+    "slug": "jott-vertebrate-fauna-chambal-river-basin-2013",
+    "title": "Vertebrate Fauna of the Chambal River Basin, with Emphasis on the National Chambal Sanctuary",
+    "category": "Biodiversity references",
+    "type": "Peer-reviewed paper (open access)",
+    "source": "Journal of Threatened Taxa",
+    "sourceUrl": "https://doi.org/10.11609/JoTT.o3238.3620-41",
+    "issued": "26 Feb 2013",
+    "summary": "Basin-wide checklist of 147 fish, 56 reptile, 308 bird and 60 mammal species, covering the Jawahar Sagar to Kota stretch of the Chambal.",
+    "useFor": "Use for river and gorge fauna of the Chambal stretch that runs through the reserve core.",
+    "researchNote": "Records are basin-wide, not by stretch, so do not use it to claim a species for MHTR specifically.",
+    "reuseBasis": "cc-by",
+    "credit": "Nair, T. and Krishna, Y.C. (2013). Vertebrate fauna of the Chambal River Basin, with emphasis on the National Chambal Sanctuary, India. Journal of Threatened Taxa 5(2): 3620-3641. doi:10.11609/JoTT.o3238.3620-41. CC BY 3.0.",
+    "localPath": "/assets/docs/resources/jott-vertebrate-fauna-chambal-river-basin-2013.pdf",
+    "fileName": "jott-vertebrate-fauna-chambal-river-basin-2013.pdf",
+    "sourceOnly": true,
+    "archivePending": true,
+    "seoTitle": "Vertebrate Fauna of the Chambal River Basin (JoTT 2013)"
+  },
+  {
+    "slug": "latafat-carnivores-ranthambhore-mukundara-2023",
+    "title": "Abundance and Activity of Carnivores in Two Protected Areas of Semi-arid Western India",
+    "category": "Biodiversity references",
+    "type": "Peer-reviewed paper",
+    "source": "European Journal of Wildlife Research (Springer)",
+    "sourceUrl": "https://doi.org/10.1007/s10344-023-01643-9",
+    "issued": "Jan 2023",
+    "summary": "WII camera-trap comparison of carnivore abundance and activity in Ranthambhore and in Mukundara before tigers re-established.",
+    "useFor": "Use for leopard, hyena, jackal and other carnivore patterns in MHTR under high human pressure.",
+    "researchNote": "Publisher-copyrighted; read through the DOI or ask the authors for a copy.",
+    "reuseBasis": "link-only",
+    "credit": "Latafat, K., Sadhu, A., Qureshi, Q. and Jhala, Y.V. (2023). Abundance and activity of carnivores in two protected areas of semi-arid western India with varying top predator density and human impacts. European Journal of Wildlife Research 69: 15.",
+    "sourceOnly": true,
+    "seoTitle": "Carnivores of Ranthambhore and Mukundara (2023 study)"
+  },
+  {
+    "slug": "zpj-ethnomedicinal-ferns-hadoti-plateau-2002",
+    "title": "Ethnomedicinal Studies on Ferns and Fern Allies of Hadoti Plateau, South-eastern Rajasthan",
+    "category": "Biodiversity references",
+    "type": "Journal note",
+    "source": "Zoos' Print Journal",
+    "sourceUrl": "https://zoosprint.org/index.php/zpj/article/view/5984/",
+    "issued": "Mar 2002",
+    "summary": "Short note on eleven fern species and their medicinal use by Sahariya, Bhil and Kanjar communities in the Hadoti region, including the Mukundara hill ranges.",
+    "useFor": "Use for ethnobotany and lower-plant records in the wider Mukundara landscape.",
+    "researchNote": "Regional, not reserve-specific; uses traditional knowledge that should be credited to the communities named.",
+    "reuseBasis": "link-only",
+    "credit": "Sharma, N.K. (2002). Ethnomedicinal studies on ferns and fern allies of Hadoti Plateau, south-eastern Rajasthan. Zoos' Print Journal 17(3): 732-734.",
+    "sourceOnly": true,
+    "seoTitle": "Ethnomedicinal Ferns of the Hadoti Plateau (2002)"
   },
   {
     "slug": "lok-sabha-genetic-inbreeding-tiger-sub-populations-2023",
@@ -356,7 +643,9 @@
     "archivedAt": "2026-05-29",
     "summary": "Government answer on tiger sub-population inbreeding, connectivity, Project Tiger implementation and corridors involving Ranthambore, Kuno, Madhav and Mukundra.",
     "useFor": "Use for official parliamentary wording on tiger connectivity, genetic-inbreeding concerns and inter-reserve corridor policy context.",
-    "researchNote": "This is a policy-answer source. Use scientific studies and corridor assessments alongside it for ecological interpretation."
+    "researchNote": "This is a policy-answer source. Use scientific studies and corridor assessments alongside it for ecological interpretation.",
+    "reuseBasis": "lok-sabha-policy",
+    "credit": "Source: Lok Sabha Secretariat, Unstarred Question 473, answered 6 February 2023 (Digital Library of Parliament)."
   },
   {
     "slug": "wii-status-tigers-copredators-prey-india-2022",
@@ -373,7 +662,45 @@
     "archivedAt": "2026-05-29",
     "summary": "National tiger-estimation report covering tiger status, landscapes, co-predators, prey, habitat connectivity, camera-trapped sites and conservation implications.",
     "useFor": "Use for national and landscape-scale context around tiger monitoring, co-predator/prey assessment and connectivity framing relevant to MHTR.",
-    "researchNote": "This is broad national context and includes sensitive survey information. Use it for interpretation, but avoid extracting precise camera or wildlife-use locations."
+    "researchNote": "This is broad national context and includes sensitive survey information. Use it for interpretation, but avoid extracting precise camera or wildlife-use locations.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Qureshi, Q., Jhala, Y.V., Yadav, S.P. and Mallick, A. (eds.) (2023). Status of Tigers, Co-predators and Prey in India, 2022. National Tiger Conservation Authority and Wildlife Institute of India."
+  },
+  {
+    "slug": "ntca-wii-status-tigers-copredators-prey-india-2018",
+    "title": "Status of Tigers, Co-predators and Prey in India, 2018",
+    "category": "Supplementary context",
+    "type": "National monitoring report",
+    "source": "NTCA and Wildlife Institute of India",
+    "sourceUrl": "https://ntca.gov.in/assets/uploads/Reports/AITM/Tiger_Status_Report_2018.pdf",
+    "issued": "2020",
+    "summary": "National tiger estimation report for the 2018 cycle, the year tigers were first released into Mukundara.",
+    "useFor": "Use as the baseline for the 2022 report when describing the reserve and the Ranthambhore-Mukundara landscape.",
+    "researchNote": "National report with sensitive survey detail; do not extract camera or wildlife-use locations. The file is over 100 MB, so it is linked rather than hosted.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Jhala, Y.V., Qureshi, Q. and Nayak, A.K. (eds.) (2020). Status of Tigers, Co-predators and Prey in India, 2018. National Tiger Conservation Authority and Wildlife Institute of India.",
+    "sourceOnly": true
+  },
+  {
+    "slug": "ntca-illustrative-profile-tiger-reserves-2023",
+    "title": "An Illustrative Profile of Tiger Reserves of India",
+    "category": "Supplementary context",
+    "type": "National profile",
+    "source": "WII EIACP Programme Centre and National Tiger Conservation Authority",
+    "sourceUrl": "https://ntca.gov.in/assets/uploads/Reports/TR_profile/Illustrative_profile_tiger_reserves.pdf",
+    "issued": "2023",
+    "summary": "Illustrated profile of every tiger reserve; the Mukundara page covers its hill ridges, the four protected areas in the core and links to Ranthambhore.",
+    "useFor": "Use for the official short profile alongside the NTCA brief note.",
+    "researchNote": "The Mukundara page predates the 2023 Bhainsrorgarh addition; check area figures against the 5 October 2023 notification.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Nautiyal, J.P., Lone, A.M., Ghosh, T., Malick, A., Yadav, S.P., Ramesh, C. and Ramesh, K. (2023). An Illustrative Profile of Tiger Reserves of India. EIACP Programme Centre, Wildlife Institute of India, and National Tiger Conservation Authority.",
+    "localPath": "/assets/docs/resources/ntca-illustrative-profile-tiger-reserves-2023.pdf",
+    "fileName": "ntca-illustrative-profile-tiger-reserves-2023.pdf",
+    "sourceOnly": false,
+    "fileSize": "45.0 MB",
+    "pages": 329,
+    "archivedAt": "2026-10-26",
+    "cloudflarePagesOmitLocal": true
   },
   {
     "slug": "global-tiger-protected-area-compendium-2021",
@@ -382,16 +709,14 @@
     "type": "Comparative reference",
     "source": "Global Tiger Forum",
     "sourceUrl": "https://globaltigerforum.org/wp-content/uploads/2021/07/Global-Tiger-Protected-Area-Compendium.pdf",
-    "localPath": "/assets/docs/resources/global-tiger-protected-area-compendium-2021.pdf",
-    "fileName": "global-tiger-protected-area-compendium-2021.pdf",
-    "fileSize": "53.5 MB",
-    "cloudflarePagesOmitLocal": true,
     "pages": 164,
     "issued": "2021",
-    "archivedAt": "2026-05-21",
     "summary": "Large comparative compendium for tiger protected areas across the tiger range.",
     "useFor": "Use for broad comparative framing against other tiger landscapes.",
-    "researchNote": "Informative for context, not a replacement for Mukundara-specific planning records."
+    "researchNote": "Informative for context, not a replacement for Mukundara-specific planning records.",
+    "reuseBasis": "link-only",
+    "credit": "Global Tiger Forum (2021). Global Tiger Protected Area Compendium.",
+    "sourceOnly": true
   },
   {
     "slug": "rajasthan-mhtr-notification-2013",
@@ -409,7 +734,9 @@
     "archivedAt": "2026-08-13",
     "summary": "The base Rajasthan notification declaring 417.17188 sq km as Critical Tiger Habitat and 342.82274 sq km as buffer, totalling 759.99462 sq km.",
     "useFor": "Use as the historical legal baseline for MHTR core, buffer and total area before the 2023 amendment.",
-    "researchNote": "The filename mentions ESZ, but the document is the 2013 tiger-reserve notification. Read it separately from the final 2020 ESZ Gazette."
+    "researchNote": "The filename mentions ESZ, but the document is the 2013 tiger-reserve notification. Read it separately from the final 2020 ESZ Gazette.",
+    "reuseBasis": "gazette",
+    "credit": "Government of Rajasthan, Forest Department. Notification of Mukundara Hills Tiger Reserve, 9 April 2013 (Rajasthan Gazette, 18 April 2013)."
   },
   {
     "slug": "rajasthan-mhtr-amending-notification-2023",
@@ -427,7 +754,9 @@
     "archivedAt": "2026-08-13",
     "summary": "The amendment revising MHTR to 690.71178 sq km of Critical Tiger Habitat and 445.07522 sq km of buffer, totalling 1,135.787 sq km.",
     "useFor": "Use for the current state-government legal area and the Bhainsrodgarh core-addition context.",
-    "researchNote": "The Forest Department link currently exposes a one-page scan whose table continues beyond the visible page. Use the published area figures with the current protected-area register and updated Tiger Conservation Plan; do not infer an unseen full schedule."
+    "researchNote": "The Forest Department link currently exposes a one-page scan whose table continues beyond the visible page. Use the published area figures with the current protected-area register and updated Tiger Conservation Plan; do not infer an unseen full schedule.",
+    "reuseBasis": "gazette",
+    "credit": "Government of Rajasthan, Forest Department. Amending notification for Mukundara Hills Tiger Reserve, 5 October 2023."
   },
   {
     "slug": "rajasthan-long-term-action-plan-tiger-conservation",
@@ -445,7 +774,9 @@
     "archivedAt": "2026-08-13",
     "summary": "Statewide tiger-conservation action plan that records an in-principle proposal for further MHTR core and buffer additions and sets out conditions before notification.",
     "useFor": "Use for proposal status, connectivity and management priorities; keep proposed additions separate from the notified reserve area.",
-    "researchNote": "The MHTR proposal is not itself a boundary notification. The plan records further consent, State approval and statutory steps."
+    "researchNote": "The MHTR proposal is not itself a boundary notification. The plan records further consent, State approval and statutory steps.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Rajasthan Forest Department, Long-term Action Plan for Tiger Conservation in Rajasthan, 2023."
   },
   {
     "slug": "ntca-mee-tiger-reserves-2023",
@@ -464,7 +795,9 @@
     "archivedAt": "2026-08-13",
     "summary": "The fifth-cycle national MEE report, including MHTR's 60.16 percent score, Good rating and dated management observations.",
     "useFor": "Use for the conditions documented during the 2022 evaluation, management strengths, recommendations and comparable national methodology.",
-    "researchNote": "The observations are a dated evaluation, not a live statement of conditions in 2026. Later evidence should be checked for each issue."
+    "researchNote": "The observations are a dated evaluation, not a live statement of conditions in 2026. Later evidence should be checked for each issue.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority and Wildlife Institute of India, Management Effectiveness Evaluation of Tiger Reserves in India, 5th cycle (2022), report 2023."
   },
   {
     "slug": "ntca-rajasthan-apo-sanction-2025-26",
@@ -482,7 +815,9 @@
     "archivedAt": "2026-08-13",
     "summary": "Rajasthan's FY2025–26 tiger-reserve approval and first-instalment sanction, including the MHTR programme and release calculation.",
     "useFor": "Use for approved budget heads and management intent in FY2025–26.",
-    "researchNote": "Approval or fund release does not prove expenditure, completion or ecological outcome; follow-up evidence is required."
+    "researchNote": "Approval or fund release does not prove expenditure, completion or ecological outcome; follow-up evidence is required.",
+    "reuseBasis": "ntca-policy",
+    "credit": "Source: National Tiger Conservation Authority, APO sanction for Rajasthan tiger reserves, 2025-26."
   },
   {
     "slug": "cag-rajasthan-forest-management-2025",
@@ -500,7 +835,9 @@
     "archivedAt": "2026-08-13",
     "summary": "Subject Specific Compliance Audit chapter on Rajasthan tiger-reserve management for FY2016–17 to FY2020–21, with later position updates identified in the report.",
     "useFor": "Use for dated, system-level accountability themes such as staffing, protection, invasive species, land security, relocation and participation.",
-    "researchNote": "Do not assign statewide or multi-reserve findings to MHTR alone, and do not present historical audit findings as verified current conditions."
+    "researchNote": "Do not assign statewide or multi-reserve findings to MHTR alone, and do not present historical audit findings as verified current conditions.",
+    "reuseBasis": "cag-policy",
+    "credit": "Source: Comptroller and Auditor General of India, Report No. 5 of 2025, Government of Rajasthan, Chapter IV (forest)."
   },
   {
     "slug": "rajasthan-wildlife-ex-gratia-order-2026",
@@ -518,7 +855,9 @@
     "archivedAt": "2026-08-13",
     "summary": "State order revising ex-gratia amounts and procedure for human death, permanent incapacity and injury caused by wildlife.",
     "useFor": "Use for current compensation amounts, eligibility conditions and process; verify the live Forest Department record before filing a claim.",
-    "researchNote": "The order sets ₹10 lakh for death or permanent incapacity, ₹2 lakh for grievous injury and ₹25,000 for minor injury, subject to its certification and procedural conditions."
+    "researchNote": "The order sets ₹10 lakh for death or permanent incapacity, ₹2 lakh for grievous injury and ₹25,000 for minor injury, subject to its certification and procedural conditions.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Rajasthan Forest Department, ex-gratia order for wildlife-caused death and injury, 2026."
   },
   {
     "slug": "rajasthan-voluntary-village-relocation-package-2025",
@@ -536,6 +875,28 @@
     "archivedAt": "2026-08-13",
     "summary": "Order replacing the 2022 land-package provisions and confirming a choice between the prescribed land package and ₹15 lakh cash—or the then-applicable NTCA amount—per displaced family.",
     "useFor": "Use for current package options while assessing consent, rights settlement, eligibility, land, services and livelihood outcomes.",
-    "researchNote": "Relocation from protected areas must be described as voluntary and rights-based; a package announcement is not evidence of consent or completed rehabilitation."
+    "researchNote": "Relocation from protected areas must be described as voluntary and rights-based; a package announcement is not evidence of consent or completed rehabilitation.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Government of Rajasthan, Forest Department, order of 24 July 2025 modifying the village relocation land package."
+  },
+  {
+    "slug": "rajasthan-tiger-reserve-village-relocation-progress-2024",
+    "title": "Progress of Village Relocation in Rajasthan Tiger Reserves (March 2024)",
+    "category": "Coexistence and public services",
+    "type": "State progress statement",
+    "source": "Rajasthan Forest Department",
+    "sourceUrl": "https://forest.rajasthan.gov.in/content/dam/raj/forest/ForestDepartment/PDFs/Department%20Wing/Wildlife/VR%2012_vr%20p_merged.pdf",
+    "issued": "As on March 2024",
+    "summary": "Tiger reserve areas and village relocation in Rajasthan; for Mukundara Hills, 14 core villages to relocate, 2 relocated and 2 in progress.",
+    "useFor": "Use for the official relocation status before the 2025 package change.",
+    "researchNote": "Uses the pre-2023 area (759.99 sq km), before the Bhainsrorgarh addition. Treat counts as the department’s statement at that date, not as evidence of consent or rehabilitation outcomes.",
+    "reuseBasis": "fd-policy",
+    "credit": "Source: Rajasthan Forest Department, progress of relocation in tiger reserves, as on March 2024.",
+    "localPath": "/assets/docs/resources/rajasthan-tiger-reserve-village-relocation-progress-2024.pdf",
+    "fileName": "rajasthan-tiger-reserve-village-relocation-progress-2024.pdf",
+    "sourceOnly": false,
+    "fileSize": "615 KB",
+    "pages": 3,
+    "archivedAt": "2026-10-26"
   }
 ]

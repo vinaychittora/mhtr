@@ -226,7 +226,7 @@ module.exports = function (eleventyConfig) {
     return `<picture><source type="image/webp" srcset="${widths.map((w) => `${base}-${w}.webp ${w}w`).join(", ")}" sizes="${sizes}"><img src="${base}-1200.jpg" alt="${esc(alt)}" width="1200" height="${height}" loading="${loading}" decoding="async"></picture>`;
   });
 
-  eleventyConfig.addShortcode("documentJsonLd", (site, page, doc, archiveAvailable, archiveUrl) => {
+  eleventyConfig.addShortcode("documentJsonLd", (site, page, doc, archiveAvailable, archiveUrl, basis) => {
     const siteUrl = (site.url || "https://mhtr.in").replace(/\/$/, "");
     const payload = {
       "@context": "https://schema.org",
@@ -246,6 +246,8 @@ module.exports = function (eleventyConfig) {
       about: ["Mukundara Hills Tiger Reserve", "Rajasthan wildlife conservation", doc.category],
       citation: doc.sourceUrl,
       dateModified: doc.archivedAt,
+      ...(doc.credit ? { creditText: doc.credit } : {}),
+      ...(basis && basis.url && doc.reuseBasis && doc.reuseBasis.startsWith("cc") ? { license: basis.url } : {}),
     };
 
     if (archiveAvailable) {
