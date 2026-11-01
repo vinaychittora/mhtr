@@ -2,6 +2,24 @@ module.exports = function (eleventyConfig) {
   const deploymentTarget = process.env.MHTR_DEPLOY_TARGET || "default";
   const docsArchiveBaseUrl = (process.env.MHTR_DOCS_BASE_URL || "").replace(/\/$/, "");
   const inatSnapshot = require("./src/_data/inatBiodiversity.json");
+  // Taxon-level reference details (Red List category, photo, summary) fetched by scripts/build-bio-taxa.py.
+  // The page works without the file; cards then show icons and the official data only.
+  const fs = require("fs");
+  const path = require("path");
+  const bioTaxaFile = path.join(__dirname, "src", "_data", "bioTaxa.json");
+  const bioTaxa = fs.existsSync(bioTaxaFile) ? JSON.parse(fs.readFileSync(bioTaxaFile, "utf8")) : null;
+  const bioTaxaClient = {
+    fetchedAt: bioTaxa?.fetchedAt || "",
+    path: bioTaxa?.fetchedAt ? `/assets/data/biodiversity-taxa-${bioTaxa.fetchedAt}.json` : "",
+  };
+  const bioTaxaClientPayload = () => {
+    const keep = ["taxonId", "name", "rank", "commonName", "family", "photo", "redList", "indiaStatus", "establishment", "wikipedia", "observationsCount"];
+    const taxa = {};
+    for (const [key, entry] of Object.entries(bioTaxa?.taxa || {})) {
+      taxa[key] = Object.fromEntries(keep.filter((field) => entry[field] !== undefined).map((field) => [field, entry[field]]));
+    }
+    return { schemaVersion: 1, fetchedAt: bioTaxa.fetchedAt, sources: bioTaxa.sources, taxa };
+  };
   // Measured-vs-notified areas, written by scripts/build-boundary-layers.py.
   const boundaryAreas = require("./Data/source-materials/gis/derived/mhtr-boundary-areas-2023.json");
   const gisSources = require("./Data/source-materials/gis/official/sources.json");
@@ -12,6 +30,13 @@ module.exports = function (eleventyConfig) {
   });
   const authors = require("./src/_data/authors.json");
   eleventyConfig.addGlobalData("boundaryAreas", boundaryAreas);
+  eleventyConfig.addGlobalData("bioTaxaClient", bioTaxaClient);
+  eleventyConfig.on("eleventy.after", ({ dir }) => {
+    if (!bioTaxaClient.path) return;
+    const target = path.join(dir.output, bioTaxaClient.path);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, JSON.stringify(bioTaxaClientPayload()));
+  });
   eleventyConfig.addGlobalData("gisSources", gisSources);
 
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
@@ -69,6 +94,8 @@ module.exports = function (eleventyConfig) {
     const key = Object.keys(authors).find((k) => authors[k].name === name);
     return key ? { "@id": personId(siteUrl, key) } : { "@type": "Person", name };
   };
+
+  eleventyConfig.addFilter("isArray", (value) => Array.isArray(value));
 
   eleventyConfig.addShortcode("seoJsonLd", (payload) => {
     const site = payload.site || {};
@@ -197,13 +224,15 @@ module.exports = function (eleventyConfig) {
       ...(keywords.length ? { keywords } : {}),
       ...(payload.author
         ? {
-            author: authors[Object.keys(authors).find((k) => authors[k].name === payload.author)]
-              ? authorRef(siteUrl, payload.author)
-              : {
-                  "@type": "Person",
-                  name: payload.author,
-                  ...(payload.authorUrl ? { url: payload.authorUrl } : {}),
-                },
+            author: (Array.isArray(payload.author) ? payload.author : [payload.author]).map((name) =>
+              authors[Object.keys(authors).find((k) => authors[k].name === name)]
+                ? authorRef(siteUrl, name)
+                : {
+                    "@type": "Person",
+                    name,
+                    ...(payload.authorUrl ? { url: payload.authorUrl } : {}),
+                  },
+            ),
           }
         : {}),
       ...(payload.publishedTime ? { datePublished: payload.publishedTime } : {}),

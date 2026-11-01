@@ -27,3 +27,6 @@ src/assets/assets/imgs/mhtr/
 *.nef
 *.DNG
 *.dng
+
+# Machine-local working files (downloads, patches, hand-off scripts, drafts). Never published.
+local/
