@@ -32,7 +32,10 @@ eleventyExcludeFromCollections: true
 {%- for doc in resourceDocuments %}
   <url>
     <loc>{{ site.url }}/resources/documents/{{ doc.slug }}/</loc>
-    <lastmod>{{ doc.archivedAt }}</lastmod>
+{%- set docModified = doc.archivedAt | sitemapDate %}
+{%- if docModified %}
+    <lastmod>{{ docModified }}</lastmod>
+{%- endif %}
     <image:image>
       <image:loc>{{ site.url }}/assets/imgs/mhtr-resources.png</image:loc>
       <image:title>{{ doc.title }}</image:title>
