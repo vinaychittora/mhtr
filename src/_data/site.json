@@ -22,5 +22,17 @@
   "creators": [
     "vinayChittora",
     "sonuKumar"
-  ]
+  ],
+  "reserve": {
+    "name": "Mukundara Hills Tiger Reserve",
+    "alternateName": [
+      "Mukundra Hills Tiger Reserve",
+      "Mukandra Hills Tiger Reserve",
+      "MHTR"
+    ],
+    "description": "Tiger reserve in the Kota, Bundi, Chittorgarh and Jhalawar districts of south-eastern Rajasthan, India, notified in April 2013 around Mukundara Hills National Park.",
+    "sameAs": [
+      "https://en.wikipedia.org/wiki/Mukundara_Hills_Tiger_Reserve"
+    ]
+  }
 }

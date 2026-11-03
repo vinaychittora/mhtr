@@ -50,3 +50,7 @@ https://www.mukundarahills.com/* https://mhtr.in/:splat 301
 /assets/imgs/maps/mhtr-water-systems-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-water-systems-map-preview.webp 301
 /assets/imgs/maps/mhtr-elevation-zones-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-elevation-zones-map-preview.webp 301
 /assets/imgs/maps/mhtr-land-cover-habitat-map-preview.webp /assets/imgs/maps/mukundara-hills-tiger-reserve-land-cover-habitat-map-preview.webp 301
+
+# No index page exists for the documents folder; send it to the resource archive
+/resources/documents/ /resources/ 301
+/resources/documents /resources/ 301

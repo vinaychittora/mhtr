@@ -126,7 +126,8 @@ module.exports = function (eleventyConfig) {
         "@type": "Organization",
         "@id": `${siteUrl}#publisher`,
         name: site.publisherName || "MHTR.in",
-        alternateName: site.alternateName || ["MHTR", "Mukundara Hills Tiger Reserve"],
+        // The publisher is the website, not the reserve, so the reserve's own name stays on the Park node below.
+        alternateName: ["MHTR", "mhtr.in"],
         url: site.publisherUrl || siteUrl,
         logo: {
           "@type": "ImageObject",
@@ -159,6 +160,25 @@ module.exports = function (eleventyConfig) {
         },
       },
     ];
+
+    // The place every page is about. Gives search engines a separate entity for the reserve itself.
+    const reserveId = `${siteUrl}/#reserve`;
+    if (site.reserve) {
+      graph.push({
+        "@type": "Park",
+        "@id": reserveId,
+        name: site.reserve.name,
+        alternateName: site.reserve.alternateName,
+        description: site.reserve.description,
+        url: `${siteUrl}/`,
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Rajasthan",
+          containedInPlace: { "@type": "Country", name: "India" },
+        },
+        ...(site.reserve.sameAs ? { sameAs: site.reserve.sameAs } : {}),
+      });
+    }
 
     const pagePath = new URL(canonical).pathname;
     let breadcrumb;
@@ -217,6 +237,7 @@ module.exports = function (eleventyConfig) {
       name: payload.pageTitle,
       description: payload.pageDescription,
       isPartOf: { "@id": `${siteUrl}#website` },
+      ...(site.reserve ? { about: { "@id": reserveId } } : {}),
       inLanguage: language,
       publisher: { "@id": `${siteUrl}#publisher` },
       ...(breadcrumb ? { breadcrumb: { "@id": `${canonical}#breadcrumb` } } : {}),
@@ -338,7 +359,8 @@ module.exports = function (eleventyConfig) {
             })),
           }
         : {}),
-      isPartOf: { "@id": `${pageUrl}#webpage` },
+      // Google's Dataset type only accepts a Dataset or DataCatalog in isPartOf, so the page link goes in mainEntityOfPage.
+      mainEntityOfPage: pageUrl,
     };
 
     return JSON.stringify(payload, null, 2).replace(/</g, "\\u003c");
