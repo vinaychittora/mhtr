@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: "Season: Out of Tune | Wildlife Film by Vinay Chittora, Kota"
+description: "Watch Season: Out of Tune, a film of one hot summer on the fringes of Mukundara, Kota district: wolves, monitor lizards, Sarus Cranes, a chinkara, tree sap and a pair of Indian Pittas."
+keywords: "Season: Out of Tune, wildlife film Rajasthan, climate change film India, Mukundara, Kota Rajasthan, Indian grey wolf, Sarus Crane, Bengal monitor, chinkara, Indian Pitta, tree sap, Vinay Chittora film"
+activeSection: field-reports
+og_type: video.other
+og_title: "Season: Out of Tune, a wildlife film by Vinay Chittora"
+og_description: "One hot summer on the fringes of Mukundara, Kota district: wolves, monitors, Sarus Cranes, a chinkara, tree sap and a pair of Indian Pittas."
+author: Vinay Chittora
+publishedTime: "2026-10-28T00:00:00+05:30"
+modifiedTime: "2026-11-08T00:00:00+05:30"
+og_image: "https://mhtr.in/assets/imgs/field-reports/tree-sap-indian-pitta-pair-indian-ash-1600.jpg"
+og_image_alt: "A pair of Indian Pittas on the ground at the base of an Indian ash tree, Kota district, Rajasthan."
+og_image_width: 1600
+og_image_height: 900
+schema_type: WebPage
+breadcrumb_label: "Season: Out of Tune (film)"
+---
+
+{% set videoId = "vNTxghP-uhM" %}
+{% set watchUrl = "https://www.youtube.com/watch?v=" + videoId %}
+{% set chapters = [
+  { t: 0, label: "0:00", name: "Intro" },
+  { t: 80, label: "1:20", name: "A lone sarus" },
+  { t: 100, label: "1:40", name: "Summer season begins" },
+  { t: 193, label: "3:13", name: "Changeable hawk-eagle" },
+  { t: 288, label: "4:48", name: "Monitor lizards" },
+  { t: 339, label: "5:39", name: "Peak summer" },
+  { t: 374, label: "6:14", name: "Chinkara and water" },
+  { t: 398, label: "6:38", name: "The wolf" },
+  { t: 470, label: "7:50", name: "Arjuna tree sap" },
+  { t: 570, label: "9:30", name: "Indian ash sap" },
+  { t: 610, label: "10:10", name: "Pitta anting" },
+  { t: 685, label: "11:25", name: "Pre-monsoon" },
+  { t: 738, label: "12:18", name: "Conservation" }
+] %}
+
+<article class="article-page">
+  <header class="page-hero article-hero">
+    <p class="eyebrow">Field Reports / Film</p>
+    <h1>Season: Out of Tune</h1>
+    <p class="lede">
+      A film I shot and narrated over the summer of 2026, on the fringes of Mukundara in Kota district.
+    </p>
+    <div class="article-meta">
+      <span>By <strong>Vinay Chittora</strong></span>
+      <span>Premiered <time datetime="2026-10-28">28 Oct 2026</time> on YouTube</span>
+      <span>Kota district, Rajasthan</span>
+    </div>
+  </header>
+
+  <figure class="article-figure">
+    <div style="position:relative;aspect-ratio:16/9">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/{{ videoId }}"
+        title="Season: Out of Tune, a wildlife film by Vinay Chittora on the fringes of Mukundara, Kota, Rajasthan"
+        style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+    <figcaption>
+      <em>Season: Out of Tune</em>. <a href="{{ watchUrl }}" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+    </figcaption>
+  </figure>
+
+  <div class="article-layout">
+    <div class="article-body">
+      <h2>About the film</h2>
+      <p>
+        It follows one hot season on the fringes of Mukundara: Indian grey wolves cooling off in a shrinking wetland,
+        Bengal monitors wrestling, Sarus Cranes dancing, a chinkara looking for water, and the pitta pair raising chicks
+        through the heatwave while waiting for the monsoon. The Arjuna and Indian ash sap come in around the
+        eight-minute mark.
+      </p>
+      <p>
+        <strong>Where it was filmed.</strong> The film was not shot inside the tiger reserve's forest. It was shot on
+        the fringes, among the villages, farmland, waterbodies and grasslands that sit around Mukundara Hills Tiger
+        Reserve in Kota district. These are working lands, shared by farmers, herders and wildlife. When I say
+        "Mukundara" here I mean that wider landscape, not the reserve.
+      </p>
+
+      <h2>Chapters</h2>
+      <ul>
+        {% for c in chapters %}
+        <li><a href="{{ watchUrl }}&amp;t={{ c.t }}s" target="_blank" rel="noopener noreferrer">{{ c.label }}</a> {{ c.name }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <aside class="article-sidebar" aria-label="Related field reports">
+      <section class="aside-box">
+        <h2>Field Reports from the Film</h2>
+        <p>
+          <a href="/field-reports/tree-sap-exudate-birds-mammals-mukundara/">Tree sap use by birds and mammals</a>:
+          the Arjuna and Indian ash sap, and the pitta pair.
+        </p>
+        <p>
+          <a href="/field-reports/raksha-lone-indian-grey-wolf-world-environment-day/">A lone Indian grey wolf at Alania</a>:
+          the wetland where the wolf was resting.
+        </p>
+      </section>
+    </aside>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": "{{ site.url }}{{ page.url }}#video",
+    "name": "Season: Out of Tune",
+    "description": "A wildlife film about one summer of heat on the fringes of Mukundara, Kota district, Rajasthan: wolves, monitors, Sarus Cranes, a chinkara, tree sap and a pair of Indian Pittas. Filmed outside the tiger reserve's forest.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/{{ videoId }}/hqdefault.jpg"
+    ],
+    "uploadDate": "2026-10-28",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/{{ videoId }}",
+    "inLanguage": "en",
+    "creator": {
+      "@type": "Person",
+      "name": "Vinay Chittora",
+      "url": "https://www.caneandcamera.com/"
+    },
+    "contentLocation": {
+      "@type": "Place",
+      "name": "Kota district, Rajasthan, India"
+    },
+    "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+  }
+  </script>
+</article>
