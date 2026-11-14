@@ -183,7 +183,7 @@
     function setLid(v) {
       lid = v;
       var shown = v > 0.004;
-      model.lidAsm.visible = shown; model.ties.visible = shown;
+      model.lidAsm.visible = shown;
       model.faders.forEach(function (m) { m.transparent = v < 0.996; m.opacity = v; });
     }
     function setMode(mode) { model.scenery.visible = mode === 'place'; model.pad.visible = mode !== 'place'; }

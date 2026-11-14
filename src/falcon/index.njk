@@ -5,8 +5,8 @@ description: "FALCON is an open-source prototype that watches one garden water b
 keywords: "FALCON field node, open source wildlife monitoring, camera trap with sound and weather, Raspberry Pi wildlife camera, MegaDetector, BioCLIP, BirdNET, Camtrap DP, backyard wildlife Kota, Vinay Chittora"
 og_title: "FALCON Field Node: an open-source wildlife sensor prototype"
 og_description: "A box on a post that watches one water bowl with a camera, microphones and weather sensors. Built at home in Kota, open source, and honest about what it cannot do yet."
-og_image: "https://mhtr.in/assets/imgs/falcon/falcon-node-social.jpg"
-og_image_alt: "3D drawing of the FALCON field node: an upright grey box tied to a post, with a black camera hood and a copper rain plate."
+og_image: "https://mhtr.in/assets/imgs/falcon/falcon-node-social.jpg?v=20261114b"
+og_image_alt: "3D drawing of the FALCON field node: an upright grey box on a post, with the FALCON mark on its lid, a black camera hood and a copper rain plate."
 og_image_width: 1200
 og_image_height: 630
 activeSection: projects
@@ -46,8 +46,8 @@ modifiedTime: "2026-11-14T00:00:00+05:30"
     </div>
   </div>
   <figure class="falcon-hero__figure">
-    <img src="{{ img }}/falcon-node-hero-1000.webp" srcset="{{ img }}/falcon-node-hero-600.webp 600w, {{ img }}/falcon-node-hero-1000.webp 1000w" sizes="(max-width: 900px) 92vw, 420px" width="1000" height="1250" alt="3D drawing of the FALCON node: an upright grey junction box tied to a post, a black camera hood low on its lid and a copper rain plate on the hood." fetchpriority="high" decoding="async">
-    <figcaption>Build 1 as it stands in the yard. A 3D drawing made from photographs, not a photograph.</figcaption>
+    <img src="{{ img }}/falcon-node-hero-1000.webp?v={{ v }}" srcset="{{ img }}/falcon-node-hero-600.webp?v={{ v }} 600w, {{ img }}/falcon-node-hero-1000.webp?v={{ v }} 1000w" sizes="(max-width: 900px) 92vw, 420px" width="1000" height="1250" alt="3D drawing of the FALCON node: an upright grey junction box on a post with the FALCON mark on its lid, a black camera hood low on the lid and a copper rain plate on the hood." fetchpriority="high" decoding="async">
+    <figcaption>Build 1, the node that stands in the yard. A simplified 3D drawing, not a photograph.</figcaption>
   </figure>
 </section>
 
@@ -102,11 +102,12 @@ modifiedTime: "2026-11-14T00:00:00+05:30"
 
 <section class="section" id="node" aria-labelledby="node-title">
   <div class="section-heading">
-    <p class="eyebrow">The node, as built</p>
+    <p class="eyebrow">The node, part by part</p>
     <h2 id="node-title">A junction box, a hood and one cable</h2>
     <p>
-      Five views of Build 1 with its parts numbered. The model is drawn from photographs of the real node.
-      It is not a CAD file: the outside follows the photographs, and positions inside the box are approximate.
+      Five views of Build 1 with its parts numbered. The model is a simplified drawing made from photographs
+      of the real node. It is not a CAD file: the parts are where they sit on the real node, the post mount and
+      the cable runs are drawn tidily, and positions inside the box are approximate.
     </p>
   </div>
 
@@ -116,8 +117,8 @@ modifiedTime: "2026-11-14T00:00:00+05:30"
     <figure class="falcon-view" id="node-{{ view.id }}" data-view="{{ view.id }}" data-tab="{{ view.tab }}">
       <div class="falcon-stage">
         <picture>
-          <source media="(max-width: 620px)" srcset="{{ img }}/node-{{ view.id }}-tall-720.webp 720w, {{ img }}/node-{{ view.id }}-tall-1200.webp 1200w" sizes="100vw" width="1200" height="1500">
-          <img src="{{ img }}/node-{{ view.id }}-wide-1400.webp" srcset="{{ img }}/node-{{ view.id }}-wide-800.webp 800w, {{ img }}/node-{{ view.id }}-wide-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 640px" width="1400" height="1050" alt="{{ view.alt }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async">
+          <source media="(max-width: 620px)" srcset="{{ img }}/node-{{ view.id }}-tall-720.webp?v={{ v }} 720w, {{ img }}/node-{{ view.id }}-tall-1200.webp?v={{ v }} 1200w" sizes="100vw" width="1200" height="1500">
+          <img src="{{ img }}/node-{{ view.id }}-wide-1400.webp?v={{ v }}" srcset="{{ img }}/node-{{ view.id }}-wide-800.webp?v={{ v }} 800w, {{ img }}/node-{{ view.id }}-wide-1400.webp?v={{ v }} 1400w" sizes="(max-width: 900px) 100vw, 640px" width="1400" height="1050" alt="{{ view.alt }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async">
         </picture>
         {% if lay %}
         {% for key in ["wide", "tall"] %}
@@ -272,7 +273,7 @@ modifiedTime: "2026-11-14T00:00:00+05:30"
     <h2 id="hardware-title">Off-the-shelf parts in a hand-drilled box</h2>
     <p>
       Every part of Build 1 is something you can buy. The box was drilled by hand and the camera mount is
-      foam, tape and cable ties. That makeshift shell is the part to replace first.
+      made by hand. That shell is the part to replace first.
     </p>
   </div>
   <div class="table-wrap">
@@ -453,7 +454,7 @@ modifiedTime: "2026-11-14T00:00:00+05:30"
       <p class="eyebrow">Support the next build</p>
       <h2 id="support-title">Two pieces of equipment would move this forward</h2>
       <p>
-        Build 1 leans on a desktop PC and a box held together with foam and tape. Two purchases would turn
+        Build 1 leans on a desktop PC and a shell made by hand. Two purchases would turn
         it into something other people can copy, and I am asking readers to help with them. Prices are what
         Indian sellers listed on {{ f.pricesChecked }}.
       </p>

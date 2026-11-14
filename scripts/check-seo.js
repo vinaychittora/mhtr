@@ -275,7 +275,7 @@ for (const url of urls) {
     }
 
     if (src?.startsWith("/")) {
-      const imagePath = path.join(outDir, src);
+      const imagePath = path.join(outDir, src.split(/[?#]/)[0]);
       if (!fs.existsSync(imagePath)) {
         fail(`Image source does not exist for ${url}: ${src}`);
       }

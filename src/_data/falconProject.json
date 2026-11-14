@@ -1,5 +1,5 @@
 {
-  "assetVersion": "20261114a",
+  "assetVersion": "20261114b",
   "repoUrl": "https://github.com/vinaychittora/FALCON",
   "supportUrl": "https://buymeacoffee.com/caneandcamera",
   "pricesChecked": "14 November 2026",
@@ -13,12 +13,12 @@
     {
       "id": "outside",
       "tab": "Outside",
-      "title": "Outside: an upright box tied to a post",
-      "intro": "This is how Build 1 stands in the yard. The box was drilled by hand, and the camera mount is foam, tape and cable ties.",
-      "alt": "3D drawing of the FALCON node: an upright grey box tied to a post with cloth strips, a black camera hood low on its lid and a rain plate on top of the hood.",
+      "title": "Outside: an upright box on a post",
+      "intro": "A simplified drawing of Build 1. Every part is where it sits on the real node, and the mounting and the cable runs are drawn tidily.",
+      "alt": "3D drawing of the FALCON node: an upright grey box with the FALCON mark on its lid, fixed to a post, a black camera hood low on the lid and a rain plate on top of the hood.",
       "callouts": [
-        { "id": "box", "name": "Junction box", "text": "An ABS junction box, 195 × 115 × 75 mm, standing upright with its lid towards the bowl. It was sold as IP65. With holes drilled in it, it is no longer sealed to that standard, and the lid seam is wrapped in tape." },
-        { "id": "ties", "name": "Cloth ties and a stone", "text": "Strips of cloth tie the box to a thin post, about 15 cm above the ground. A stone wedged behind the top tips the box forward, so the camera looks down at the water." },
+        { "id": "box", "name": "Junction box", "text": "An ABS junction box, 195 × 115 × 75 mm, standing upright with its lid towards the bowl. It was sold as IP65. With holes drilled in it, it is no longer sealed to that standard." },
+        { "id": "mount", "name": "Post mount", "text": "The box is fixed to a thin post, about 15 cm above the ground." },
         { "id": "rain", "name": "Rain plate", "text": "On top of the hood, leaning back against the lid, copper side up." },
         { "id": "hood", "name": "Camera hood", "text": "A black hood low on the lid keeps sun and rain off the camera." },
         { "id": "cable", "name": "One cable", "text": "A single Ethernet cable runs to the house. It carries power and data, so the yard needs no socket." }
@@ -32,12 +32,12 @@
       "alt": "3D drawing looking up under the black hood: a camera lens with six infrared LEDs in a foam frame, a blue weather sensor below it and the copper rain plate above.",
       "callouts": [
         { "id": "rain", "name": "Rain plate", "text": "A bare copper comb. Water bridging its fingers reads as wet. It tells rain or dew from dry, not how much rain fell." },
-        { "id": "hood", "name": "Hood", "text": "A black half-round hood taped to the lid." },
+        { "id": "hood", "name": "Hood", "text": "A black half-round hood on the lid." },
         { "id": "lens", "name": "Camera", "text": "A 1080p USB camera with a fixed-focus M12 lens, tilted slightly down." },
         { "id": "leds", "name": "Infrared LEDs", "text": "Six 850 nm LEDs light the scene at night. They reach about one metre, which is the limit of this rig's night vision." },
         { "id": "light", "name": "Light sensor", "text": "Tells the camera when to switch between day and night. In the shade of the hood it sometimes gets this wrong." },
         { "id": "foam", "name": "Foam frame", "text": "Blocks of foam hold the camera board in place." },
-        { "id": "weather", "name": "Weather sensor", "text": "A BME280 board for temperature, humidity and air pressure, tied into the frame just below the camera, in the shade." }
+        { "id": "weather", "name": "Weather sensor", "text": "A BME280 board for temperature, humidity and air pressure, set into the frame just below the camera, in the shade." }
       ]
     },
     {
@@ -48,7 +48,7 @@
       "alt": "3D drawing of the underside of the box: one large hole where all the cables enter and nine small holes for sound.",
       "callouts": [
         { "id": "hole", "name": "Cable hole", "text": "One hole of about 25 mm takes all four leads: Ethernet, camera USB, rain plate and weather sensor." },
-        { "id": "leads", "name": "Leads from the camera head", "text": "The camera's USB cable, the weather sensor's four wires and the rain plate's two wires come down behind the hood and go in here." },
+        { "id": "leads", "name": "Leads from the camera head", "text": "The camera's USB cable, the weather sensor's lead and the rain plate's lead run down the lid and go in here." },
         { "id": "sound", "name": "Sound holes", "text": "Nine 2 mm holes let sound reach the microphones inside, and let some air through." },
         { "id": "cable", "name": "Ethernet to the house", "text": "Power over Ethernet from an injector indoors." }
       ]
@@ -89,7 +89,7 @@
     { "part": "Weather", "what": "Waveshare BME280 board", "job": "Temperature, humidity and air pressure every 30 seconds." },
     { "part": "Rain", "what": "Resistive rain plate with an LM393 comparator board", "job": "Wet or dry, read twice a second. After a wet reading the node keeps saying raining for 10 minutes." },
     { "part": "Power and network", "what": "PoE+ injector indoors (30 W), PoE splitter in the box", "job": "One Ethernet cable brings power and data." },
-    { "part": "Enclosure", "what": "ABS junction box, 195 × 115 × 75 mm, with a foam, tape and cable-tie camera mount", "job": "Holds the Pi, the splitter and the rain board. This makeshift shell is the part to replace first." },
+    { "part": "Enclosure", "what": "ABS junction box, 195 × 115 × 75 mm, with a hand-made camera mount", "job": "Holds the Pi, the splitter and the rain board. This hand-made shell is the part to replace first." },
     { "part": "Indoor computer", "what": "Windows PC with an NVIDIA RTX 3060 Ti, FALCON running in WSL2 (Ubuntu)", "job": "Runs every model, stores the records and serves the dashboard." }
   ],
   "roadmap": [
@@ -97,7 +97,7 @@
     { "state": "In progress", "name": "Recordings that cover the whole visit", "text": "On 14 November a Bluethroat bathed at the bowl and the clip stopped after 10 seconds. Recordings are being changed to run for as long as the animal stays, with the sound on the same clip." },
     { "state": "In progress", "name": "A view-only page for friends", "text": "Invited friends see the live picture, the visit log and clips, but no sound, no settings and no people. It is built and is being tested at home. How friends reach it from the internet is not decided yet." },
     { "state": "Next", "name": "Build 2: one outdoor unit, one cable", "text": "A weatherproof network camera with its own infrared replaces the webcam, for a sharper picture by day and a longer reach at night. The Pi keeps the microphones and the weather sensors. A TP-Link VIGI C340 is the current choice and has not been tested yet." },
-    { "state": "Needs support", "name": "Printed parts instead of foam and tape", "text": "A hood, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount that other people can print and copy. This is what the 3D printer is for." },
+    { "state": "Needs support", "name": "Printed parts instead of hand-made ones", "text": "A hood, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount that other people can print and copy. This is what the 3D printer is for." },
     { "state": "Needs support", "name": "A small computer instead of a desktop PC", "text": "The same software on a Jetson-class computer, so that a home without a gaming PC can host a node. It has to match the PC's results on saved nights before it replaces it. This is what the mini PC is for." },
     { "state": "Later", "name": "Plug in and use", "text": "A pre-installed device: it starts its own hotspot, a phone joins it to the home Wi-Fi, and that is the whole setup. No cables to make, no command line." },
     { "state": "Later", "name": "Export tried by a researcher", "text": "The Camtrap DP export passes the standard's own checks. It has not yet been loaded into another person's tools. That test, with a researcher saying what is missing, comes before any claim that the data is ready for research." },
