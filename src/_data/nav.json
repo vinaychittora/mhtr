@@ -37,7 +37,8 @@
     "section": "projects",
     "icon": "home",
     "children": [
-      {"label": "Proposal: Mandirgarh Community Nature Stay", "href": "/mandirgarh-homestay/", "match": "/mandirgarh-homestay/", "icon": "home", "description": "The site author's own consultation-stage proposal. Not open for booking."}
+      {"label": "Proposal: Mandirgarh Community Nature Stay", "href": "/mandirgarh-homestay/", "match": "/mandirgarh-homestay/", "icon": "home", "description": "The site author's own consultation-stage proposal. Not open for booking."},
+      {"label": "Prototype: FALCON Field Node", "href": "/falcon/", "match": "/falcon/", "icon": "leaf", "description": "The site author's own open-source wildlife sensor prototype. Not for sale."}
     ]
   },
   {"label": "Search", "href": "/search/", "match": "/search/", "section": "search", "icon": "search"}

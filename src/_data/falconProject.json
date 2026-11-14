@@ -1,0 +1,106 @@
+{
+  "assetVersion": "20261114a",
+  "repoUrl": "https://github.com/vinaychittora/FALCON",
+  "supportUrl": "https://buymeacoffee.com/caneandcamera",
+  "pricesChecked": "14 November 2026",
+  "fund": {
+    "updated": "14 November 2026",
+    "received": "₹0",
+    "spent": "₹0",
+    "goal": "₹90,000 to ₹1,00,000"
+  },
+  "views": [
+    {
+      "id": "outside",
+      "tab": "Outside",
+      "title": "Outside: an upright box tied to a post",
+      "intro": "This is how Build 1 stands in the yard. The box was drilled by hand, and the camera mount is foam, tape and cable ties.",
+      "alt": "3D drawing of the FALCON node: an upright grey box tied to a post with cloth strips, a black camera hood low on its lid and a rain plate on top of the hood.",
+      "callouts": [
+        { "id": "box", "name": "Junction box", "text": "An ABS junction box, 195 × 115 × 75 mm, standing upright with its lid towards the bowl. It was sold as IP65. With holes drilled in it, it is no longer sealed to that standard, and the lid seam is wrapped in tape." },
+        { "id": "ties", "name": "Cloth ties and a stone", "text": "Strips of cloth tie the box to a thin post, about 15 cm above the ground. A stone wedged behind the top tips the box forward, so the camera looks down at the water." },
+        { "id": "rain", "name": "Rain plate", "text": "On top of the hood, leaning back against the lid, copper side up." },
+        { "id": "hood", "name": "Camera hood", "text": "A black hood low on the lid keeps sun and rain off the camera." },
+        { "id": "cable", "name": "One cable", "text": "A single Ethernet cable runs to the house. It carries power and data, so the yard needs no socket." }
+      ]
+    },
+    {
+      "id": "camera",
+      "tab": "Camera head",
+      "title": "The camera head: lens, lights and weather sensor",
+      "intro": "Looking up under the hood from the side of the bowl.",
+      "alt": "3D drawing looking up under the black hood: a camera lens with six infrared LEDs in a foam frame, a blue weather sensor below it and the copper rain plate above.",
+      "callouts": [
+        { "id": "rain", "name": "Rain plate", "text": "A bare copper comb. Water bridging its fingers reads as wet. It tells rain or dew from dry, not how much rain fell." },
+        { "id": "hood", "name": "Hood", "text": "A black half-round hood taped to the lid." },
+        { "id": "lens", "name": "Camera", "text": "A 1080p USB camera with a fixed-focus M12 lens, tilted slightly down." },
+        { "id": "leds", "name": "Infrared LEDs", "text": "Six 850 nm LEDs light the scene at night. They reach about one metre, which is the limit of this rig's night vision." },
+        { "id": "light", "name": "Light sensor", "text": "Tells the camera when to switch between day and night. In the shade of the hood it sometimes gets this wrong." },
+        { "id": "foam", "name": "Foam frame", "text": "Blocks of foam hold the camera board in place." },
+        { "id": "weather", "name": "Weather sensor", "text": "A BME280 board for temperature, humidity and air pressure, tied into the frame just below the camera, in the shade." }
+      ]
+    },
+    {
+      "id": "under",
+      "tab": "Underneath",
+      "title": "Underneath: every cable enters from below",
+      "intro": "Looking up at the bottom of the box. Every opening is on the underside, where rain is least likely to get in.",
+      "alt": "3D drawing of the underside of the box: one large hole where all the cables enter and nine small holes for sound.",
+      "callouts": [
+        { "id": "hole", "name": "Cable hole", "text": "One hole of about 25 mm takes all four leads: Ethernet, camera USB, rain plate and weather sensor." },
+        { "id": "leads", "name": "Leads from the camera head", "text": "The camera's USB cable, the weather sensor's four wires and the rain plate's two wires come down behind the hood and go in here." },
+        { "id": "sound", "name": "Sound holes", "text": "Nine 2 mm holes let sound reach the microphones inside, and let some air through." },
+        { "id": "cable", "name": "Ethernet to the house", "text": "Power over Ethernet from an injector indoors." }
+      ]
+    },
+    {
+      "id": "inside",
+      "tab": "Inside",
+      "title": "Inside: four things",
+      "intro": "The box with its lid and camera head taken away. Only four parts live inside. Everything else is outside.",
+      "alt": "3D drawing of the open box: a Raspberry Pi under a blue audio board on the right, a black PoE splitter on the left and a small rain-sensor board at the top.",
+      "callouts": [
+        { "id": "chip", "name": "Rain-sensor board", "text": "The small comparator board that belongs to the rain plate outside. It turns the plate's resistance into a wet or dry signal for the Pi." },
+        { "id": "splitter", "name": "PoE splitter", "text": "Takes the power off the incoming Ethernet cable and feeds the Pi over USB-C. The data goes on to the Pi through a short network lead." },
+        { "id": "hat", "name": "Audio HAT", "text": "A Waveshare DA7212 sound card stacked on the Pi, with two small microphones on the board. They hear the yard through the holes underneath." },
+        { "id": "pi", "name": "Raspberry Pi 4", "text": "Mostly hidden under the audio board, mounted with its sockets pointing down. It captures and streams. It runs no AI." },
+        { "id": "hole", "name": "Cable hole", "text": "All four leads come up through it." },
+        { "id": "sound", "name": "Sound holes", "text": "The nine small holes, seen from inside." }
+      ]
+    },
+    {
+      "id": "place",
+      "tab": "In place",
+      "title": "In place: one metre from a water bowl",
+      "intro": "The node watches one spot. The bowl is about half a metre across and about one metre away, which is as far as the infrared light reaches.",
+      "alt": "3D drawing of the node on its post facing a round water bowl about one metre away, with a dashed line from the camera to the bowl.",
+      "callouts": [
+        { "id": "node", "name": "The node", "text": "On its post, with the bottom of the box about 15 cm above the ground." },
+        { "id": "sight", "name": "Where the camera looks", "text": "The dashed line and the shaded fan are a sketch. They are not a measured field of view." },
+        { "id": "bowl", "name": "Water bowl", "text": "A shallow bowl with pebbles in it. Animals come back to water again and again, which is why the node watches it." },
+        { "id": "cable", "name": "Cable to the house", "text": "Ethernet to the injector and the computer indoors." }
+      ]
+    }
+  ],
+  "hardware": [
+    { "part": "Computer in the box", "what": "Raspberry Pi 4 Model B, 1 GB, Raspberry Pi OS Lite (64-bit)", "job": "Captures video, sound and sensor readings and streams them. Runs no AI." },
+    { "part": "Camera", "what": "Arducam 1080p day and night USB camera: OV2710 sensor, fixed-focus M12 lens, six 850 nm infrared LEDs, automatic infrared filter", "job": "Watches the bowl at 1920 × 1080 and up to 15 frames a second." },
+    { "part": "Microphones", "what": "Waveshare DA7212 Audio HAT (B), two microphones on the board, one channel used", "job": "Continuous sound at 48 kHz for bird calls, through small holes under the box." },
+    { "part": "Weather", "what": "Waveshare BME280 board", "job": "Temperature, humidity and air pressure every 30 seconds." },
+    { "part": "Rain", "what": "Resistive rain plate with an LM393 comparator board", "job": "Wet or dry, read twice a second. After a wet reading the node keeps saying raining for 10 minutes." },
+    { "part": "Power and network", "what": "PoE+ injector indoors (30 W), PoE splitter in the box", "job": "One Ethernet cable brings power and data." },
+    { "part": "Enclosure", "what": "ABS junction box, 195 × 115 × 75 mm, with a foam, tape and cable-tie camera mount", "job": "Holds the Pi, the splitter and the rain board. This makeshift shell is the part to replace first." },
+    { "part": "Indoor computer", "what": "Windows PC with an NVIDIA RTX 3060 Ti, FALCON running in WSL2 (Ubuntu)", "job": "Runs every model, stores the records and serves the dashboard." }
+  ],
+  "roadmap": [
+    { "state": "Done", "name": "Build 1: the backyard prototype", "text": "Camera, sound and weather on one node, visit rules, clips, a clean-up filter for night sound, weather history and a Camtrap DP export. The first release is tagged v1.0 in the repository." },
+    { "state": "In progress", "name": "Recordings that cover the whole visit", "text": "On 14 November a Bluethroat bathed at the bowl and the clip stopped after 10 seconds. Recordings are being changed to run for as long as the animal stays, with the sound on the same clip." },
+    { "state": "In progress", "name": "A view-only page for friends", "text": "Invited friends see the live picture, the visit log and clips, but no sound, no settings and no people. It is built and is being tested at home. How friends reach it from the internet is not decided yet." },
+    { "state": "Next", "name": "Build 2: one outdoor unit, one cable", "text": "A weatherproof network camera with its own infrared replaces the webcam, for a sharper picture by day and a longer reach at night. The Pi keeps the microphones and the weather sensors. A TP-Link VIGI C340 is the current choice and has not been tested yet." },
+    { "state": "Needs support", "name": "Printed parts instead of foam and tape", "text": "A hood, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount that other people can print and copy. This is what the 3D printer is for." },
+    { "state": "Needs support", "name": "A small computer instead of a desktop PC", "text": "The same software on a Jetson-class computer, so that a home without a gaming PC can host a node. It has to match the PC's results on saved nights before it replaces it. This is what the mini PC is for." },
+    { "state": "Later", "name": "Plug in and use", "text": "A pre-installed device: it starts its own hotspot, a phone joins it to the home Wi-Fi, and that is the whole setup. No cables to make, no command line." },
+    { "state": "Later", "name": "Export tried by a researcher", "text": "The Camtrap DP export passes the standard's own checks. It has not yet been loaded into another person's tools. That test, with a researcher saying what is missing, comes before any claim that the data is ready for research." },
+    { "state": "Later", "name": "Pilots in other gardens", "text": "Two friends' gardens first, each with the agreement of the people who live there, then a small pond. Solar power only where there is no mains." }
+  ]
+}

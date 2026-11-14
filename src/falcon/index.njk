@@ -1,0 +1,584 @@
+---
+layout: base.njk
+title: "FALCON Field Node: Open-Source Wildlife Sensor Prototype | MHTR.in Projects"
+description: "FALCON is an open-source prototype that watches one garden water bowl with a camera, microphones and weather sensors. How it is built, a 3D model, first results from Kota and what the next build needs."
+keywords: "FALCON field node, open source wildlife monitoring, camera trap with sound and weather, Raspberry Pi wildlife camera, MegaDetector, BioCLIP, BirdNET, Camtrap DP, backyard wildlife Kota, Vinay Chittora"
+og_title: "FALCON Field Node: an open-source wildlife sensor prototype"
+og_description: "A box on a post that watches one water bowl with a camera, microphones and weather sensors. Built at home in Kota, open source, and honest about what it cannot do yet."
+og_image: "https://mhtr.in/assets/imgs/falcon/falcon-node-social.jpg"
+og_image_alt: "3D drawing of the FALCON field node: an upright grey box tied to a post, with a black camera hood and a copper rain plate."
+og_image_width: 1200
+og_image_height: 630
+activeSection: projects
+body_class: falcon-page
+page_css: /assets/css/falcon-project.css?v=20261114a
+breadcrumb_label: "FALCON Field Node"
+author: Vinay Chittora
+authorUrl: https://www.caneandcamera.com/
+publishedTime: "2026-11-14T00:00:00+05:30"
+modifiedTime: "2026-11-14T00:00:00+05:30"
+---
+
+{% set f = falconProject %}
+{% set v = f.assetVersion %}
+{% set img = "/assets/imgs/falcon" %}
+
+<section class="falcon-hero" aria-labelledby="falcon-title">
+  <div>
+    <p class="eyebrow">Projects · Prototype</p>
+    <p class="falcon-hero__name">FALCON <span>· Field Acoustic, Lens &amp; Climate Observation Node</span></p>
+    <h1 id="falcon-title">A field node that watches, listens and measures one small place</h1>
+    <p class="lede">
+      A box on a post beside a garden water bowl, with a camera, microphones and weather sensors. A computer
+      indoors suggests a name for each animal it sees and each bird it hears, and keeps a log of what came,
+      when, and in what weather. It is a working prototype, built at home in Kota, and the code is open source.
+    </p>
+    <div class="badge-row" aria-label="Project status">
+      <span class="badge">Working prototype, not for sale</span>
+      <span class="badge">Built 27 Oct to 10 Nov 2026</span>
+      <span class="badge">Kota, Rajasthan</span>
+      <span class="badge">Open source</span>
+    </div>
+    <div class="hero-actions">
+      <a class="button-link" href="#node">See the node</a>
+      <a class="button-link button-link-secondary" href="#support">Support the next build</a>
+      <a class="button-link button-link-light" href="{{ f.repoUrl }}" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
+    </div>
+  </div>
+  <figure class="falcon-hero__figure">
+    <img src="{{ img }}/falcon-node-hero-1000.webp" srcset="{{ img }}/falcon-node-hero-600.webp 600w, {{ img }}/falcon-node-hero-1000.webp 1000w" sizes="(max-width: 900px) 92vw, 420px" width="1000" height="1250" alt="3D drawing of the FALCON node: an upright grey junction box tied to a post, a black camera hood low on its lid and a copper rain plate on the hood." fetchpriority="high" decoding="async">
+    <figcaption>Build 1 as it stands in the yard. A 3D drawing made from photographs, not a photograph.</figcaption>
+  </figure>
+</section>
+
+<section class="section" aria-label="Project status">
+  <div class="falcon-status-card">
+    <strong>A prototype, not a product.</strong>
+    <span>
+      FALCON is a personal project by Vinay Chittora, who also edits MHTR.in. It runs in a private backyard in
+      Kota city. It is not inside Mukundara Hills Tiger Reserve, it is not a Forest Department scheme, and
+      nothing on this page is for sale.
+    </span>
+  </div>
+</section>
+
+<section class="section" id="idea" aria-labelledby="idea-title">
+  <div class="section-heading">
+    <p class="eyebrow">The idea</p>
+    <h2 id="idea-title">One spot, three senses</h2>
+    <p>
+      Most camera traps only take pictures. FALCON also listens and measures, because each sense covers
+      what the others miss. It is meant for one well-chosen spot where animals come back again and again:
+      a water bowl, a bird bath, the edge of a small pond. It is not a census and it is not a security camera.
+    </p>
+  </div>
+  <div class="falcon-senses">
+    <article class="falcon-sense">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+      <h3><span>Lens</span>It sees what comes to the water</h3>
+      <p>
+        A 1080p camera with infrared lights watches the bowl by day and by night. Software finds animals in
+        the picture and suggests a name from the 1,382 species recorded in Rajasthan on iNaturalist.
+      </p>
+    </article>
+    <article class="falcon-sense">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 10v4M8 6.5v11M12 3.5v17M16 7.5v9M20 10.5v3"/></svg>
+      <h3><span>Acoustic</span>It hears what never comes into view</h3>
+      <p>
+        Microphones in the box listen all the time. Bird calls are named and grouped into calling bouts, so
+        one bird singing for ten minutes is one record. At night it logs calls the camera cannot see.
+      </p>
+    </article>
+    <article class="falcon-sense">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13.8V5a2 2 0 1 1 4 0v8.8a4 4 0 1 1-4 0Z"/><path d="M12 9v7"/></svg>
+      <h3><span>Climate</span>It notes the weather of every visit</h3>
+      <p>
+        Temperature, humidity and air pressure are read every 30 seconds, and a plate on top says whether it
+        is wet. Each record is stored with the weather at that moment.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="node" aria-labelledby="node-title">
+  <div class="section-heading">
+    <p class="eyebrow">The node, as built</p>
+    <h2 id="node-title">A junction box, a hood and one cable</h2>
+    <p>
+      Five views of Build 1 with its parts numbered. The model is drawn from photographs of the real node.
+      It is not a CAD file: the outside follows the photographs, and positions inside the box are approximate.
+    </p>
+  </div>
+
+  <div class="falcon-viewer" data-falcon-viewer data-tabs-label="Views of the node" data-3d-label="Turn it round in 3D" data-three="/assets/js/falcon/three-r128.min.js?v={{ v }}" data-model="/assets/js/falcon/falcon-node-model.js?v={{ v }}">
+    {% for view in f.views %}
+    {% set lay = falconNodeLayout.views[view.id] %}
+    <figure class="falcon-view" id="node-{{ view.id }}" data-view="{{ view.id }}" data-tab="{{ view.tab }}">
+      <div class="falcon-stage">
+        <picture>
+          <source media="(max-width: 620px)" srcset="{{ img }}/node-{{ view.id }}-tall-720.webp 720w, {{ img }}/node-{{ view.id }}-tall-1200.webp 1200w" sizes="100vw" width="1200" height="1500">
+          <img src="{{ img }}/node-{{ view.id }}-wide-1400.webp" srcset="{{ img }}/node-{{ view.id }}-wide-800.webp 800w, {{ img }}/node-{{ view.id }}-wide-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 640px" width="1400" height="1050" alt="{{ view.alt }}"{% if not loop.first %} loading="lazy"{% endif %} decoding="async">
+        </picture>
+        {% if lay %}
+        {% for key in ["wide", "tall"] %}
+        <svg class="falcon-leaders falcon-leaders--{{ key }}" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          {% for c in view.callouts %}{% set p = lay[key][c.id] %}<line data-callout="{{ c.id }}" x1="{{ p.ax }}" y1="{{ p.ay }}" x2="{{ p.lx }}" y2="{{ p.ly }}"/>{% endfor %}
+        </svg>
+        {% endfor %}
+        <ol class="falcon-markers" aria-hidden="true">
+          {% for c in view.callouts %}{% set w = lay.wide[c.id] %}{% set t = lay.tall[c.id] %}
+          <li data-callout="{{ c.id }}" style="--wx:{{ w.lx }}%;--wy:{{ w.ly }}%;--wax:{{ w.ax }}%;--way:{{ w.ay }}%;--tx:{{ t.lx }}%;--ty:{{ t.ly }}%;--tax:{{ t.ax }}%;--tay:{{ t.ay }}%"><span class="falcon-dot"></span><span class="falcon-num">{{ loop.index }}</span></li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+      </div>
+      <figcaption>
+        <h3>{{ view.title }}</h3>
+        <p>{{ view.intro }}</p>
+        <ol class="falcon-legend">
+          {% for c in view.callouts %}
+          <li data-callout="{{ c.id }}"><b>{{ c.name }}.</b> {{ c.text }}</li>
+          {% endfor %}
+        </ol>
+      </figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" id="how" aria-labelledby="how-title">
+  <div class="section-heading">
+    <p class="eyebrow">How it works</p>
+    <h2 id="how-title">One cable out to the yard, all the thinking indoors</h2>
+    <p>
+      The box outdoors runs no AI. It captures and streams, which keeps it simple and cool. The computer
+      indoors does the recognising and keeps the records.
+    </p>
+  </div>
+  <ol class="falcon-flow">
+    <li class="falcon-flow__step">
+      <h3><span>Outdoors</span>The node</h3>
+      <p>A Raspberry Pi takes video from the camera, sound from the microphones and readings from the weather and rain sensors.</p>
+    </li>
+    <li class="falcon-flow__link">One Ethernet cable. Power goes out; video, sound and readings come back.</li>
+    <li class="falcon-flow__step">
+      <h3><span>Indoors</span>The computer</h3>
+      <p>A PC with a graphics card finds animals in the picture, suggests a species, names bird calls and stores each visit with its clip and the weather.</p>
+    </li>
+    <li class="falcon-flow__link">Home Wi-Fi</li>
+    <li class="falcon-flow__step">
+      <h3><span>Phone or PC</span>The dashboard</h3>
+      <p>A web page for watching live, reviewing doubtful records and exporting the checked ones.</p>
+    </li>
+  </ol>
+  <div class="falcon-two">
+    <div>
+      <h3>What runs where</h3>
+      <ul class="falcon-list">
+        <li><b>On the node:</b> a small Python service and MediaMTX, which serve the video and sound to the one computer the node is paired with. A heat guard pauses the stream if the Pi gets too hot.</li>
+        <li><b>Finding animals:</b> MegaDetector marks animals, people and vehicles in the picture.</li>
+        <li><b>Naming species:</b> BioCLIP 2.5 compares each cropped animal with the species on the Rajasthan list.</li>
+        <li><b>Naming calls:</b> BirdNET, limited to about 257 birds expected around Kota in the season.</li>
+        <li><b>The application:</b> a Python backend with a SQLite database and a React dashboard, with about 700 automated tests across the backend, the node service and the dashboard.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>What stays at home</h3>
+      <p>
+        The models run on the computer indoors. No picture, sound or record is sent to a cloud service for
+        recognition. Checked records leave only when the owner exports them, as a
+        <a href="https://camtrap-dp.tdwg.org/" target="_blank" rel="noopener noreferrer">Camtrap DP</a> package,
+        the open format used for camera-trap data.
+      </p>
+      <p class="falcon-note">
+        The export passes the standard's own checks. It has not yet been loaded into another person's tools,
+        so it is not claimed to be research-ready.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="interface" aria-labelledby="interface-title">
+  <div class="section-heading">
+    <p class="eyebrow">The interface</p>
+    <h2 id="interface-title">Sure things on one page, doubts on another</h2>
+    <p>
+      The Live page shows only what the system is fairly sure about. Everything doubtful waits on a Review
+      page, where a person confirms it, corrects it or throws it out. These are screenshots of the real
+      dashboard, taken on 14 November 2026. Tap or click one to open it at full size.
+    </p>
+  </div>
+  <div class="falcon-shots">
+    <figure class="falcon-shot">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-live-1600.webp">
+        <span class="sr-only">Open the full-size screenshot.</span>
+        <img src="{{ img }}/falcon-live-1600.webp" srcset="{{ img }}/falcon-live-800.webp 800w, {{ img }}/falcon-live-1600.webp 1600w" sizes="(max-width: 1120px) 100vw, 1076px" width="1600" height="895" alt="FALCON Live page: the camera's view of a water bowl filled with pebbles, with temperature, humidity, pressure and rain readings underneath." loading="lazy" decoding="async">
+      </a>
+      <figcaption>
+        <h3>Live</h3>
+        <div>
+          <p>
+            The picture from the node, the readings under it, and visits as they are detected. Nothing had come
+            to the bowl in the six minutes this session had been running.
+          </p>
+          <p>
+            The counter at the top right says 959 records were waiting for review. That is the true state of
+            the backlog: the node records faster than one person reviews.
+          </p>
+        </div>
+      </figcaption>
+    </figure>
+    <figure class="falcon-shot">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-review-1600.webp">
+        <span class="sr-only">Open the full-size screenshot.</span>
+        <img src="{{ img }}/falcon-review-1600.webp" srcset="{{ img }}/falcon-review-800.webp 800w, {{ img }}/falcon-review-1600.webp 1600w" sizes="(max-width: 1120px) 100vw, 1076px" width="1600" height="1183" alt="FALCON Review page: six cards of bird visits marked Probable, each with a pink-tinted crop, a suggested species and buttons to confirm, correct or discard." loading="lazy" decoding="async">
+      </a>
+      <figcaption>
+        <h3>Review</h3>
+        <div>
+          <p>
+            Each card has the cropped animal, a suggested name, how long the visit lasted and a similarity
+            score, which the page itself labels as not a probability. All six cards here are marked Probable:
+            the model could not separate look-alike species.
+          </p>
+          <p>
+            The crops are pink because the camera's infrared filter was in its night position in daylight.
+            It is a fault of this camera, described under the results below.
+          </p>
+        </div>
+      </figcaption>
+    </figure>
+    <figure class="falcon-shot">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-weather-1315.webp">
+        <span class="sr-only">Open the full-size screenshot.</span>
+        <img src="{{ img }}/falcon-weather-1315.webp" srcset="{{ img }}/falcon-weather-800.webp 800w, {{ img }}/falcon-weather-1315.webp 1315w" sizes="(max-width: 1120px) 100vw, 1076px" width="1315" height="460" alt="FALCON weather history graph: over 24 hours the temperature falls from about 30 °C to about 18 °C before dawn and rises again, while humidity moves the other way." loading="lazy" decoding="async">
+      </a>
+      <figcaption>
+        <h3>Weather history</h3>
+        <div>
+          <p>
+            Twenty-four hours of temperature and humidity at the camera, from the morning of 13 November to
+            the morning of 14 November. Rain is drawn on the same graph when the plate gets wet.
+          </p>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="hardware" aria-labelledby="hardware-title">
+  <div class="section-heading">
+    <p class="eyebrow">Hardware</p>
+    <h2 id="hardware-title">Off-the-shelf parts in a hand-drilled box</h2>
+    <p>
+      Every part of Build 1 is something you can buy. The box was drilled by hand and the camera mount is
+      foam, tape and cable ties. That makeshift shell is the part to replace first.
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table class="table">
+      <thead>
+        <tr><th scope="col">Part</th><th scope="col">What it is</th><th scope="col">Its job</th></tr>
+      </thead>
+      <tbody>
+        {% for row in f.hardware %}
+        <tr><th scope="row">{{ row.part }}</th><td>{{ row.what }}</td><td>{{ row.job }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="rules" aria-labelledby="rules-title">
+  <div class="section-heading">
+    <p class="eyebrow">How it decides</p>
+    <h2 id="rules-title">A name has to be earned</h2>
+    <p>
+      The first nights produced a flood of false sightings. The rule that came out of them is simple:
+      a few records you can trust are worth more than many doubtful ones.
+    </p>
+  </div>
+  <div class="falcon-tiers">
+    <article class="falcon-tier falcon-tier--likely">
+      <h3>Likely</h3>
+      <p>Several frames over about two seconds agree on one species, clearly ahead of the next best name. Only these appear on the Live page.</p>
+    </article>
+    <article class="falcon-tier falcon-tier--probable">
+      <h3>Probable or possible</h3>
+      <p>Look-alikes score almost the same, or the guess is faint. These wait on the Review page and are never announced.</p>
+    </article>
+    <article class="falcon-tier falcon-tier--confirmed">
+      <h3>Confirmed</h3>
+      <p>Only a person can confirm a record, after watching its clip or listening to its sound.</p>
+    </article>
+  </div>
+  <ul class="falcon-list">
+    <li>The number shown beside a name is a visual similarity score. It is not a probability, and the dashboard says so.</li>
+    <li>Things that stay put, such as the bowl or a stone, are learned as scenery and ignored.</li>
+    <li>A strip at the edge of the picture is ignored, and one frame alone is never enough.</li>
+    <li>A person's review does not retrain the models. Discarding a record hides it and can be undone.</li>
+  </ul>
+</section>
+
+<section class="section" id="results" aria-labelledby="results-title">
+  <div class="section-heading">
+    <p class="eyebrow">Results so far</p>
+    <h2 id="results-title">The first week at the bowl</h2>
+    <p>
+      Build 1 was put together between 27 October and 10 November 2026, and the node has watched the bowl
+      since the evening of 7 November. These are notes from one yard over about a week. They are not a
+      study. Each note says who or what the name comes from.
+    </p>
+  </div>
+  <div class="falcon-results">
+    <article class="falcon-result">
+      <span class="falcon-evidence falcon-evidence--person">Checked by a person</span>
+      <h3>A small cat on the first night</h3>
+      <p>
+        On 7 November at 19:04 a small cat came to the bowl, twice. The species model named it Rusty-spotted
+        Cat over 94 frames, and I confirmed that from the clip. Infrared video of a small cat is hard to
+        judge, so a second opinion from someone who knows small cats is welcome.
+      </p>
+    </article>
+    <article class="falcon-result">
+      <span class="falcon-evidence falcon-evidence--model">Model suggestions, mostly unreviewed</span>
+      <h3>Birds by day</h3>
+      <p>
+        By day the camera's suggestions at the bowl include Indian Robin and Oriental Magpie-Robin, and on
+        14 November a Bluethroat came to bathe. Most daytime records are still waiting for review, so this
+        is a list of suggestions, not a checked list.
+      </p>
+    </article>
+    <article class="falcon-result">
+      <span class="falcon-evidence falcon-evidence--unsure">By sound, marked unsure</span>
+      <h3>Owls and a heron after dark</h3>
+      <p>
+        At night the microphones logged owl calls and a Gray Heron that the camera never saw. The names
+        are BirdNET's. I cannot tell the owls apart by ear, so those records stay marked unsure.
+      </p>
+    </article>
+    <article class="falcon-result">
+      <span class="falcon-evidence falcon-evidence--model">Machine scores, not verified</span>
+      <h3>One morning hour, as the machine heard it</h3>
+      <p>
+        Between 07:22 and 08:22 on 8 November BirdNET's highest scores were Red-wattled Lapwing (0.84),
+        Eurasian Coot (0.77), Rose-ringed Parakeet (0.76), Gray Heron (0.61) and Black-winged Stilt
+        (0.60). No person has checked these.
+      </p>
+    </article>
+  </div>
+
+  <h3 class="falcon-subhead">What went wrong, and what changed</h3>
+  <ul class="falcon-lessons">
+    <li>
+      <p><b>What happened</b>On the first night, 133 visits were house geckos, filed under four wrong gecko names.</p>
+      <p><b>What changed</b>A name now needs several agreeing frames. When the model cannot settle on one group of animals, the record stays hidden as unidentified.</p>
+    </li>
+    <li>
+      <p><b>What happened</b>A “palm civet” turned out to be a fixed shape at the edge of the picture. The edge of the camera hood, glowing in infrared, was read as a snake.</p>
+      <p><b>What changed</b>A strip at the edge of the picture is ignored, things that stay put are treated as scenery, and one frame alone is not enough.</p>
+    </li>
+    <li>
+      <p><b>What happened</b>The sound model offered Tawny Owl, a bird that does not live in Rajasthan.</p>
+      <p><b>What changed</b>The site was set to Kota, and BirdNET now chooses only from birds expected there in the season.</p>
+    </li>
+    <li>
+      <p><b>What happened</b>On some mornings the camera stays in its night setting after sunrise and the picture turns pink. Its light sensor sits in the shade of the hood.</p>
+      <p><b>Still open</b>Software cannot fix this. The sensor has to see daylight, which means a different hood.</p>
+    </li>
+    <li>
+      <p><b>What happened</b>On 14 November the clip of a bathing Bluethroat stopped after 10 seconds, while the bird stayed longer.</p>
+      <p><b>In progress</b>Recordings are being changed to last as long as the animal stays.</p>
+    </li>
+  </ul>
+
+  <div class="falcon-two">
+    <div>
+      <h3 class="falcon-subhead">Measured on this rig</h3>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th scope="col">What</th><th scope="col">Measured</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Video from the node</th><td>1920 × 1080 at up to 15 frames a second, about 14 Mbit/s</td></tr>
+            <tr><th scope="row">Raspberry Pi temperature</th><td>59 to 61 °C when it passes the camera's video through untouched; up to 77 °C when it compressed the video itself</td></tr>
+            <tr><th scope="row">Naming one cropped animal</th><td>about 45 ms on the PC's graphics card</td></tr>
+            <tr><th scope="row">Air at the camera over one day</th><td>about 18 °C before dawn to about 30 °C in the afternoon (13 to 14 November)</td></tr>
+            <tr><th scope="row">Waiting for review on 14 November</th><td>959 records</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h3 class="falcon-subhead">Known limits</h3>
+      <ul class="falcon-list">
+        <li>Night vision is weak. The infrared light reaches about a metre, and insects in it cannot be named.</li>
+        <li>The models guess. The rules cut down false records, but they cannot make a model certain.</li>
+        <li>A person still has to review, and the backlog shows that this is the slowest part.</li>
+        <li>It needs a PC with an NVIDIA graphics card indoors.</li>
+        <li>The box is drilled by hand and is no longer sealed. It has not been through a monsoon or a summer.</li>
+        <li>Sound from a residential street includes traffic and voices.</li>
+        <li>It logs visits to one spot. It does not count animals or estimate populations.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="section-heading">
+    <p class="eyebrow">Where it is going</p>
+    <h2 id="roadmap-title">From a backyard rig to something others can host</h2>
+    <p>
+      The aim is a device that a friend, a school or a field researcher can plug in and use without a
+      desktop PC or any technical setup. Hardware is bought one piece at a time, and each step has to pass
+      a test before the next one starts.
+    </p>
+  </div>
+  <ol class="falcon-roadmap">
+    {% for step in f.roadmap %}
+    {% set stateClass = "falcon-state--" + (step.state | lower | replace(" ", "-")) %}
+    <li class="{{ stateClass }}">
+      <span class="falcon-state {{ stateClass }}">{{ step.state }}</span>
+      <h3>{{ step.name }}</h3>
+      <p>{{ step.text }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="section falcon-support" id="support" aria-labelledby="support-title">
+  <div class="falcon-support__panel">
+    <div class="section-heading">
+      <p class="eyebrow">Support the next build</p>
+      <h2 id="support-title">Two pieces of equipment would move this forward</h2>
+      <p>
+        Build 1 leans on a desktop PC and a box held together with foam and tape. Two purchases would turn
+        it into something other people can copy, and I am asking readers to help with them. Prices are what
+        Indian sellers listed on {{ f.pricesChecked }}.
+      </p>
+    </div>
+
+    <div class="falcon-asks">
+      <article class="falcon-ask">
+        <h3>A small computer for the AI</h3>
+        <p class="falcon-ask__price">about ₹65,000 to ₹70,000</p>
+        <dl>
+          <div>
+            <dt>What</dt>
+            <dd>An NVIDIA Jetson Orin Nano Super developer kit with a solid-state drive, a fan case and a Wi-Fi card. The kit alone was listed between ₹52,000 and ₹69,300 at three sellers.</dd>
+          </div>
+          <div>
+            <dt>Why</dt>
+            <dd>Today every model runs on a desktop PC with a gaming graphics card. A home, a school or a field station without one cannot host a node.</dd>
+          </div>
+          <div>
+            <dt>What is not known yet</dt>
+            <dd>FALCON has never run on a Jetson. The models have to be converted for it, and it must give the same answers as the PC on nights already recorded before it replaces the PC. It may not manage that. If it does not, this page will say so.</dd>
+          </div>
+        </dl>
+      </article>
+      <article class="falcon-ask">
+        <h3>A simple 3D printer</h3>
+        <p class="falcon-ask__price">about ₹25,000 to ₹30,000</p>
+        <dl>
+          <div>
+            <dt>What</dt>
+            <dd>A small desktop printer such as the Bambu Lab A1 mini, with filament for outdoor parts. The printer alone was listed between ₹17,300 and ₹21,500.</dd>
+          </div>
+          <div>
+            <dt>Why</dt>
+            <dd>A hood that lets the light sensor see daylight, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount. Printed parts can be made the same way twice and shared as files.</dd>
+          </div>
+          <div>
+            <dt>What is not known yet</dt>
+            <dd>The repository holds a printable enclosure designed for an earlier camera. It has never been printed. Which plastic survives a Kota summer is part of the test.</dd>
+          </div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="falcon-total">
+      <p><strong>{{ f.fund.goal }}</strong>for both, with the smaller parts they need.</p>
+      <a class="button-link" href="{{ f.supportUrl }}" target="_blank" rel="noopener noreferrer">Contribute on Buy Me a Coffee</a>
+    </div>
+
+    <dl class="falcon-tally" aria-label="Running total">
+      <div><dt>Received for FALCON</dt><dd>{{ f.fund.received }}</dd></div>
+      <div><dt>Spent</dt><dd>{{ f.fund.spent }}</dd></div>
+      <div><dt>Bought so far</dt><dd>Nothing yet</dd></div>
+      <div><dt>Updated</dt><dd>{{ f.fund.updated }}</dd></div>
+    </dl>
+
+    <div class="falcon-terms">
+      <div>
+        <h3>How the money is handled</h3>
+        <ul class="falcon-list">
+          <li>Contributions go through the Cane &amp; Camera page on Buy Me a Coffee, the same page that supports the upkeep of MHTR.in. <b>Please write FALCON in your message</b> so the money is counted here. Without that word it goes to the upkeep of the site, as before.</li>
+          <li>Money marked FALCON is spent only on the two items above. The printer comes first, because it costs less and is useful at once.</li>
+          <li>The running total above is updated by hand whenever money comes in or something is bought.</li>
+          <li>If less comes in than the computer costs, that money stays set aside for it, and this page will say how much is there.</li>
+          <li>This is a personal project, not a registered charity. A contribution is a gift: there are no rewards, no shares, no device in return and no tax benefit.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Other ways to help</h3>
+        <ul class="falcon-list">
+          <li><b>Lend hardware.</b> A Jetson you no longer use, or a few hours on your own 3D printer, does the same job as money.</li>
+          <li><b>Lend your ears.</b> If you know the night calls of owls around Kota and can check a few short recordings, write to me.</li>
+          <li><b>Try the code.</b> Follow the install guide on your own computer and report where it breaks.</li>
+          <li><b>Look at the cat.</b> If you know small cats, I would like a second opinion on the clip from 7 November.</li>
+        </ul>
+        <p class="falcon-note">Write to <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="code" aria-labelledby="code-title">
+  <div class="section-heading">
+    <p class="eyebrow">Open source</p>
+    <h2 id="code-title">Build one, or help build the next</h2>
+    <p>
+      Everything written for FALCON is in one public repository: the node service for the Raspberry Pi, the
+      application that runs the models, the dashboard, the tests and the build notes. Build 1 is tagged v1.0.
+    </p>
+  </div>
+  <div class="falcon-two">
+    <div>
+      <ul class="falcon-list">
+        <li>The FALCON code is under the Apache 2.0 licence. You can use it, change it and share it.</li>
+        <li>The models are not part of the repository. FALCON downloads them, and each keeps its own licence.</li>
+        <li>The BirdNET model is for non-commercial use only. Anyone thinking of selling a device has to replace it or license it.</li>
+        <li>Changes come in as pull requests. The main branch does not accept direct pushes.</li>
+      </ul>
+      <div class="hero-actions">
+        <a class="button-link" href="{{ f.repoUrl }}" target="_blank" rel="noopener noreferrer">FALCON on GitHub</a>
+        <a class="button-link button-link-secondary" href="{{ f.repoUrl }}/tree/v1.0" target="_blank" rel="noopener noreferrer">Build 1 (v1.0)</a>
+      </div>
+    </div>
+    <dl class="falcon-licences" aria-label="Licences">
+      <div><dt>FALCON code</dt><dd>Apache 2.0</dd></div>
+      <div><dt>MegaDetector V6</dt><dd>MIT variant, through PyTorchWildlife. Finds animals, people and vehicles.</dd></div>
+      <div><dt>BioCLIP 2.5</dt><dd>MIT. Suggests the species.</dd></div>
+      <div><dt>BirdNET V2.4</dt><dd>Code MIT; model CC BY-NC-SA 4.0, which means non-commercial use only.</dd></div>
+      <div><dt>MediaMTX</dt><dd>MIT. Serves the video and sound from the node.</dd></div>
+      <div><dt>Species list</dt><dd>Built from research-grade records on iNaturalist.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="care" aria-labelledby="care-title">
+  <div class="section-heading">
+    <p class="eyebrow">Care and privacy</p>
+    <h2 id="care-title">It watches wildlife, not people</h2>
+  </div>
+  <ul class="falcon-list">
+    <li>People are never saved as observations. By default a person in the picture is covered with a grey box, live and in saved clips, and seconds with human voices are silenced in saved sound. These filters are automatic and can miss, so anyone who hosts a node should still tell the people who live there and the neighbours within earshot.</li>
+    <li>The models run on the owner's computer. No picture or sound is sent to a cloud service for recognition.</li>
+    <li>This node stands in a private backyard in Kota city. Using a device like it inside a protected area needs written permission from the Forest Department.</li>
+    <li>This page gives the place only as Kota, Rajasthan. Exact locations of wildlife records are not published here.</li>
+  </ul>
+</section>
+
+<script src="/assets/js/falcon/falcon-viewer.js?v={{ v }}" defer></script>
