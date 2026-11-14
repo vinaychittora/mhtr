@@ -93,7 +93,9 @@
     stage.appendChild(controls); stage.appendChild(status); stage.appendChild(chip); stage.appendChild(hint);
     pin(null);
     if (engine) engine.enter(id, opts.instant || !changed);
-    if (opts.hash && window.history && history.replaceState) history.replaceState(null, '', '#' + figureOf[id].id);
+    if (opts.hash && window.history && history.replaceState) {
+      try { history.replaceState(null, '', '#' + figureOf[id].id); } catch (err) { /* some embedded frames refuse it; the view has changed all the same */ }
+    }
   }
 
   // ------------------------------------------------------------------ a number and its list entry light up together
