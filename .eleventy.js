@@ -458,8 +458,10 @@ module.exports = function (eleventyConfig) {
   // Copy only web-ready assets, not OS/browser metadata sidecar files.
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/style.css": "assets/css/style.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/mandirgarh-proposal.css": "assets/css/mandirgarh-proposal.css" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/falcon-project.css": "assets/css/falcon-project.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/main.js": "assets/js/main.js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/resource-browser.js": "assets/js/resource-browser.js" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/falcon/*.js": "assets/js/falcon" });
   eleventyConfig.addPassthroughCopy({
     "src/_data/inatBiodiversity.json": inatSnapshot.dataset.distributionPath.replace(/^\//, ""),
   });
@@ -480,6 +482,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.png": "assets/imgs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/mandirgarh/*.jpg": "assets/imgs/mandirgarh" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/mandirgarh/*.webp": "assets/imgs/mandirgarh" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/falcon/*.{webp,jpg}": "assets/imgs/falcon" });
   eleventyConfig.addPassthroughCopy({
     "src/assets/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-*.jpg":
       "assets/imgs/field-reports/indian-gray-wolf-sighting-alania",
