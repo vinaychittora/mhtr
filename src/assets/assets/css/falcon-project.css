@@ -634,6 +634,19 @@
   margin-bottom: 0;
 }
 
+.falcon-shots--after {
+  margin-top: clamp(20px, 3vw, 30px);
+}
+
+/* A screenshot of one window is shown narrower, so that its text is about as large as in the full pages. */
+.falcon-shot--window .falcon-shot__image {
+  max-width: 880px;
+}
+
+.falcon-shot--narrow .falcon-shot__image {
+  max-width: 760px;
+}
+
 /* ---------------------------------------------------------------- rules and results */
 
 .falcon-tiers {
@@ -717,6 +730,52 @@
 .falcon-evidence--model { --evidence: var(--khaki-deep); }
 .falcon-evidence--unsure { --evidence: var(--rust); }
 .falcon-evidence--measured { --evidence: var(--water-deep); }
+
+.falcon-tally.falcon-tally--results {
+  margin: 0 0 clamp(18px, 3vw, 26px);
+}
+
+.falcon-tally.falcon-tally--results div {
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.falcon-tally.falcon-tally--results dd {
+  font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.2rem);
+  line-height: 1.1;
+}
+
+.falcon-species h3 {
+  margin: 0 0 6px;
+  font-size: 1.08rem;
+}
+
+.falcon-species p {
+  margin: 0;
+}
+
+.falcon-species + .falcon-note {
+  margin: 12px 0 0;
+}
+
+.table-wrap + .falcon-note {
+  margin: 10px 0 0;
+}
+
+.falcon-reading {
+  max-width: 880px;
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.falcon-reading p {
+  margin: 0;
+}
 
 .falcon-subhead {
   margin: clamp(26px, 4vw, 40px) 0 12px;

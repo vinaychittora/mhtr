@@ -1,17 +1,17 @@
 ---
 layout: base.njk
 title: "FALCON Field Node: Open-Source Wildlife Sensor Prototype | MHTR.in Projects"
-description: "FALCON is an open-source prototype that watches one garden water bowl with a camera, microphones and weather sensors. How it is built, a 3D model, first results from Kota and what the next build needs."
+description: "FALCON is an open-source prototype that watches one garden water bowl with a camera, microphones and weather sensors. How it is built, a 3D model, nine days of results from Kota and what the next build needs."
 keywords: "FALCON field node, open source wildlife monitoring, camera trap with sound and weather, Raspberry Pi wildlife camera, MegaDetector, BioCLIP, BirdNET, Camtrap DP, backyard wildlife Kota, Vinay Chittora"
 og_title: "FALCON Field Node: an open-source wildlife sensor prototype"
 og_description: "A box on a post that watches one water bowl with a camera, microphones and weather sensors. Built at home in Kota, open source, and honest about what it cannot do yet."
-og_image: "https://mhtr.in/assets/imgs/falcon/falcon-node-social.jpg?v=20261114b"
+og_image: "https://mhtr.in/assets/imgs/falcon/falcon-node-social.jpg?v=20261116a"
 og_image_alt: "3D drawing of the FALCON field node: an upright grey box on a post, with the FALCON mark on its lid, a black camera hood and a copper rain plate."
 og_image_width: 1200
 og_image_height: 630
 activeSection: projects
 body_class: falcon-page
-page_css: /assets/css/falcon-project.css?v=20261114a
+page_css: /assets/css/falcon-project.css?v=20261116a
 breadcrumb_label: "FALCON Field Node"
 author: Vinay Chittora
 authorUrl: https://www.caneandcamera.com/
@@ -31,7 +31,8 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
     <p class="lede">
       A box on a post beside a garden water bowl, with a camera, microphones and weather sensors. A computer
       indoors suggests a name for each animal it sees and each bird it hears, and keeps a log of what came,
-      when, and in what weather. It is a working prototype, built at home in Kota, and the code is open source.
+      when, and in what weather. Visits that a person has checked can be posted to iNaturalist. It is a
+      working prototype, built at home in Kota, and the code is open source.
     </p>
     <div class="badge-row" aria-label="Project status">
       <span class="badge">Working prototype, not for sale</span>
@@ -164,12 +165,12 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
     <li class="falcon-flow__link">One Ethernet cable. Power goes out; video, sound and readings come back.</li>
     <li class="falcon-flow__step">
       <h3><span>Indoors</span>The computer</h3>
-      <p>A PC with a graphics card finds animals in the picture, suggests a species, names bird calls and stores each visit with its clip and the weather.</p>
+      <p>A PC with a graphics card finds animals in the picture, suggests a species, names bird calls and stores each visit with its recording and the weather.</p>
     </li>
     <li class="falcon-flow__link">Home Wi-Fi</li>
     <li class="falcon-flow__step">
       <h3><span>Phone or PC</span>The dashboard</h3>
-      <p>A web page for watching live, reviewing doubtful records and exporting the checked ones.</p>
+      <p>A web page for watching live, checking each visit, and exporting or posting the checked ones.</p>
     </li>
   </ol>
   <div class="falcon-two">
@@ -187,13 +188,13 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
       <h3>What stays at home</h3>
       <p>
         The models run on the computer indoors. No picture, sound or record is sent to a cloud service for
-        recognition. Checked records leave only when the owner exports them, as a
-        <a href="https://camtrap-dp.tdwg.org/" target="_blank" rel="noopener noreferrer">Camtrap DP</a> package,
-        the open format used for camera-trap data.
+        recognition. A checked record leaves the house in two ways, and only when the owner chooses: in a
+        <a href="https://camtrap-dp.tdwg.org/" target="_blank" rel="noopener noreferrer">Camtrap DP</a> export,
+        the open format used for camera-trap data, or as a <a href="#inaturalist">post to iNaturalist</a>.
       </p>
       <p class="falcon-note">
-        The export passes the standard's own checks. It has not yet been loaded into another person's tools,
-        so it is not claimed to be research-ready.
+        The export passes the standard's own checks. The next test is a researcher loading it into their
+        own tools.
       </p>
     </div>
   </div>
@@ -202,57 +203,95 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
 <section class="section" id="interface" aria-labelledby="interface-title">
   <div class="section-heading">
     <p class="eyebrow">The interface</p>
-    <h2 id="interface-title">Sure things on one page, doubts on another</h2>
+    <h2 id="interface-title">Live for watching, Review for checking</h2>
     <p>
-      The Live page shows only what the system is fairly sure about. Everything doubtful waits on a Review
-      page, where a person confirms it, corrects it or throws it out. These are screenshots of the real
-      dashboard, taken on 14 November 2026. Tap or click one to open it at full size.
+      The Live page shows only what the system is fairly sure about. Everything else waits on the Review
+      page, where a person confirms it, corrects it, marks it unsure or discards it. These are screenshots
+      of the real dashboard, taken on 16 November 2026 (the weather graph on 14 November). Tap or click
+      one to open it at full size.
     </p>
   </div>
   <div class="falcon-shots">
     <figure class="falcon-shot">
-      <a class="falcon-shot__image" href="{{ img }}/falcon-live-1600.webp">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-live-1600.webp?v={{ v }}">
         <span class="sr-only">Open the full-size screenshot.</span>
-        <img src="{{ img }}/falcon-live-1600.webp" srcset="{{ img }}/falcon-live-800.webp 800w, {{ img }}/falcon-live-1600.webp 1600w" sizes="(max-width: 1120px) 100vw, 1076px" width="1600" height="895" alt="FALCON Live page: the camera's view of a water bowl filled with pebbles, with temperature, humidity, pressure and rain readings underneath." loading="lazy" decoding="async">
+        <img src="{{ img }}/falcon-live-1600.webp?v={{ v }}" srcset="{{ img }}/falcon-live-800.webp?v={{ v }} 800w, {{ img }}/falcon-live-1600.webp?v={{ v }} 1600w" sizes="(max-width: 1120px) 100vw, 1076px" width="1600" height="895" alt="FALCON Live page in daylight: the camera's colour view of a water bowl filled with pebbles, with temperature, humidity, pressure and rain readings underneath." loading="lazy" decoding="async">
       </a>
       <figcaption>
         <h3>Live</h3>
         <div>
           <p>
-            The picture from the node, the readings under it, and visits as they are detected. Nothing had come
-            to the bowl in the six minutes this session had been running.
+            The picture from the node at 11:49 on 16 November, with the weather readings under it. Visits
+            appear on the right as they are detected, and only when FALCON rates them Likely.
           </p>
           <p>
-            The counter at the top right says 959 records were waiting for review. That is the true state of
-            the backlog: the node records faster than one person reviews.
+            The counter at the top right is the review queue. Most of its 1,175 records are glimpses and
+            scenery that FALCON has already hidden by itself. About 170 are visits waiting for a person.
           </p>
         </div>
       </figcaption>
     </figure>
     <figure class="falcon-shot">
-      <a class="falcon-shot__image" href="{{ img }}/falcon-review-1600.webp">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-review-1600.webp?v={{ v }}">
         <span class="sr-only">Open the full-size screenshot.</span>
-        <img src="{{ img }}/falcon-review-1600.webp" srcset="{{ img }}/falcon-review-800.webp 800w, {{ img }}/falcon-review-1600.webp 1600w" sizes="(max-width: 1120px) 100vw, 1076px" width="1600" height="1183" alt="FALCON Review page: six cards of bird visits marked Probable, each with a pink-tinted crop, a suggested species and buttons to confirm, correct or discard." loading="lazy" decoding="async">
+        <img src="{{ img }}/falcon-review-1600.webp?v={{ v }}" srcset="{{ img }}/falcon-review-800.webp?v={{ v }} 800w, {{ img }}/falcon-review-1600.webp?v={{ v }} 1600w" sizes="(max-width: 1120px) 100vw, 1076px" width="1600" height="1000" alt="FALCON Review page: four confirmed bird visits as cards with colour pictures, a Bluethroat and three of an Oriental Magpie-Robin, each with four decision buttons." loading="lazy" decoding="async">
       </a>
       <figcaption>
         <h3>Review</h3>
         <div>
           <p>
-            Each card has the cropped animal, a suggested name, how long the visit lasted and a similarity
-            score, which the page itself labels as not a probability. All six cards here are marked Probable:
-            the model could not separate look-alike species.
+            Each card has the cropped animal, its name, when the visit began, how long it lasted and a
+            similarity score, which the page itself labels as not a probability. There are four decisions:
+            Confirm, Correct, Unsure and Discard. These four visits are from the morning of 16 November, and
+            the green tag on each says that I have checked it.
           </p>
           <p>
-            The crops are pink because the camera's infrared filter was in its night position in daylight.
-            It is a fault of this camera, described under the results below.
+            Two cards also say “Heard at the same time: House Sparrow”. A sparrow sat in the bowl beside the
+            robin that morning. The camera did not mark it, and the microphones logged a sparrow calling.
+          </p>
+        </div>
+      </figcaption>
+    </figure>
+    <figure class="falcon-shot falcon-shot--window">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-visit-1220.webp?v={{ v }}">
+        <span class="sr-only">Open the full-size screenshot.</span>
+        <img src="{{ img }}/falcon-visit-1220.webp?v={{ v }}" srcset="{{ img }}/falcon-visit-800.webp?v={{ v }} 800w, {{ img }}/falcon-visit-1220.webp?v={{ v }} 1220w" sizes="(max-width: 940px) 100vw, 880px" width="1220" height="940" alt="FALCON visit window: a recording of an Oriental Magpie-Robin bathing in the bowl with a green box around it, beside the decision buttons and the model's other candidates." loading="lazy" decoding="async">
+      </a>
+      <figcaption>
+        <h3>One visit, opened</h3>
+        <div>
+          <p>
+            The Oriental Magpie-Robin of 08:11 on 16 November. The whole stay is one recording of 84 seconds
+            with the garden's sound on it, and the green box follows the bird. Beside the player are the
+            decisions and the model's other candidates, here Indian Robin and White-bellied Drongo.
+          </p>
+          <p>
+            Underneath are the facts kept with every visit: the detector and similarity scores, the number
+            of frames, and the weather at that moment, 22.2 °C at 65 % humidity.
+          </p>
+        </div>
+      </figcaption>
+    </figure>
+    <figure class="falcon-shot falcon-shot--window">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-sound-1220.webp?v={{ v }}">
+        <span class="sr-only">Open the full-size screenshot.</span>
+        <img src="{{ img }}/falcon-sound-1220.webp?v={{ v }}" srcset="{{ img }}/falcon-sound-800.webp?v={{ v }} 800w, {{ img }}/falcon-sound-1220.webp?v={{ v }} 1220w" sizes="(max-width: 940px) 100vw, 880px" width="1220" height="586" alt="FALCON sound record window: a 13-second clip that BirdNET named Hume's Warbler with a score of 0.80, its spectrogram, the four decision buttons and the weather at that moment." loading="lazy" decoding="async">
+      </a>
+      <figcaption>
+        <h3>A sound record</h3>
+        <div>
+          <p>
+            At 11:22 on 16 November BirdNET named a Hume's Warbler, the bird that iNaturalist calls Hume's
+            Leaf Warbler, with a score of 0.80. A sound record keeps the clip, its spectrogram and the
+            weather, and gets the same four decisions as a picture.
           </p>
         </div>
       </figcaption>
     </figure>
     <figure class="falcon-shot">
-      <a class="falcon-shot__image" href="{{ img }}/falcon-weather-1315.webp">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-weather-1315.webp?v={{ v }}">
         <span class="sr-only">Open the full-size screenshot.</span>
-        <img src="{{ img }}/falcon-weather-1315.webp" srcset="{{ img }}/falcon-weather-800.webp 800w, {{ img }}/falcon-weather-1315.webp 1315w" sizes="(max-width: 1120px) 100vw, 1076px" width="1315" height="460" alt="FALCON weather history graph: over 24 hours the temperature falls from about 30 °C to about 18 °C before dawn and rises again, while humidity moves the other way." loading="lazy" decoding="async">
+        <img src="{{ img }}/falcon-weather-1315.webp?v={{ v }}" srcset="{{ img }}/falcon-weather-800.webp?v={{ v }} 800w, {{ img }}/falcon-weather-1315.webp?v={{ v }} 1315w" sizes="(max-width: 1120px) 100vw, 1076px" width="1315" height="460" alt="FALCON weather history graph: over 24 hours the temperature falls from about 30 °C to about 18 °C before dawn and rises again, while humidity moves the other way." loading="lazy" decoding="async">
       </a>
       <figcaption>
         <h3>Weather history</h3>
@@ -302,7 +341,7 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
   <div class="falcon-tiers">
     <article class="falcon-tier falcon-tier--likely">
       <h3>Likely</h3>
-      <p>Several frames over about two seconds agree on one species, clearly ahead of the next best name. Only these appear on the Live page.</p>
+      <p>Several frames over about two seconds agree on one species, clearly ahead of the next best name, or at least on one kind of animal. Only these appear on the Live page.</p>
     </article>
     <article class="falcon-tier falcon-tier--probable">
       <h3>Probable or possible</h3>
@@ -310,61 +349,190 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
     </article>
     <article class="falcon-tier falcon-tier--confirmed">
       <h3>Confirmed</h3>
-      <p>Only a person can confirm a record, after watching its clip or listening to its sound.</p>
+      <p>Only a person can confirm a record, after watching its recording or listening to its sound. Only confirmed visits can be posted.</p>
     </article>
   </div>
   <ul class="falcon-list">
     <li>The number shown beside a name is a visual similarity score. It is not a probability, and the dashboard says so.</li>
     <li>Things that stay put, such as the bowl or a stone, are learned as scenery and ignored.</li>
     <li>A strip at the edge of the picture is ignored, and one frame alone is never enough.</li>
-    <li>A person's review does not retrain the models. Discarding a record hides it and can be undone.</li>
+    <li>A person's review does not retrain the models. Confirmed records are kept for good. A discarded record is hidden, and its recording is deleted a week later.</li>
   </ul>
+</section>
+
+<section class="section" id="inaturalist" aria-labelledby="inaturalist-title">
+  <div class="section-heading">
+    <p class="eyebrow">Sharing</p>
+    <h2 id="inaturalist-title">Checked visits go to iNaturalist</h2>
+    <p>
+      A record that stays on one computer helps nobody else. Since 16 November 2026 a visit that I have
+      confirmed can be posted to <a href="https://www.inaturalist.org/" target="_blank" rel="noopener noreferrer">iNaturalist</a>,
+      where other people can check the name. Records that reach Research Grade there can be passed on to
+      GBIF, the global biodiversity database.
+    </p>
+  </div>
+  <div class="falcon-two">
+    <div>
+      <h3>What a post carries</h3>
+      <ul class="falcon-list">
+        <li>One to four frames from the recording, suggested by FALCON or picked by me, each with a faint FALCON mark in a corner.</li>
+        <li>The date and time, the length of the visit and the weather at that moment.</li>
+        <li>The bird's call, when the microphones heard that species during the visit.</li>
+        <li>A note that it was recorded by an experimental station at a garden water bowl and confirmed by a person.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>What stays fixed</h3>
+      <ul class="falcon-list">
+        <li>Nothing is posted automatically. Every post takes my tick and my press of the Post button.</li>
+        <li>Only confirmed visits can be posted, and a visit cannot be posted twice.</li>
+        <li>The location is obscured. iNaturalist shows the public a random point inside a box about 20 km across, never the yard.</li>
+        <li>eBird is not used. Its rules do not accept records from trail, feeder or nest cameras.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="falcon-shots falcon-shots--after">
+    <figure class="falcon-shot falcon-shot--narrow">
+      <a class="falcon-shot__image" href="{{ img }}/falcon-posting-968.webp?v={{ v }}">
+        <span class="sr-only">Open the full-size screenshot.</span>
+        <img src="{{ img }}/falcon-posting-968.webp?v={{ v }}" srcset="{{ img }}/falcon-posting-640.webp?v={{ v }} 640w, {{ img }}/falcon-posting-968.webp?v={{ v }} 968w" sizes="(max-width: 820px) 100vw, 760px" width="968" height="768" alt="FALCON posting preview for an Oriental Magpie-Robin visit: three suggested photographs, a description with the weather, and a note that only an obscured location is public." loading="lazy" decoding="async">
+      </a>
+      <figcaption>
+        <h3>The preview before a post</h3>
+        <div>
+          <p>
+            Ticking a confirmed visit shows exactly what would be posted: the species matched to
+            iNaturalist's own list, the photographs, and a description with the weather and the length of
+            the visit. The yellow line warns that this species was already posted that day. Nothing is sent
+            until I press Post.
+          </p>
+          <p>
+            The first two posts went out on 16 November:
+            <a href="https://www.inaturalist.org/observations/415043198" target="_blank" rel="noopener noreferrer">an Oriental Magpie-Robin</a>,
+            which reached Research Grade the same morning, and
+            <a href="https://www.inaturalist.org/observations/415042739" target="_blank" rel="noopener noreferrer">a Bluethroat</a>,
+            which is waiting for a second identification.
+          </p>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="section" id="results" aria-labelledby="results-title">
   <div class="section-heading">
     <p class="eyebrow">Results so far</p>
-    <h2 id="results-title">The first week at the bowl</h2>
+    <h2 id="results-title">Nine days at the bowl</h2>
     <p>
-      Build 1 was put together between 27 October and 10 November 2026, and the node has watched the bowl
-      since the evening of 7 November. These are notes from one yard over about a week. They are not a
-      study. Each note says who or what the name comes from.
+      The node has watched the bowl since the evening of 7 November 2026. The figures here run to midday on
+      16 November: 201 hours of observing in just under nine days. They come from one yard and are not a
+      study. A species counts as confirmed only after I have checked its recording myself.
     </p>
   </div>
+
+  <dl class="falcon-tally falcon-tally--results" aria-label="Totals from 7 to 16 November 2026">
+    <div><dt>Species confirmed</dt><dd>30</dd></div>
+    <div><dt>Seen on camera</dt><dd>7</dd></div>
+    <div><dt>Heard only</dt><dd>23</dd></div>
+    <div><dt>Hours of observing</dt><dd>201</dd></div>
+  </dl>
+
+  <div class="falcon-two falcon-species">
+    <div>
+      <h3>Seen on camera</h3>
+      <p>
+        Oriental Magpie-Robin (52 visits), Bluethroat (5), Indian Robin (4), domestic cat (4),
+        Rusty-spotted Cat (3), Hume's Leaf Warbler (1) and Common Skittering Frog (1). The Magpie-Robin
+        and the warbler were also confirmed by their calls, 7 and 13 times.
+      </p>
+    </div>
+    <div>
+      <h3>Heard only</h3>
+      <p>
+        Rose-ringed Parakeet (118 records), House Sparrow (75), Purple Sunbird (32), Common Tailorbird (24),
+        Common Myna (8), Red-wattled Lapwing (6), Indian Peafowl (5), Red-vented Bulbul (4), Grey Francolin (4),
+        Eurasian Collared-Dove (3), White-throated Kingfisher (3), Ashy Prinia (3), Common Chiffchaff (3),
+        White Wagtail (2) and domestic dog (2). One record each: Eurasian Hobby, Black-winged Stilt,
+        Rock Pigeon, Greylag Goose, Grey Heron, Asian Koel, Grey Wagtail and Eurasian Coot.
+      </p>
+    </div>
+  </div>
+  <p class="falcon-note">
+    Two of the 30 are the neighbourhood's cats and dogs, so 28 are wild species. The eight species with one
+    record each rest on that single recording.
+  </p>
+
+  <h3 class="falcon-subhead">How often the models were right</h3>
+  <div class="table-wrap">
+    <table class="table falcon-rates">
+      <thead>
+        <tr>
+          <th scope="col">Records I have reviewed</th>
+          <th scope="col">Microphones</th>
+          <th scope="col">Camera: what it announced</th>
+          <th scope="col">Camera: everything it logged</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Reviewed</th><td>454</td><td>31</td><td>584</td></tr>
+        <tr><th scope="row">Real animals</th><td>323 (71 %)</td><td>22 (71 %)</td><td>76 (13 %)</td></tr>
+        <tr><th scope="row">False or not usable</th><td>131</td><td>9</td><td>508</td></tr>
+        <tr><th scope="row">Model's name right, when the animal was real</th><td>310 of 320 (97 %)</td><td>15 of 22 (68 %)</td><td>28 of 76 (37 %)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="falcon-note">
+    “Announced” means the visits FALCON rated Likely, the only ones the Live page shows, counted from
+    9 November when the present rules came in. Three sound records are real but marked unsure, so the last
+    row leaves them out. Of the 1,754 picture visits logged, 1,170 are not reviewed yet, and FALCON has
+    hidden about 1,000 of those itself as glimpses or scenery.
+  </p>
+  <div class="falcon-reading">
+    <p>
+      <b>How to read this.</b> The microphones are the stronger sense so far: when BirdNET names a bird in
+      this yard, it is nearly always right. The camera notices far more than it can name. Most of what it
+      logs is scenery, an empty frame or a glimpse, which is why FALCON hides those and announces only what
+      it rates Likely. Of the 31 visits it has announced since 9 November, 22 were real animals. Seven of
+      the nine misses came on one night, 13 November, when something in the infrared picture was read as
+      a snake again and again. A sharper camera is the first step of Build 2.
+    </p>
+  </div>
+
+  <h3 class="falcon-subhead">Four records, and where their names come from</h3>
   <div class="falcon-results">
     <article class="falcon-result">
       <span class="falcon-evidence falcon-evidence--person">Checked by a person</span>
       <h3>A small cat on the first night</h3>
       <p>
         On 7 November at 19:04 a small cat came to the bowl, twice. The species model named it Rusty-spotted
-        Cat over 94 frames, and I confirmed that from the clip. Infrared video of a small cat is hard to
-        judge, so a second opinion from someone who knows small cats is welcome.
+        Cat over 94 frames, and I confirmed that from the recording. Domestic cats come to the bowl too and
+        are logged separately. A second opinion from someone who knows small cats is welcome.
       </p>
     </article>
     <article class="falcon-result">
-      <span class="falcon-evidence falcon-evidence--model">Model suggestions, mostly unreviewed</span>
-      <h3>Birds by day</h3>
+      <span class="falcon-evidence falcon-evidence--person">Checked, and posted to iNaturalist</span>
+      <h3>Two birds on iNaturalist</h3>
       <p>
-        By day the camera's suggestions at the bowl include Indian Robin and Oriental Magpie-Robin, and on
-        14 November a Bluethroat came to bathe. Most daytime records are still waiting for review, so this
-        is a list of suggestions, not a checked list.
+        On 16 November an Oriental Magpie-Robin (08:11) and a Bluethroat (09:33) were confirmed from their
+        recordings and <a href="#inaturalist">posted</a>. Another identifier agreed with the Magpie-Robin
+        within minutes, which makes it Research Grade. The Bluethroat is waiting for a second identification.
+      </p>
+    </article>
+    <article class="falcon-result">
+      <span class="falcon-evidence falcon-evidence--person">Checked by a person</span>
+      <h3>Heard far more often than seen</h3>
+      <p>
+        Hume's Leaf Warbler has come into the picture once and has been confirmed by its call 13 times.
+        Most of the list is like that: 23 of the 30 species have never been seen by the camera at all.
       </p>
     </article>
     <article class="falcon-result">
       <span class="falcon-evidence falcon-evidence--unsure">By sound, marked unsure</span>
-      <h3>Owls and a heron after dark</h3>
+      <h3>Owls after dark</h3>
       <p>
-        At night the microphones logged owl calls and a Gray Heron that the camera never saw. The names
-        are BirdNET's. I cannot tell the owls apart by ear, so those records stay marked unsure.
-      </p>
-    </article>
-    <article class="falcon-result">
-      <span class="falcon-evidence falcon-evidence--model">Machine scores, not verified</span>
-      <h3>One morning hour, as the machine heard it</h3>
-      <p>
-        Between 07:22 and 08:22 on 8 November BirdNET's highest scores were Red-wattled Lapwing (0.84),
-        Eurasian Coot (0.77), Rose-ringed Parakeet (0.76), Gray Heron (0.61) and Black-winged Stilt
-        (0.60). No person has checked these.
+        At night the microphones log owl calls that the camera never sees. BirdNET offers names, but no owl
+        is on the confirmed list. I cannot tell them apart by ear, so those records stay marked unsure until
+        someone who knows their calls has listened.
       </p>
     </article>
   </div>
@@ -377,19 +545,23 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
     </li>
     <li>
       <p><b>What happened</b>A “palm civet” turned out to be a fixed shape at the edge of the picture. The edge of the camera hood, glowing in infrared, was read as a snake.</p>
-      <p><b>What changed</b>A strip at the edge of the picture is ignored, things that stay put are treated as scenery, and one frame alone is not enough.</p>
+      <p><b>What changed</b>A strip at the edge of the picture is ignored, things that stay put are treated as scenery, and one frame alone is not enough. It is not cured yet: snake names came back on the night of 13 November.</p>
     </li>
     <li>
       <p><b>What happened</b>The sound model offered Tawny Owl, a bird that does not live in Rajasthan.</p>
       <p><b>What changed</b>The site was set to Kota, and BirdNET now chooses only from birds expected there in the season.</p>
     </li>
     <li>
-      <p><b>What happened</b>On some mornings the camera stays in its night setting after sunrise and the picture turns pink. Its light sensor sits in the shade of the hood.</p>
-      <p><b>Still open</b>Software cannot fix this. The sensor has to see daylight, which means a different hood.</p>
+      <p><b>What happened</b>On 14 November the clip of a bathing Bluethroat stopped after 10 seconds, while the bird stayed longer.</p>
+      <p><b>What changed</b>Each stay at the water is now one recording, from 5 seconds before the animal is first seen to 15 seconds after it was last seen, with the microphones' sound on it.</p>
     </li>
     <li>
-      <p><b>What happened</b>On 14 November the clip of a bathing Bluethroat stopped after 10 seconds, while the bird stayed longer.</p>
-      <p><b>In progress</b>Recordings are being changed to last as long as the animal stays.</p>
+      <p><b>What happened</b>On 16 November the picture broke into coloured blocks after the camera restarted, and nothing was detected for about half an hour.</p>
+      <p><b>What changed</b>Damaged frames are now thrown away, the camera is restarted automatically when they keep coming, and the Live page shows a warning.</p>
+    </li>
+    <li>
+      <p><b>What happened</b>On some mornings the camera stays in its night setting after sunrise and the picture turns pink. Its light sensor sits in the shade of the hood.</p>
+      <p><b>Still open</b>The sensor has to see daylight, which means a different hood. It is one of the printed parts in the plan below.</p>
     </li>
   </ul>
 
@@ -406,7 +578,7 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
             <tr><th scope="row">Raspberry Pi temperature</th><td>59 to 61 °C when it passes the camera's video through untouched; up to 77 °C when it compressed the video itself</td></tr>
             <tr><th scope="row">Naming one cropped animal</th><td>about 45 ms on the PC's graphics card</td></tr>
             <tr><th scope="row">Air at the camera over one day</th><td>about 18 °C before dawn to about 30 °C in the afternoon (13 to 14 November)</td></tr>
-            <tr><th scope="row">Waiting for review on 14 November</th><td>959 records</td></tr>
+            <tr><th scope="row">Time observing, 7 to 16 November</th><td>201 of 211 hours</td></tr>
           </tbody>
         </table>
       </div>
@@ -415,8 +587,9 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
       <h3 class="falcon-subhead">Known limits</h3>
       <ul class="falcon-list">
         <li>Night vision is weak. The infrared light reaches about a metre, and insects in it cannot be named.</li>
-        <li>The models guess. The rules cut down false records, but they cannot make a model certain.</li>
-        <li>A person still has to review, and the backlog shows that this is the slowest part.</li>
+        <li>The camera's species names are often wrong, so a name counts only after a person has checked it.</li>
+        <li>Reviewing takes a person's time and is the slowest part.</li>
+        <li>A bird coloured like the pebbles in the bowl can be missed by the camera.</li>
         <li>It needs a PC with an NVIDIA graphics card indoors.</li>
         <li>The box is drilled by hand and is no longer sealed. It has not been through a monsoon or a summer.</li>
         <li>Sound from a residential street includes traffic and voices.</li>
@@ -474,8 +647,8 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
             <dd>Today every model runs on a desktop PC with a gaming graphics card. A home, a school or a field station without one cannot host a node.</dd>
           </div>
           <div>
-            <dt>What is not known yet</dt>
-            <dd>FALCON has never run on a Jetson. The models have to be converted for it, and it must give the same answers as the PC on nights already recorded before it replaces the PC. It may not manage that. If it does not, this page will say so.</dd>
+            <dt>How it will be tested</dt>
+            <dd>FALCON has not run on a Jetson yet. The models are converted for it, and it then has to give the same answers as the PC on nights already recorded. The result goes on this page either way.</dd>
           </div>
         </dl>
       </article>
@@ -492,8 +665,8 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
             <dd>A hood that lets the light sensor see daylight, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount. Printed parts can be made the same way twice and shared as files.</dd>
           </div>
           <div>
-            <dt>What is not known yet</dt>
-            <dd>The repository holds a printable enclosure designed for an earlier camera. It has never been printed. Which plastic survives a Kota summer is part of the test.</dd>
+            <dt>How it will be tested</dt>
+            <dd>The first prints are the hood and the holder for the weather sensor, tried on the node in the yard. The repository already holds an enclosure drawn for an earlier camera, not printed yet. Which plastic stands a Kota summer is part of the test.</dd>
           </div>
         </dl>
       </article>
@@ -528,7 +701,8 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
           <li><b>Lend hardware.</b> A Jetson you no longer use, or a few hours on your own 3D printer, does the same job as money.</li>
           <li><b>Lend your ears.</b> If you know the night calls of owls around Kota and can check a few short recordings, write to me.</li>
           <li><b>Try the code.</b> Follow the install guide on your own computer and report where it breaks.</li>
-          <li><b>Look at the cat.</b> If you know small cats, I would like a second opinion on the clip from 7 November.</li>
+          <li><b>Look at the cat.</b> If you know small cats, I would like a second opinion on the recording from 7 November.</li>
+          <li><b>Identify on iNaturalist.</b> If you know the birds of Rajasthan, the <a href="https://www.inaturalist.org/observations/415042739" target="_blank" rel="noopener noreferrer">Bluethroat of 16 November</a> is waiting for a second identification.</li>
         </ul>
         <p class="falcon-note">Write to <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.</p>
       </div>
@@ -543,6 +717,8 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
     <p>
       Everything written for FALCON is in one public repository: the node service for the Raspberry Pi, the
       application that runs the models, the dashboard, the tests and the build notes. Build 1 is tagged v1.0.
+      The work done since then, which is the whole-visit recordings, the simpler review page and the posting
+      to iNaturalist, runs at home and follows as the next release when its testing is finished.
     </p>
   </div>
   <div class="falcon-two">
@@ -575,10 +751,10 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
     <h2 id="care-title">It watches wildlife, not people</h2>
   </div>
   <ul class="falcon-list">
-    <li>People are never saved as observations. By default a person in the picture is covered with a grey box, live and in saved clips, and seconds with human voices are silenced in saved sound. These filters are automatic and can miss, so anyone who hosts a node should still tell the people who live there and the neighbours within earshot.</li>
-    <li>The models run on the owner's computer. No picture or sound is sent to a cloud service for recognition.</li>
+    <li>People are never saved as observations. By default a person in the picture is covered with a grey box, live and in saved recordings, and seconds with human voices are silenced in saved sound, including sound attached to a post on iNaturalist. These filters are automatic and can miss, so anyone who hosts a node should still tell the people who live there and the neighbours within earshot.</li>
+    <li>The models run on the owner's computer. No picture or sound is sent to a cloud service for recognition. A record leaves that computer only when the owner exports it or posts it to iNaturalist.</li>
     <li>This node stands in a private backyard in Kota city. Using a device like it inside a protected area needs written permission from the Forest Department.</li>
-    <li>This page gives the place only as Kota, Rajasthan. Exact locations of wildlife records are not published here.</li>
+    <li>This page gives the place only as Kota, Rajasthan. Exact locations of wildlife records are not published here, and the posts on iNaturalist carry an obscured location.</li>
   </ul>
 </section>
 
