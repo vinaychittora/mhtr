@@ -1012,6 +1012,84 @@
   font-weight: 700;
 }
 
+/* Thanks to the supporters: one coffee mug each, the full name above it and the first name on it. */
+.falcon-thanks {
+  margin-top: clamp(20px, 3vw, 30px);
+}
+
+.falcon-thanks h3 {
+  margin: 0 0 2px;
+  font-size: 1.1rem;
+}
+
+.falcon-thanks .falcon-note {
+  margin: 0 0 12px;
+}
+
+.falcon-mugs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The name takes the free row, so the mugs of one row stand level when a long name wraps. */
+.falcon-mug {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 14px 10px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  text-align: center;
+}
+
+.falcon-mug__name {
+  align-self: center;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.falcon-mug__cup {
+  display: block;
+  width: min(100%, 150px);
+  height: auto;
+}
+
+.falcon-mug__steam {
+  stroke: var(--line-strong);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.falcon-mug__handle {
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.falcon-mug__body {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
+.falcon-mug__first {
+  fill: var(--accent);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.falcon-mug__first--small { font-size: 12.5px; }
+
 .falcon-terms {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1095,7 +1173,8 @@
     clip-path: polygon(40% 0, 60% 0, 60% calc(100% - 9px), 100% calc(100% - 9px), 50% 100%, 0 calc(100% - 9px), 40% calc(100% - 9px));
   }
 
-  .falcon-tally {
+  .falcon-tally,
+  .falcon-mugs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

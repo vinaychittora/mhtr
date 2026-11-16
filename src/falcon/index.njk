@@ -11,7 +11,7 @@ og_image_width: 1200
 og_image_height: 630
 activeSection: projects
 body_class: falcon-page
-page_css: /assets/css/falcon-project.css?v=20261116a
+page_css: /assets/css/falcon-project.css?v=20261116b
 breadcrumb_label: "FALCON Field Node"
 author: Vinay Chittora
 authorUrl: https://www.caneandcamera.com/
@@ -683,6 +683,27 @@ modifiedTime: "2026-11-16T00:00:00+05:30"
       <div><dt>Bought so far</dt><dd>Nothing yet</dd></div>
       <div><dt>Updated</dt><dd>{{ f.fund.updated }}</dd></div>
     </dl>
+
+    {% if f.fund.supporters and f.fund.supporters.length %}
+    <div class="falcon-thanks">
+      <h3 id="thanks-title">Thank you</h3>
+      <p class="falcon-note">The people who have supported FALCON so far.</p>
+      <ul class="falcon-mugs" aria-labelledby="thanks-title">
+        {# A first name of twelve letters or more is fitted to the width of the mug. #}
+        {% for s in f.fund.supporters %}{% set n = s.first | length %}
+        <li class="falcon-mug">
+          <span class="falcon-mug__name">{{ s.name }}</span>
+          <svg class="falcon-mug__cup" viewBox="0 0 158 96" aria-hidden="true" focusable="false">
+            <path class="falcon-mug__steam" fill="none" d="M45 20c-6-5 6-9 0-15M68 20c-6-5 6-9 0-15M91 20c-6-5 6-9 0-15"/>
+            <path class="falcon-mug__handle" fill="none" d="M124 42h7a13 13 0 0 1 0 26h-7"/>
+            <path class="falcon-mug__body" d="M12 28h112v42a16 16 0 0 1-16 16H28a16 16 0 0 1-16-16z"/>
+            <text class="falcon-mug__first{% if n > 14 %} falcon-mug__first--small{% endif %}" x="68" y="57" dy="0.35em" text-anchor="middle"{% if n > 11 %} textLength="98" lengthAdjust="spacingAndGlyphs"{% endif %}>{{ s.first }}</text>
+          </svg>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
 
     <div class="falcon-terms">
       <div>
