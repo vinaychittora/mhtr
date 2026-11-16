@@ -2,7 +2,7 @@
   "name": "MHTR.in",
   "publisherName": "MHTR.in",
   "publisherUrl": "https://mhtr.in",
-  "assetVersion": "20261116v",
+  "assetVersion": "20261116w",
   "contactEmail": "hello@caneandcamera.com",
   "locale": "en-IN",
   "url": "https://mhtr.in",
@@ -20,8 +20,7 @@
   "ogImageWidth": 840,
   "ogImageHeight": 425,
   "creators": [
-    "vinayChittora",
-    "sonuKumar"
+    "vinayChittora"
   ],
   "reserve": {
     "name": "Mukundara Hills Tiger Reserve",

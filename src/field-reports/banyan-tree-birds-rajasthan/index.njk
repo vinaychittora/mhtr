@@ -565,9 +565,9 @@ schema_type: WebPage
     "inLanguage": ["hi", "en-IN"],
     "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
     "image": [
-      "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg",
-      "https://mhtr.in/assets/imgs/field-reports/banyan-root-habitat-1400.jpg",
-      "https://mhtr.in/assets/imgs/field-reports/banyan-monsoon-canopy-1400.jpg"
+      {{ "https://mhtr.in/assets/imgs/field-reports/banyan-header-1600.jpg" | imageObject | safe }},
+      {{ "https://mhtr.in/assets/imgs/field-reports/banyan-root-habitat-1400.jpg" | imageObject | safe }},
+      {{ "https://mhtr.in/assets/imgs/field-reports/banyan-monsoon-canopy-1400.jpg" | imageObject | safe }}
     ],
     "citation": [
       "https://macaulaylibrary.org/asset/620290654",

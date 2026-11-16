@@ -311,6 +311,32 @@ for (const htmlPath of walkHtml(outDir)) {
   }
 }
 
+// Every published picture carries its creator and credit (scripts/stamp-image-credits.js),
+// except third-party pictures listed in src/_data/imageCredits.json.
+{
+  const credits = require(path.join(root, "src", "_data", "imageCredits.json"));
+  const thirdParty = credits.rules
+    .filter((rule) => rule.by === "thirdParty")
+    .map((rule) => new RegExp(`^${rule.match.replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^/]*")}$`));
+  const imgRoot = path.join(outDir, "assets", "imgs");
+  const walkImages = (dir) =>
+    fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) return walkImages(full);
+      return /\.(jpe?g|png|webp)$/i.test(entry.name) ? [full] : [];
+    });
+  let unstamped = 0;
+  for (const file of fs.existsSync(imgRoot) ? walkImages(imgRoot) : []) {
+    const rel = path.relative(imgRoot, file).split(path.sep).join("/");
+    if (thirdParty.some((regex) => regex.test(rel))) continue;
+    if (!fs.readFileSync(file).includes("MHTR_IMAGE_CREDITS_v2")) {
+      unstamped += 1;
+      if (unstamped <= 10) fail(`Picture has no embedded credit (run npm run images:credits): assets/imgs/${rel}`);
+    }
+  }
+  if (unstamped > 10) fail(`...and ${unstamped - 10} more pictures without embedded credit.`);
+}
+
 if (failures.length > 0) {
   console.error("SEO checks failed:");
   for (const failure of failures) {

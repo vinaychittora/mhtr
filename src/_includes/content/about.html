@@ -47,31 +47,55 @@
 <section class="section" id="who-makes-this" aria-labelledby="people-heading">
   <div class="section-heading">
     <p class="eyebrow">Who Makes This</p>
-    <h2 id="people-heading">Two people, no organisation behind it</h2>
+    <h2 id="people-heading">One maker, no organisation behind it</h2>
     <p class="muted">
-      MHTR.in is researched, written, mapped, photographed and built by hand. Nothing here is syndicated; every
-      page is checked against the documents it cites.
+      MHTR.in is researched, written, mapped, photographed and built by hand by Vinay Chittora. Nothing here is
+      syndicated; every page is checked against the documents it cites.
     </p>
   </div>
   <div class="grid-2 about-people">
-{% for key in ['vinayChittora', 'sonuKumar'] %}{% set person = authors[key] %}
-    <article class="card about-person" id="{{ key }}">
-      <p class="eyebrow">{{ person.role }}</p>
-      <h3>{{ person.name }}</h3>
-      <p>{{ person.bio }}</p>
+{% set vinay = authors.vinayChittora %}{% set sonu = authors.sonuKumar %}
+    <article class="card about-person" id="vinayChittora">
+      <p class="eyebrow">{{ vinay.role }}</p>
+      <h3>{{ vinay.name }}</h3>
+      <p>{{ vinay.bio }}</p>
       <p class="muted">
-  {% if key == 'vinayChittora' %}
         Cartography and GIS analysis, including the <a href="/gis-maps/">boundary files and maps</a>, the
-        <a href="/resources/">document archive</a>, <a href="/field-reports/">field reports</a>, site design and code,
-        and the <a href="{{ authors.sonuKumar.inatProject }}" rel="noopener" target="_blank">Biodiversity of MHTR</a> iNaturalist project with Sonu Kumar.
-        Also publishes as <a href="{{ person.url }}" rel="noopener" target="_blank">Cane &amp; Camera</a>.
-  {% else %}
-        Plant and bird records, the <a href="/biodiversity/">biodiversity lists</a> and the
-        <a href="{{ person.inatProject }}" rel="noopener" target="_blank">Biodiversity of MHTR</a> iNaturalist project.
-  {% endif %}
+        <a href="/resources/">document archive</a>, <a href="/field-reports/">field reports</a>, photographs, site design
+        and code. Also publishes as <a href="{{ vinay.url }}" rel="noopener" target="_blank">Cane &amp; Camera</a>.
       </p>
     </article>
-{% endfor %}
+    <article class="card about-person" id="sonuKumar">
+      <p class="eyebrow">Contributor</p>
+      <h3>{{ sonu.name }}</h3>
+      <p>{{ sonu.bio }}</p>
+      <p class="muted">
+        Wrote the field reports on <a href="/field-reports/cattle-egrets-mango-tree-kota/">cattle egrets in mango trees</a>,
+        <a href="/field-reports/banyan-tree-birds-rajasthan/">banyan trees and birds</a> and
+        <a href="/field-reports/munia-grass-use-abhera-kota/">munias and grasses at Abhera</a>, took the photographs credited
+        to him in them, and set up the <a href="{{ sonu.inatProject }}" rel="noopener" target="_blank">Biodiversity of MHTR</a>
+        iNaturalist project with Vinay Chittora.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="image-use" aria-labelledby="image-use-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Photographs and Maps</p>
+    <h2 id="image-use-heading">Credit and reuse</h2>
+    <p>
+      Photographs, maps and graphics on MHTR.in are by Vinay Chittora (© Vinay Chittora / mhtr.in) unless a
+      different photographer or artist is named with them. Sonu Kumar's photographs on his field reports and Sudarshan
+      Shaw's <a href="/landscape/illustrated-overview/">illustrated overview</a> remain theirs. The creator and
+      copyright are written into each picture file. Location data is removed from every picture before it is
+      published.
+    </p>
+    <p class="muted">
+      Pictures may not be copied, cropped or reused without written permission. To ask about using one, write to
+      <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a> with the page address. Maps can be shared with
+      the credit shown on the <a href="/gis-maps/">GIS maps page</a>.
+    </p>
   </div>
 </section>
 

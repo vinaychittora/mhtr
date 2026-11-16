@@ -1,0 +1,69 @@
+{
+  "_comment": "Who made each published picture. Read by scripts/stamp-image-credits.js (embedded IPTC/XMP/EXIF credit) and by the page structured data (ImageObject creator). First matching rule wins; paths are relative to /assets/imgs/. Pictures with no matching rule are by the default person.",
+  "default": "vinayChittora",
+  "licensePage": "https://mhtr.in/about/#image-use",
+  "people": {
+    "vinayChittora": {
+      "name": "Vinay Chittora",
+      "url": "https://mhtr.in/about/#vinayChittora",
+      "credit": "Vinay Chittora / mhtr.in",
+      "copyright": "© Vinay Chittora / mhtr.in. All rights reserved."
+    },
+    "sonuKumar": {
+      "name": "Sonu Kumar",
+      "url": "https://www.inaturalist.org/people/sonukumar055",
+      "credit": "Sonu Kumar / mhtr.in",
+      "copyright": "© Sonu Kumar. Published on mhtr.in with permission. All rights reserved."
+    },
+    "sudarshanShaw": {
+      "name": "Sudarshan Shaw",
+      "credit": "Sudarshan Shaw, Studio Kyaari / mhtr.in",
+      "copyright": "© Sudarshan Shaw, Studio Kyaari. Published on mhtr.in with permission. All rights reserved."
+    }
+  },
+  "rules": [
+    {
+      "match": "field-reports/cattle-egret*",
+      "by": "sonuKumar"
+    },
+    {
+      "match": "field-reports/mango-flower-pollinator-*",
+      "by": "sonuKumar"
+    },
+    {
+      "match": "field-reports/munia-*-saramola-*",
+      "by": "sonuKumar"
+    },
+    {
+      "match": "field-reports/munia-*-apluda-*",
+      "by": "sonuKumar"
+    },
+    {
+      "match": "field-reports/munia-grass-use-combined-abhera.png",
+      "by": "sonuKumar"
+    },
+    {
+      "match": "field-reports/munia-*-grass-use-abhera.png",
+      "by": "sonuKumar"
+    },
+    {
+      "match": "landscape/sudarshan-shaw-*",
+      "by": "sudarshanShaw"
+    },
+    {
+      "match": "mhtr-landscape-2.jpg",
+      "by": "thirdParty",
+      "note": "Shutterstock stock photo (BlueOrange Studio); its own metadata is kept."
+    },
+    {
+      "match": "down-to-earth_*",
+      "by": "thirdParty",
+      "note": "Down To Earth news picture; not used on any page."
+    },
+    {
+      "match": "ntca-mee-report-cover.webp",
+      "by": "thirdParty",
+      "note": "Cover of an NTCA report."
+    }
+  ]
+}
