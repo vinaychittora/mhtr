@@ -1,5 +1,5 @@
 {
-  "assetVersion": "20261114b",
+  "assetVersion": "20261116a",
   "repoUrl": "https://github.com/vinaychittora/FALCON",
   "supportUrl": "https://buymeacoffee.com/caneandcamera",
   "pricesChecked": "14 November 2026",
@@ -94,13 +94,15 @@
   ],
   "roadmap": [
     { "state": "Done", "name": "Build 1: the backyard prototype", "text": "Camera, sound and weather on one node, visit rules, clips, a clean-up filter for night sound, weather history and a Camtrap DP export. The first release is tagged v1.0 in the repository." },
-    { "state": "In progress", "name": "Recordings that cover the whole visit", "text": "On 14 November a Bluethroat bathed at the bowl and the clip stopped after 10 seconds. Recordings are being changed to run for as long as the animal stays, with the sound on the same clip." },
-    { "state": "In progress", "name": "A view-only page for friends", "text": "Invited friends see the live picture, the visit log and clips, but no sound, no settings and no people. It is built and is being tested at home. How friends reach it from the internet is not decided yet." },
-    { "state": "Next", "name": "Build 2: one outdoor unit, one cable", "text": "A weatherproof network camera with its own infrared replaces the webcam, for a sharper picture by day and a longer reach at night. The Pi keeps the microphones and the weather sensors. A TP-Link VIGI C340 is the current choice and has not been tested yet." },
+    { "state": "Done", "name": "Recordings that cover the whole visit", "text": "On 14 November a Bluethroat bathed at the bowl and its clip stopped after 10 seconds. Since that day each stay at the water is one recording, with the microphones' sound on it." },
+    { "state": "Done", "name": "Checked visits posted to iNaturalist", "text": "A confirmed visit can be posted with its photographs, the weather and an obscured location. The first two posts went out on 16 November." },
+    { "state": "In progress", "name": "The next release of the code", "text": "Whole-visit recordings, the simpler review page and the posting to iNaturalist run on the node at home. They go into the public repository when the testing at home is finished." },
+    { "state": "In progress", "name": "A view-only page for friends", "text": "Invited friends see the live picture, the visit log and recordings, but no sound, no settings and no people. It is built and is being tested at home. Access from outside the home network comes next." },
+    { "state": "Next", "name": "Build 2: one outdoor unit, one cable", "text": "A weatherproof network camera with its own infrared replaces the webcam, for a sharper picture by day and a longer reach at night. The Pi keeps the microphones and the weather sensors. The first camera to be tried is a TP-Link VIGI C340." },
     { "state": "Needs support", "name": "Printed parts instead of hand-made ones", "text": "A hood, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount that other people can print and copy. This is what the 3D printer is for." },
     { "state": "Needs support", "name": "A small computer instead of a desktop PC", "text": "The same software on a Jetson-class computer, so that a home without a gaming PC can host a node. It has to match the PC's results on saved nights before it replaces it. This is what the mini PC is for." },
     { "state": "Later", "name": "Plug in and use", "text": "A pre-installed device: it starts its own hotspot, a phone joins it to the home Wi-Fi, and that is the whole setup. No cables to make, no command line." },
-    { "state": "Later", "name": "Export tried by a researcher", "text": "The Camtrap DP export passes the standard's own checks. It has not yet been loaded into another person's tools. That test, with a researcher saying what is missing, comes before any claim that the data is ready for research." },
+    { "state": "Later", "name": "Export tried by a researcher", "text": "The Camtrap DP export passes the standard's own checks. The next test is a researcher loading it into their own tools and saying what is missing." },
     { "state": "Later", "name": "Pilots in other gardens", "text": "Two friends' gardens first, each with the agreement of the people who live there, then a small pond. Solar power only where there is no mains." }
   ]
 }
