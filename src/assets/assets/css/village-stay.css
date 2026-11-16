@@ -1,0 +1,925 @@
+/* Village stay: conservation-first pilot page */
+.village-hero__heading {
+  max-width: 520px;
+  margin: 10px 0 12px;
+  color: #fff;
+  font-size: clamp(2.45rem, 4.4vw, 4.35rem);
+  font-weight: 800;
+  line-height: .96;
+  letter-spacing: -.045em;
+}
+
+.village-stay-page .site-support-strip,
+.village-stay-page .support-rail {
+  display: none !important;
+}
+
+@media (min-width: 901px) {
+  .village-stay-page .village-hero__topline {
+    top: clamp(24px, 3vw, 40px);
+    bottom: auto;
+  }
+}
+
+.proposal-identity {
+  padding-top: 12px;
+  padding-bottom: 0;
+}
+
+.proposal-identity__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  padding: 11px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(52, 105, 78, .045);
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .015em;
+}
+
+.proposal-identity__inner span + span {
+  position: relative;
+}
+
+.proposal-identity__inner span + span::before {
+  position: absolute;
+  top: .25em;
+  left: -12px;
+  width: 1px;
+  height: 1em;
+  background: var(--line);
+  content: "";
+}
+
+.proposal-facts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.proposal-facts > div {
+  min-height: 160px;
+}
+
+.fact-icon--school::before {
+  position: absolute;
+  right: 9px;
+  bottom: 10px;
+  left: 9px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  content: "";
+}
+
+.fact-icon--school::after {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  width: 20px;
+  height: 14px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  content: "";
+  transform: skewY(-18deg);
+}
+
+.experience-list {
+  display: grid;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.experience-card {
+  --experience-panel: #f2ecdf;
+  --experience-ink: #17372c;
+  --experience-muted: rgba(23, 55, 44, .76);
+  --experience-kicker: #8c5d25;
+  --experience-chip: rgba(23, 55, 44, .055);
+  --experience-chip-border: rgba(23, 55, 44, .19);
+  --experience-meta: #214b3b;
+  --experience-meta-ink: #fff;
+  --experience-rule: rgba(23, 55, 44, .18);
+  display: grid;
+  grid-template-columns: minmax(300px, .92fr) minmax(0, 1.08fr);
+  min-height: 470px;
+  overflow: hidden;
+  border: 1px solid rgba(23, 55, 44, .16);
+  border-radius: 22px;
+  background: var(--experience-panel);
+  color: var(--experience-ink);
+  box-shadow: 0 16px 40px rgba(20, 42, 30, .09);
+}
+
+.experience-card:nth-child(even) {
+  --experience-panel: #183027;
+  --experience-ink: #fff;
+  --experience-muted: rgba(255, 255, 255, .8);
+  --experience-kicker: #e6c17f;
+  --experience-chip: rgba(255, 255, 255, .055);
+  --experience-chip-border: rgba(255, 255, 255, .2);
+  --experience-meta: #e9efd9;
+  --experience-meta-ink: #183027;
+  --experience-rule: rgba(255, 255, 255, .16);
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.experience-card:nth-child(even) .experience-card__media {
+  order: 2;
+}
+
+.experience-card__media {
+  position: relative;
+  min-height: 470px;
+  overflow: hidden;
+  background: #d8d6ca;
+}
+
+.experience-card__media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 35, 24, .01) 38%, rgba(12, 35, 24, .82));
+  content: "";
+}
+
+.experience-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.experience-card--flora .experience-card__media img {
+  object-position: center 42%;
+}
+
+.experience-card--wetland .experience-card__media img {
+  object-position: center 55%;
+}
+
+.experience-card--heritage .experience-card__media img {
+  object-position: center 38%;
+}
+
+.experience-card--school .experience-card__media img {
+  object-position: center 55%;
+}
+
+.experience-card__media > span {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 18px;
+  left: 20px;
+  color: rgba(255, 255, 255, .88);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.experience-card__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(30px, 4.8vw, 58px);
+}
+
+.experience-card .proposal-kicker {
+  color: var(--experience-kicker);
+}
+
+.experience-card h3 {
+  margin: 7px 0 14px;
+  color: var(--experience-ink);
+  font-size: clamp(1.9rem, 3.5vw, 3.3rem);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+
+.experience-card__copy > p:not(.proposal-kicker):not(.program-condition) {
+  color: var(--experience-muted);
+}
+
+[lang="hi"] .experience-card h3 {
+  line-height: 1.12;
+  letter-spacing: -.02em;
+}
+
+.program-focuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.program-focuses li {
+  padding: 8px 11px;
+  border: 1px solid var(--experience-chip-border);
+  border-radius: 999px;
+  background: var(--experience-chip);
+  color: var(--experience-ink);
+  font-size: .78rem;
+  font-weight: 650;
+}
+
+.program-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.program-meta span {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--experience-meta);
+  color: var(--experience-meta-ink);
+  font-size: .73rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.program-condition {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--experience-rule);
+  color: var(--experience-muted);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.village-stay-page .species-gallery {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 235px;
+  grid-auto-flow: dense;
+}
+
+.village-stay-page .wildlife-strip figure.species-card,
+.village-stay-page .wildlife-strip figure.species-card:nth-child(n+6) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.village-stay-page .wildlife-strip figure.species-card--wide {
+  grid-column: span 3;
+}
+
+.village-stay-page .wildlife-strip figure.species-card--portrait {
+  grid-row: span 2;
+}
+
+.species-card__trigger {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: #10241c;
+  cursor: zoom-in;
+}
+
+.village-stay-page .wildlife-strip .species-card img {
+  object-position: var(--species-position, center);
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.species-card__trigger::after {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .48);
+  border-radius: 999px;
+  background: rgba(10, 27, 19, .68);
+  color: #fff;
+  content: "+";
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: .82;
+  backdrop-filter: blur(8px);
+}
+
+.species-card__trigger:hover img,
+.species-card__trigger:focus-visible img {
+  filter: saturate(1.06) contrast(1.02);
+  transform: scale(1.035);
+}
+
+.species-card__trigger:focus-visible {
+  outline: 3px solid #e6c17f;
+  outline-offset: -3px;
+}
+
+.village-stay-page .wildlife-strip .species-card figcaption {
+  display: none;
+}
+
+@media (min-width: 801px) {
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(1),
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(6),
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(7) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(2),
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(5) {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(3),
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(4) {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-panel {
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(1720px, calc(100vw - 24px));
+  height: min(1080px, calc(100dvh - 24px));
+  border-color: rgba(255, 255, 255, .18);
+  border-radius: 14px;
+  background: #08110d;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-header {
+  border-color: rgba(255, 255, 255, .13);
+  background: #10241c;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-header h2,
+.map-viewer-modal.is-image-viewer .map-viewer-header .eyebrow {
+  color: #fff;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-header .eyebrow {
+  color: #cfe7ac;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-close {
+  border-color: rgba(255, 255, 255, .34);
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-toolbar {
+  display: none;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-stage {
+  display: grid;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  padding: 12px;
+  background: #08110d;
+  cursor: default;
+}
+
+.map-viewer-modal.is-image-viewer .map-viewer-image {
+  width: auto !important;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 132px);
+  margin: auto;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  object-fit: contain;
+}
+
+.pilot-controls {
+  margin-top: clamp(55px, 8vw, 92px);
+  margin-bottom: clamp(55px, 8vw, 92px);
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(52, 105, 78, .08), rgba(192, 150, 78, .08));
+}
+
+.pilot-controls__heading {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.pilot-controls__heading h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.45rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.pilot-controls__heading > p:last-child {
+  color: var(--muted);
+}
+
+.pilot-control-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pilot-control-grid > div {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  grid-template-areas:
+    "number heading"
+    "copy copy";
+  align-content: start;
+  column-gap: 10px;
+  row-gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--surface, #fff);
+  box-shadow: 0 10px 28px rgba(20, 49, 34, .05);
+}
+
+.pilot-control-grid span {
+  grid-area: number;
+  display: block;
+  align-self: baseline;
+  margin: 0;
+  color: #be7b35;
+  font-size: clamp(1.1rem, 1.8vw, 1.2rem);
+  font-weight: 850;
+  line-height: 1.25;
+  letter-spacing: .12em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-control-grid strong {
+  grid-area: heading;
+  display: block;
+  align-self: baseline;
+  color: var(--link);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.pilot-control-grid p {
+  grid-area: copy;
+  margin: 0;
+  color: var(--muted);
+  font-size: .84rem;
+  line-height: 1.5;
+}
+
+.pilot-control-grid em {
+  font-style: normal;
+  font-weight: 800;
+}
+
+.route-review {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface, #fff);
+  box-shadow: 0 16px 40px rgba(20, 42, 30, .08);
+}
+
+.proposal-map .map-shell {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface, #fff);
+  box-shadow: 0 16px 40px rgba(20, 42, 30, .08);
+}
+
+.proposal-map .map-copy {
+  max-width: 900px;
+  padding: clamp(26px, 4vw, 44px) clamp(22px, 4vw, 46px) 22px;
+}
+
+.proposal-map .map-copy h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.proposal-map .map-copy > p:last-child {
+  color: var(--muted);
+}
+
+.proposal-map .proposal-map-frame {
+  min-height: 620px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.proposal-map .proposal-note {
+  padding: 18px clamp(22px, 4vw, 46px) 22px;
+}
+
+.route-review__visual {
+  position: relative;
+  min-height: 520px;
+}
+
+.route-review__visual::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(7, 24, 15, .76));
+  content: "";
+}
+
+.route-review__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.route-review__visual > span {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.route-review__copy {
+  align-self: center;
+  padding: clamp(28px, 4.5vw, 56px);
+}
+
+.route-review__copy h2 {
+  margin: 8px 0 14px;
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.route-review__copy > p:not(.proposal-kicker):not(.proposal-note) {
+  color: var(--muted);
+}
+
+.habitat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.habitat-chips span {
+  padding: 8px 11px;
+  border: 1px solid rgba(34, 91, 63, .2);
+  border-radius: 999px;
+  background: rgba(224, 233, 208, .62);
+  color: var(--link);
+  font-size: .78rem;
+  font-weight: 750;
+}
+
+.proposal-next-step {
+  margin-top: clamp(55px, 8vw, 92px);
+  padding: clamp(30px, 5vw, 64px);
+  border-radius: 22px;
+  background: #183027;
+  color: #fff;
+}
+
+.proposal-next-step__heading {
+  max-width: 790px;
+}
+
+.proposal-next-step__heading .proposal-kicker {
+  color: #e6c17f;
+}
+
+.proposal-next-step__heading h2 {
+  margin: 8px 0 14px;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.55rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.proposal-next-step__heading > p:last-child {
+  color: rgba(255, 255, 255, .72);
+}
+
+.proposal-next-step__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.proposal-next-step__grid > div {
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .055);
+}
+
+.proposal-next-step__grid span {
+  display: block;
+  margin-bottom: 8px;
+  color: #e6c17f;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.proposal-next-step__grid strong {
+  display: block;
+  color: #fff;
+  font-size: 1.12rem;
+}
+
+.proposal-next-step__grid p {
+  margin: 9px 0 0;
+  color: rgba(255, 255, 255, .7);
+  font-size: .86rem;
+}
+
+@media (max-width: 980px) {
+  .pilot-control-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .experience-card,
+  .route-review {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card:nth-child(even) .experience-card__media {
+    order: 0;
+  }
+
+  .experience-card__media {
+    min-height: clamp(300px, 72vw, 380px);
+  }
+
+  .experience-card--school .experience-card__media {
+    min-height: clamp(360px, 94vw, 430px);
+  }
+
+  .route-review__visual {
+    min-height: 360px;
+  }
+
+  .proposal-identity__inner span + span::before {
+    display: none;
+  }
+
+  .village-stay-page .species-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 230px;
+  }
+
+  .village-stay-page .wildlife-strip figure.species-card,
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(n+6) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .village-stay-page .wildlife-strip figure.species-card--wide {
+    grid-column: span 2;
+  }
+
+  .village-stay-page .wildlife-strip figure.species-card--portrait {
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .village-stay-page .wildlife-strip figure.species-card {
+    height: auto;
+    min-height: 0;
+  }
+
+  .village-stay-page .village-hero {
+    width: calc(100% + 44px);
+    min-height: max(720px, calc(100svh - 88px));
+    margin-right: -22px;
+    margin-left: -22px;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .village-stay-page .village-hero__image {
+    object-position: 42% center;
+    transform: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .village-stay-page .village-hero__shade {
+    background:
+      linear-gradient(180deg, rgba(17, 10, 4, .05) 0%, rgba(17, 10, 4, .18) 32%, rgba(17, 10, 4, .72) 64%, rgba(17, 10, 4, .96) 100%),
+      linear-gradient(90deg, rgba(17, 10, 4, .42), transparent 72%);
+  }
+
+  .village-hero__heading {
+    font-size: clamp(2.45rem, 12vw, 3.7rem);
+  }
+
+  .pilot-badge[data-language-panel="en"]::after {
+    content: "Consultation draft";
+  }
+
+  .pilot-badge[data-language-panel="hi"]::after {
+    content: "परामर्श प्रारूप";
+  }
+
+  .proposal-facts,
+  .proposal-next-step__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pilot-controls {
+    padding: 24px 16px;
+  }
+
+  .experience-card__copy,
+  .route-review__copy {
+    padding: 26px 20px;
+  }
+
+  .route-review__visual {
+    min-height: 280px;
+  }
+
+  .proposal-identity__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 620px) {
+  .pilot-control-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .village-stay-page .village-hero {
+    width: calc(100% + 30px);
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .village-stay-page .village-hero__content {
+    padding: 20px;
+  }
+
+  .experience-card {
+    border-radius: 18px;
+  }
+
+  .proposal-map .proposal-map-frame {
+    min-height: 540px;
+  }
+
+  .village-stay-page .species-gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 290px;
+  }
+
+  .village-stay-page .wildlife-strip figure.species-card,
+  .village-stay-page .wildlife-strip figure.species-card:nth-child(n+6),
+  .village-stay-page .wildlife-strip figure.species-card--wide,
+  .village-stay-page .wildlife-strip figure.species-card--portrait {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .map-viewer-modal.is-image-viewer .map-viewer-panel {
+    width: 100vw;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .map-viewer-modal.is-image-viewer .map-viewer-stage {
+    padding: 8px;
+  }
+}
+
+.proposal-disclosure {
+  display: block;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.benefit-panel {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+.benefit-panel__heading {
+  max-width: 780px;
+  margin-bottom: 24px;
+}
+
+.benefit-panel__heading h2 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.45rem);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.benefit-panel__heading > p:last-child {
+  color: var(--muted);
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.benefit-card {
+  --benefit-accent: #34694e;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--benefit-accent);
+  border-radius: 18px;
+  background: var(--surface, #fff);
+  box-shadow: 0 12px 30px rgba(20, 49, 34, .06);
+}
+
+.benefit-card--community { --benefit-accent: #be7b35; }
+.benefit-card--forest { --benefit-accent: #214b3b; }
+.benefit-card--habitat { --benefit-accent: #6f9a3b; }
+
+.benefit-card__tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--benefit-accent) 14%, transparent);
+  color: var(--benefit-accent);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.benefit-card h3 {
+  margin: 12px 0 10px;
+  font-size: clamp(1.3rem, 2.1vw, 1.6rem);
+  line-height: 1.15;
+}
+
+.benefit-card .check-list {
+  margin: 0;
+  font-size: .9rem;
+}
+
+.benefit-panel .proposal-note {
+  margin-top: 18px;
+  max-width: 900px;
+}
+
+@media (max-width: 980px) {
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .village-stay-page .village-hero,
+  .village-stay-page .language-switch,
+  .village-stay-page .site-header,
+  .village-stay-page footer {
+    display: none !important;
+  }
+
+  .village-stay-page .section {
+    break-inside: avoid;
+  }
+}
