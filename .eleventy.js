@@ -191,7 +191,7 @@ module.exports = function (eleventyConfig) {
         "boundaries-and-notifications": "Boundary and Notifications",
         conservation: "Conservation Evidence",
         landscape: "Landscape",
-        "mandirgarh-homestay": "Mandirgarh Homestay Pilot",
+        "village-nature-stay": "Village Nature Stay Proposal",
         resources: "Resources",
         documents: "Documents",
         inaturalist: "iNaturalist",
@@ -457,7 +457,7 @@ module.exports = function (eleventyConfig) {
 
   // Copy only web-ready assets, not OS/browser metadata sidecar files.
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/style.css": "assets/css/style.css" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/mandirgarh-proposal.css": "assets/css/mandirgarh-proposal.css" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/village-stay.css": "assets/css/village-stay.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/css/falcon-project.css": "assets/css/falcon-project.css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/main.js": "assets/js/main.js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/js/resource-browser.js": "assets/js/resource-browser.js" });
@@ -480,8 +480,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/maps/*.webp": "assets/imgs/maps" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.jpg": "assets/imgs/field-reports" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/field-reports/*.png": "assets/imgs/field-reports" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/mandirgarh/*.jpg": "assets/imgs/mandirgarh" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/mandirgarh/*.webp": "assets/imgs/mandirgarh" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/village-stay/*.jpg": "assets/imgs/village-stay" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/village-stay/*.webp": "assets/imgs/village-stay" });
   eleventyConfig.addPassthroughCopy({ "src/assets/assets/imgs/falcon/*.{webp,jpg}": "assets/imgs/falcon" });
   eleventyConfig.addPassthroughCopy({
     "src/assets/assets/imgs/field-reports/indian-gray-wolf-sighting-alania/alania-*.jpg":
@@ -502,8 +502,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
   eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
-  // Mandirgarh trail maps, site points and route tracks are working data for the
-  // proposal. They live in Data/source-materials/mandirgarh-plan/ and are never
+  // Village-stay trail maps, site points, route tracks and original photos are
+  // private working data. They are kept outside the repository (local/) and never
   // copied into the published build.
 
   return {

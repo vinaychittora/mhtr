@@ -54,3 +54,7 @@ https://www.mukundarahills.com/* https://mhtr.in/:splat 301
 # No index page exists for the documents folder; send it to the resource archive
 /resources/documents/ /resources/ 301
 /resources/documents /resources/ 301
+
+# The village nature-stay proposal moved to a neutral address
+/mandirgarh-homestay/* /village-nature-stay/ 301
+/mandirgarh-homestay /village-nature-stay/ 301
