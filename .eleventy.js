@@ -39,6 +39,37 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addGlobalData("gisSources", gisSources);
 
+  // Image sitemap: list every picture a page shows (not only its social image), so image search
+  // can find them all. Runs on the built HTML, after the sitemap template has been written.
+  eleventyConfig.on("eleventy.after", ({ dir }) => {
+    const sitemapFile = path.join(dir.output, "sitemap.xml");
+    if (!fs.existsSync(sitemapFile)) return;
+    const siteUrl = "https://mhtr.in";
+    const skip = /\/(mhtr-logo|mhtr-favicon|mhtr-apple-touch-icon)|\.svg(\?|$)/;
+    const escapeXml = (value) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+    const sitemap = fs.readFileSync(sitemapFile, "utf8").replace(/<url>([\s\S]*?)<\/url>/g, (block, inner) => {
+      const loc = inner.match(/<loc>([^<]+)<\/loc>/)?.[1];
+      if (!loc || !loc.startsWith(`${siteUrl}/`)) return block;
+      const htmlFile = path.join(dir.output, new URL(loc).pathname, "index.html");
+      if (!fs.existsSync(htmlFile)) return block;
+      const html = fs.readFileSync(htmlFile, "utf8");
+      const main = html.match(/<main[\s\S]*?<\/main>/)?.[0] || "";
+      const listed = new Set(Array.from(inner.matchAll(/<image:loc>([^<]+)<\/image:loc>/g), (m) => m[1].replace(/&amp;/g, "&")));
+      const added = [];
+      for (const match of main.matchAll(/<img\b[^>]*?\ssrc="([^"]+)"/g)) {
+        const src = match[1].replace(/&amp;/g, "&");
+        if (!src.startsWith("/assets/imgs/") || skip.test(src)) continue;
+        const absolute = `${siteUrl}${src}`;
+        if (listed.has(absolute)) continue;
+        listed.add(absolute);
+        added.push(`    <image:image>\n      <image:loc>${escapeXml(absolute)}</image:loc>\n    </image:image>`);
+      }
+      if (!added.length) return block;
+      return block.replace(/\n\s*<\/url>$/, `\n${added.join("\n")}\n  </url>`);
+    });
+    fs.writeFileSync(sitemapFile, sitemap);
+  });
+
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return new Date(dateObj).toISOString().slice(0, 10);
   });
@@ -76,7 +107,7 @@ module.exports = function (eleventyConfig) {
 
   // Person nodes for the people who make the site, referenced by @id from WebSite, pages and images.
   const personId = (siteUrl, key) => `${siteUrl}/about/#${key}`;
-  const personNode = (siteUrl, key) => {
+  const personNode = (siteUrl, key, isCreator = true) => {
     const person = authors[key];
     if (!person) return null;
     return {
@@ -87,13 +118,56 @@ module.exports = function (eleventyConfig) {
       ...(person.bio ? { description: person.bio } : {}),
       ...(person.url ? { url: person.url } : {}),
       ...(Array.isArray(person.sameAs) && person.sameAs.length ? { sameAs: person.sameAs } : {}),
-      worksFor: { "@id": `${siteUrl}#publisher` },
+      ...(isCreator ? { worksFor: { "@id": `${siteUrl}#publisher` } } : {}),
     };
   };
   const authorRef = (siteUrl, name) => {
     const key = Object.keys(authors).find((k) => authors[k].name === name);
     return key ? { "@id": personId(siteUrl, key) } : { "@type": "Person", name };
   };
+
+  // Who made a published picture, from src/_data/imageCredits.json (the same file that
+  // scripts/stamp-image-credits.js writes into the pictures). Returns null for third-party pictures.
+  const imageCredits = require("./src/_data/imageCredits.json");
+  const creditRules = imageCredits.rules.map((rule) => ({
+    ...rule,
+    regex: new RegExp(`^${rule.match.replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^/]*")}$`),
+  }));
+  const imageCreditFor = (url) => {
+    let rel;
+    try {
+      rel = new URL(url, "https://mhtr.in/").pathname.replace(/^\/assets\/imgs\//, "");
+    } catch {
+      return null;
+    }
+    const key = (creditRules.find((rule) => rule.regex.test(rel)) || { by: imageCredits.default }).by;
+    return imageCredits.people[key] || null;
+  };
+  // ImageObject with the creator, credit and licence fields that Google Images reads.
+  const imageObjectFor = (url, extra = {}) => {
+    const absolute = new URL(url, "https://mhtr.in/").href;
+    const person = imageCreditFor(absolute);
+    return {
+      "@type": "ImageObject",
+      "@id": `${absolute}#image`,
+      url: absolute,
+      contentUrl: absolute,
+      ...extra,
+      ...(person
+        ? {
+            creator: { "@type": "Person", name: person.name, ...(person.url ? { url: person.url } : {}) },
+            copyrightHolder: { "@type": "Person", name: person.name },
+            creditText: person.credit,
+            copyrightNotice: person.copyright,
+            license: imageCredits.licensePage,
+            acquireLicensePage: imageCredits.licensePage,
+          }
+        : {}),
+    };
+  };
+  eleventyConfig.addFilter("imageObject", (url, caption) =>
+    JSON.stringify(imageObjectFor(url, caption ? { caption } : {})).replace(/</g, "\\u003c"),
+  );
 
   eleventyConfig.addFilter("isArray", (value) => Array.isArray(value));
 
@@ -112,13 +186,11 @@ module.exports = function (eleventyConfig) {
       .filter(Boolean);
 
     const image = imageUrl
-      ? {
-          "@type": "ImageObject",
-          url: imageUrl,
+      ? imageObjectFor(imageUrl, {
           ...(payload.pageImageAlt ? { caption: payload.pageImageAlt } : {}),
           ...(payload.pageImageWidth ? { width: Number(payload.pageImageWidth) } : {}),
           ...(payload.pageImageHeight ? { height: Number(payload.pageImageHeight) } : {}),
-        }
+        })
       : undefined;
 
     const graph = [
@@ -139,6 +211,11 @@ module.exports = function (eleventyConfig) {
         ...(creatorNodes.length ? { founder: { "@id": creatorNodes[0]["@id"] }, member: creatorNodes.map((node) => ({ "@id": node["@id"] })) } : {}),
       },
       ...creatorNodes,
+      // Contributors named as a page's author (for example on their own field reports).
+      ...(Array.isArray(payload.author) ? payload.author : payload.author ? [payload.author] : [])
+        .map((name) => Object.keys(authors).find((k) => authors[k].name === name))
+        .filter((key) => key && !creatorKeys.includes(key))
+        .map((key) => personNode(siteUrl, key, false)),
       {
         "@type": "WebSite",
         "@id": `${siteUrl}#website`,
@@ -181,8 +258,10 @@ module.exports = function (eleventyConfig) {
     }
 
     const pagePath = new URL(canonical).pathname;
+    // Folders that have no page of their own are left out of the trail, so every crumb is a real page.
+    const crumbless = new Set(["/resources/documents", "/inaturalist"]);
     let breadcrumb;
-    if (pagePath !== "/") {
+    if (pagePath !== "/" && pagePath.endsWith("/")) {
       const segmentLabels = {
         about: "About",
         biodiversity: "Biodiversity",
@@ -192,6 +271,8 @@ module.exports = function (eleventyConfig) {
         conservation: "Conservation Evidence",
         landscape: "Landscape",
         "village-nature-stay": "Village Nature Stay Proposal",
+        falcon: "FALCON",
+        glossary: "Glossary",
         resources: "Resources",
         documents: "Documents",
         inaturalist: "iNaturalist",
@@ -211,13 +292,14 @@ module.exports = function (eleventyConfig) {
       segments.forEach((segment, index) => {
         path += `/${segment}`;
         const isLast = index === segments.length - 1;
+        if (!isLast && crumbless.has(path)) return;
         const name =
           isLast && (payload.breadcrumbLabel || payload.pageTitle)
             ? (payload.breadcrumbLabel || payload.pageTitle).replace(/\s+\|\s+.*$/, "")
             : segmentLabels[segment] || segment.replace(/-/g, " ");
         itemListElement.push({
           "@type": "ListItem",
-          position: index + 2,
+          position: itemListElement.length + 1,
           name,
           item: `${siteUrl}${path}/`,
         });
