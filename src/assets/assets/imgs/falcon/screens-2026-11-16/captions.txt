@@ -1,0 +1,5 @@
+live.png - Live page in daylight colour: the water bowl at 11:49 IST on 16 Nov 2026, with sound, camera and weather readings. Captured 16 Nov 2026, 11:49 IST.
+review.png - Review, filter Confirmed, last 24 hours: colour cards of 16 Nov 2026 (Bluethroat 09:33, Oriental Magpie-Robin 08:04-08:11 IST) with the Confirm / Correct / Unsure / Discard buttons. Captured 16 Nov 2026, 11:53 IST.
+visit.png - Review popup of the Oriental Magpie-Robin visit of 16 Nov 2026, 08:11 IST: the recording with its detection box, the decision panel and the visit facts. Captured 16 Nov 2026, 11:53 IST.
+posting.png - Post to iNaturalist: the preview of the Oriental Magpie-Robin visit of 16 Nov 2026, 08:10 IST, with three suggested photos (each with the faint FALCON mark), the description with weather, and the obscured-location line. Captured 16 Nov 2026, 11:53 IST.
+sound.png - A sound record: Hume's Warbler heard on 16 Nov 2026 at 11:22 IST (BirdNET 0.80, confirmed), with player and spectrogram. Captured 16 Nov 2026, 11:47 IST.
