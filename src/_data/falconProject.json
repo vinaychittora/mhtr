@@ -7,7 +7,13 @@
     "updated": "16 November 2026",
     "received": "₹14,500",
     "spent": "₹0",
-    "goal": "₹90,000 to ₹1,00,000"
+    "goal": "₹90,000 to ₹1,00,000",
+    "supporters": [
+      { "name": "Ina Koys", "first": "Ina" },
+      { "name": "Anish Thimanna", "first": "Anish" },
+      { "name": "Somsubhro", "first": "Somsubhro" },
+      { "name": "Hrushikesh Patra", "first": "Hrushikesh" }
+    ]
   },
   "views": [
     {
