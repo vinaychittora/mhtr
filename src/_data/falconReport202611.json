@@ -1,0 +1,945 @@
+{
+ "note": "Frozen figures for the field report of 24 November 2026. Generated from the same read of FALCON's records as the FALCON page; do not edit by hand and do not regenerate for a later period.",
+ "asOf": {
+  "date": "24 November 2026",
+  "time": "16:36",
+  "iso": "2026-11-24"
+ },
+ "period": {
+  "from": "7 November",
+  "fromTime": "17:29",
+  "to": "24 November 2026",
+  "toTime": "16:36",
+  "fromShort": "7",
+  "toShort": "24 November",
+  "days": 18,
+  "daysWord": "eighteen",
+  "hours": 408,
+  "longestGapMinutes": 21
+ },
+ "totals": {
+  "verified": 34,
+  "wild": 33,
+  "domestic": 1,
+  "onCamera": 15,
+  "heardOnly": 19,
+  "both": 7,
+  "cameraOnly": 8,
+  "heardSingle": 4,
+  "byGroup": {
+   "Bird": 31,
+   "Mammal": 2,
+   "Amphibian": 1
+  },
+  "cameraVisits": 385,
+  "soundRecords": 641,
+  "cameraDay": 363,
+  "cameraNight": 22
+ },
+ "cameraNamed": 384,
+ "cameraAwaitingName": 1,
+ "table": [
+  {
+   "name": "Rose-ringed Parakeet",
+   "sci": "Psittacula krameri",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 259,
+   "days": 17,
+   "first": "8 Nov",
+   "last": "24 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "House Sparrow",
+   "sci": "Passer domesticus",
+   "group": "Bird",
+   "camera": 55,
+   "sound": 134,
+   "days": 15,
+   "first": "8 Nov",
+   "last": "24 Nov",
+   "how": "Seen and heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Oriental Magpie-Robin",
+   "sci": "Copsychus saularis",
+   "group": "Bird",
+   "camera": 131,
+   "sound": 14,
+   "days": 13,
+   "first": "8 Nov",
+   "last": "24 Nov",
+   "how": "Seen and heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Ashy Prinia",
+   "sci": "Prinia socialis",
+   "group": "Bird",
+   "camera": 82,
+   "sound": 8,
+   "days": 10,
+   "first": "10 Nov",
+   "last": "24 Nov",
+   "how": "Seen and heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Purple Sunbird",
+   "sci": "Cinnyris asiaticus",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 54,
+   "days": 15,
+   "first": "7 Nov",
+   "last": "24 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Bluethroat",
+   "sci": "Luscinia svecica",
+   "group": "Bird",
+   "camera": 51,
+   "sound": 0,
+   "days": 7,
+   "first": "14 Nov",
+   "last": "23 Nov",
+   "how": "Seen",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Common Tailorbird",
+   "sci": "Orthotomus sutorius",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 45,
+   "days": 16,
+   "first": "8 Nov",
+   "last": "24 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Red-vented Bulbul",
+   "sci": "Pycnonotus cafer",
+   "group": "Bird",
+   "camera": 23,
+   "sound": 9,
+   "days": 10,
+   "first": "9 Nov",
+   "last": "24 Nov",
+   "how": "Seen and heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Hume's Leaf Warbler",
+   "sci": "Phylloscopus humei",
+   "group": "Bird",
+   "camera": 1,
+   "sound": 27,
+   "days": 13,
+   "first": "8 Nov",
+   "last": "24 Nov",
+   "how": "Seen and heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Common Myna",
+   "sci": "Acridotheres tristis",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 26,
+   "days": 11,
+   "first": "8 Nov",
+   "last": "23 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Red-wattled Lapwing",
+   "sci": "Vanellus indicus",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 17,
+   "days": 10,
+   "first": "8 Nov",
+   "last": "24 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Grey Francolin",
+   "sci": "Ortygornis pondicerianus",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 7,
+   "days": 6,
+   "first": "9 Nov",
+   "last": "24 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Laughing Dove",
+   "sci": "Spilopelia senegalensis",
+   "group": "Bird",
+   "camera": 7,
+   "sound": 0,
+   "days": 2,
+   "first": "23 Nov",
+   "last": "24 Nov",
+   "how": "Seen",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Common Chiffchaff",
+   "sci": "Phylloscopus collybita",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 6,
+   "days": 6,
+   "first": "12 Nov",
+   "last": "23 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Indian Peafowl",
+   "sci": "Pavo cristatus",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 6,
+   "days": 2,
+   "first": "16 Nov",
+   "last": "20 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Jungle Babbler",
+   "sci": "Argya striata",
+   "group": "Bird",
+   "camera": 5,
+   "sound": 1,
+   "days": 2,
+   "first": "23 Nov",
+   "last": "24 Nov",
+   "how": "Seen and heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "White-throated Kingfisher",
+   "sci": "Halcyon smyrnensis",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 5,
+   "days": 5,
+   "first": "10 Nov",
+   "last": "23 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Brown Rock Chat",
+   "sci": "Oenanthe fusca",
+   "group": "Bird",
+   "camera": 1,
+   "sound": 3,
+   "days": 3,
+   "first": "21 Nov",
+   "last": "24 Nov",
+   "how": "Seen and heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Indian Robin",
+   "sci": "Copsychus fulicatus",
+   "group": "Bird",
+   "camera": 4,
+   "sound": 0,
+   "days": 2,
+   "first": "8 Nov",
+   "last": "13 Nov",
+   "how": "Seen",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Black-winged Stilt",
+   "sci": "Himantopus himantopus",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 3,
+   "days": 3,
+   "first": "8 Nov",
+   "last": "19 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Eurasian Collared-Dove",
+   "sci": "Streptopelia decaocto",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 3,
+   "days": 3,
+   "first": "8 Nov",
+   "last": "11 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Eurasian Coot",
+   "sci": "Fulica atra",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 3,
+   "days": 3,
+   "first": "16 Nov",
+   "last": "24 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "House Crow",
+   "sci": "Corvus splendens",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 3,
+   "days": 3,
+   "first": "17 Nov",
+   "last": "24 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Rock Pigeon",
+   "sci": "Columba livia",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 2,
+   "days": 2,
+   "first": "9 Nov",
+   "last": "18 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Sulphur-bellied Warbler",
+   "sci": "Phylloscopus griseolus",
+   "group": "Bird",
+   "camera": 2,
+   "sound": 0,
+   "days": 1,
+   "first": "23 Nov",
+   "last": "23 Nov",
+   "how": "Seen",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "White Wagtail",
+   "sci": "Motacilla alba",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 2,
+   "days": 2,
+   "first": "12 Nov",
+   "last": "13 Nov",
+   "how": "Heard",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Asian Koel",
+   "sci": "Eudynamys scolopaceus",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 1,
+   "days": 1,
+   "first": "11 Nov",
+   "last": "11 Nov",
+   "how": "Heard",
+   "single": true,
+   "domestic": false
+  },
+  {
+   "name": "Eurasian Moorhen",
+   "sci": "Gallinula chloropus",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 1,
+   "days": 1,
+   "first": "23 Nov",
+   "last": "23 Nov",
+   "how": "Heard",
+   "single": true,
+   "domestic": false
+  },
+  {
+   "name": "Grey Wagtail",
+   "sci": "Motacilla cinerea",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 1,
+   "days": 1,
+   "first": "15 Nov",
+   "last": "15 Nov",
+   "how": "Heard",
+   "single": true,
+   "domestic": false
+  },
+  {
+   "name": "Large Cuckooshrike",
+   "sci": "Coracina macei",
+   "group": "Bird",
+   "camera": 0,
+   "sound": 1,
+   "days": 1,
+   "first": "19 Nov",
+   "last": "19 Nov",
+   "how": "Heard",
+   "single": true,
+   "domestic": false
+  },
+  {
+   "name": "White-breasted Waterhen",
+   "sci": "Amaurornis phoenicurus",
+   "group": "Bird",
+   "camera": 1,
+   "sound": 0,
+   "days": 1,
+   "first": "19 Nov",
+   "last": "19 Nov",
+   "how": "Seen",
+   "single": true,
+   "domestic": false
+  },
+  {
+   "name": "Domestic Cat",
+   "sci": "Felis catus",
+   "group": "Mammal",
+   "camera": 18,
+   "sound": 0,
+   "days": 6,
+   "first": "7 Nov",
+   "last": "24 Nov",
+   "how": "Seen",
+   "single": false,
+   "domestic": true
+  },
+  {
+   "name": "Rhesus Macaque",
+   "sci": "Macaca mulatta",
+   "group": "Mammal",
+   "camera": 2,
+   "sound": 0,
+   "days": 1,
+   "first": "24 Nov",
+   "last": "24 Nov",
+   "how": "Seen",
+   "single": false,
+   "domestic": false
+  },
+  {
+   "name": "Common Skittering Frog",
+   "sci": "Euphlyctis cyanophlyctis",
+   "group": "Amphibian",
+   "camera": 1,
+   "sound": 0,
+   "days": 1,
+   "first": "9 Nov",
+   "last": "9 Nov",
+   "how": "Seen",
+   "single": true,
+   "domestic": false
+  }
+ ],
+ "regulars": [
+  {
+   "name": "Oriental Magpie-Robin",
+   "sci": "Copsychus saularis",
+   "visits": 131,
+   "cameraDays": 13,
+   "soundDays": 10,
+   "sound": 14,
+   "earliest": "07:14",
+   "latest": "17:10",
+   "longestRun": 6,
+   "peakHour": "08:00"
+  },
+  {
+   "name": "Ashy Prinia",
+   "sci": "Prinia socialis",
+   "visits": 82,
+   "cameraDays": 7,
+   "soundDays": 7,
+   "sound": 8,
+   "earliest": "07:39",
+   "latest": "17:07",
+   "longestRun": 6,
+   "peakHour": "13:00"
+  },
+  {
+   "name": "House Sparrow",
+   "sci": "Passer domesticus",
+   "visits": 55,
+   "cameraDays": 5,
+   "soundDays": 15,
+   "sound": 134,
+   "earliest": "08:06",
+   "latest": "11:29",
+   "longestRun": 2,
+   "peakHour": "08:00"
+  },
+  {
+   "name": "Bluethroat",
+   "sci": "Luscinia svecica",
+   "visits": 51,
+   "cameraDays": 7,
+   "soundDays": 0,
+   "sound": 0,
+   "earliest": "07:25",
+   "latest": "16:49",
+   "longestRun": 4,
+   "peakHour": "16:00"
+  },
+  {
+   "name": "Red-vented Bulbul",
+   "sci": "Pycnonotus cafer",
+   "visits": 23,
+   "cameraDays": 5,
+   "soundDays": 8,
+   "sound": 9,
+   "earliest": "09:21",
+   "latest": "16:29",
+   "longestRun": 3,
+   "peakHour": "09:00"
+  }
+ ],
+ "notable": {
+  "waterhen": {
+   "name": "White-breasted Waterhen",
+   "sci": "Amaurornis phoenicurus",
+   "visits": 1,
+   "times": "Once",
+   "date": "19 November",
+   "time": "08:13",
+   "cameraDays": 1,
+   "daysSinceFirst": 6
+  },
+  "macaque": {
+   "name": "Rhesus Macaque",
+   "sci": "Macaca mulatta",
+   "visits": 2,
+   "times": "Twice",
+   "date": "24 November",
+   "time": "09:44",
+   "cameraDays": 1,
+   "daysSinceFirst": 1
+  },
+  "warbler": {
+   "name": "Sulphur-bellied Warbler",
+   "sci": "Phylloscopus griseolus",
+   "visits": 2,
+   "times": "Twice",
+   "date": "23 November",
+   "time": "08:34",
+   "cameraDays": 1,
+   "daysSinceFirst": 2
+  },
+  "bluethroat": {
+   "name": "Bluethroat",
+   "sci": "Luscinia svecica",
+   "visits": 51,
+   "times": "51 times",
+   "date": "14 November",
+   "time": "07:25",
+   "cameraDays": 7,
+   "daysSinceFirst": 11,
+   "longestRun": 4,
+   "earliest": "07:25",
+   "latest": "16:49",
+   "afternoon": 31
+  }
+ },
+ "daily": [
+  {
+   "label": "7 Nov",
+   "camera": 2,
+   "sound": 23,
+   "species": 2,
+   "total": 2,
+   "tmin": "21.8",
+   "tmax": "28.0",
+   "wet": 0
+  },
+  {
+   "label": "8 Nov",
+   "camera": 31,
+   "sound": 31,
+   "species": 12,
+   "total": 12,
+   "tmin": "20.6",
+   "tmax": "30.4",
+   "wet": 1
+  },
+  {
+   "label": "9 Nov",
+   "camera": 5,
+   "sound": 29,
+   "species": 10,
+   "total": 16,
+   "tmin": "20.0",
+   "tmax": "30.4",
+   "wet": 0
+  },
+  {
+   "label": "10 Nov",
+   "camera": 6,
+   "sound": 43,
+   "species": 12,
+   "total": 18,
+   "tmin": "20.4",
+   "tmax": "30.9",
+   "wet": 0
+  },
+  {
+   "label": "11 Nov",
+   "camera": 2,
+   "sound": 24,
+   "species": 8,
+   "total": 19,
+   "tmin": "19.0",
+   "tmax": "28.9",
+   "wet": 0
+  },
+  {
+   "label": "12 Nov",
+   "camera": 0,
+   "sound": 9,
+   "species": 5,
+   "total": 21,
+   "tmin": "18.5",
+   "tmax": "28.3",
+   "wet": 0
+  },
+  {
+   "label": "13 Nov",
+   "camera": 18,
+   "sound": 48,
+   "species": 11,
+   "total": 21,
+   "tmin": "18.9",
+   "tmax": "29.7",
+   "wet": 0
+  },
+  {
+   "label": "14 Nov",
+   "camera": 9,
+   "sound": 25,
+   "species": 11,
+   "total": 22,
+   "tmin": "18.1",
+   "tmax": "29.9",
+   "wet": 0
+  },
+  {
+   "label": "15 Nov",
+   "camera": 0,
+   "sound": 34,
+   "species": 8,
+   "total": 23,
+   "tmin": "19.7",
+   "tmax": "29.2",
+   "wet": 0
+  },
+  {
+   "label": "16 Nov",
+   "camera": 24,
+   "sound": 55,
+   "species": 13,
+   "total": 25,
+   "tmin": "20.1",
+   "tmax": "27.9",
+   "wet": 3
+  },
+  {
+   "label": "17 Nov",
+   "camera": 29,
+   "sound": 38,
+   "species": 12,
+   "total": 26,
+   "tmin": "18.4",
+   "tmax": "28.3",
+   "wet": 0
+  },
+  {
+   "label": "18 Nov",
+   "camera": 25,
+   "sound": 45,
+   "species": 11,
+   "total": 26,
+   "tmin": "17.5",
+   "tmax": "27.4",
+   "wet": 0
+  },
+  {
+   "label": "19 Nov",
+   "camera": 8,
+   "sound": 54,
+   "species": 12,
+   "total": 28,
+   "tmin": "16.4",
+   "tmax": "25.9",
+   "wet": 0
+  },
+  {
+   "label": "20 Nov",
+   "camera": 20,
+   "sound": 35,
+   "species": 10,
+   "total": 28,
+   "tmin": "14.5",
+   "tmax": "24.8",
+   "wet": 0
+  },
+  {
+   "label": "21 Nov",
+   "camera": 23,
+   "sound": 16,
+   "species": 10,
+   "total": 29,
+   "tmin": "15.2",
+   "tmax": "25.5",
+   "wet": 0
+  },
+  {
+   "label": "22 Nov",
+   "camera": 70,
+   "sound": 52,
+   "species": 14,
+   "total": 29,
+   "tmin": "16.5",
+   "tmax": "25.7",
+   "wet": 0
+  },
+  {
+   "label": "23 Nov",
+   "camera": 60,
+   "sound": 50,
+   "species": 18,
+   "total": 33,
+   "tmin": "16.0",
+   "tmax": "27.3",
+   "wet": 0
+  },
+  {
+   "label": "24 Nov",
+   "camera": 53,
+   "sound": 30,
+   "species": 17,
+   "total": 34,
+   "tmin": "14.9",
+   "tmax": "26.5",
+   "wet": 0
+  }
+ ],
+ "rats": [
+  {
+   "night": "2026-11-19",
+   "label": "19 Nov",
+   "visits": 93
+  },
+  {
+   "night": "2026-11-20",
+   "label": "20 Nov",
+   "visits": 19
+  },
+  {
+   "night": "2026-11-21",
+   "label": "21 Nov",
+   "visits": 138
+  },
+  {
+   "night": "2026-11-22",
+   "label": "22 Nov",
+   "visits": 214
+  },
+  {
+   "night": "2026-11-23",
+   "label": "23 Nov",
+   "visits": 47
+  }
+ ],
+ "weatherRange": {
+  "min": "14.5",
+  "max": "30.9",
+  "wetDays": 2,
+  "wetDaysWord": "two",
+  "wetReadings": 4
+ },
+ "sound": {
+  "real": 641,
+  "right": 616,
+  "percent": 96
+ },
+ "hours": {
+  "cameraMorning": 130,
+  "cameraAfternoon": 154,
+  "cameraNight": 0,
+  "soundMorning": 411,
+  "soundEvening": 103
+ },
+ "effort": {
+  "readingsHours": 408,
+  "longestSensorGapMinutes": 21,
+  "periodHours": 408,
+  "analysingLow": 365,
+  "analysingHigh": 388,
+  "shareLow": 90,
+  "shareHigh": 95,
+  "gaps": [
+   {
+    "date": "8 November",
+    "from": "12:27",
+    "to": "14:35",
+    "sameDay": true,
+    "hours": 2.1
+   },
+   {
+    "date": "11 November",
+    "from": "13:19",
+    "to": "17:48",
+    "sameDay": true,
+    "hours": 4.5
+   },
+   {
+    "date": "12 November",
+    "from": "14:49",
+    "to": "17:14",
+    "sameDay": true,
+    "hours": 2.4
+   },
+   {
+    "date": "17 November",
+    "from": "14:06",
+    "to": "15:56",
+    "sameDay": true,
+    "hours": 1.8
+   },
+   {
+    "date": "20 November",
+    "from": "11:35",
+    "to": "16:50",
+    "sameDay": true,
+    "hours": 5.2
+   },
+   {
+    "date": "21 November",
+    "from": "17:15",
+    "to": "20:23",
+    "sameDay": true,
+    "hours": 3.1
+   }
+  ],
+  "uncertain": [
+   {
+    "fromDate": "11 November",
+    "from": "22:19",
+    "toDate": "12 November",
+    "to": "10:27",
+    "sameDay": false,
+    "hours": 12.1
+   },
+   {
+    "fromDate": "21 November",
+    "from": "00:06",
+    "toDate": "21 November",
+    "to": "08:44",
+    "sameDay": true,
+    "hours": 8.6
+   }
+  ],
+  "gapDays": "8, 11, 12, 17, 20 and 21 November",
+  "gapShortest": 1.8,
+  "gapLongest": 5.2
+ },
+ "tempBands": [
+  {
+   "band": "14 to 16",
+   "hours": 4,
+   "visits": 5,
+   "rate": "1.3"
+  },
+  {
+   "band": "16 to 18",
+   "hours": 8,
+   "visits": 4,
+   "rate": "0.5"
+  },
+  {
+   "band": "18 to 20",
+   "hours": 14,
+   "visits": 30,
+   "rate": "2.1"
+  },
+  {
+   "band": "20 to 22",
+   "hours": 21,
+   "visits": 17,
+   "rate": "0.8"
+  },
+  {
+   "band": "22 to 24",
+   "hours": 31,
+   "visits": 105,
+   "rate": "3.4"
+  },
+  {
+   "band": "24 to 26",
+   "hours": 61,
+   "visits": 178,
+   "rate": "2.9"
+  },
+  {
+   "band": "26 to 28",
+   "hours": 47,
+   "visits": 21,
+   "rate": "0.4"
+  },
+  {
+   "band": "28 to 30",
+   "hours": 35,
+   "visits": 21,
+   "rate": "0.6"
+  }
+ ]
+}

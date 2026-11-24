@@ -1,0 +1,558 @@
+---
+layout: base.njk
+title: "Backyard Biodiversity at a Water Bowl in Kota: 18 Days with FALCON | Field Report"
+description: "A field report by Vinay Chittora: 34 species verified at one garden water bowl in Kota, Rajasthan, in eighteen days of November 2026, seen and heard by the FALCON sensor node. Species table, methods and limits."
+keywords: "backyard biodiversity Kota, garden water bowl birds, FALCON field node, Bluethroat Kota, White-breasted Waterhen, Rhesus Macaque, Sulphur-bellied Warbler, camera trap with sound, BirdNET India, urban birds Rajasthan, Vinay Chittora field report"
+activeSection: field-reports
+og_type: article
+og_title: "Backyard Biodiversity at a Garden Water Bowl in Kota"
+og_description: "Thirty-four species in eighteen days at one water bowl in a Kota backyard, seen and heard by the FALCON sensor node: a shy Bluethroat that kept coming back, a waterhen, a macaque, and what the device cannot do yet."
+author: Vinay Chittora
+publishedTime: "2026-11-24T00:00:00+05:30"
+modifiedTime: "2026-11-24T00:00:00+05:30"
+og_image: "https://mhtr.in/assets/imgs/falcon/falcon-node-social.jpg?v=20261124a"
+og_image_alt: "3D drawing of the FALCON field node: an upright grey box on a post, with the FALCON mark on its lid, a black camera hood and a copper rain plate."
+og_image_width: 1200
+og_image_height: 630
+schema_type: WebPage
+breadcrumb_label: "Backyard biodiversity at a water bowl"
+---
+
+{% set d = falconReport202611 %}
+{% set t = d.totals %}
+{% set img = "/assets/imgs/falcon" %}
+{% set v = "20261124a" %}
+{% set words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"] %}
+
+<article class="article-page" itemscope itemtype="https://schema.org/Article">
+  <header class="page-hero article-hero">
+    <p class="eyebrow">Field Report / Backyard Biodiversity</p>
+    <h1 itemprop="headline">Backyard Biodiversity at a Garden Water Bowl in Kota: Eighteen Days with the FALCON Node</h1>
+    <p class="lede">
+      For eighteen days in November 2026 a sensor node I built at home watched and listened at one water bowl in my
+      backyard. Every record counted here I checked myself. This is what came, how it was recorded, and how far the
+      numbers can be trusted.
+    </p>
+    <div class="article-meta">
+      <span>By <strong itemprop="author">Vinay Chittora</strong></span>
+      <span>Recorded 7 to 24 November 2026</span>
+      <span>Published <time datetime="2026-11-24" itemprop="datePublished">24 Nov 2026</time></span>
+      <span>Kota, Rajasthan</span>
+    </div>
+  </header>
+
+  <style>
+    .fr-table-wrap { overflow-x:auto; margin:14px 0 8px; border:1px solid var(--line-soft); border-radius:var(--radius-sm); background:var(--surface); }
+    .fr-table { width:100%; border-collapse:collapse; font-size:.93rem; line-height:1.4; }
+    .fr-table caption { caption-side:top; text-align:left; padding:10px 12px; font-weight:700; color:var(--ink); }
+    .fr-table th, .fr-table td { padding:7px 12px; border-top:1px solid var(--line-soft); text-align:left; vertical-align:top; font-weight:400; }
+    .fr-table thead th { border-top:0; background:var(--surface-alt); color:var(--muted); font-size:.76rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+    .fr-table tbody th[scope="row"] { color:var(--ink); font-weight:600; }
+    .fr-table .n { width:1%; text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .fr-table .sci { margin-left:.6em; color:var(--muted); font-size:.9em; font-style:italic; font-weight:400; white-space:nowrap; }
+    .fr-table .fr-flag { color:var(--muted); font-weight:400; }
+    .fr-table.fr-dense thead th.n { white-space:normal; }
+    .fr-table.fr-dense tbody th { white-space:nowrap; }
+    .fr-table tr.fr-group th { background:var(--surface-alt); color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+    .article-body .fr-note { color:var(--muted); font-size:.9rem; margin:0 0 20px; }
+    .fr-frames { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:10px; margin:16px 0 8px; padding:0; list-style:none; }
+    .fr-frames figure { margin:0; }
+    .fr-frames a { display:block; }
+    .article-body .fr-frames img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-sm); filter:none; }
+    .fr-frames figcaption { margin-top:5px; color:var(--muted); font-size:.82rem; line-height:1.35; }
+    .fr-frames figcaption b { display:block; color:var(--ink); }
+    .fr-chart { margin:18px 0 6px; padding:12px 10px 4px; border:1px solid var(--line-soft); border-radius:var(--radius-sm); background:var(--surface); }
+    .fr-chart svg { display:block; width:100%; height:auto; font-family:inherit; }
+    .fr-chart .fr-hit { fill:transparent; }
+    .fr-chart .fr-hit:hover + .fr-dot { r:6; }
+    .article-body details.fr-more { margin:8px 0 20px; }
+    .article-body details.fr-more > summary { cursor:pointer; color:var(--accent); font-weight:600; }
+    @media (max-width: 620px) {
+      .fr-frames { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .fr-table th, .fr-table td { padding:6px 7px; }
+      .fr-table { font-size:.88rem; }
+      .fr-table .sci { display:block; margin-left:0; white-space:normal; }
+      .fr-table thead th { font-size:.68rem; letter-spacing:0; }
+      .fr-table thead th.n { white-space:normal; }
+      .fr-table .n { padding-left:4px; }
+      .fr-table .fr-wide { display:none; }
+      .fr-chart text { font-size:22px; }
+      .fr-chart polyline { stroke-width:4; }
+      .fr-chart .fr-dot { r:7px; stroke-width:3; }
+      .fr-chart .fr-hit:hover + .fr-dot { r:9px; }
+    }
+  </style>
+
+  <div class="article-layout">
+    <div class="article-body" itemprop="articleBody">
+      <h2>Summary</h2>
+      <ul>
+        <li>
+          <strong>{{ t.verified }} species verified</strong> at one water bowl in a private backyard in Kota city
+          between the evening of {{ d.period.from }} and {{ d.period.to }}:
+          {{ t.byGroup.Bird }} birds, {{ t.byGroup.Mammal }} mammals and {{ t.byGroup.Amphibian }} amphibian.
+        </li>
+        <li>
+          <strong>{{ t.onCamera }} were seen on camera and {{ t.heardOnly }} are known only by sound</strong>, from
+          {{ t.cameraVisits }} camera visits and {{ t.soundRecords }} sound records.
+        </li>
+        <li>
+          <strong>A shy winter visitor kept coming back:</strong> a Bluethroat on {{ d.notable.bluethroat.cameraDays }}
+          of {{ d.notable.bluethroat.daysSinceFirst }} days, mostly late in the afternoon.
+        </li>
+        <li>
+          <strong>Surprises:</strong> a White-breasted Waterhen, a Rhesus Macaque and a Sulphur-bellied Warbler.
+        </li>
+        <li>
+          <strong>How far it goes:</strong> one spot, one season, and names that I checked alone. The counts are
+          visits and calls, not animals.
+        </li>
+      </ul>
+
+      <h2>The place and the days</h2>
+      <p>
+        The bowl is about half a metre across and stands on the ground in a private backyard in Kota city,
+        Rajasthan. A fig tree stands in the same yard. The yard is not inside Mukundara Hills Tiger Reserve.
+      </p>
+      <p>
+        Recording began on the evening of {{ d.period.from }} 2026, and this report uses the records up to
+        {{ d.asOf.time }} on {{ d.asOf.date }}: {{ d.period.daysWord }} calendar days of early winter. The air at the
+        node was between {{ d.weatherRange.min }} and {{ d.weatherRange.max }}&nbsp;°C, and the rain plate was wet on
+        {{ d.weatherRange.wetDaysWord }} days.
+      </p>
+
+      <h2>How the records were made</h2>
+      <ul>
+        <li>
+          <strong>The device.</strong> <a href="/falcon/">FALCON</a> Build 1: a 1080p USB camera with infrared
+          lights about a metre from the bowl, a microphone board inside the box, a sensor for temperature, humidity
+          and air pressure, and a rain plate. One cable runs to a computer indoors.
+        </li>
+        <li>
+          <strong>The models.</strong> MegaDetector V6 finds animals in the picture. BioCLIP 2.5 suggests a species
+          from the 1,384 recorded in Rajasthan on iNaturalist. BirdNET V2.4 names bird calls. They suggest a name.
+          They do not decide.
+        </li>
+        <li>
+          <strong>The units.</strong> A camera visit is one stay of an animal in the picture. A sound record is one
+          stretch of calling by one species. Neither counts individual animals.
+        </li>
+        <li>
+          <strong>Checking.</strong> I watched or listened to every record counted here. A species counts only
+          where I confirmed the suggested name or corrected it, under the name I gave. Everything else is left out.
+        </li>
+        <li>
+          <strong>Effort.</strong> The node sent sensor readings in all {{ d.effort.readingsHours }} hours. The
+          software that analyses picture and sound was running for about {{ d.effort.shareLow }} to
+          {{ d.effort.shareHigh }}&nbsp;% of that time ({{ d.effort.analysingLow }} to {{ d.effort.analysingHigh }}
+          hours). Six known gaps of about two to five hours fell on {{ d.effort.gapDays }}, all by day or in the
+          evening, and visits in those hours were missed. For two stretches that began at night
+          ({% for u in d.effort.uncertain %}{{ u.fromDate }}, {{ u.from }} to {% if not u.sameDay %}{{ u.toDate }}, {% endif %}{{ u.to }}{% if not loop.last %}; {% endif %}{% endfor %})
+          the records do not show whether it was running.
+        </li>
+        <li>
+          <strong>Left out on purpose.</strong> People and vehicles in the picture are not counted. Insects at
+          night cannot be named with this camera. Rats at night are no longer logged, for the reason given under
+          limits.
+        </li>
+      </ul>
+
+      <h2>What came</h2>
+      <div class="fr-table-wrap">
+        <table class="fr-table">
+          <caption>Table 1. Verified species, {{ d.period.fromShort }} to {{ d.period.toShort }} 2026</caption>
+          <thead>
+            <tr>
+              <th scope="col">Species</th>
+              <th scope="col" class="n">On camera</th>
+              <th scope="col" class="n">By sound</th>
+              <th scope="col" class="n">Days</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for group in [["Bird", "Birds"], ["Mammal", "Mammals"], ["Amphibian", "Amphibian"]] %}
+            <tr class="fr-group"><th colspan="4" scope="colgroup">{{ group[1] }} ({{ t.byGroup[group[0]] }})</th></tr>
+            {% for row in d.table %}{% if row.group == group[0] %}
+            <tr>
+              <th scope="row">{{ row.name }}{% if row.domestic %} <span class="fr-flag">(the neighbourhood's cat)</span>{% endif %}<span class="sci">{{ row.sci }}</span></th>
+              <td class="n">{% if row.camera %}{{ row.camera }}{% else %}&ndash;{% endif %}</td>
+              <td class="n">{% if row.sound %}{{ row.sound }}{% else %}&ndash;{% endif %}</td>
+              <td class="n">{{ row.days }}</td>
+            </tr>
+            {% endif %}{% endfor %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="fr-note">
+        On camera is the number of camera visits, by sound the number of sound records, and days the number of
+        days, out of {{ d.period.days }}, on which the species was recorded. A dash means
+        none.{% if d.cameraAwaitingName %} The camera column adds up to {{ d.cameraNamed }}: one more visit, on
+        20&nbsp;November, still carries a wrong name in my records and is counted only in the total of
+        {{ t.cameraVisits }}.{% endif %}
+      </p>
+
+      <h3>Regulars at the bowl</h3>
+      <div class="fr-table-wrap">
+        <table class="fr-table">
+          <caption>Table 2. The five commonest species on camera</caption>
+          <thead>
+            <tr>
+              <th scope="col">Species</th>
+              <th scope="col" class="n">Visits</th>
+              <th scope="col" class="n">Days</th>
+              <th scope="col" class="n">Earliest, latest</th>
+              <th scope="col" class="n fr-wide">Busiest hour from</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in d.regulars %}
+            <tr>
+              <th scope="row">{{ row.name }}</th>
+              <td class="n">{{ row.visits }}</td>
+              <td class="n">{{ row.cameraDays }}</td>
+              <td class="n">{{ row.earliest }}, {{ row.latest }}</td>
+              <td class="n fr-wide">{{ row.peakHour }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="fr-note">Days is the number of days with a visit on camera. Times are the earliest and the latest visit on any day.</p>
+
+      <h3>The Bluethroat</h3>
+      <p>
+        The Bluethroat (<em>{{ d.notable.bluethroat.sci }}</em>) is a winter visitor here, and a shy one. FALCON
+        first recorded it at {{ d.notable.bluethroat.time }} on {{ d.notable.bluethroat.date }}. From then to
+        24&nbsp;November it came on {{ d.notable.bluethroat.cameraDays }} of the
+        {{ d.notable.bluethroat.daysSinceFirst }} days: {{ d.notable.bluethroat.visits }} visits, with
+        {{ words[d.notable.bluethroat.longestRun] }} days in a row from 20 to 23&nbsp;November. It came mostly late, {{ d.notable.bluethroat.afternoon }} of the
+        {{ d.notable.bluethroat.visits }} visits between 15:00 and 17:00. The microphone never picked it up. FALCON
+        counts visits, not birds, so the {{ d.notable.bluethroat.visits }} visits may all be one individual.
+      </p>
+
+      <h3>Surprise visitors</h3>
+      <ul>
+        <li>
+          <strong>White-breasted Waterhen</strong> (<em>{{ d.notable.waterhen.sci }}</em>),
+          {{ d.notable.waterhen.date }}, {{ d.notable.waterhen.time }}: one visit by a bird of wet ground.
+        </li>
+        <li>
+          <strong>Rhesus Macaque</strong> (<em>{{ d.notable.macaque.sci }}</em>), {{ d.notable.macaque.date }},
+          {{ d.notable.macaque.time }}: the first monkey on FALCON's record. The footage shows at least one animal.
+        </li>
+        <li>
+          <strong>Sulphur-bellied Warbler</strong> (<em>{{ d.notable.warbler.sci }}</em>),
+          {{ d.notable.warbler.date }}, two visits from {{ d.notable.warbler.time }}. I saw and photographed one
+          last year too.
+        </li>
+        <li>
+          <strong>Common Skittering Frog</strong> (<em>Euphlyctis cyanophlyctis</em>), 9&nbsp;November, 18:11: the
+          only amphibian.
+        </li>
+      </ul>
+      <ul class="fr-frames">
+        <li>
+          <figure>
+            <a href="{{ img }}/falcon-frame-bluethroat-800.webp?v={{ v }}"><img src="{{ img }}/falcon-frame-bluethroat-400.webp?v={{ v }}" width="400" height="300" alt="A male Bluethroat at the rim of the water bowl, its blue throat showing." loading="lazy" decoding="async"></a>
+            <figcaption><b>Bluethroat</b>16 Nov, 09:33</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <a href="{{ img }}/falcon-frame-white-breasted-waterhen-800.webp?v={{ v }}"><img src="{{ img }}/falcon-frame-white-breasted-waterhen-400.webp?v={{ v }}" width="400" height="300" alt="A White-breasted Waterhen stepping into the water bowl, in a picture with a pink cast." loading="lazy" decoding="async"></a>
+            <figcaption><b>White-breasted Waterhen</b>19 Nov, 08:13</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <a href="{{ img }}/falcon-frame-rhesus-macaque-800.webp?v={{ v }}"><img src="{{ img }}/falcon-frame-rhesus-macaque-400.webp?v={{ v }}" width="400" height="300" alt="A Rhesus Macaque walking across the water bowl, close to the camera, in a picture with a pink cast." loading="lazy" decoding="async"></a>
+            <figcaption><b>Rhesus Macaque</b>24 Nov, 09:44</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <a href="{{ img }}/falcon-frame-sulphur-bellied-warbler-480.webp?v={{ v }}"><img src="{{ img }}/falcon-frame-sulphur-bellied-warbler-400.webp?v={{ v }}" width="400" height="300" alt="A Sulphur-bellied Warbler perched on a branch near the bowl, small in a picture with a pink cast." loading="lazy" decoding="async"></a>
+            <figcaption><b>Sulphur-bellied Warbler</b>23 Nov, 08:35</figcaption>
+          </figure>
+        </li>
+      </ul>
+      <p class="fr-note">
+        Frames from FALCON's own recordings, cropped and not retouched. The pink cast is a fault of the camera,
+        described under limits.
+      </p>
+
+      <h3>Heard, not seen</h3>
+      <p>
+        {{ words[t.heardOnly] | capitalize }} species never came into the camera's view and are known only from their calls.
+        Rose-ringed Parakeets, drawn by the fig tree, account for
+        {% for row in d.table %}{% if row.name == "Rose-ringed Parakeet" %}{{ row.sound }} of the {{ t.soundRecords }} sound records and were heard on {{ row.days }} of the {{ d.period.days }} days{% endif %}{% endfor %}.
+        The list also holds birds of open water, such as Black-winged Stilt and Eurasian Coot, that were heard
+        calling and never seen. {{ words[t.heardSingle] | capitalize }} species rest on a single recording each: Asian Koel, Eurasian
+        Moorhen, Grey Wagtail and Large Cuckooshrike. That is the thinnest evidence in this list.
+      </p>
+
+      <h3>Time of day</h3>
+      <ul>
+        <li>
+          <strong>Camera:</strong> {{ d.hours.cameraMorning }} of the {{ t.cameraVisits }} visits fell between 08:00
+          and 10:00, and {{ d.hours.cameraAfternoon }} between 14:00 and 17:00. With the rats' visits left out, no
+          verified visit fell between 20:00 and 05:00.
+        </li>
+        <li>
+          <strong>Sound:</strong> {{ d.hours.soundMorning }} of the {{ t.soundRecords }} records fell between 06:00
+          and 10:00, and {{ d.hours.soundEvening }} in the single hour from 17:00, when the parakeets are loudest.
+        </li>
+        <li>
+          <strong>Weather:</strong> the bowl was busiest in daylight hours between 22 and 26&nbsp;°C and quiet above
+          26&nbsp;°C. But the warmest hours are also the middle of the day, and {{ d.period.daysWord }} days cannot
+          separate the two. I claim no weather pattern.
+        </li>
+      </ul>
+      <details class="fr-more">
+        <summary>Camera visits by air temperature, in a table</summary>
+        <div class="fr-table-wrap">
+          <table class="fr-table fr-dense">
+            <thead>
+              <tr>
+                <th scope="col">Air temperature, °C</th>
+                <th scope="col" class="n">Daylight hours</th>
+                <th scope="col" class="n">Camera visits</th>
+                <th scope="col" class="n">Visits per hour</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for b in d.tempBands %}
+              <tr><th scope="row">{{ b.band }}</th><td class="n">{{ b.hours }}</td><td class="n">{{ b.visits }}</td><td class="n">{{ b.rate }}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <p class="fr-note">Daylight is 06:00 to 18:00. Each hour is placed by its mean temperature at the node.</p>
+      </details>
+
+      <h3>The list is still growing</h3>
+      {% set last = d.daily | last %}
+      {% set step = 36.1 %}
+      {% set unit = 5.4 %}
+      <figure class="fr-chart">
+        <svg viewBox="0 -14 680 284" role="img" aria-labelledby="fr-acc-title fr-acc-desc">
+          <title id="fr-acc-title">Verified species so far, day by day</title>
+          <desc id="fr-acc-desc">The running total of verified species rises from {{ d.daily[0].total }} on {{ d.daily[0].label }} to {{ last.total }} on {{ last.label }} and has not levelled off.</desc>
+          {% for tick in [0, 10, 20, 30] %}
+          <line x1="46" x2="664" y1="{{ (222 - tick * unit) | round(1) }}" y2="{{ (222 - tick * unit) | round(1) }}" style="stroke:var(--line-soft)" stroke-width="1"/>
+          <text x="38" y="{{ (222 - tick * unit) | round(1) }}" text-anchor="end" dominant-baseline="middle" font-size="11" style="fill:var(--muted)">{{ tick }}</text>
+          {% endfor %}
+          {% for row in d.daily %}{% if (loop.index0 % 3 == 0 and loop.revindex0 > 3) or loop.last %}
+          <text x="{{ (46 + loop.index0 * step) | round(1) }}" y="232" text-anchor="{% if loop.last %}end{% elif loop.first %}start{% else %}middle{% endif %}" dominant-baseline="hanging" font-size="11" style="fill:var(--muted)">{{ row.label }}</text>
+          {% endif %}{% endfor %}
+          <text x="46" y="6" font-size="12" font-weight="700" style="fill:var(--ink)">Verified species so far</text>
+          <polyline fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--accent)" points="{% for row in d.daily %}{{ (46 + loop.index0 * step) | round(1) }},{{ (222 - row.total * unit) | round(1) }} {% endfor %}"/>
+          {% for row in d.daily %}
+          <g>
+            <title>{{ row.label }}: {{ row.total }} species so far, {{ row.species }} recorded that day</title>
+            <circle class="fr-hit" cx="{{ (46 + loop.index0 * step) | round(1) }}" cy="{{ (222 - row.total * unit) | round(1) }}" r="12"/>
+            <circle class="fr-dot" cx="{{ (46 + loop.index0 * step) | round(1) }}" cy="{{ (222 - row.total * unit) | round(1) }}" r="4" stroke-width="2" style="fill:var(--accent);stroke:var(--surface)"/>
+          </g>
+          {% endfor %}
+          <text x="{{ (46 + 17 * step - 8) | round(1) }}" y="{{ (222 - last.total * unit - 16) | round(1) }}" text-anchor="end" font-size="12" font-weight="700" style="fill:var(--ink)">{{ last.total }} on {{ last.label }}</text>
+        </svg>
+      </figure>
+      <p class="fr-note">
+        Figure 1. The running total of verified species:
+        {{ d.daily[d.daily.length - 3].total }} by {{ d.daily[d.daily.length - 3].label }},
+        {{ d.daily[d.daily.length - 2].total }} by {{ d.daily[d.daily.length - 2].label }} and
+        {{ last.total }} on {{ last.label }}. It has not levelled off, so a longer run should add more.
+      </p>
+      <details class="fr-more">
+        <summary>Day by day, in a table</summary>
+        <div class="fr-table-wrap">
+          <table class="fr-table fr-dense">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col" class="n">Camera visits</th>
+                <th scope="col" class="n">Sound records</th>
+                <th scope="col" class="n">Species that day</th>
+                <th scope="col" class="n">Species so far</th>
+                <th scope="col" class="n">Min °C</th>
+                <th scope="col" class="n">Max °C</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in d.daily %}
+              <tr><th scope="row">{{ row.label }}</th><td class="n">{{ row.camera }}</td><td class="n">{{ row.sound }}</td><td class="n">{{ row.species }}</td><td class="n">{{ row.total }}</td><td class="n">{{ row.tmin }}</td><td class="n">{{ row.tmax }}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <h2>Limits</h2>
+      <ul>
+        <li>
+          <strong>The names are mine alone.</strong> Nobody else has checked them. Two of the records are on
+          iNaturalist, where other people can check the name: an
+          <a href="https://www.inaturalist.org/observations/415043198" target="_blank" rel="noopener noreferrer">Oriental Magpie-Robin</a>
+          and a
+          <a href="https://www.inaturalist.org/observations/415042739" target="_blank" rel="noopener noreferrer">Bluethroat</a>.
+        </li>
+        <li>
+          <strong>From the picture, the names are the weak point.</strong> With this webcam the suggested name was
+          often wrong, and I named most camera visits myself from the recordings. The picture is poor in low light,
+          pink on many mornings because the camera's infrared filter switches late, and it was red on
+          23&nbsp;November after the camera's settings were reset. A Bluethroat's throat did not look blue. I put
+          this down to the camera, not to the models.
+        </li>
+        <li>
+          <strong>By sound, the names hold, with one caution.</strong> BirdNET's name was right for {{ d.sound.right }}
+          of the {{ d.sound.real }} verified sound records ({{ d.sound.percent }}&nbsp;%). That figure covers real
+          bird calls only. Street and household noise is still sometimes named as a bird, and I discarded those
+          records on review.
+        </li>
+        <li>
+          <strong>No share of false records.</strong> Discarded records are deleted soon after review, so I cannot
+          say what share of all records was false, for picture or for sound.
+        </li>
+        <li>
+          <strong>Rats spoiled five nights.</strong> I put grain near the bowl. Hardly any bird used it, only House
+          Sparrows and Laughing Doves, and from 19&nbsp;November rats raided it every night: at least
+          {% for n in d.rats %}{% if loop.last %}and {% endif %}{{ n.visits }}{% if loop.revindex0 > 1 %}, {% elif not loop.last %} {% endif %}{% endfor %} visits on the {{ words[d.rats.length] }} nights to
+          23&nbsp;November.
+          Their records were deleted, rats at night are no longer logged, and there will be no more feed near
+          the bowl.
+        </li>
+        <li>
+          <strong>A correction.</strong> An earlier version of the project page listed a Rusty-spotted Cat. That was
+          the model's name for the neighbourhood's domestic cat, and it is withdrawn.
+        </li>
+        <li>
+          <strong>What this is not.</strong> It is not a census. One bowl, {{ d.period.daysWord }} days and one season
+          say nothing about numbers of animals, and a species missing from the table may simply not have come to
+          this spot.
+        </li>
+      </ul>
+
+      <h2>What the device has achieved</h2>
+      <ul>
+        <li>{{ d.period.daysWord | capitalize }} days of recording at one spot, by day and by night, with the sensors reporting in every hour.</li>
+        <li>Every record keeps its own evidence: a recording of the visit or the call, and the weather at that moment.</li>
+        <li>Sound more than doubled the list: {{ t.heardOnly }} of the {{ t.verified }} species were never seen on camera.</li>
+        <li>It recorded what is easy to miss: the hours a shy Bluethroat keeps, and a waterhen and a macaque at the bowl.</li>
+        <li>It runs on parts anyone can buy and on freely available models, and <a href="{{ falconProject.repoUrl }}" target="_blank" rel="noopener noreferrer">the code is open source</a>.</li>
+      </ul>
+
+      <h2>What changes next</h2>
+      <ul>
+        <li>
+          <strong>Camera.</strong> An 8-megapixel weatherproof network camera with its own infrared takes the place
+          of the webcam. It is meant to deal with the low light, the wrong colours and the pink mornings.
+        </li>
+        <li>
+          <strong>Microphone.</strong> A new microphone takes over from the one on the board inside the box. It is
+          meant to hear bird calls more clearly.
+        </li>
+        <li>
+          <strong>Paid for by supporters.</strong> Both were bought with the support FALCON has received, and both
+          will share the single cable.
+        </li>
+        <li>
+          <strong>Not proven yet.</strong> They are tried on the desk first. Results with the new parts will follow
+          on the <a href="/falcon/">FALCON page</a>.
+        </li>
+        <li>
+          <strong>Later.</strong> A small computer in place of the desktop PC, and printed parts in place of the
+          hand-made ones. <a href="/falcon/#support">Both still need support</a>.
+        </li>
+      </ul>
+    </div>
+
+    <aside class="article-sidebar" aria-label="Field report metadata">
+      <section class="aside-box">
+        <h2>Field Context</h2>
+        <p><strong>Dates:</strong> {{ d.period.fromShort }} to {{ d.period.toShort }} 2026</p>
+        <p><strong>Place:</strong> a private backyard in Kota city, Rajasthan</p>
+        <p><strong>Method:</strong> one water bowl, watched by the <a href="/falcon/">FALCON</a> sensor node</p>
+        <p class="muted">The exact location is not published.</p>
+      </section>
+
+      <section class="aside-box">
+        <h2>At a Glance</h2>
+        <p>
+          {{ t.verified }} species verified<br>
+          {{ t.onCamera }} seen on camera<br>
+          {{ t.heardOnly }} heard only<br>
+          {{ t.cameraVisits }} camera visits<br>
+          {{ t.soundRecords }} sound records
+        </p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Status</h2>
+        <p>
+          First results from a working prototype. Not peer reviewed. The identifications are my own, from footage
+          and sound.
+        </p>
+      </section>
+
+      <section class="aside-box">
+        <h2>Thanks</h2>
+        <p>
+          The camera and microphone for the next build were bought with contributions from the people thanked on
+          the <a href="/falcon/#support">FALCON page</a>.
+        </p>
+      </section>
+    </aside>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Backyard Biodiversity at a Garden Water Bowl in Kota: Eighteen Days with the FALCON Node",
+    "author": {
+      "@type": "Person",
+      "name": "Vinay Chittora",
+      "url": "https://www.caneandcamera.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.publisherName }}",
+      "url": "{{ site.publisherUrl }}"
+    },
+    "datePublished": "2026-11-24",
+    "dateModified": "2026-11-24",
+    "articleSection": "Field Reports",
+    "keywords": [
+      "backyard biodiversity",
+      "garden water bowl",
+      "FALCON field node",
+      "camera trap with sound",
+      "Bluethroat",
+      "White-breasted Waterhen",
+      "Rhesus Macaque",
+      "Sulphur-bellied Warbler",
+      "Kota Rajasthan"
+    ],
+    "about": [
+      { "@type": "Thing", "name": "Birds and other animals at a garden water bowl" },
+      { "@type": "Taxon", "name": "Luscinia svecica" },
+      { "@type": "Taxon", "name": "Amaurornis phoenicurus" },
+      { "@type": "Taxon", "name": "Macaca mulatta" },
+      { "@type": "Place", "name": "Kota, Rajasthan" }
+    ],
+    "image": [
+      {{ "https://mhtr.in/assets/imgs/falcon/falcon-node-social.jpg" | imageObject | safe }},
+      {{ "https://mhtr.in/assets/imgs/falcon/falcon-frame-bluethroat-800.webp" | imageObject | safe }},
+      {{ "https://mhtr.in/assets/imgs/falcon/falcon-frame-white-breasted-waterhen-800.webp" | imageObject | safe }},
+      {{ "https://mhtr.in/assets/imgs/falcon/falcon-frame-rhesus-macaque-800.webp" | imageObject | safe }}
+    ],
+    "contentLocation": {
+      "@type": "Place",
+      "name": "Kota, Rajasthan, India"
+    },
+    "mainEntityOfPage": "https://mhtr.in/field-reports/backyard-biodiversity-water-bowl-kota-falcon-2026/",
+    "description": "Thirty-four species verified at one garden water bowl in Kota, Rajasthan, in eighteen days of November 2026, seen and heard by the FALCON sensor node, with the species table, the methods and the limits."
+  }
+  </script>
+</article>
