@@ -35,6 +35,7 @@
   "newSinceLastTally": 9,
   "cameraVisits": 385,
   "soundRecords": 641,
+  "cameraUnlisted": 1,
   "cameraDay": 363,
   "cameraNight": 22
  },
@@ -46,6 +47,7 @@
   "camera": "Oriental Magpie-Robin (131 visits), Ashy Prinia (82), House Sparrow (55), Bluethroat (51), Red-vented Bulbul (23), domestic cat (18), Laughing Dove (7), Jungle Babbler (5), Indian Robin (4), Rhesus Macaque (2), Sulphur-bellied Warbler (2), and one visit each from Brown Rock Chat, Common Skittering Frog, Hume's Leaf Warbler and White-breasted Waterhen.",
   "heard": "Rose-ringed Parakeet (259 records), Purple Sunbird (54), Common Tailorbird (45), Common Myna (26), Red-wattled Lapwing (17), Grey Francolin (7), Common Chiffchaff (6), Indian Peafowl (6), White-throated Kingfisher (5), Black-winged Stilt (3), Eurasian Collared-Dove (3), Eurasian Coot (3), House Crow (3), Rock Pigeon (2), White Wagtail (2), and one record each from Asian Koel, Eurasian Moorhen, Grey Wagtail and Large Cuckooshrike.",
   "note": "One of the 34 is the neighbourhood's domestic cat. Four birds were heard only once and rest on that single recording: Asian Koel, Eurasian Moorhen, Grey Wagtail and Large Cuckooshrike.",
+  "unlisted": "One camera visit still waits for its right name and is counted only in the total of 385.",
   "otherNew": "Laughing Dove, Jungle Babbler and Brown Rock Chat"
  },
  "notable": {
@@ -807,17 +809,7 @@
  "rates": {
   "camera": {
    "real": 385,
-   "right": 84,
-   "corrected": 301,
-   "unnamed": 35,
-   "percent": 22,
-   "realText": "385",
-   "rightText": "84",
-   "correctedText": "301",
-   "other": 254,
-   "otherText": "254",
-   "noName": 47,
-   "noNameText": "47"
+   "realText": "385"
   },
   "sound": {
    "real": 641,
