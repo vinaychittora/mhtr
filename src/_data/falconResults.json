@@ -807,17 +807,7 @@
  "rates": {
   "camera": {
    "real": 385,
-   "right": 84,
-   "corrected": 301,
-   "unnamed": 35,
-   "percent": 22,
-   "realText": "385",
-   "rightText": "84",
-   "correctedText": "301",
-   "other": 254,
-   "otherText": "254",
-   "noName": 47,
-   "noNameText": "47"
+   "realText": "385"
   },
   "sound": {
    "real": 641,

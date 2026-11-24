@@ -1386,3 +1386,201 @@
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------- the page in short points */
+
+.falcon-flow--after {
+  margin: 18px 0 0;
+}
+
+.falcon-subhead--first {
+  margin-top: 0;
+}
+
+.falcon-note--lead {
+  margin: 12px 0 10px;
+}
+
+.falcon-two--even {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Frames from the footage: small pictures that open larger. */
+.falcon-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.falcon-gallery--problems {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.falcon-thumb {
+  margin: 0;
+}
+
+.falcon-thumb a {
+  display: block;
+  border-radius: var(--radius-sm);
+  cursor: zoom-in;
+}
+
+.falcon-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+}
+
+.falcon-thumb figcaption {
+  display: grid;
+  gap: 1px;
+  margin-top: 6px;
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.falcon-thumb figcaption span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* More detail, closed until someone asks for it. */
+.falcon-more {
+  max-width: 880px;
+  margin-top: 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.falcon-more--wide {
+  max-width: none;
+}
+
+.falcon-more summary {
+  padding: 10px 14px;
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.falcon-more[open] summary {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.falcon-more > p,
+.falcon-more > figure {
+  margin: 12px 14px;
+}
+
+/* Interface screenshots as a grid of small pictures. */
+.falcon-shots--grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 16px;
+  align-items: start;
+}
+
+.falcon-shots--grid .falcon-shot img {
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: #10161b;
+  box-shadow: var(--shadow);
+}
+
+.falcon-shots--grid .falcon-shot figcaption {
+  display: block;
+  margin-top: 8px;
+}
+
+.falcon-shots--grid .falcon-shot figcaption h3 {
+  margin: 0 0 2px;
+  font-size: 1.02rem;
+}
+
+.falcon-shots--grid .falcon-shot figcaption p {
+  font-size: 0.94rem;
+}
+
+/* The roadmap in four groups. */
+.falcon-plan {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.falcon-plan__group {
+  padding: 16px 18px;
+  border: 1px solid var(--line-soft);
+  border-top: 4px solid var(--state, var(--line-strong));
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.falcon-plan__group h3 {
+  margin: 0 0 8px;
+}
+
+.falcon-ask .falcon-list {
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .falcon-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .falcon-gallery--problems {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .falcon-shots--grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .falcon-two--even {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .falcon-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px 8px;
+  }
+
+  .falcon-shots--grid {
+    gap: 18px 10px;
+  }
+
+  .falcon-plan {
+    grid-template-columns: 1fr;
+  }
+
+  /* The parts list keeps its two columns, and a sense card puts its sign beside the text. */
+  .falcon-licences.falcon-parts div {
+    grid-template-columns: minmax(96px, 0.42fr) minmax(0, 1fr);
+  }
+
+  .falcon-sense {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 2px 12px;
+    padding: 14px 16px;
+  }
+
+  .falcon-sense svg {
+    grid-row: 1 / span 2;
+    width: 30px;
+    height: 30px;
+    margin: 2px 0 0;
+  }
+}
