@@ -40,6 +40,10 @@
   font-size: 0.95rem;
 }
 
+.falcon-note--after {
+  margin: 14px 0 0;
+}
+
 /* ---------------------------------------------------------------- hero */
 
 .falcon-hero {
@@ -1229,6 +1233,151 @@
 
   .falcon-licences div {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------- results heatmaps */
+
+.falcon-two.falcon-heats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .falcon-two.falcon-heats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.falcon-heat {
+  margin: 0;
+  --heat: var(--water-deep);
+}
+
+.falcon-heat--sound { --heat: var(--khaki-deep); }
+.falcon-heat--species { --heat: var(--accent); margin-top: 22px; }
+
+.falcon-heat figcaption {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.falcon-heat .table-wrap {
+  overflow-x: auto;
+}
+
+.falcon-heat table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  table-layout: fixed;
+  font-size: 0.72rem;
+}
+
+.falcon-heat thead th {
+  height: 1.2em;
+  padding: 0;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.falcon-heat thead th:first-child,
+.falcon-heat tbody th {
+  width: 4.2em;
+}
+
+.falcon-heat--species thead th:first-child,
+.falcon-heat--species tbody th {
+  width: 13em;
+}
+
+.falcon-heat tbody th {
+  padding: 0 6px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.falcon-heat tbody th small {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.falcon-heat td {
+  height: 14px;
+  padding: 0;
+  border-radius: 2px;
+}
+
+.falcon-heat--species td {
+  height: 26px;
+}
+
+.falcon-heat .l0, .falcon-heat-key .l0 { background: var(--surface-alt); }
+.falcon-heat .l1, .falcon-heat-key .l1 { background: color-mix(in srgb, var(--heat) 22%, var(--surface)); }
+.falcon-heat .l2, .falcon-heat-key .l2 { background: color-mix(in srgb, var(--heat) 45%, var(--surface)); }
+.falcon-heat .l3, .falcon-heat-key .l3 { background: color-mix(in srgb, var(--heat) 70%, var(--surface)); }
+.falcon-heat .l4, .falcon-heat-key .l4 { background: var(--heat); }
+
+.falcon-heat-key {
+  --heat: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.falcon-heat-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.falcon-heat-key i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.falcon-heat .falcon-note {
+  margin: 10px 0 0;
+}
+
+.falcon-tuning .falcon-list {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.falcon-tuning .falcon-list li {
+  margin-bottom: 4px;
+}
+
+.falcon-tuning .falcon-list b {
+  color: var(--ink);
+}
+
+@media (max-width: 620px) {
+  .falcon-heat--species thead th:first-child,
+  .falcon-heat--species tbody th {
+    width: 8.5em;
+  }
+
+  .falcon-heat--species tbody th {
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .falcon-heat table {
+    border-spacing: 1px;
   }
 }
 

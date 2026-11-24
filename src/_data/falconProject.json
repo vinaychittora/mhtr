@@ -4,9 +4,10 @@
   "supportUrl": "https://buymeacoffee.com/caneandcamera",
   "pricesChecked": "14 November 2026",
   "fund": {
-    "updated": "16 November 2026",
+    "updated": "24 November 2026",
     "received": "₹14,500",
-    "spent": "₹0",
+    "spent": "About ₹10,800",
+    "bought": "Camera, microphone and PoE extender for Build 2",
     "goal": "₹90,000 to ₹1,00,000",
     "supporters": [
       { "name": "Ina Koys", "first": "Ina" },
@@ -104,7 +105,7 @@
     { "state": "Done", "name": "Checked visits posted to iNaturalist", "text": "A confirmed visit can be posted with its photographs, the weather and an obscured location. The first two posts went out on 16 November." },
     { "state": "In progress", "name": "The next release of the code", "text": "Whole-visit recordings, the simpler review page and the posting to iNaturalist run on the node at home. They go into the public repository when the testing at home is finished." },
     { "state": "In progress", "name": "A view-only page for friends", "text": "Invited friends see the live picture, the visit log and recordings, but no sound, no settings and no people. It is built and is being tested at home. Access from outside the home network comes next." },
-    { "state": "Next", "name": "Build 2: one outdoor unit, one cable", "text": "A weatherproof network camera with its own infrared replaces the webcam, for a sharper picture by day and a longer reach at night. The Pi keeps the microphones and the weather sensors. The first camera to be tried is a TP-Link VIGI C340." },
+    { "state": "In progress", "name": "Build 2: one outdoor unit, one cable", "text": "An 8-megapixel weatherproof network camera with its own infrared replaces the webcam, and a USB microphone replaces the one on the Pi. Both are bought with the support received and arrive this week. They are tried on the desk first, then go out on the same single cable. Updates will follow here." },
     { "state": "Needs support", "name": "Printed parts instead of hand-made ones", "text": "A hood, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount that other people can print and copy. This is what the 3D printer is for." },
     { "state": "Needs support", "name": "A small computer instead of a desktop PC", "text": "The same software on a Jetson-class computer, so that a home without a gaming PC can host a node. It has to match the PC's results on saved nights before it replaces it. This is what the mini PC is for." },
     { "state": "Later", "name": "Plug in and use", "text": "A pre-installed device: it starts its own hotspot, a phone joins it to the home Wi-Fi, and that is the whole setup. No cables to make, no command line." },
