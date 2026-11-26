@@ -1,12 +1,13 @@
 {
-  "assetVersion": "20261116c",
+  "assetVersion": "20261124a",
   "repoUrl": "https://github.com/vinaychittora/FALCON",
   "supportUrl": "https://buymeacoffee.com/caneandcamera",
   "pricesChecked": "14 November 2026",
   "fund": {
-    "updated": "16 November 2026",
+    "updated": "24 November 2026",
     "received": "₹14,500",
-    "spent": "₹0",
+    "spent": "About ₹10,800",
+    "bought": "Camera, microphone and PoE extender for Build 2",
     "goal": "₹90,000 to ₹1,00,000",
     "supporters": [
       { "name": "Ina Koys", "first": "Ina" },
@@ -89,26 +90,53 @@
     }
   ],
   "hardware": [
-    { "part": "Computer in the box", "what": "Raspberry Pi 4 Model B, 1 GB, Raspberry Pi OS Lite (64-bit)", "job": "Captures video, sound and sensor readings and streams them. Runs no AI." },
-    { "part": "Camera", "what": "Arducam 1080p day and night USB camera: OV2710 sensor, fixed-focus M12 lens, six 850 nm infrared LEDs, automatic infrared filter", "job": "Watches the bowl at 1920 × 1080 and up to 15 frames a second." },
-    { "part": "Microphones", "what": "Waveshare DA7212 Audio HAT (B), two microphones on the board, one channel used", "job": "Continuous sound at 48 kHz for bird calls, through small holes under the box." },
-    { "part": "Weather", "what": "Waveshare BME280 board", "job": "Temperature, humidity and air pressure every 30 seconds." },
-    { "part": "Rain", "what": "Resistive rain plate with an LM393 comparator board", "job": "Wet or dry, read twice a second. After a wet reading the node keeps saying raining for 10 minutes." },
-    { "part": "Power and network", "what": "PoE+ injector indoors (30 W), PoE splitter in the box", "job": "One Ethernet cable brings power and data." },
-    { "part": "Enclosure", "what": "ABS junction box, 195 × 115 × 75 mm, with a hand-made camera mount", "job": "Holds the Pi, the splitter and the rain board. This hand-made shell is the part to replace first." },
-    { "part": "Indoor computer", "what": "Windows PC with an NVIDIA RTX 3060 Ti, FALCON running in WSL2 (Ubuntu)", "job": "Runs every model, stores the records and serves the dashboard." }
+    { "part": "Computer in the box", "what": "Raspberry Pi 4 Model B, 1 GB, Raspberry Pi OS Lite (64-bit)", "job": "Captures video, sound and sensor readings and streams them. Runs no AI.", "short": "Raspberry Pi 4. Captures and streams, runs no AI." },
+    { "part": "Camera", "what": "Arducam 1080p day and night USB camera: OV2710 sensor, fixed-focus M12 lens, six 850 nm infrared LEDs, automatic infrared filter", "job": "Watches the bowl at 1920 × 1080 and up to 15 frames a second.", "short": "Arducam 1080p USB camera with infrared LEDs." },
+    { "part": "Microphones", "what": "Waveshare DA7212 Audio HAT (B), two microphones on the board, one channel used", "job": "Continuous sound at 48 kHz for bird calls, through small holes under the box.", "short": "Waveshare DA7212 audio board." },
+    { "part": "Weather", "what": "Waveshare BME280 board", "job": "Temperature, humidity and air pressure every 30 seconds.", "short": "BME280: temperature, humidity, air pressure." },
+    { "part": "Rain", "what": "Resistive rain plate with an LM393 comparator board", "job": "Wet or dry, read twice a second. After a wet reading the node keeps saying raining for 10 minutes.", "short": "A resistive plate that reads wet or dry." },
+    { "part": "Power and network", "what": "PoE+ injector indoors (30 W), PoE splitter in the box", "job": "One Ethernet cable brings power and data.", "short": "One Ethernet cable with PoE." },
+    { "part": "Enclosure", "what": "ABS junction box, 195 × 115 × 75 mm, with a hand-made camera mount", "job": "Holds the Pi, the splitter and the rain board. This hand-made shell is the part to replace first.", "short": "ABS junction box, drilled by hand." },
+    { "part": "Indoor computer", "what": "Windows PC with an NVIDIA RTX 3060 Ti, FALCON running in WSL2 (Ubuntu)", "job": "Runs every model, stores the records and serves the dashboard.", "short": "PC with an NVIDIA RTX 3060 Ti. Runs every model." }
   ],
   "roadmap": [
-    { "state": "Done", "name": "Build 1: the backyard prototype", "text": "Camera, sound and weather on one node, visit rules, clips, a clean-up filter for night sound, weather history and a Camtrap DP export. The first release is tagged v1.0 in the repository." },
-    { "state": "Done", "name": "Recordings that cover the whole visit", "text": "On 14 November a Bluethroat bathed at the bowl and its clip stopped after 10 seconds. Since that day each stay at the water is one recording, with the microphones' sound on it." },
-    { "state": "Done", "name": "Checked visits posted to iNaturalist", "text": "A confirmed visit can be posted with its photographs, the weather and an obscured location. The first two posts went out on 16 November." },
-    { "state": "In progress", "name": "The next release of the code", "text": "Whole-visit recordings, the simpler review page and the posting to iNaturalist run on the node at home. They go into the public repository when the testing at home is finished." },
-    { "state": "In progress", "name": "A view-only page for friends", "text": "Invited friends see the live picture, the visit log and recordings, but no sound, no settings and no people. It is built and is being tested at home. Access from outside the home network comes next." },
-    { "state": "Next", "name": "Build 2: one outdoor unit, one cable", "text": "A weatherproof network camera with its own infrared replaces the webcam, for a sharper picture by day and a longer reach at night. The Pi keeps the microphones and the weather sensors. The first camera to be tried is a TP-Link VIGI C340." },
-    { "state": "Needs support", "name": "Printed parts instead of hand-made ones", "text": "A hood, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount that other people can print and copy. This is what the 3D printer is for." },
-    { "state": "Needs support", "name": "A small computer instead of a desktop PC", "text": "The same software on a Jetson-class computer, so that a home without a gaming PC can host a node. It has to match the PC's results on saved nights before it replaces it. This is what the mini PC is for." },
-    { "state": "Later", "name": "Plug in and use", "text": "A pre-installed device: it starts its own hotspot, a phone joins it to the home Wi-Fi, and that is the whole setup. No cables to make, no command line." },
-    { "state": "Later", "name": "Export tried by a researcher", "text": "The Camtrap DP export passes the standard's own checks. The next test is a researcher loading it into their own tools and saying what is missing." },
-    { "state": "Later", "name": "Pilots in other gardens", "text": "Two friends' gardens first, each with the agreement of the people who live there, then a small pond. Solar power only where there is no mains." }
+    { "state": "Done", "name": "Build 1: the backyard prototype", "text": "Camera, sound and weather on one node, visit rules, clips, a clean-up filter for night sound, weather history and a Camtrap DP export. The first release is tagged v1.0 in the repository.", "short": "" },
+    { "state": "Done", "name": "Recordings that cover the whole visit", "text": "On 14 November a Bluethroat bathed at the bowl and its clip stopped after 10 seconds. Since that day each stay at the water is one recording, with the microphones' sound on it.", "short": "" },
+    { "state": "Done", "name": "Checked visits posted to iNaturalist", "text": "A confirmed visit can be posted with its photographs, the weather and an obscured location. The first two posts went out on 16 November.", "short": "" },
+    { "state": "In progress", "name": "Build 2: one outdoor unit, one cable", "text": "An 8-megapixel weatherproof network camera with its own infrared replaces the webcam, and a USB microphone replaces the one on the Pi. Both are bought with the support received and arrive this week. They are tried on the desk first, then go out on the same single cable. Updates will follow here.", "short": "An 8-megapixel weatherproof network camera and a new microphone, bought with the support received. They are tried on the desk first, then go out on the same single cable." },
+    { "state": "In progress", "name": "The next release of the code", "text": "Whole-visit recordings, the simpler review page and the posting to iNaturalist run on the node at home. They go into the public repository when the testing at home is finished.", "short": "" },
+    { "state": "In progress", "name": "A view-only page for friends", "text": "Invited friends see the live picture, the visit log and recordings, but no sound, no settings and no people. It is built and is being tested at home. Access from outside the home network comes next.", "short": "Built, and being tested at home." },
+    { "state": "Needs support", "name": "Printed parts instead of hand-made ones", "text": "A hood, a shaded holder for the weather sensor, a cradle for the rain plate and a post mount that other people can print and copy. This is what the 3D printer is for.", "short": "" },
+    { "state": "Needs support", "name": "A small computer instead of a desktop PC", "text": "The same software on a Jetson-class computer, so that a home without a gaming PC can host a node. It has to match the PC's results on saved nights before it replaces it. This is what the mini PC is for.", "short": "" },
+    { "state": "Later", "name": "Plug in and use", "text": "A pre-installed device: it starts its own hotspot, a phone joins it to the home Wi-Fi, and that is the whole setup. No cables to make, no command line.", "short": "" },
+    { "state": "Later", "name": "Export tried by a researcher", "text": "The Camtrap DP export passes the standard's own checks. The next test is a researcher loading it into their own tools and saying what is missing.", "short": "" },
+    { "state": "Later", "name": "Pilots in other gardens", "text": "Two friends' gardens first, each with the agreement of the people who live there, then a small pond. Solar power only where there is no mains.", "short": "" }
+  ],
+  "frames": [
+    { "slug": "bluethroat", "name": "Bluethroat", "when": "16 Nov, 09:33", "w": 800, "alt": "A male Bluethroat at the rim of the water bowl, its blue throat showing." },
+    { "slug": "white-breasted-waterhen", "name": "White-breasted Waterhen", "when": "19 Nov, 08:13", "w": 800, "alt": "A White-breasted Waterhen stepping into the water bowl, in a picture with a pink cast." },
+    { "slug": "rhesus-macaque", "name": "Rhesus Macaque", "when": "24 Nov, 09:44", "w": 800, "alt": "A Rhesus Macaque walking across the water bowl, close to the camera, in a picture with a pink cast." },
+    { "slug": "oriental-magpie-robin", "name": "Oriental Magpie-Robin", "when": "8 Nov, 15:03", "w": 800, "alt": "An Oriental Magpie-Robin bathing in the water bowl, seen from behind." },
+    { "slug": "red-vented-bulbul", "name": "Red-vented Bulbul", "when": "24 Nov, 13:53", "w": 800, "alt": "A Red-vented Bulbul standing on the rim of the water bowl with its crest raised." },
+    { "slug": "ashy-prinia", "name": "Ashy Prinia", "when": "21 Nov, 15:29", "w": 800, "alt": "An Ashy Prinia on the rim of the water bowl, seen from the side." },
+    { "slug": "laughing-dove", "name": "Laughing Dove", "when": "23 Nov, 14:15", "w": 800, "alt": "A Laughing Dove sitting on the rim of the water bowl, in a picture with a red cast." },
+    { "slug": "sulphur-bellied-warbler", "name": "Sulphur-bellied Warbler", "when": "23 Nov, 08:35", "w": 480, "alt": "A Sulphur-bellied Warbler perched on a branch near the bowl, small in a picture with a pink cast." },
+    { "slug": "house-sparrow", "name": "House Sparrow", "when": "22 Nov, 11:18", "w": 800, "alt": "A female House Sparrow on the ground beside the water bowl." },
+    { "slug": "brown-rock-chat", "name": "Brown Rock Chat", "when": "22 Nov, 11:44", "w": 800, "alt": "A Brown Rock Chat on the rim of the water bowl, seen from behind." },
+    { "slug": "jungle-babbler", "name": "Jungle Babbler", "when": "23 Nov, 15:29", "w": 800, "alt": "A Jungle Babbler stepping onto the rim of the water bowl, in a picture with a red cast." },
+    { "slug": "domestic-cat", "name": "Domestic cat", "when": "7 Nov, 19:04", "w": 640, "alt": "The neighbourhood's cat drinking at the bowl at night, in black-and-white infrared." }
+  ],
+  "problemFrames": [
+    { "slug": "low-light-bluethroat", "w": 800, "title": "Low light", "text": "A Bluethroat at 16:37 on 18 November: a dark shape, and no blue throat.", "alt": "A Bluethroat in the bowl in dim late-afternoon light: the bird is a dark shape and its blue throat does not show." },
+    { "slug": "red-bluethroat", "w": 704, "title": "Wrong colours", "text": "A Bluethroat on 23 November, when the picture was red for an afternoon.", "alt": "A Bluethroat beside the bowl in a picture with a red cast: the pebbles look red." },
+    { "slug": "white-breasted-waterhen", "w": 800, "title": "Pink mornings", "text": "The Waterhen at 08:13 on 19 November, before the camera's colours settled.", "alt": "A White-breasted Waterhen at the bowl in a picture that is pink all over." }
+  ],
+  "shots": [
+    { "id": "live", "w": 1600, "h": 895, "smallH": 448, "title": "Live", "text": "The picture and the weather, as it happens.", "alt": "FALCON Live page in daylight: the camera's view of the water bowl, with the air temperature, humidity, pressure and rain readings underneath." },
+    { "id": "review", "w": 1600, "h": 1000, "smallH": 500, "title": "Review", "text": "One card for each visit, and four decisions.", "alt": "FALCON Review page: cards for Ashy Prinia visits and for four Oriental Magpie-Robins in one stay, each with Confirm, Correct, Unsure and Discard buttons." },
+    { "id": "visit", "w": 1220, "h": 900, "smallH": 590, "title": "One visit, opened", "text": "The recording, the model's candidates, the weather.", "alt": "FALCON visit window: a recording of a Bluethroat at the bowl with a green box around it, beside the final name, the camera model's three candidates and the decision buttons." },
+    { "id": "sound", "w": 1220, "h": 900, "smallH": 590, "title": "A sound record", "text": "The call's spectrogram and a second check.", "alt": "FALCON sound record window: the spectrogram of a 13-second clip named Brown Rock Chat, with the microphone model's score and the decision buttons." },
+    { "id": "weather", "w": 1333, "h": 479, "smallH": 287, "title": "Weather history", "text": "Temperature and humidity over 24 hours.", "alt": "FALCON weather history graph: over 24 hours the temperature falls to about 15 °C before dawn and rises to about 26 °C, while humidity moves the other way." },
+    { "id": "posting", "w": 1220, "h": 950, "smallH": 623, "title": "Before a post", "text": "What would go to iNaturalist, before I press Post.", "alt": "FALCON's Post to iNaturalist page: a list of checked visits and the preview for an Ashy Prinia, with suggested frames and a sound trim." }
   ]
 }

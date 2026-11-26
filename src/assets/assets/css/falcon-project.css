@@ -40,6 +40,10 @@
   font-size: 0.95rem;
 }
 
+.falcon-note--after {
+  margin: 14px 0 0;
+}
+
 /* ---------------------------------------------------------------- hero */
 
 .falcon-hero {
@@ -1232,8 +1236,831 @@
   }
 }
 
+/* ---------------------------------------------------------------- results heatmaps */
+
+.falcon-two.falcon-heats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .falcon-two.falcon-heats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.falcon-heat {
+  margin: 0;
+  --heat: var(--water-deep);
+}
+
+.falcon-heat--camera { --heat: var(--water-deep); }
+.falcon-heat--sound { --heat: var(--khaki-deep); }
+.falcon-heat--species { --heat: var(--accent); margin-top: 22px; }
+
+.falcon-heat figcaption {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.falcon-heat figcaption span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* The count in a square: read out by screen readers everywhere, printed in the large view only. */
+.falcon-heat__n {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.falcon-heat .table-wrap {
+  overflow-x: auto;
+}
+
+.falcon-heat table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  table-layout: fixed;
+  font-size: 0.72rem;
+}
+
+.falcon-heat thead th {
+  height: 1.2em;
+  padding: 0;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.falcon-heat thead th:first-child,
+.falcon-heat tbody th {
+  width: 4.2em;
+}
+
+.falcon-heat--species thead th:first-child,
+.falcon-heat--species tbody th {
+  width: 13em;
+}
+
+.falcon-heat tbody th {
+  padding: 0 6px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.falcon-heat tbody th small {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.falcon-heat td {
+  height: 14px;
+  padding: 0;
+  border-radius: 2px;
+}
+
+.falcon-heat--species td {
+  height: 26px;
+}
+
+.falcon-heat .l0, .falcon-heat-key .l0 { background: var(--surface-alt); }
+.falcon-heat .l1, .falcon-heat-key .l1 { background: color-mix(in srgb, var(--heat) 22%, var(--surface)); }
+.falcon-heat .l2, .falcon-heat-key .l2 { background: color-mix(in srgb, var(--heat) 45%, var(--surface)); }
+.falcon-heat .l3, .falcon-heat-key .l3 { background: color-mix(in srgb, var(--heat) 70%, var(--surface)); }
+.falcon-heat .l4, .falcon-heat-key .l4 { background: var(--heat); }
+
+.falcon-heat-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.falcon-heat-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.falcon-heat-key i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.falcon-heat-key i + i {
+  margin-left: -4px;
+}
+
+.falcon-heat .falcon-note {
+  margin: 10px 0 0;
+}
+
+.falcon-tuning .falcon-list {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.falcon-tuning .falcon-list li {
+  margin-bottom: 4px;
+}
+
+.falcon-tuning .falcon-list b {
+  color: var(--ink);
+}
+
+@media (max-width: 620px) {
+  .falcon-heat--species thead th:first-child,
+  .falcon-heat--species tbody th {
+    width: 8.5em;
+  }
+
+  .falcon-heat--species tbody th {
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .falcon-heat table {
+    border-spacing: 1px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .falcon-num {
     transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------- the page in short points */
+
+.falcon-flow--after {
+  margin: 18px 0 0;
+}
+
+.falcon-subhead--first {
+  margin-top: 0;
+}
+
+.falcon-two--even {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Frames from the footage: small pictures that open larger. */
+.falcon-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.falcon-gallery--problems {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.falcon-thumb {
+  margin: 0;
+}
+
+.falcon-thumb a {
+  display: block;
+  border-radius: var(--radius-sm);
+  cursor: zoom-in;
+}
+
+.falcon-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+}
+
+.falcon-thumb figcaption {
+  display: grid;
+  gap: 1px;
+  margin-top: 6px;
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.falcon-thumb figcaption span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Interface screenshots as a grid of small pictures. */
+.falcon-shots--grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px 16px;
+  align-items: start;
+}
+
+.falcon-shots--grid .falcon-shot img {
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: #10161b;
+  box-shadow: var(--shadow);
+}
+
+.falcon-shots--grid .falcon-shot figcaption {
+  display: block;
+  margin-top: 8px;
+}
+
+.falcon-shots--grid .falcon-shot figcaption h3 {
+  margin: 0 0 2px;
+  font-size: 1.02rem;
+}
+
+.falcon-shots--grid .falcon-shot figcaption p {
+  font-size: 0.94rem;
+}
+
+/* The roadmap in four groups. */
+.falcon-plan {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.falcon-plan__group {
+  padding: 16px 18px;
+  border: 1px solid var(--line-soft);
+  border-top: 4px solid var(--state, var(--line-strong));
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.falcon-plan__group h3 {
+  margin: 0 0 8px;
+}
+
+.falcon-ask .falcon-list {
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .falcon-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .falcon-gallery--problems {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .falcon-shots--grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .falcon-two--even {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .falcon-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px 8px;
+  }
+
+  .falcon-shots--grid {
+    gap: 18px 10px;
+  }
+
+  .falcon-plan {
+    grid-template-columns: 1fr;
+  }
+
+  /* The parts list keeps its two columns, and a sense card puts its sign beside the text. */
+  .falcon-licences.falcon-parts div {
+    grid-template-columns: minmax(96px, 0.42fr) minmax(0, 1fr);
+  }
+
+  .falcon-sense {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 2px 12px;
+    padding: 14px 16px;
+  }
+
+  .falcon-sense svg {
+    grid-row: 1 / span 2;
+    width: 30px;
+    height: 30px;
+    margin: 2px 0 0;
+  }
+}
+
+/* ---------------------------------------------------------------- every verified species, with counts */
+
+#species-title {
+  scroll-margin-top: 96px;
+}
+
+/* One list that flows down three columns, two on a tablet and one on a phone. The first row of each column is a header. */
+.falcon-counts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto repeat(var(--rows-3, 13), auto);
+  grid-auto-flow: column;
+  column-gap: clamp(18px, 2.6vw, 34px);
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+.falcon-counts > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.9rem 2.5rem 2.1rem;
+  column-gap: 8px;
+  align-items: baseline;
+  padding: 5px 2px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.falcon-counts > div > span + span {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.falcon-counts__head {
+  grid-area: 1 / 1;
+  border-bottom-color: var(--line);
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.falcon-counts > .falcon-counts__head,
+.falcon-counts > .falcon-counts__group {
+  align-items: end;
+}
+
+.falcon-counts__head--2 { grid-column: 2; }
+.falcon-counts__head--3 { grid-column: 3; }
+
+.falcon-counts > .falcon-counts__group {
+  padding-top: 12px;
+  border-bottom-color: var(--line);
+}
+
+.falcon-counts__group > span {
+  grid-column: 1 / -1;
+  color: var(--accent-2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.falcon-counts__row b {
+  font-weight: 600;
+}
+
+.falcon-counts__row i {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.falcon-counts__more {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .falcon-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto repeat(var(--rows-2, 19), auto);
+  }
+
+  .falcon-counts > .falcon-counts__head--3 {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .falcon-counts {
+    display: block;
+  }
+
+  .falcon-counts > .falcon-counts__head--2 {
+    display: none;
+  }
+
+  /* On a phone the list starts short and fades out; the button under it opens the rest. */
+  .falcon-counts-wrap.is-short {
+    max-height: 25rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 4rem), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 4rem), transparent);
+  }
+
+  .falcon-counts__more:not([hidden]) {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+
+  .falcon-counts__more:hover {
+    background: var(--accent-soft);
+  }
+}
+
+/* ---------------------------------------------------------------- small charts that open large */
+
+.falcon-heat-store {
+  margin-top: 14px;
+}
+
+/* With the popup script the charts are small tiles beside the text. Without it they stand in the page at full size. */
+.falcon-js .falcon-heat-store,
+html:not(.falcon-js) .falcon-heat-tiles {
+  display: none;
+}
+
+html:not(.falcon-js) .falcon-busy {
+  grid-template-columns: 1fr;
+}
+
+.falcon-heat-tile {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.falcon-heat-tile svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.falcon-heat-tile:hover svg {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+.falcon-heat-tile .l1 { fill: color-mix(in srgb, var(--heat) 22%, var(--surface)); }
+.falcon-heat-tile .l2 { fill: color-mix(in srgb, var(--heat) 45%, var(--surface)); }
+.falcon-heat-tile .l3 { fill: color-mix(in srgb, var(--heat) 70%, var(--surface)); }
+.falcon-heat-tile .l4 { fill: var(--heat); }
+
+.falcon-heat-tile__text {
+  display: grid;
+  gap: 1px;
+  margin-top: 6px;
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.falcon-heat-tile__text span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.falcon-heat-tiles .falcon-note {
+  margin: 10px 0 0;
+}
+
+.falcon-shot__image {
+  cursor: zoom-in;
+}
+
+.falcon-heat-tile:focus-visible,
+.falcon-counts__more:focus-visible,
+.falcon-pop__btn:focus-visible,
+.falcon-pop__size:focus-visible {
+  outline: 3px solid var(--khaki);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------- full-screen popup for pictures and charts */
+
+html.falcon-pop-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.falcon-pop {
+  --pop-muted: rgba(255, 248, 232, 0.76);
+  --pop-pad-x: 8px;
+  position: fixed;
+  inset: 0;
+  width: auto;
+  max-width: none;
+  height: auto;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #0b110d;
+  color: var(--header-ink);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  touch-action: manipulation;
+}
+
+.falcon-pop[open] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  animation: falcon-pop-in 0.16s ease-out;
+}
+
+.falcon-pop::backdrop {
+  background: #0b110d;
+}
+
+@keyframes falcon-pop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.falcon-pop__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 60px;
+  padding: 8px 12px;
+}
+
+.falcon-pop__count {
+  min-width: 4.4em;
+  margin: 0;
+  color: var(--pop-muted);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.falcon-pop__btn {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 248, 232, 0.12);
+  color: inherit;
+  cursor: pointer;
+}
+
+.falcon-pop__btn:hover {
+  background: rgba(255, 248, 232, 0.26);
+}
+
+.falcon-pop__btn svg {
+  display: block;
+}
+
+.falcon-pop__close {
+  margin-left: auto;
+}
+
+.falcon-pop--single .falcon-pop__prev,
+.falcon-pop--single .falcon-pop__next,
+.falcon-pop--single .falcon-pop__count {
+  display: none;
+}
+
+.falcon-pop__stage {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  padding: 4px var(--pop-pad-x);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.falcon-pop__stage--copy {
+  overflow: auto;
+}
+
+.falcon-pop__stage.is-zoomed {
+  padding: 8px;
+  overflow: auto;
+}
+
+.falcon-pop__img {
+  display: block;
+  flex: none;
+  width: auto;
+  max-width: none;
+  height: auto;
+  margin: auto;
+  border-radius: 6px;
+  background: #10161b;
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.falcon-pop__img.can-zoom {
+  cursor: zoom-in;
+}
+
+.falcon-pop__stage.is-zoomed .falcon-pop__img {
+  border-radius: 0;
+  cursor: zoom-out;
+}
+
+.falcon-pop__foot {
+  justify-self: center;
+  width: min(760px, 100%);
+  padding: 0 16px max(14px, env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.falcon-pop__foot p {
+  margin: 0;
+}
+
+.falcon-pop__caption {
+  padding-top: 10px;
+}
+
+.falcon-pop__size {
+  min-height: 36px;
+  margin-top: 8px;
+  padding: 6px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 248, 232, 0.14);
+  color: inherit;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.falcon-pop__size:hover {
+  background: rgba(255, 248, 232, 0.26);
+}
+
+.falcon-pop__size[hidden] {
+  display: none;
+}
+
+.falcon-pop__title {
+  font-weight: 700;
+}
+
+.falcon-pop__text {
+  margin-top: 2px;
+  color: var(--pop-muted);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+/* A chart in the popup: a light panel, the squares larger, the counts printed where they fit. */
+.falcon-pop__panel {
+  flex: none;
+  width: min(1180px, 100%);
+  margin: auto;
+  padding: 12px 12px 10px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5);
+}
+
+.falcon-pop__panel .falcon-heat {
+  margin: 0;
+}
+
+.falcon-pop__panel .falcon-heat figcaption {
+  font-size: 1.05rem;
+}
+
+.falcon-pop__panel .falcon-heat td {
+  height: clamp(20px, 3.3vh, 30px);
+  color: var(--ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.falcon-pop__panel .falcon-heat--species td {
+  height: clamp(28px, 5vh, 44px);
+}
+
+.falcon-pop__panel .falcon-heat--camera .l4,
+.falcon-pop__panel .falcon-heat--species .l3,
+.falcon-pop__panel .falcon-heat--species .l4 {
+  color: #fff;
+}
+
+.falcon-pop__panel .falcon-heat--sound .l4 {
+  color: #000;
+}
+
+.falcon-pop__panel .falcon-heat td.is-on {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.falcon-pop__readout {
+  min-height: 1.5em;
+  margin: 10px 0 0;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+@media (min-width: 621px) {
+  .falcon-pop__panel .falcon-heat td:not(.l0) .falcon-heat__n {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
+}
+
+/* On a wide screen the arrows stand at the sides of the picture. On a phone they sit in the top bar beside the count. */
+@media (min-width: 761px) {
+  .falcon-pop {
+    --pop-pad-x: 88px;
+  }
+
+  .falcon-pop__prev,
+  .falcon-pop__next {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 52px;
+    height: 52px;
+    margin-top: -26px;
+  }
+
+  .falcon-pop__prev { left: 18px; }
+  .falcon-pop__next { right: 18px; }
+
+  .falcon-pop__count {
+    min-width: 0;
+    margin-left: 8px;
+  }
+
+  .falcon-pop__panel {
+    padding: 16px 18px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falcon-pop[open] {
+    animation: none;
   }
 }
